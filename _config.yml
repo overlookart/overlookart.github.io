@@ -1,1 +1,6 @@
+# Github Pages Theme https://pages.github.com/themes/
 
+theme: Hacker
+
+# 使用GitHub上托管的任何其他Jekyll主题
+# remote_theme: THEME-NAME
