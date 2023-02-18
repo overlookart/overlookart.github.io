@@ -1,7 +1,12 @@
 ---
+# 文章的标题
 title: "HUGO"
+# 文章的发布时间
 date: 2023-02-18
+# 文章是否为草稿状态 
 draft: false
+# 文章描述 在文章列表页展示的内容
+description: "HUGO 的快速使用"
 ---
 
 # HUGO  
@@ -38,9 +43,10 @@ $ hugo -E #编译已经过期的文章
 $ hugo -F #编译即将发布的文章
 ```  
 
-## 部署  
+## 部署到 Github  
 
-``` shell
-$ hugo --theme=hyde --baseUrl="http://xxx.github.io/"
-```  
-
+1. 创建 Github 账号  
+2. 创建 博客代码仓库
+3. 配置仓库名称
+    > 设置仓库明为 Github用户名.github.io
+4. 将 hugo 项目提交到 仓库
