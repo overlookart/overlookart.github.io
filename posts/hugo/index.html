@@ -1,216 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>HUGO :: OverlookArt</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="HUGO 快速使用 # 安装 $ brew install hugo # 查看安装的版本 $ hugo version # 生成站点 $ hugo new site # 下载主题 $ submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke # 配置主题 $ echo &amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34; &amp;gt;&amp;gt; config.toml # 添加页面 $ hugo new posts/my-first-post.md # 运行调试 $ hugo serve $ hugo server -D # 编译 $ hugo $ hugo -D #编译正在开发的文章 $ hugo -E #编译已经过期的文章 $ hugo -F #编译即将发布的文章 部署 $ hugo --theme=hyde --baseUrl=&amp;#34;http://xxx." />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-
-<link rel="canonical" href="http://example.org/posts/hugo/" />
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  <link rel="stylesheet" href="http://example.org/styles.css">
-
-
-
-
-
-
-
-  <link rel="shortcut icon" href="http://example.org/img/theme-colors/orange.png">
-  <link rel="apple-touch-icon" href="http://example.org/img/theme-colors/orange.png">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="HUGO">
-<meta property="og:description" content="HUGO 快速使用 # 安装 $ brew install hugo # 查看安装的版本 $ hugo version # 生成站点 $ hugo new site # 下载主题 $ submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke # 配置主题 $ echo &amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34; &amp;gt;&amp;gt; config.toml # 添加页面 $ hugo new posts/my-first-post.md # 运行调试 $ hugo serve $ hugo server -D # 编译 $ hugo $ hugo -D #编译正在开发的文章 $ hugo -E #编译已经过期的文章 $ hugo -F #编译即将发布的文章 部署 $ hugo --theme=hyde --baseUrl=&amp;#34;http://xxx." />
-<meta property="og:url" content="http://example.org/posts/hugo/" />
-<meta property="og:site_name" content="OverlookArt" />
-
-  
-    <meta property="og:image" content="img/favicon/%!s().png">
-  
-
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="627">
-
-
-  <meta property="article:published_time" content="2023-02-18 00:00:00 &#43;0000 UTC" />
-
-
-
-
-
-
-
-
-
-
-
-
-</head>
-<body class="">
-
-
-<div class="container headings--one-size">
-
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="http://example.org/">
-  <div class="logo">
-    Terminal
-  </div>
-</a>
-
-    </div>
-    
-      <ul class="menu menu--mobile">
-  <li class="menu__trigger">Menu&nbsp;▾</li>
-  <li>
-    <ul class="menu__dropdown">
-      
-        
-          <li><a href="/about/">关于</a></li>
-        
-      
-      
-    </ul>
-  </li>
-</ul>
-
-    
-    
-  </div>
-  
-    <nav class="navigation-menu">
-  <ul class="navigation-menu__inner menu--desktop">
-    
-      
-        
-          <li><a href="/about/">关于</a></li>
-        
-      
-    
-  </ul>
-</nav>
-
-  
-</header>
-
-
-  <div class="content">
-    
-<article class="post">
-  <h1 class="post-title">
-    <a href="http://example.org/posts/hugo/">HUGO</a>
-  </h1>
-  <div class="post-meta">
-    
-      <time class="post-date">
-        2023-02-18 ::
-        
-      </time>
-    
-    
-    
-  </div>
-
-  
-  
-
-
-  
-
-  <div class="post-content"><div>
-        <h1 id="hugo">HUGO<a href="#hugo" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
-<h2 id="快速使用">快速使用<a href="#快速使用" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 安装</span>
-</span></span><span style="display:flex;"><span>$ brew install hugo
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看安装的版本 </span>
-</span></span><span style="display:flex;"><span>$ hugo version
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成站点</span>
-</span></span><span style="display:flex;"><span>$ hugo new site 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 下载主题</span>
-</span></span><span style="display:flex;"><span>$ submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 配置主题</span>
-</span></span><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;theme = &#39;ananke&#39;&#34;</span> &gt;&gt; config.toml
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加页面 </span>
-</span></span><span style="display:flex;"><span>$ hugo new posts/my-first-post.md
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 运行调试</span>
-</span></span><span style="display:flex;"><span>$ hugo serve
-</span></span><span style="display:flex;"><span>$ hugo server -D
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 编译</span>
-</span></span><span style="display:flex;"><span>$ hugo
-</span></span><span style="display:flex;"><span>$ hugo -D <span style="color:#75715e">#编译正在开发的文章</span>
-</span></span><span style="display:flex;"><span>$ hugo -E <span style="color:#75715e">#编译已经过期的文章</span>
-</span></span><span style="display:flex;"><span>$ hugo -F <span style="color:#75715e">#编译即将发布的文章</span>
-</span></span></code></pre></div><h2 id="部署">部署<a href="#部署" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ hugo --theme<span style="color:#f92672">=</span>hyde --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://xxx.github.io/&#34;</span>
-</span></span></code></pre></div>
-      </div></div>
-
-  
-
-  
-    
-
-  
-</article>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
-    
-      <div class="copyright copyright--user">
-        <span>OverlookArt</span>
-    
-      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
-      </div>
-  </div>
-</footer>
-
-
-
-
-
-
-<script type="text/javascript" src="/bundle.min.js"></script>
-
-
-
-
-
-  
-</div>
-
-</body>
-</html>
+<!doctype html><html lang=en><head><title>HUGO :: OverlookArt</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="HUGO 快速使用 # 安装 $ brew install hugo # 查看安装的版本 $ hugo version # 生成站点 $ hugo new site # 下载主题 $ submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke # 配置主题 $ echo &amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34; &amp;gt;&amp;gt; config.toml # 添加页面 $ hugo new posts/my-first-post.md # 运行调试 $ hugo serve $ hugo server -D # 编译 $ hugo $ hugo -D #编译正在开发的文章 $ hugo -E #编译已经过期的文章 $ hugo -F #编译即将发布的文章 部署 $ hugo --theme=hyde --baseUrl=&amp;#34;http://xxx."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=http://example.org/posts/hugo/><link rel=stylesheet href=http://example.org/styles.css><link rel="shortcut icon" href=http://example.org/img/theme-colors/orange.png><link rel=apple-touch-icon href=http://example.org/img/theme-colors/orange.png><meta name=twitter:card content="summary"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="og:title" content="HUGO"><meta property="og:description" content="HUGO 快速使用 # 安装 $ brew install hugo # 查看安装的版本 $ hugo version # 生成站点 $ hugo new site # 下载主题 $ submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke # 配置主题 $ echo &amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34; &amp;gt;&amp;gt; config.toml # 添加页面 $ hugo new posts/my-first-post.md # 运行调试 $ hugo serve $ hugo server -D # 编译 $ hugo $ hugo -D #编译正在开发的文章 $ hugo -E #编译已经过期的文章 $ hugo -F #编译即将发布的文章 部署 $ hugo --theme=hyde --baseUrl=&amp;#34;http://xxx."><meta property="og:url" content="http://example.org/posts/hugo/"><meta property="og:site_name" content="OverlookArt"><meta property="og:image" content="img/favicon/%!s().png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="627"><meta property="article:published_time" content="2023-02-18 00:00:00 +0000 UTC"></head><body><div class="container headings--one-size"><header class=header><div class=header__inner><div class=header__logo><a href=http://example.org/><div class=logo>Terminal</div></a></div><ul class="menu menu--mobile"><li class=menu__trigger>Menu&nbsp;▾</li><li><ul class=menu__dropdown><li><a href=/about/>关于</a></li></ul></li></ul></div><nav class=navigation-menu><ul class="navigation-menu__inner menu--desktop"><li><a href=/about/>关于</a></li></ul></nav></header><div class=content><article class=post><h1 class=post-title><a href=http://example.org/posts/hugo/>HUGO</a></h1><div class=post-meta><time class=post-date>2023-02-18 ::</time></div><div class=post-content><div><h1 id=hugo>HUGO<a href=#hugo class=hanchor arialabel=Anchor>&#8983;</a></h1><h2 id=快速使用>快速使用<a href=#快速使用 class=hanchor arialabel=Anchor>&#8983;</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e># 安装</span>
+</span></span><span style=display:flex><span>$ brew install hugo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看安装的版本 </span>
+</span></span><span style=display:flex><span>$ hugo version
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 生成站点</span>
+</span></span><span style=display:flex><span>$ hugo new site 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 下载主题</span>
+</span></span><span style=display:flex><span>$ submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 配置主题</span>
+</span></span><span style=display:flex><span>$ echo <span style=color:#e6db74>&#34;theme = &#39;ananke&#39;&#34;</span> &gt;&gt; config.toml
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 添加页面 </span>
+</span></span><span style=display:flex><span>$ hugo new posts/my-first-post.md
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 运行调试</span>
+</span></span><span style=display:flex><span>$ hugo serve
+</span></span><span style=display:flex><span>$ hugo server -D
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 编译</span>
+</span></span><span style=display:flex><span>$ hugo
+</span></span><span style=display:flex><span>$ hugo -D <span style=color:#75715e>#编译正在开发的文章</span>
+</span></span><span style=display:flex><span>$ hugo -E <span style=color:#75715e>#编译已经过期的文章</span>
+</span></span><span style=display:flex><span>$ hugo -F <span style=color:#75715e>#编译即将发布的文章</span>
+</span></span></code></pre></div><h2 id=部署>部署<a href=#部署 class=hanchor arialabel=Anchor>&#8983;</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ hugo --theme<span style=color:#f92672>=</span>hyde --baseUrl<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://xxx.github.io/&#34;</span>
+</span></span></code></pre></div></div></div></article></div><footer class=footer><div class=footer__inner><div class="copyright copyright--user"><span>OverlookArt</span>
+<span>:: <a href=https://github.com/panr/hugo-theme-terminal target=_blank>Theme</a> made by <a href=https://github.com/panr target=_blank>panr</a></span></div></div></footer><script type=text/javascript src=/bundle.min.js></script></div></body></html>
