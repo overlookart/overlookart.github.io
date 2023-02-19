@@ -1,11 +1,7 @@
 ---
-# 文章的标题
 title: "HUGO"
-# 文章的发布时间
 date: 2023-02-18
-# 文章是否为草稿状态 
 draft: false
-# 文章描述 在文章列表页展示的内容
 description: "HUGO 的快速使用"
 ---
 
