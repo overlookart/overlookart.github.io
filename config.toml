@@ -2,4 +2,22 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 # 网站标题
 title = 'OverlookArt'
-theme = 'ananke'
+#主题
+theme = 'overlookart'
+# 版权
+copyright = 'OverlookArt'
+
+# 默认内容语言
+defaultContentLanguage = 'en'
+
+defaultContentLanguageInSubdir = true
+
+[menu]
+[[menu.main]]
+  identifier = 'about'
+  name = '关于'
+  pre = "<i class='fa fa-heart'></i>"
+  url = '/about/'
+  weight = -110
+  [menu.main.params]
+    class = 'highlight-menu-item'
