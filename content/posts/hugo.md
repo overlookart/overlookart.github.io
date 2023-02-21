@@ -20,7 +20,7 @@ $ hugo version
 $ hugo new site 
 
 # 下载主题
-$ submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke
+$ git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke
 
 # 配置主题
 $ echo "theme = 'ananke'" >> config.toml
