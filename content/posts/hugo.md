@@ -46,3 +46,12 @@ $ hugo -F #编译即将发布的文章
 3. 配置仓库名称
     > 设置仓库明为 Github用户名.github.io
 4. 将 hugo 项目提交到 仓库
+
+
+## Hugo Modules  
+
+1. 安装 go 环境 https://golang.org/dl/  
+2. 初始化 $ hugo mod init github.com/gohugoio/myShortcodes
+3. 添加一个主题模块 $ hugo mod get github.com/panr/hugo-theme-terminal
+4. 配置项目模块
+5. 更新所有模块 $ hugo mod get -u  
