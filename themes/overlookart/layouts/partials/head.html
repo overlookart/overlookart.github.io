@@ -5,6 +5,11 @@
 <!-- 使用 css 样式 -->
 <link rel="stylesheet" href="{{ $a.Permalink }}">
 
+<!-- 使用 tailwind css -->
+
+{{ $tailwindcss := resources.Get "style.css" }}
+<link rel="stylesheet" href="{{ $tailwindcss.Permalink }}">
+
 <!-- 自定义 CSS 覆盖 theme 样式 (/static/style.css) -->
 {{ if (fileExists "static/style.css") -}}
   <link rel="stylesheet" href="{{ "style.css" | absURL }}">
