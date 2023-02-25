@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        模版: default single
-        <article class="prose prose-zinc prose-lg">
-            {{ .Content }}
-        </article>
+{{define "main"}}
+<article class="prose prose-zinc prose-lg">
+    模版: default single
+    {{ .Content }}
+</article>
+{{end}}
         
-        {{- partial "footer.html" . -}}
-    </body>
-</html>
+       

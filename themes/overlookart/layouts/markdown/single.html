@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        <div class="background_image"></div>
-        {{- partial "header.html" . -}}
-        模版: markdown single
-        <div id="content" class="prose prose-zinc prose-lg">
-            {{ .Content }}
-        </div>
-        {{- partial "footer.html" . -}}
-    </body>
-</html>
+{{define "main"}}
+<article class="prose prose-zinc prose-lg">
+    模版: markdown single
+    {{ .Content }}
+</article>
+{{end}}
+        
+        
+        

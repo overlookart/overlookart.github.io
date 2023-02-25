@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        模版: default list
-        <div id="content">
-            {{ .Content }}
-        </div>
+{{define "main"}}
+<div id="content">
+    模版: default list
+    {{ .Content }}
+</div>
+{{end}}
+
         
-        {{- partial "footer.html" . -}}
-    </body>
-</html>
+        
+        

@@ -4,13 +4,13 @@
         {{ range .Params.sections }}
             {{ if eq .idf "new"}}
                 {{ range $allPages}}
-                    <div class="box-border p-4 border-2 inline-block">
-                        <a class="block" href="{{ .RelPermalink }}">{{.RelPermalink}}</a>
+                    <div class="box-border p-4 border-2 inline-block  bg-gradient-to-t from-slate-300 via-pink-500 to-red-500 bg-opacity-50">
+                        <a class="block" href="{{ .RelPermalink }}">RelPermalink: {{.RelPermalink}}</a>
                         <p>Title: {{ .Name }}</p>
-                        <p>TYPE: {{ .Type }}</p>
-                        <p>VIEW: {{ .Kind }}</p>
+                        <p>Type: {{ .Type }}</p>
+                        <p>Kind: {{ .Kind }}</p>
                         <p>Date: {{ .Date }}</p>
-                        
+                        <p>Author: {{ .Params.Author }}</p>
                     </div>
                 {{ end}}
             {{ end }}
