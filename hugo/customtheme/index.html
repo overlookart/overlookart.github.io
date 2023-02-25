@@ -23,4 +23,36 @@
 </span></span></code></pre></div><h2 id=hugo-theme-是如何工作的>Hugo Theme 是如何工作的？</h2><h3 id=页面加载流程>页面加载流程</h3><ol><li>加载主题内站点的主框架 baseof.html</li><li>根据页面的 <code>Kind</code> 属性匹配 /layout 下面的模版文件<table><thead><tr><th>Page.Kind</th><th>Template</th></tr></thead><tbody><tr><td>home</td><td>index.html</td></tr><tr><td>section</td><td>list.html</td></tr><tr><td>page</td><td>single.html</td></tr></tbody></table></li><li>执行模版文件的模版语法 加载相应的子模块</li><li>生成完整的静态页面</li></ol><h3 id=匹配模版的优先级>匹配模版的优先级</h3><ul><li>/layout 的优先级 高于 /theme/newTheme/layout</li></ul><h2 id=css-文件引用>css 文件引用</h2><ul><li><p>css 样式文件位于 ./assets 文件夹内</p></li><li><p>站点使用的样式文件一般在 head 标签内引入</p></li><li><p>./layout/_default/baseof.html 站点框架文件包含完整的html格式 head 和 body</p></li><li><p>将 head 部分模块化为 ./layout/partials/head.html</p></li><li><p>在 head 模块内引入 css 样式文件</p><pre tabindex=0><code class=language-templates data-lang=templates>  {{ $style := resources.Get &#34;scss/style.scss&#34; }}
   {{ $a := $style | resources.ToCSS }}
   &lt;link rel=&#34;stylesheet&#34; href=&#34;{{ $a.Permalink }}&#34;&gt;
-</code></pre></li><li><p>在模版文件的元素就可以使用相应的样式了</p></li></ul></article></div></body></html>
+</code></pre></li><li><p>在模版文件的元素就可以使用相应的样式了</p></li></ul><h2 id=使用-tailwind-css-框架>使用 Tailwind CSS 框架</h2><ol><li><p>通过 Node Package Manager 管理三方依赖库</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>    <span style=color:#75715e># 在自定义主题文件夹下执行</span>
+</span></span><span style=display:flex><span>    $ npm init -y
+</span></span></code></pre></div></li><li><p>安装Tailwind CSS 依赖库</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>    $ npm install -D tailwindcss
+</span></span></code></pre></div></li><li><p>初始化 Tailwind CSS</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>    $ npx tailwindcss init
+</span></span></code></pre></div></li><li><p>在 tailwind.config.js 文件配置 content</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span>    <span style=color:#a6e22e>module</span>.<span style=color:#a6e22e>exports</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//用你的主题布局文件以这种方式填充content属性
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>content</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#39;content/**/*.md&#39;</span>, <span style=color:#e6db74>&#39;layouts/**/*.html&#39;</span>],
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div></li><li><p>在主题的文件夹中创建tailwind.css 文件并添加一下模块</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span>    @<span style=color:#66d9ef>tailwind</span> <span style=color:#f92672>base</span>;
+</span></span><span style=display:flex><span>    @<span style=color:#66d9ef>tailwind</span> <span style=color:#f92672>components</span>;
+</span></span><span style=display:flex><span>    @<span style=color:#66d9ef>tailwind</span> <span style=color:#f92672>utilities</span>
+</span></span></code></pre></div></li><li><p>在package.json, 在scripts 部分添加build和watch命令</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>    <span style=color:#e6db74>&#34;scripts&#34;</span><span style=color:#960050;background-color:#1e0010>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 编译 ./tailwind.css 文件输出到 ./assets/style.css
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#f92672>&#34;build&#34;</span>: <span style=color:#e6db74>&#34;npx tailwindcss -i ./tailwind.css -o ./assets/style.css&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 监听页面使用的 css ,实时更新到 ./assets/style.css
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#f92672>&#34;watch&#34;</span>: <span style=color:#e6db74>&#34;npx tailwindcss -i ./tailwind.css -o ./assets/style.css --watch&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div></li><li><p>编译 ./tailwind.css</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>    $ npm run build
+</span></span></code></pre></div></li><li><p>在 head 里面引用编译好的样式文件</p><pre tabindex=0><code class=language-templates data-lang=templates>    * 注意 文件的路径为编译后输出到 ./ assets/ 下的路径
+    {{ $tailwindcss := resources.Get &#34;style.css&#34; }}
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;{{ $tailwindcss.Permalink }}&#34;&gt;
+</code></pre></li><li><p>markdown 语法失效问题的解决</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>    <span style=color:#75715e># 需要引入 tailwindcss 的插件</span>
+</span></span><span style=display:flex><span>    npm install -D @tailwindcss/typography
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 在模版语法 {{ .Content }} 的外层元素使用 class prose</span>
+</span></span><span style=display:flex><span>    &lt;article class<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;prose&#34;</span>&gt;
+</span></span><span style=display:flex><span>        <span style=color:#f92672>{{</span> .Content <span style=color:#f92672>}}</span>
+</span></span><span style=display:flex><span>    &lt;/article&gt;
+</span></span><span style=display:flex><span>    <span style=color:#75715e># class 灰度 prose-gray prose-slate prose-zinc prose-neutral prose-stone</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># class 大小 prose-sm prose-base prose-lg prose-xl prose-2xl</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># class 适应深色模式 dark:prose-invert</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># class 修改单个元素样式 prose-headings:underline prose-a:text-blue-600</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 元素指示器 详见 https://tailwindcss.com/docs/typography-plugin#element-modifiers</span>
+</span></span></code></pre></div></li></ol></article></div></body></html>
