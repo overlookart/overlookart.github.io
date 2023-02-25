@@ -1,14 +1,12 @@
-{{ define "header" }}
-<div class="header-main">
-    {{ .Title }}
-</div>
-<style>
-    .header-main{
-        height: 80px;
-        background-color: #0d0d0d;
-        position: fiexd;
-        box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.5);
-        display: flex;
-    }
-</style>
-{{ end }}
+<header class="top-0 sticky">
+    <div class="border-2 border-red-500">
+        {{ range .Site.Menus.main }}
+            <div class="inline-block">
+                <a href="{{ .URL }}">
+                    {{ .Pre }}
+                    <span>{{ .Name }}</span>
+                </a>
+            </div>
+        {{ end }}
+    </div>
+</header>

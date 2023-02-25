@@ -24,6 +24,15 @@ defaultContentLanguageInSubdir = true
   weight = -110
   [menu.main.params]
     class = 'highlight-menu-item'
+[[menu.main]]
+  identifier = 'menu'
+  pre = ''
+  name = '菜单'
+  url = '/menu/'
+  weight = 100
+  [menu.main.params]
+    class = ''
+
 
 # 模块配置
 [module]
