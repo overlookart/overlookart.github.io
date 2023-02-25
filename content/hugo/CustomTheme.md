@@ -85,3 +85,82 @@ theme = 'newTheme' #启动项目后生效
   ```
 
 - 在模版文件的元素就可以使用相应的样式了
+  
+## 使用 Tailwind CSS 框架
+
+1. 通过 Node Package Manager 管理三方依赖库
+
+    ```shell
+        # 在自定义主题文件夹下执行
+        $ npm init -y
+    ```
+
+2. 安装Tailwind CSS 依赖库
+
+    ``` shell
+        $ npm install -D tailwindcss
+    ```
+
+3. 初始化 Tailwind CSS
+
+    ``` shell
+        $ npx tailwindcss init
+    ```
+
+4. 在 tailwind.config.js 文件配置 content
+
+    ``` js
+        module.exports = {
+            //用你的主题布局文件以这种方式填充content属性
+            content: ['content/**/*.md', 'layouts/**/*.html'],
+        }
+    ```
+
+5. 在主题的文件夹中创建tailwind.css 文件并添加一下模块
+
+    ``` css
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities
+    ```
+
+6. 在package.json, 在scripts 部分添加build和watch命令
+
+    ``` json
+        "scripts": {
+            // 编译 ./tailwind.css 文件输出到 ./assets/style.css
+            "build": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css",
+            // 监听页面使用的 css ,实时更新到 ./assets/style.css
+            "watch": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css --watch"
+        }
+    ```
+
+7. 编译 ./tailwind.css
+
+    ``` shell
+        $ npm run build
+    ```
+
+8. 在 head 里面引用编译好的样式文件
+
+    ``` templates
+        * 注意 文件的路径为编译后输出到 ./ assets/ 下的路径
+        {{ $tailwindcss := resources.Get "style.css" }}
+        <link rel="stylesheet" href="{{ $tailwindcss.Permalink }}">
+    ```
+
+9. markdown 语法失效问题的解决  
+
+    ``` shell
+        # 需要引入 tailwindcss 的插件
+        npm install -D @tailwindcss/typography
+        # 在模版语法 {{ .Content }} 的外层元素使用 class prose
+        <article class="prose">
+            {{ .Content }}
+        </article>
+        # class 灰度 prose-gray prose-slate prose-zinc prose-neutral prose-stone
+        # class 大小 prose-sm prose-base prose-lg prose-xl prose-2xl
+        # class 适应深色模式 dark:prose-invert
+        # class 修改单个元素样式 prose-headings:underline prose-a:text-blue-600
+        # 元素指示器 详见 https://tailwindcss.com/docs/typography-plugin#element-modifiers
+    ```
