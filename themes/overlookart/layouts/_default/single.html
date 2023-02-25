@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        模版: default single
+        <article class="prose prose-zinc prose-lg">
+            {{ .Content }}
+        </article>
+        
+        {{- partial "footer.html" . -}}
+    </body>
+</html>

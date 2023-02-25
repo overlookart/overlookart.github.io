@@ -1,8 +1,9 @@
 {{ define "main" }}
 <div class="background_image"></div>
-<h1>This is a home page.</h1>
-<div class="container h-32 w-16 p-4 border-4">
-    
-</div>
+<h1>{{ .Title }}</h1>
 {{ .Content }}
+<div id="section">
+    {{ partial "section.html" . }}
+</div>
+
 {{ end }}

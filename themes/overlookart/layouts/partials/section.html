@@ -1,0 +1,21 @@
+<section>
+    <div>
+        {{ $allPages := .Site.Pages}}
+        {{ range .Params.sections }}
+            {{ if eq .idf "new"}}
+                {{ range $allPages}}
+                    <div class="box-border p-4 border-2 inline-block">
+                        <a class="block" href="{{ .RelPermalink }}">{{.RelPermalink}}</a>
+                        <p>Title: {{ .Name }}</p>
+                        <p>TYPE: {{ .Type }}</p>
+                        <p>VIEW: {{ .Kind }}</p>
+                        <p>Date: {{ .Date }}</p>
+                        
+                    </div>
+                {{ end}}
+            {{ end }}
+        {{ end }}
+    </div>
+</section>
+    
+    
