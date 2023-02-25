@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>markdown index on OverlookArt</title><link>http://example.org/markdown/</link><description>Recent content in markdown index on OverlookArt</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>OverlookArt</copyright><lastBuildDate>Sat, 18 Feb 2023 21:39:09 +0800</lastBuildDate><atom:link href="http://example.org/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title>markdown 基本语法</title><link>http://example.org/markdown/basicgrammar/</link><pubDate>Sat, 18 Feb 2023 21:39:09 +0800</pubDate><guid>http://example.org/markdown/basicgrammar/</guid><description>[# ]标题语法 [## ]二级标题 [### ]三级标题 [#### ]四级标题 最小到六级标题 注意空格 [可选]一级标题语法 [可选]二级标题语法 换行语法 在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行
+段落语法 使用空白行 将一行或多行文本进行分隔
+引用语法 [&amp;gt; ]引用语法注意空格
+多段落引用 为段落之间的空白行添加一个[&amp;gt; ]
+[&amp;gt;&amp;gt; ]多级引用
+[&amp;gt;&amp;gt;&amp;gt; ]多级引用
+强调语法 粗体 单词或短语的前后各添加[**]或[__] 加粗1 加粗2
+在单词或短语中间部分加粗的话，请使用[**]
+斜体 在单词或短语前后添加[*]或[_] 斜体1 斜体2
+在单词或短语中间部分加粗的话，请使用[*] 我的小斜体呀
+粗体+斜体 在单词或短语的前后各添加***或___ 粗斜体1 粗斜体2
+在单词或短语中间部分加粗斜体的话，请使用[***] 我加了一个粗斜体
+删除 单词或短语的前后各添加[~~] 删除
+列表 有序列表 在每个列表项前添加[1. ]。数字不必按数学顺序排列，但是列表应当以数字 1 起始,注意空格
+第一项 第一小项 继续往下延伸 还能继续吗 第二项 无序列表 在每个列表项前面添加[- ]、[* ] 或[+ ] 。缩进一个或多个列表项可创建嵌套列表，注意空格
+处理同一列表中的不同分隔符。为了兼容性，不要在同一级列表中混合和匹配分隔
+我是一张弓 开弓没有回头箭 让箭飞一会 站似一棵树 定义列表 定义列表:在第一行上键入术语。在下一行，键入一个冒号，后跟一个空格和定义</description></item></channel></rss>

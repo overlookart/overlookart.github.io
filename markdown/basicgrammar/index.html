@@ -1,0 +1,50 @@
+<!doctype html><html><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><link rel=stylesheet href=http://example.org/scss/style.css><link rel=stylesheet href=http://example.org/style.css><body><div class=background_image></div><header class="top-0 sticky"><div class="border-2 border-red-500"><div class=inline-block><a href=/about/><i class='fa fa-heart'></i>
+<span>关于</span></a></div><div class=inline-block><a href=/menu/><span>菜单</span></a></div></div></header>模版: markdown single<div id=content class="prose prose-zinc prose-lg"><h1 id=-标题语法>[<code># </code>]标题语法</h1><h2 id=-二级标题>[<code>## </code>]二级标题</h2><h3 id=-三级标题>[<code>### </code>]三级标题</h3><h4 id=-四级标题-最小到六级标题-注意空格>[<code>#### </code>]四级标题 最小到六级标题 注意空格</h4><h1 id=可选一级标题语法>[可选]一级标题语法</h1><h2 id=可选二级标题语法>[可选]二级标题语法</h2><h1 id=换行语法>换行语法</h1><blockquote><p>在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行</p></blockquote><h1 id=段落语法>段落语法</h1><blockquote><p>使用空白行 将一行或多行文本进行分隔</p></blockquote><h1 id=引用语法>引用语法</h1><blockquote><p>[<code>> </code>]引用语法注意空格<br>多段落引用 为段落之间的空白行添加一个[<code>> </code>]</p><blockquote><p>[<code>>> </code>]多级引用</p><blockquote><p>[<code>>>> </code>]多级引用</p></blockquote></blockquote></blockquote><h1 id=强调语法>强调语法</h1><h2 id=粗体>粗体</h2><blockquote><p>单词或短语的前后各添加[<code>**</code>]或[<code>__</code>] <strong>加粗1</strong> <strong>加粗2</strong><br>在单词或短语中间部分加粗的话，请使用[<code>**</code>]</p></blockquote><h2 id=斜体>斜体</h2><blockquote><p>在单词或短语前后添加[<code>*</code>]或[<code>_</code>] <em>斜体1</em> <em>斜体2</em><br>在单词或短语中间部分加粗的话，请使用[<code>*</code>] 我的小<em>斜体</em>呀</p></blockquote><h2 id=粗体斜体>粗体+斜体</h2><blockquote><p>在单词或短语的前后各添加<code>***</code>或<code>___</code> <em><strong>粗斜体1</strong></em> <em><strong>粗斜体2</strong></em><br>在单词或短语中间部分加粗斜体的话，请使用[<code>***</code>] 我加了一个<em><strong>粗斜</strong></em>体</p></blockquote><h2 id=删除>删除</h2><blockquote><p>单词或短语的前后各添加[<code>~~</code>]
+<del>删除</del></p></blockquote><h1 id=列表>列表</h1><h2 id=有序列表>有序列表</h2><blockquote><p>在每个列表项前添加[<code>1. </code>]。数字不必按数学顺序排列，但是列表应当以数字 1 起始,注意空格</p></blockquote><ol><li>第一项<ol><li>第一小项<ol><li>继续往下延伸<ol><li>还能继续吗</li></ol></li></ol></li></ol></li><li>第二项</li></ol><h2 id=无序列表>无序列表</h2><blockquote><p>在每个列表项前面添加[<code>- </code>]、[<code>* </code>] 或[<code>+ </code>] 。缩进一个或多个列表项可创建嵌套列表，注意空格<br>处理同一列表中的不同分隔符。为了兼容性，不要在同一级列表中混合和匹配分隔</p></blockquote><ul><li>我是一张弓<ul><li>开弓没有回头箭<ul><li>让箭飞一会</li></ul></li></ul></li><li>站似一棵树</li></ul><h2 id=定义列表>定义列表</h2><blockquote><p>定义列表:在第一行上键入术语。在下一行，键入一个冒号，后跟一个空格和定义</p></blockquote><dl><dt>First Term</dt><dd>This is the definition of the first term.</dd><dt>Second Term</dt><dd>This is one definition of the second term.</dd><dd>This is another definition of the second term.</dd></dl><h2 id=任务列表>任务列表</h2><blockquote><p>任务列表使您可以创建带有复选框的项目列表
+创建任务列表:在任务列表项之前添加破折号-和方括号[ ]，并在[ ]前面加上空格。要选择一个复选框，请在方括号[x]之间添加 x</p></blockquote><ul><li><input checked disabled type=checkbox> Write the press release</li><li><input disabled type=checkbox> Update the website</li><li><input disabled type=checkbox> Contact the media</li></ul><h1 id=代码>代码</h1><h2 id=单行代码>单行代码</h2><blockquote><p>要将单词或短语表示为代码，请将其包裹在反引号中</p></blockquote><pre tabindex=0><code>`var count = 0`
+</code></pre><p><code>var count = 0</code></p><h2 id=多行代码>多行代码</h2><blockquote><p>将代码块的每一行缩进至少四个空格或一个制表符 或用前后三个反引号</p></blockquote><pre><code>public func setup(data:Any){
+    
+}
+</code></pre><pre tabindex=0><code>[```]  
+public func setup(data:Any){
+
+}
+[```]
+</code></pre><h2 id=代码语法高亮>代码语法高亮</h2><blockquote><p>许多Markdown处理器都支持受围栏代码块的语法突出显示。
+在受防护的代码块之前的反引号旁边指定一种语言。</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;firstName&#34;</span>: <span style=color:#e6db74>&#34;John&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;lastName&#34;</span>: <span style=color:#e6db74>&#34;Smith&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;age&#34;</span>: <span style=color:#ae81ff>25</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=转义反引号>转义反引号</h2><blockquote><p>如果你要表示为代码的单词或短语中包含一个或多个反引号，则可以通过将单词或短语包裹在双反引号</p></blockquote><p><code>Use Your `Code` in Markdown File</code></p><h1 id=分割语法>分割语法</h1><blockquote><p>在单独一行上使用三个或多个星号 [<code>***</code>]、破折号 [<code>---</code>] 或下划线 [<code>___</code>] ，并且不能包含其他内容</p></blockquote><hr><hr><h1 id=链接语法>链接语法</h1><blockquote><p>链接文本放在中括号内，链接地址放在后面的括号中，链接title可选 <code>[超链接显示名称](超链接地址 "链接title是当鼠标悬停在链接上时会出现的文字")</code> title是可选的<br><a href=https://markdown.com.cn title=Markdown语法>Markdown语法</a></p></blockquote><h2 id=网址和email地址>网址和Email地址</h2><blockquote><p>使用尖括号可以很方便地把URL或者email地址变成可点击的链接
+<a href=https://markdown.com.cn>https://markdown.com.cn</a> , <a href=mailto:markdown@example.com>markdown@example.com</a></p></blockquote><h2 id=格式化链接>格式化链接</h2><blockquote><p>强调链接, 在链接语法前后增加星号。 要将链接表示为代码，请在方括号中添加反引号<br>I love supporting the <strong><a href=https://eff.org>EFF</a></strong>.<br>This is the <em><a href=https://www.markdownguide.org>Markdown Guide</a></em>.<br>See the section on <a href=#code><code>code</code></a>.</p></blockquote><h2 id=引用类型链接>引用类型链接</h2><h1 id=图片语法>图片语法</h1><h2 id=普通图片>普通图片</h2><blockquote><p><code>![替代文本](图片地址 "图片标题")</code>
+<img src=https://markdown.com.cn/hero.png alt=这是图片 title=图片标题></p></blockquote><h2 id=链接图片>链接图片</h2><blockquote><p><code>[![替代文本](图片地址 "图片标题")](https://markdown.com.cn)</code>
+<a href=https://markdown.com.cn><img src=https://markdown.com.cn/hero.png alt=这是图片 title=图片标题></a></p></blockquote><h1 id=转译字符语法>转译字符语法</h1><h2 id=普通字符转译>普通字符转译</h2><blockquote><p>要显示原本用于格式化 Markdown 文档的字符，请在字符前面添加反斜杠字符<br><code>\\</code>,<code>\*</code>,<code>\_</code>,<code>\{}</code>,<code>\[]</code>,<code>\()</code>,<code>\#</code>,<code>\+</code>,<code>\-</code>,<code>\.</code>,<code>\!</code>,<code>\|</code></p></blockquote><h2 id=特殊字符转译>特殊字符转译</h2><blockquote><p>在 HTML 文件中，有两个字符需要特殊处理： &lt; 和 &
+&lt; 符号用于起始标签，& 符号则用于标记 HTML 实体
+你必须要使用实体的形式，是 &lt; 和 &</p></blockquote><h1 id=内嵌-html-语法>内嵌 HTML 语法</h1><h2 id=行级标签>行级标签</h2><blockquote><p>HTML 的行级內联标签如 <code>&lt;span></code>、<code>&lt;cite></code>、<code>&lt;del></code> 不受限制，可以在 Markdown 的段落、列表或是标题里任意使用
+This <strong>word</strong> is bold. This word is italic.</p></blockquote><h2 id=块级标签>块级标签</h2><blockquote><p>区块元素──比如 <code>&lt;div></code>、<code>&lt;table></code>、<code>&lt;pre></code>、<code>&lt;p></code> 等标签，必须在前后加上空行，以便于内容区分</p></blockquote><pre tabindex=0><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Foo&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><h1 id=表格>表格</h1><h2 id=基础表格>基础表格</h2><blockquote><p>要添加表，请使用三个或多个连字符（&mdash;）创建每列的标题，并使用管道（|）分隔每列。您可以选择在表的任一端添加管道</p></blockquote><pre tabindex=0><code>| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+</code></pre><table><thead><tr><th>Syntax</th><th>Description</th></tr></thead><tbody><tr><td>Header</td><td>Title</td></tr><tr><td>Paragraph</td><td>Text</td></tr></tbody></table><h2 id=内容对齐>内容对齐</h2><blockquote><p>您可以通过在标题行中的连字符的左侧，右侧或两侧添加冒号（:），将列中的文本对齐到左侧，右侧或中心</p></blockquote><pre tabindex=0><code>| Syntax      | Description | Test Text     |
+| :---        |    :----:   |          ---: |
+| Header      | Title       | Here&#39;s this   |
+| Paragraph   | Text        | And more      |
+</code></pre><h2 id=格式化文字>格式化文字</h2><blockquote><p>您可以在表格中设置文本格式。例如，您可以添加链接，代码（仅反引号（`）中的单词或短语，而不是代码块）和强调
+不能添加标题，块引用，列表，水平规则，图像或HTML标签</p></blockquote><h1 id=脚注语法>脚注语法</h1><h2 id=说明>说明</h2><blockquote><p>脚注使您可以添加注释和参考，而不会使文档正文混乱
+带有脚注的上标数字会出现在添加脚注参考的位置,可以单击链接以跳至页面底部的脚注内容
+方括号<code>[^1]</code>内添加插入符号和标识符。标识符可以是数字或单词，但不能包含空格或制表符
+标识符仅将脚注参考与脚注本身相关联-在输出中，脚注按顺序编号</p></blockquote><h2 id=示例>示例</h2><pre tabindex=0><code>Here&#39;s a simple footnote,[^1] and here&#39;s a longer one.[^bignote]
+[^1]: This is the first footnote.
+[^bignote]: bignote
+</code></pre><h1 id=emoji-表情>Emoji 表情</h1><h1 id=目录语法>目录语法</h1><p>[TOC]</p><h1 id=标签语法>标签语法</h1><h1 id=流程图>流程图</h1><pre tabindex=0><code class=language-mermaid data-lang=mermaid>graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;
+</code></pre></div></body></html>
