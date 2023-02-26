@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>markdown index on OverlookArt</title><link>http://example.org/markdown/</link><description>Recent content in markdown index on OverlookArt</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>OverlookArt</copyright><lastBuildDate>Sat, 18 Feb 2023 21:39:09 +0800</lastBuildDate><atom:link href="http://example.org/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title>markdown 基本语法</title><link>http://example.org/markdown/basicgrammar/</link><pubDate>Sat, 18 Feb 2023 21:39:09 +0800</pubDate><guid>http://example.org/markdown/basicgrammar/</guid><description>[# ]标题语法 [## ]二级标题 [### ]三级标题 [#### ]四级标题 最小到六级标题 注意空格 [可选]一级标题语法 [可选]二级标题语法 换行语法 在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>markdown index on OverlookArt</title><link>http://example.org/markdown/</link><description>Recent content in markdown index on OverlookArt</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>OverlookArt</copyright><lastBuildDate>Sun, 26 Feb 2023 22:27:20 +0800</lastBuildDate><atom:link href="http://example.org/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title>Mermaid Markdown 绘图</title><link>http://example.org/markdown/mermaid/</link><pubDate>Sun, 26 Feb 2023 22:27:20 +0800</pubDate><guid>http://example.org/markdown/mermaid/</guid><description>Mermaid语法 流程图 关键词 graph
+方向词 TB 从上到下
+BT 从下到上
+LR 从左到右
+RL 从右到左
+节点形状 [矩形]
+[]
+序列图 关键词 sequenceDiagram
+甘特图 关键词 gantt
+饼状图 关键词 pie
+pie &amp;#34;123&amp;#34; : 20 &amp;#34;231&amp;#34; : 80 类图 关键词 classDiagram
+状态图 关键词 stateDiagram
+路程图 关键词 journey</description></item><item><title>markdown 基本语法</title><link>http://example.org/markdown/basicgrammar/</link><pubDate>Sat, 18 Feb 2023 21:39:09 +0800</pubDate><guid>http://example.org/markdown/basicgrammar/</guid><description>[# ]标题语法 [## ]二级标题 [### ]三级标题 [#### ]四级标题 最小到六级标题 注意空格 [可选]一级标题语法 [可选]二级标题语法 换行语法 在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行
 段落语法 使用空白行 将一行或多行文本进行分隔
 引用语法 [&amp;gt; ]引用语法注意空格
 多段落引用 为段落之间的空白行添加一个[&amp;gt; ]

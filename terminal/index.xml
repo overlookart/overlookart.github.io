@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>终端工具 on OverlookArt</title><link>http://example.org/terminal/</link><description>Recent content in 终端工具 on OverlookArt</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>OverlookArt</copyright><lastBuildDate>Sun, 26 Feb 2023 22:31:46 +0800</lastBuildDate><atom:link href="http://example.org/terminal/index.xml" rel="self" type="application/rss+xml"/><item><title>Mitmproxy</title><link>http://example.org/terminal/mitmproxy/</link><pubDate>Sun, 26 Feb 2023 22:37:35 +0800</pubDate><guid>http://example.org/terminal/mitmproxy/</guid><description>mitmproxy 官网 https://www.mitmproxy.org
+安装 $ bres install mitmproxy
+使用 启动工具 设置代理 Safari 浏览器 移动设备 配置证书 抓包验证 快捷键 ? 打开快捷键操作列表 q 返回上一页 ⬆️ ⬇️ 在抓包列表切换请求 Enter 进入&amp;gt;&amp;gt;标记的请求详情 ⬅️ ➡️ 在请求详情切换面板 z 清空抓包列表 e 查看事件日志</description></item><item><title>HomeBrew</title><link>http://example.org/terminal/homebrew/</link><pubDate>Sun, 26 Feb 2023 22:34:14 +0800</pubDate><guid>http://example.org/terminal/homebrew/</guid><description>HomeBrew macOS（或 Linux）缺失的软件包的管理器
+官网 https://brew.sh
+安装 /bin/bash -c &amp;ldquo;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;quot;
+更新 $ brew update
+查看版本 $ brew -v
+卸载 使用 安装工具包 $ brew install wget
+安装目录 Homebrew 会将软件包安装到独立目录，并将其文件软链接至 /usr/local 。
+$ cd /usr/local $ find Cellar Cellar/wget/1.16.1 Cellar/wget/1.16.1/bin/wget Cellar/wget/1.16.1/share/man/man1/wget.1 $ ls -l bin bin/wget -&amp;gt; ../Cellar/wget/1.16.1/bin/wget 卸载工具包 $ brew uninstall packageName
+查询可用包 $ brew search packageName
+查看已安装包列表 $ brew list
+查看任意包信息 $ brew info packageName</description></item></channel></rss>
