@@ -1,8 +1,16 @@
 {{define "main"}}
-<article class="prose prose-zinc prose-lg">
-    模版: default single
-    {{ .Content }}
-</article>
+<div class="w-full max-w-8xl">
+    <div class="flex">
+        <aside class=" fixed top-10 z-40 lg:w-40 lg:block hidden">
+            {{ .TableOfContents }}
+        </aside>
+        <article class="prose prose-zinc prose-lg mx-auto">
+            模版: default single
+            {{ .Content }}
+        </article>
+    </div>
+</div>
+
 {{end}}
         
        
