@@ -3,6 +3,8 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 <div id="section">
+    {{ printf "%#v" hugo.CommitHash }}
+
     {{ partial "section.html" . }}
 </div>
 {{ end }}
