@@ -30,6 +30,29 @@ author: "OverookArt"
 {{ printf "%#v" hugo.GoVersion }}
 // 获取 hugo 当前运行环境
 {{ printf "%#v" hugo.Environment }}
+// 获取 hugo 二进制的 git 提交哈希值
+{{ printf "%#v" hugo.CommitHash }}
+// 获取 hugo 二进制的编译时间
+{{ printf "%#v" hugo.BuildDate }}
+// hugo 是否是扩展版本
+{{ printf "%#v" hugo.IsExtended }}
+// hugo 运行的是否是生产环境
+{{ printf "%#v" hugo.IsProduction }}
+// 获取 hugo 项目的依赖项列表(hugo模块或本地主题组件)
+{{ printf "%#v" hugo.Deps }}
+// 获取 依赖性模块的信息
+{{range $index, $element := hugo.Deps }}
+    // 模块的路径
+    {{ printf "<path:%#v>" $element.Path $index }}
+    // 模块的版本号
+    {{ printf "<Version:%#v>" $element.Version }}
+    // 模块是否被供应
+    {{ printf "<Vendor:%#v>" $element.Vendor }}
+    // 模块的创建时间
+    {{ printf "<Time:%#v>" $element.Time }}
+    // 模块的引用者
+    {{ printf "<Owner:%#v>" $element.Owner }}
+{{end}}
 ```
 
 
@@ -40,3 +63,36 @@ author: "OverookArt"
 {{ printf "%#v" $array }}
 ```
 
+## 为一个数组添加元素  
+
+```js
+{{ $array :=  slice "1" "2" "3" }}
+{{ $n := $array | append "4" "5" }}
+{{ printf "%#v" $n }}
+// 打印结果: ["1","2","3","4","5"]
+
+// 添加一个数组
+{{ $n := $n | append (slice "6" "7") }}
+{{ printf "%#v" $n }}
+// 打印结果: ["1","2","3","4","5","6","7"]
+```
+
+## 取一个数组的后面几项  
+
+``` js
+{{ $array :=  slice "item1" "item2" "item3" }}
+// 2 是下标 从下标往后取 并组成新的数组
+{{ $last := after 2 $array }}
+{{ $last }}
+// 打印结果: [item3]
+```
+
+## 遍历 Array, Map  
+
+``` js
+// $index 绑定下标
+// $item 绑定元素
+{{range $index, $item := array }}
+    {{ printf "<index:%#v item:%#v>" $index $item }}
+{{end}}
+```

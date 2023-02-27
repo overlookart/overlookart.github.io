@@ -3,8 +3,11 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 <div id="section">
-    {{ printf "%#v" hugo.CommitHash }}
-
+    {{ $array :=  slice "1" "2" "3" }}
+    {{ $n := $array | append "4" "5" }}
+    
+    {{ $n := $n | append (slice "6" "7") }}
+    {{ printf "%#v" $n }}
     {{ partial "section.html" . }}
 </div>
 {{ end }}

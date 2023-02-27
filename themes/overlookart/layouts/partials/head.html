@@ -1,4 +1,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+{{ hugo.Generator }}
 <!-- 获取 css 资源文件 -->
 {{ $style := resources.Get "scss/style.scss" }}
 {{ $a := $style | resources.ToCSS }}
