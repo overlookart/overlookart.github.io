@@ -65,3 +65,13 @@ Array.prototype.remove = function(val) {
 var newArr = [...new Set(array)]
 ```
 
+### Array 插入数据  
+
+``` js
+// splice(start: number, deleteCount: number, ...items: T[])
+var arr = [];
+// 在头部插入一个或多个数据; start:要插入数据的位置
+arr.splice(0,0,object);
+// 或者使用 unshift 方法在头部插入一个或多个数据 
+arr.unshift(object);
+```
