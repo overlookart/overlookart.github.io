@@ -3,8 +3,7 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 <div id="section">
-    {{ $dic := dict "key" "value" }}
-{{ jsonify $dic}}
+    {{ mod 7 15 }}
     {{ partial "section.html" . }}
 </div>
 {{ end }}
