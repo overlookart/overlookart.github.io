@@ -55,15 +55,40 @@ author: "OverookArt"
 {{end}}
 ```
 
+## 基础数据  
 
-## 创建一个数组  
+### 创建一个整数  
+
+``` js
+// 通过字面量创建
+{{ $int := 123 }}
+// 通过参数创建
+{{ $int := int "123" }}
+{{ $int }}
+// 输出结果: 123
+```
+
+### 创建一个浮点数  
+
+``` js
+// 通过字面量创建
+{{ $float := 1.32 }}
+// 通过参数创建
+{{ $float := float "1.32"}}
+{{ $float }}
+// 输出结果: 1.32
+```
+
+## 数组  
+
+### 创建一个数组  
 
 ``` js
 {{ $array :=  slice "item1" "item2" "item3" }}
 {{ printf "%#v" $array }}
 ```
 
-## 为一个数组添加元素  
+### 为一个数组添加元素  
 
 ```js
 {{ $array :=  slice "1" "2" "3" }}
@@ -77,17 +102,53 @@ author: "OverookArt"
 // 打印结果: ["1","2","3","4","5","6","7"]
 ```
 
-## 取一个数组的后面几项  
+### 数组中是否存在某个元素
+
+``` js
+{{ $array :=  slice "item1" "item2" "item3" }}
+{{ in $array "item4" }}
+// 输出结果: false
+```
+
+### 通过下标取数组的元素
+
+``` js
+{{ $array :=  slice "item1" "item2" "item3" }}
+{{ index $array 1 }}
+// 输出结果: item2
+```
+
+### 取一个数组的前几项
+
+``` js
+{{ $array :=  slice "item1" "item2" "item3" }}
+// 从数组中取前2项元素，并组成新数组
+{{ $first := first 2 $array }}
+{{ $first }}
+// 打印结果: [item1 item2]
+```
+
+### 取一个数组的后几项  
 
 ``` js
 {{ $array :=  slice "item1" "item2" "item3" }}
 // 2 是下标 从下标往后取 并组成新的数组
-{{ $last := after 2 $array }}
-{{ $last }}
+{{ $after := after 2 $array }}
+{{ $after }}
 // 打印结果: [item3]
 ```
 
-## 遍历 Array, Map  
+### 合并两个数组  
+
+``` js
+{{ $array1 :=  slice "item1" "item2" "item3" }}
+{{ $array2 :=  slice "item1" "A" "item3" }}
+// 将两个数组的相同元素作为新数组, 顺序与第一个数组相同
+{{ intersect $array1 $array2 }}
+// 输出结果: [item1 item3]
+```
+
+### 遍历 Array, Map  
 
 ``` js
 // $index 绑定下标
@@ -96,3 +157,50 @@ author: "OverookArt"
     {{ printf "<index:%#v item:%#v>" $index $item }}
 {{end}}
 ```
+
+## 字典  
+
+### 创建一个字典
+
+``` js
+{{ $dic := dict "key" "value" }}
+{{ printf "%#v" $dic }}
+// 打印结果: {"key":"value"}
+```
+
+### 通过 key 取 value  
+
+``` js
+{{ $dic := dict "key" "value" }}
+{{ $dic.key }}
+// 或者
+{{ index $dic "key" }}
+// 输出结果: value
+```
+
+### 将字典转为JSON
+
+``` js
+{{ $dic := dict "key" "value" }}
+{{ jsonify $dic}}
+// 输出结果: {"key":"value"}
+```
+
+## 数据嵌套  
+
+## 流程控制  
+
+### 条件判断  
+
+``` js
+// 如果 val1 与 val2 相等, 则...
+{{ if eq val1 val2 }}
+// 如果 val1 大于等于 val2, 则...
+{{ if ge val1 val2 }}
+// 如果 val1 大于 val2, 则...
+{{ if gt val1 val2 }}
+
+{{ end }}
+```
+
+## 错误日志  

@@ -3,11 +3,8 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 <div id="section">
-    {{ $array :=  slice "1" "2" "3" }}
-    {{ $n := $array | append "4" "5" }}
-    
-    {{ $n := $n | append (slice "6" "7") }}
-    {{ printf "%#v" $n }}
+    {{ $dic := dict "key" "value" }}
+{{ jsonify $dic}}
     {{ partial "section.html" . }}
 </div>
 {{ end }}
