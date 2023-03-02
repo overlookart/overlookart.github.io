@@ -3,7 +3,11 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 <div id="section">
-    {{ mod 7 15 }}
+    <div style="background-color: aliceblue;">
+        {{ $date := "2006-01-02" | time.AsTime }}
+        {{ $date.AddDate -10 0 0 | time.Format "2006-01-02"}}
+    </div>
+    
     {{ partial "section.html" . }}
 </div>
 {{ end }}
