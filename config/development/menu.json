@@ -1,0 +1,22 @@
+{
+    "main": [
+        {
+            "identifier": "about",
+            "name": "关于-:D",
+            "pre": "<i class='fa fa-heart'></i>",
+            "url": "/about/",
+            "weight": -100,
+            "params": {
+                "class": "highlight-menu-item"
+            }
+        },
+        {
+            "identifier": "404",
+            "name": "404-:D",
+            "pre": "<i class='fa fa-heart'></i>",
+            "url": "/menu/",
+            "weight": -110
+        }
+    ]
+    
+}

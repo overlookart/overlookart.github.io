@@ -4,8 +4,7 @@
 {{ .Content }}
 <div id="section">
     <div style="background-color: aliceblue;">
-        {{ $date := "2006-01-02" | time.AsTime }}
-        {{ $date.AddDate -10 0 0 | time.Format "2006-01-02"}}
+        {{ hugo.Environment }}
     </div>
     
     {{ partial "section.html" . }}
