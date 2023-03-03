@@ -36,7 +36,8 @@ import Sortable from "sortablejs"
 ## 为拖拽的 table 配置 ref 和 row-key  
 
 ``` js
-<el-table :data="datas" ref="dragTable" row-key="dragTable">
+// row-key 设置为 table 数据源中能标识每一行唯一性的字段
+<el-table :data="datas" ref="dragTable" row-key="rowId">
 </el-table>
 const dragTable = ref();
 ```
@@ -69,6 +70,8 @@ const createDragTable = () => {
         },
         onEnd: (el) => {
             console.debug('结束拖拽',el.showIndex);
+            // 更新 table 的数据源
+            datas.splice(el.newIndex, 0, datas.splice(el.oldIndex, 1)[0]);
         }
     });
 }
