@@ -24,25 +24,32 @@ author: "OverookArt"
     // 域名路径
     "baseURL": "http://example.org/",
     // 网站的标题
-    "title": ""
-    // 是否编译草稿页面
-    "buildDrafts": false,
-    // 是否编译过期页面
-    "buildExpired": false,
-    // 是否编译未发布页面
-    "buildFuture": false,
+    "title": "",
+    // 版权声明
+    "copyright": "",
     // 是否将相对路径转为绝对路径
     "canonifyURLs": false,
     // 编译时，从静态目录中删除找不到的目标文件。
     "cleanDestinationDir": false,
-    // 版权声明
-    "copyright": "",
+    //禁用网址/路径转换为小写。
+    "disablePathToLower": false,
+    //禁用浏览器窗口的自动实时重新加载。
+    "disableLiveReload": false,
+    //禁用指定种类的所有页面。此列表中允许的值：
+    //“page”、“home”、“section”、“taxonomy”、“term”、“RSS”、“sitemap”、“robotsTXT”、“404”。
+    "disableKinds": [],
+    //默认情况下，Hugo将仅在主页的HTML头部注入一个生成器元标签。你可以关闭它，
+    //但如果你不这样做，我们将不胜感激，因为这是观看雨果人气上升的好方法。
+    "disableHugoGeneratorInject": false,
+    //将禁用别名重定向的生成。请注意，即使设置了禁用别名，别名本身也会保留在页面上。
+    //其动机是能够使用自定义输出格式在.htaccess、Netlify _redirects文件或类似文件中生成301重定向。
+    "disableAliases": false,
     // 默认的内容语言指示器
     "defaultContentLanguage": "en",
     // 在子目录中呈现默认内容语言，例如content/en/。然后，站点根/将重定向到/en/。
     "defaultContentLanguageInSubdir": false,
-
-    ""
+    //启用。每个页面的GitInfo对象（如果Hugo网站由Git版本控制）。然后，这将使用该内容文件的最后一个git提交日期更新每个页面的Lastmod参数。
+    "enableGitInfo": false,
 }
 ```
 
@@ -64,5 +71,18 @@ author: "OverookArt"
     // 读取主题的目录
     "themesDir": "themes"
     ...
+}
+```
+
+## 编译配置  
+
+``` json
+{   // config.json
+    // 是否编译草稿页面
+    "buildDrafts": false,
+    // 是否编译过期页面
+    "buildExpired": false,
+    // 是否编译未发布页面
+    "buildFuture": false,
 }
 ```
