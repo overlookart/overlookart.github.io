@@ -1,28 +1,35 @@
 <!doctype html><html><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=generator content="Hugo 0.111.1"><link rel=stylesheet href=http://example.org/scss/style.css><link rel=stylesheet href=http://example.org/style.css><body><header class="top-0 sticky"><div class="backdrop-blur transition-colors duration-500 border-slate-50/[0.06] bg-black/65"><div class=inline-block><a href=/menu/><i class='fa fa-heart'></i>
 <span>404</span></a></div><div class=inline-block><a href=/about/><i class='fa fa-heart'></i>
-<span>关于</span></a></div></div></header><div id=content><div class="w-full max-w-8xl"><div class=flex><aside class="fixed top-10 z-40 lg:w-40 lg:block hidden"><nav id=TableOfContents><ul><li><a href=#基本配置>基本配置</a></li><li><a href=#目录配置>目录配置</a></li></ul></nav></aside><article class="prose prose-zinc prose-lg mx-auto">模版: default single<h1 id=hugo-项目配置>HUGO 项目配置</h1><blockquote><p>HUGO 项目初始化后 会在项目根目录生成 ./config.toml 的配置文件<br>HUGO 项目支持 config.toml, config.yaml, config.json 三种格式</p></blockquote><h2 id=基本配置>基本配置</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{   <span style=color:#75715e>// config.json
+<span>关于</span></a></div></div></header><div id=content><div class="w-full max-w-8xl"><div class=flex><aside class="fixed top-10 z-40 lg:w-40 lg:block hidden"><nav id=TableOfContents><ul><li><a href=#基本配置>基本配置</a></li><li><a href=#目录配置>目录配置</a></li><li><a href=#编译配置>编译配置</a></li></ul></nav></aside><article class="prose prose-zinc prose-lg mx-auto">模版: default single<h1 id=hugo-项目配置>HUGO 项目配置</h1><blockquote><p>HUGO 项目初始化后 会在项目根目录生成 ./config.toml 的配置文件<br>HUGO 项目支持 config.toml, config.yaml, config.json 三种格式</p></blockquote><h2 id=基本配置>基本配置</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{   <span style=color:#75715e>// config.json
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// 域名路径
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;baseURL&#34;</span>: <span style=color:#e6db74>&#34;http://example.org/&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// 网站的标题
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;&#34;</span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 是否编译草稿页面
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#e6db74>&#34;buildDrafts&#34;</span>: <span style=color:#66d9ef>false</span>,
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 是否编译过期页面
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;buildExpired&#34;</span>: <span style=color:#66d9ef>false</span>,
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 是否编译未发布页面
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;buildFuture&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 版权声明
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;copyright&#34;</span>: <span style=color:#e6db74>&#34;&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// 是否将相对路径转为绝对路径
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;canonifyURLs&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// 编译时，从静态目录中删除找不到的目标文件。
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;cleanDestinationDir&#34;</span>: <span style=color:#66d9ef>false</span>,
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 版权声明
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;copyright&#34;</span>: <span style=color:#e6db74>&#34;&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//禁用网址/路径转换为小写。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;disablePathToLower&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//禁用浏览器窗口的自动实时重新加载。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;disableLiveReload&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//禁用指定种类的所有页面。此列表中允许的值：
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>//“page”、“home”、“section”、“taxonomy”、“term”、“RSS”、“sitemap”、“robotsTXT”、“404”。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;disableKinds&#34;</span>: [],
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//默认情况下，Hugo将仅在主页的HTML头部注入一个生成器元标签。你可以关闭它，
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>//但如果你不这样做，我们将不胜感激，因为这是观看雨果人气上升的好方法。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;disableHugoGeneratorInject&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//将禁用别名重定向的生成。请注意，即使设置了禁用别名，别名本身也会保留在页面上。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>//其动机是能够使用自定义输出格式在.htaccess、Netlify _redirects文件或类似文件中生成301重定向。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;disableAliases&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// 默认的内容语言指示器
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;defaultContentLanguage&#34;</span>: <span style=color:#e6db74>&#34;en&#34;</span>,
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// 在子目录中呈现默认内容语言，例如content/en/。然后，站点根/将重定向到/en/。
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;defaultContentLanguageInSubdir&#34;</span>: <span style=color:#66d9ef>false</span>,
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//启用。每个页面的GitInfo对象（如果Hugo网站由Git版本控制）。然后，这将使用该内容文件的最后一个git提交日期更新每个页面的Lastmod参数。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;enableGitInfo&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><h2 id=目录配置>目录配置</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{   <span style=color:#75715e>// config.json
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#960050;background-color:#1e0010>...</span>
@@ -39,5 +46,13 @@
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// 读取主题的目录
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;themesDir&#34;</span>: <span style=color:#e6db74>&#34;themes&#34;</span>
 </span></span><span style=display:flex><span>    <span style=color:#960050;background-color:#1e0010>...</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=编译配置>编译配置</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{   <span style=color:#75715e>// config.json
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// 是否编译草稿页面
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;buildDrafts&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 是否编译过期页面
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;buildExpired&#34;</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 是否编译未发布页面
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>&#34;buildFuture&#34;</span>: <span style=color:#66d9ef>false</span>,
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div></article></div></div></div></body></html>
