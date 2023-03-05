@@ -86,3 +86,11 @@ author: "OverookArt"
     "buildFuture": false,
 }
 ```
+
+## 配置模块化
+
+> HUGO 会根据不同的运行环境加载对应的配置项  
+> 没有创建运行环境配置项会加载默认的配置项  
+> ./config/_default/config.json 默认的配置  
+> ./config/development/config.json 开发环境的配置项  
+> ./config/production/config.json 生成环境的配置项  
