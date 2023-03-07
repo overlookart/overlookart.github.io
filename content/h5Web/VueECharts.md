@@ -20,8 +20,6 @@ author: "OverookArt"
 > [echarts 官网]("https://echarts.apache.org/zh/index.html")  
 # 基于VUE3 下的 ECharts  
 
-
-
 ## 安装  
 
 ``` shell
@@ -85,4 +83,31 @@ import {
     TooltipComponent, //数据提示组件
 } from "echarts/components"
 </script>
+```
+
+## 响应式大小  
+
+``` vue
+<template>
+    <div>
+        <!-- 设置 v-chart 引用方法 -->
+        <v-chart style="height: 400px;" :ref="setVChartRef" :option="option" />
+    </div>
+</template>
+<script setup>
+import ...
+// 实现 v-chart 引用方法
+const setVChartRef = (val) => {
+    // 监听浏览器窗口大小变化
+    window.addEventListener('resize', function() {
+        val.resize('auto', '400');
+    });
+
+    // 页面呈现时再重设大小 这里的应用场景是在 el-dialog
+    window.setTimeout(() => {
+        val.resize('auto', '400');
+    }, 100);
+};
+</script>
+
 ```
