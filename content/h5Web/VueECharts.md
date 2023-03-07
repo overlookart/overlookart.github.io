@@ -29,7 +29,6 @@ $ npm install echarts vue-echarts
 ```
 
 ## 使用
-
 ``` vue
 <template>
     <div>
@@ -58,7 +57,14 @@ const option = ref({
     },
     yAxis: {
         type: 'value'
-    }
+    },
+    series: [ //图表数据源
+        {
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            smooth: true
+        }
+    ]
 })
 </script>
 ```
