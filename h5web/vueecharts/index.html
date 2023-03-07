@@ -1,0 +1,37 @@
+<!doctype html><html><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=generator content="Hugo 0.111.2"><link rel=stylesheet href=http://example.org/scss/style.css><link rel=stylesheet href=http://example.org/style.css><body><header class="top-0 sticky"><div class="backdrop-blur transition-colors duration-500 border-slate-50/[0.06] bg-black/65"><div class=inline-block><a href=/menu/><i class='fa fa-heart'></i>
+<span>404</span></a></div><div class=inline-block><a href=/about/><i class='fa fa-heart'></i>
+<span>关于</span></a></div></div></header><div id=content><div class="w-full max-w-8xl"><div class=flex><aside class="fixed top-10 z-40 lg:w-40 lg:block hidden"><nav id=TableOfContents><ul><li><a href=#安装>安装</a></li><li><a href=#使用>使用</a></li></ul></nav></aside><article class="prose prose-zinc prose-lg mx-auto">模版: default single<h1 id=基于vue3-下的-echarts>基于VUE3 下的 ECharts</h1><h2 id=安装>安装</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e># 安装必要依赖 @vue/composition-api</span>
+</span></span><span style=display:flex><span>$ npm i -D @vue/composition-api  
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装 echarts</span>
+</span></span><span style=display:flex><span>$ npm install echarts vue-echarts
+</span></span></code></pre></div><h2 id=使用>使用</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vue data-lang=vue><span style=display:flex><span>&lt;<span style=color:#f92672>template</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>        &lt;<span style=color:#f92672>v-chart</span> <span style=color:#a6e22e>style</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;height: 400px;&#34;</span> <span style=color:#f92672>:option</span><span style=color:#e6db74>=&#34;option&#34;</span> /&gt;
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>template</span>&gt;
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>setup</span>&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e>// 导入 echarts 核心模块，该模块为使用 echarts 提供必要的接口。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>as</span> <span style=color:#a6e22e>echarts</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;echarts/core&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>// 导入 echarts 折线图或者其他图表, 全部图表使用 Chart
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>LineChart</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;echarts/charts&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>// 导入矩形坐标系组件，全部组件使用 Component
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>GridComponent</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;echarts/components&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 导入 echarts 画布渲染器
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>CanvasRenderer</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;echarts/renderers&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>// 注册 echarts 所需要的组件
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>echarts</span>.<span style=color:#a6e22e>use</span>([<span style=color:#a6e22e>LineChart</span>, <span style=color:#a6e22e>GridComponent</span>, <span style=color:#a6e22e>CanvasRenderer</span>]);
+</span></span><span style=display:flex><span><span style=color:#75715e>// 为相应的组件配置参数及数据
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>option</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ref</span>({
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// ⚠️⚠️⚠️ 配置什么参数就需要导入相应的组件
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// GridComponent 组件需要的参数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>xAxis</span><span style=color:#f92672>:</span> {<span style=color:#75715e>// x轴
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;category&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>data</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#39;Mon&#39;</span>, <span style=color:#e6db74>&#39;Tue&#39;</span>, <span style=color:#e6db74>&#39;Wed&#39;</span>, <span style=color:#e6db74>&#39;Thu&#39;</span>, <span style=color:#e6db74>&#39;Fri&#39;</span>, <span style=color:#e6db74>&#39;Sat&#39;</span>, <span style=color:#e6db74>&#39;Sun&#39;</span>]
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>yAxis</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;value&#39;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span></code></pre></div></article></div></div></div></body></html>
