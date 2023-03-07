@@ -17,7 +17,10 @@ lastmod: 2023-03-06T17:55:48+08:00
 author: "OverookArt"
 ---
 
+> [echarts 官网]("https://echarts.apache.org/zh/index.html")  
 # 基于VUE3 下的 ECharts  
+
+
 
 ## 安装  
 
@@ -28,7 +31,8 @@ $ npm i -D @vue/composition-api
 $ npm install echarts vue-echarts
 ```
 
-## 使用
+## 使用  
+
 ``` vue
 <template>
     <div>
@@ -36,6 +40,8 @@ $ npm install echarts vue-echarts
     </div>
 </template>
 <script setup>
+// 导入基于 VUE 的 echarts 组件
+import VChart from "vue-echarts";
 // 导入 echarts 核心模块，该模块为使用 echarts 提供必要的接口。
 import * as echarts from "echarts/core";
 // 导入 echarts 折线图或者其他图表, 全部图表使用 Chart
@@ -66,5 +72,17 @@ const option = ref({
         }
     ]
 })
+</script>
+```
+
+## 常用组件  
+
+``` vue
+<script>
+import { 
+    GridComponent, //二维坐标系组件 
+    LegendComponent, //图例组件
+    TooltipComponent, //数据提示组件
+} from "echarts/components"
 </script>
 ```
