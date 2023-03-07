@@ -93,4 +93,7 @@ author: "OverookArt"
 > 没有创建运行环境配置项会加载默认的配置项  
 > ./config/_default/config.json 默认的配置  
 > ./config/development/config.json 开发环境的配置项  
-> ./config/production/config.json 生成环境的配置项  
+> ./config/production/config.json 生成环境的配置项 
+> 还可以将 ../config.json 文件中的配置集合拆分到单个文件 例如菜单可以拆分 ../menu.json  
+
+## 配置菜单模块

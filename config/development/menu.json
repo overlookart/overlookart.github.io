@@ -17,6 +17,15 @@
             "url": "/menu/",
             "weight": -110
         }
+    ],
+    "docs":[
+        {
+            "identifier": "docs1",
+            "name": "哈哈1",
+            "pre": "<i class='fa fa-heart'></i>",
+            "url": "/about/",
+            "weight": -100
+        }
     ]
     
 }
