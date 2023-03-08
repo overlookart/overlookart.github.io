@@ -97,3 +97,40 @@ author: "OverookArt"
 > 还可以将 ../config.json 文件中的配置集合拆分到单个文件 例如菜单可以拆分 ../menu.json  
 
 ## 配置菜单模块
+
+``` json
+// menu.json
+{   // 读取菜单:
+    "main":[
+        {
+            // 唯一标识
+            "identifier":"",
+            // 菜单名称
+            "name":"",
+            // 
+            "url": "",
+            // 打开页面的 a 标签
+            "pre":"",
+            // 对页面路径的引用
+            "pageRef": "",
+            // 菜单权重 对菜单项按权重进行升序排序
+            "weight": 1,
+            // 父级菜单的唯一标识
+            "parent": "",
+            // 子菜单
+            "children":[],
+            // ?
+            "post": "",
+            // 附加参数
+            "params":{
+                ...
+            }
+        }
+    ]
+}
+```
+
+``` templates
+<!-- 获取菜单配置 -->
+{{ .Site.Menus.main }}
+```
