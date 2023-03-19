@@ -1,13 +1,19 @@
-<section class="border-2 p-6 rounded-2xl">
-    <div>
-        <span class="text-3xl font-sans text-pink-600">分组名称</span>
-    </div>
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2">
-        {{ $allPages := .Site.Pages}}
-        {{ range .Params.sections }}
-            {{ if eq .idf "new"}}
+    <!-- 获取网站的所有分组 -->
+    {{ $allSections := .Site.Sections }}
+    <!-- 遍历分组:为每个分组创建内容 -->
+    {{ range $allSections }}
+        <section class="border-2 mb-4 rounded-2xl">
+            <!-- 分组的标题 -->
+            <div class="mb-1">
+                <span class="text-3xl font-sans text-pink-600">{{ .Name }}</span>
+            </div>
+            <!-- 分组的内容 -->
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2">
+                <!-- 获取分组下所有的页面 -->
+                {{ $allPages := .Pages}}
+                <!-- 遍历页面:为每个页面创建内容 -->
                 {{ range $allPages}}
-                    <div class="border-2  bg-gradient-to-t from-slate-300 via-pink-500 to-red-500 bg-opacity-50">
+                    <div class="border-2 backdrop-blur">
                         <a class="block" href="{{ .RelPermalink }}">RelPermalink: {{.RelPermalink}}</a>
                         <p>Title: {{ .Name }}</p>
                         <p>Type: {{ .Type }}</p>
@@ -16,9 +22,17 @@
                         <p>Author: {{ .Params.Author }}</p>
                     </div>
                 {{ end}}
-            {{ end }}
-        {{ end }}
-    </div>
-</section>
+            </div>
+        </section>
+    {{ end }}
+            
+    
+        
+
+        
+                
+            
+    
+
     
     

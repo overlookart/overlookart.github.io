@@ -1,21 +1,18 @@
 ---
 # 文章的标题
-title: "首页标题"
+title: "Tailwind"
 # 文章的时间
-date: 2023-02-18T23:13:57+08:00
+date: 2023-03-19T10:18:57+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
 description: "文章描述"
 # 文章的过期时间  过期后不会发布到文章列表
-#expiryDate: 2023-02-18T23:13:57+08:00 
+#expiryDate:  //.ExpiryDate
 # 文章的发布时间  未到达发布时间不会发布到文章列表
-#publishDate: 2023-02-18T23:13:57+08:00
+#publishDate: //.PublishDate
 # 上次修改的日期
-lastmod: 2023-02-18T23:13:57+08:00
+#lastmod: // .Lastmod
 # 作者
 author: "OverookArt"
-
 ---
-
-# Site Home Page Content

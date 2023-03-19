@@ -1,3 +1,3 @@
 ---
-title: 'markdown index'
+title: 'Markdown'
 ---
