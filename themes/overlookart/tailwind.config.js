@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage:{
-                "sitebg":"url('https://source.unsplash.com/collection/399194')"
+                "sitebg":"url('https://picsum.photos/seed/picsum/1280/800')"
             }
         },
     },
