@@ -1,3 +1,4 @@
 public
 themes/overlookart/node_modules
 .pnpm-debug.log
+pnpm-lock.yaml

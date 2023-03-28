@@ -23,7 +23,7 @@ author: "OverookArt"
 
 ### 语法 
 
-> backdrop-blur-{amount?}     //backdrop-filter: blur(?px)  
+> backdrop-blur-{size?}     //backdrop-filter: blur(?px)  
 > backdrop-blur-none  //backdrop-filter: blur(0px)  
 > sm:4px, _:8px, md:12px, lg:16px, xl:24px, 2xl:40px, 3xl:64px
 
