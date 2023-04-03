@@ -19,9 +19,13 @@ author: "OverookArt"
 
 ## 单个元素边框  
 
-### 圆角  
+> 边框的圆角及宽度都可以对所有的边、角进行设置  
+> 也可以对相对的边框设置宽度颜色，相邻的角设置弧度  
+> 也可以对单个边框设置宽度颜色，单个角设置弧度
+### 圆角、宽度及颜色   
 
-> 圆角的弧度  
+* 圆角弧度的大小  
+  
 > rounded-{size?}  
 > 默认值为 4px  
 > none: 0px, sm:2px, md:6px, lg:8px, xl:12px, 2xl:16px, 3xl:24px, full:9999px
@@ -31,20 +35,66 @@ author: "OverookArt"
 <div class="rounded"></div>
 <!-- 设置自定义的值 -->
 <div class="rounded-[20px]"></div>
+```  
+
+* 边框宽度的大小
+
+> border-{size?}  
+> 默认值为: 1px  
+> 0:0px, 2:2px, 4:4px, 8:8px  
+
+``` html
+<div class="border-2"></div>
+<!-- 设置自定义的值 -->
+<div class="border-[3px]"></div>
 ```
 
-> -对角的位置  
-> rounded-{t|r|b|l}{-size?}  
+* 边框的颜色  
+
+> border-{color}  color:色系 gray:灰, red:红, orange:橙, green:绿...
+> inherit:?, transparent:透明, black:黑色, white:白色  
+> border-{color}-{size} 值越大色系越深 ,{50|100|200|300|400|500|600|700|800|900|950}  
+> border-{color}-{size/opacity} 通过设定opacity来调节颜色的透明度, 值越小越透明，5的倍数5...95  
+
+``` html
+<div class="border-lime-400/70"></div>
+<!-- 自定义颜色 -->
+<div class="border-[#243c5a]"></div>
+```
+
+* 邻角的位置  
+
+> rounded-{t|r|b|l}-{size?}  
 > t:上, r:右, b:下, l:左 
 
 ``` html
 <div class="rounded-t-lg"></div>
 <!-- 设置自定义的值 -->
 <div class="rounded-t-[20px]"></div>
+```  
+
+* 对边的位置  
+
+> border-{x|y}-{size?}  
+> x: 水平位置, y: 垂直位置  
+
+``` html
+<div class="border-x"></div>
 ```
 
-> 单个角的位置  
-> rounded-{tl|tr|br|bl}{-size?}  
+* 对边的颜色  
+
+> border-{x|y}-{color}  
+> x: 水平位置, y: 垂直位置  
+> 取决于对边的位置  
+
+``` html
+<div class="border-x-amber-400"></div>
+```
+
+* 单个角的位置  
+
+> rounded-{tl|tr|br|bl}-{size?}  
 > tl:左上, tr:右上, br:右下, bl:坐下
 
 ``` html
@@ -53,10 +103,24 @@ author: "OverookArt"
 <div class="rounded-tl-[20px]"></div>
 ```
 
+* 单条边框的位置  
 
-### 宽度  
+> border-{t|r|b|l}-{size?}  
+> t:上, r:右, b:下, l:左  
 
-### 颜色  
+``` html
+<div class="border-r"></div>
+```
+
+* 单条边框的颜色  
+
+> border-{t|r|b|l}-{color}  
+> t:上, r:右, b:下, l:左  
+> 取决于边框的位置  
+
+``` html
+<div class="border-r-amber-400"></div>
+```
 
 ### 样式  
 

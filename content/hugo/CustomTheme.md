@@ -133,15 +133,21 @@ theme = 'newTheme' #启动项目后生效
             // 监听页面使用的 css ,实时更新到 ./assets/style.css
             "watch": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css --watch"
         }
+    ```  
+
+7. 自定义 tailwind 的值时需要监听
+
+    ``` shell
+    $ npm run watch
     ```
 
-7. 编译 ./tailwind.css
+8. 打包部署前 编译 ./tailwind.css
 
     ``` shell
         $ npm run build
     ```
 
-8. 在 head 里面引用编译好的样式文件
+9.  在 head 里面引用编译好的样式文件
 
     ``` templates
         * 注意 文件的路径为编译后输出到 ./ assets/ 下的路径
@@ -149,7 +155,7 @@ theme = 'newTheme' #启动项目后生效
         <link rel="stylesheet" href="{{ $tailwindcss.Permalink }}">
     ```
 
-9. markdown 语法失效问题的解决  
+10. markdown 语法失效问题的解决  
 
     ``` shell
         # 需要引入 tailwindcss 的插件
