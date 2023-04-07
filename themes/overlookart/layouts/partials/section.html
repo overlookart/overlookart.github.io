@@ -13,7 +13,7 @@
                 {{ $allPages := .Pages}}
                 <!-- 遍历页面:为每个页面创建内容 -->
                 {{ range $allPages}}
-                    <div class="backdrop-blur-md rounded-tl-md rounded-br-[24px] border border-r-amber-400">
+                    <div class="backdrop-blur-md rounded-tl-md rounded-br-[24px] border-x-4 border-r-amber-400 border-double">
                         <a class="block" href="{{ .RelPermalink }}">RelPermalink: {{.RelPermalink}}</a>
                         <p>Title: {{ .Name }}</p>
                         <p>Type: {{ .Type }}</p>

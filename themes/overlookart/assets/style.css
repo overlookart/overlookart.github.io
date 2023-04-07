@@ -1305,12 +1305,17 @@ video {
   border-top-left-radius: 0.375rem;
 }
 
-.border {
-  border-width: 1px;
-}
-
 .border-2 {
   border-width: 2px;
+}
+
+.border-x-4 {
+  border-left-width: 4px;
+  border-right-width: 4px;
+}
+
+.border-double {
+  border-style: double;
 }
 
 .border-slate-50\/\[0\.06\] {

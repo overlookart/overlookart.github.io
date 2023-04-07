@@ -122,15 +122,22 @@ author: "OverookArt"
 <div class="border-r-amber-400"></div>
 ```
 
-### 样式  
+* 边框的样式  
+
+> border-{style}  
+> solid:单线, dashed:虚线, dotted:点线, double:双线, hidden:隐藏, none:无  
+> 取决于边框的位置  
+> 注意 设置为 double 时 边框的宽度大于 3px 样式才会展示  
+
+``` html
+<div class="border-solid"></div>
+```
 
 ## 多个元素边框  
 
-### 宽度  
+> 可以为内部子元素设置边框的宽度、颜色及样式
+### 宽度、颜色及样式  
 
-### 颜色  
-
-### 样式  
 
 ## 外边框  
 
