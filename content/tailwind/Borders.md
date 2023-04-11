@@ -65,7 +65,7 @@ author: "OverookArt"
 * 邻角的位置  
 
 > rounded-{t|r|b|l}-{size?}  
-> t:上, r:右, b:下, l:左 
+> t:上, r:右, b:下, l:左  
 
 ``` html
 <div class="rounded-t-lg"></div>
@@ -135,17 +135,52 @@ author: "OverookArt"
 
 ## 多个元素边框  
 
-> 可以为内部子元素设置边框的宽度、颜色及样式
+> 可以为内部子元素设置边框的宽度、颜色及样式  
+> ⚠️内部子元素之间没有间距  
+> ⚠️子元素最好填充满整个矩阵
+
 ### 宽度、颜色及样式  
 
+* 宽度  
 
-## 外边框  
+> divide-{x|y}-{size?}  
+> x:水平方向的边框 y:垂直方向的边距  
+> size default:1px, 0:0px, 2:2px, 4:4px 8:8px  
+> divide-{x|y}-reverse 边框位置反序排列
 
-### 宽度  
+``` html
+<div class="grid grid-cols-3 divide-x">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+</div>
+<!-- 自定义宽度 -->
+<div class="grid grid-cols-3 divide-x-[3px]">
+    ...
+```
 
-### 颜色  
+* 颜色  
 
-### 样式  
+> 取决于分组边框的位置
+> divide-{color}-{size/opacity}  
+> 相关参数参考 边框样式
+
+``` html
+<div class="grid grid-cols-3 divide-x divide-cyan-400">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+</div>
+```
+
+* 样式  
+
+> 取决于分组边框的位置  
+> divide-{style}  
+> solid:单线, dashed:虚线, dotted:点线, double:双线, hidden:隐藏, none:无  
+> 注意 设置为 double 时 边框的宽度大于 3px 样式才会展示
+
+## 外边框宽度、颜色及样式  
 
 ### 偏移  
 

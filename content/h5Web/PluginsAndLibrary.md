@@ -28,6 +28,7 @@ author: "OverookArt"
 * [NuxtJs](https://nuxtjs.org/docs/)  
 * [Naive UI](https://www.naiveui.com/)  
 * [SalesForce](https://www.lightningdesignsystem.com)  
+* [tailwindcss](https://tailwindcss.com)
   
 ## 富文本  
 

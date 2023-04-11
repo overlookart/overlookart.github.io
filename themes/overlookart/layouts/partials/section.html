@@ -8,12 +8,12 @@
                 <span class="text-3xl font-sans text-pink-600">{{ .Name }}</span>
             </div>
             <!-- 分组的内容 -->
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 divide-x-4 divide-cyan-400">
                 <!-- 获取分组下所有的页面 -->
                 {{ $allPages := .Pages}}
                 <!-- 遍历页面:为每个页面创建内容 -->
                 {{ range $allPages}}
-                    <div class="backdrop-blur-md rounded-tl-md rounded-br-[24px] border-x-4 border-r-amber-400 border-double">
+                    <div class="backdrop-blur-md">
                         <a class="block" href="{{ .RelPermalink }}">RelPermalink: {{.RelPermalink}}</a>
                         <p>Title: {{ .Name }}</p>
                         <p>Type: {{ .Type }}</p>
