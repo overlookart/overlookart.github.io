@@ -14,7 +14,7 @@ defaultContentLanguage = 'en'
 
 defaultContentLanguageInSubdir = true
 
-
+enableGitInfo = true
 
 # 模块配置
 [module]
