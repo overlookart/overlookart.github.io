@@ -4,7 +4,9 @@
 {{ .Content }}
 <div id="section">
     <div style="background-color: aliceblue;">
-        {{ hugo.Environment }}
+        {{ $str := string "String我" }}
+        {{ printf "%#v" $str}}
+        {{ upper $str }}
     </div>
     
     {{ partial "section.html" . }}
