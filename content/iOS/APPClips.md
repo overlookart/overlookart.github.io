@@ -57,9 +57,46 @@ Face ID 您无法在App Clip中使用Face ID，因为NSFaceIDUsageDescription授
 
 请注意，App Clip可以使用热点配置授权配置Wi-Fi网络。此外，要连接到身份验证提供程序，它可以使用调用backURLScheme使用init（url:callbackURLScheme:completionHandler:）初始化ASWebAuthenticationSession。
 
-## 用 XCode 创建一个轻APP  
+## 保护用户隐私  
+
+App Clips 附带了一些限制，有助于保护用户隐私并防止用户跨 App 和 App Clip 进行跟踪，例如：  
+
+* SKAdNetwork提供的功能不可用。
+* App Clips 无法请求授权以使用 App Tracking Transparency 跟踪用户。
+* name 和 identifierForVendor 都返回一个空字符串。
+* App Clips无法请求连续位置访问。但是，您可以调用requestWhenInUseAuthorization()来请求使用时授权，该授权在第二天凌晨4:00自动重置。
+* App Clips无法请求Pass Type IDs Entitlement来读取存储在钱包应用程序中的通行证。但是，如果您的App Clip包含向钱包应用程序添加通行证的功能，您可以检查此通行证是否已经存在。有关更多信息，请参阅检查图书馆中是否有通行证。
+* 除相应的完整应用程序外，App Clip无法与任何其他应用程序共享数据。有关更多信息，请参阅在App Clip和完整应用程序之间共享数据。
+
+App Clips 附带一些限制，有助于保护用户数据。他们无法访问：
+
+* 苹果音乐和媒体
+* 来自日历、联系人、文件、健康、消息、提醒事项和照片等应用程序的数据
+* 运动和健身数据
+
+## 为完整应用保留某些功能
+
+App Clips 提供即时体验，并专注于为日常任务提供尽可能快的解决方案，因此一些功能在您的完整应用程序中效果最佳。为完整应用程序保留以下功能：
+
+* 应用程序扩展。
+* 自定义和设置；例如，创建设置包。
+* 数据切换和文档打开。
+* 应用程序内购买。
+* 低级UNIX功能；例如，BSD通知。
+* iPad上的多个场景。
+* On-demand resources。
+* 注册自定义 URL schemes
+* 使用StoreKit的requestReview（in：）方法请求对完整应用程序的用户评论。
+* 搜索配对的蓝牙设备。
+
+
+## 用 XCode 创建一个 APP Clip  
 
 将轻 App 目标添加到 Xcode 项目，并在轻 App 与其对应的完整 App 之间共享代码  
 
 轻 App 是 App 的轻量级版本，可在人们需要的时间和地点提供部分功能。借助 Xcode，您可以将轻 App 目标添加到 app 的项目，在轻 App 和完整 App 之间共享代码和资源，以及构建、运行和调试轻 App 。
 
+App Clip 需要相应的完整应用程序，至少提供与应用程序剪辑相同的功能；您为完整App 和 App Clip 使用相同的Xcode项目。如果您正在启动一个新的 App 项目，请先使用Xcode创建一个新的iOS项目。如果您想将 App Clip 添加到现有的iOS应用程序中，请打开其Xcode项目。然后，将App Clip 目标添加到Xcode项目中：
+
+1. 使用App Clip 模板添加新目标
+2. 选择一个产品名称，为您的应用程序剪辑选择适用的选项，然后单击完成。
