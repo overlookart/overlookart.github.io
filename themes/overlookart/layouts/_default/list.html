@@ -2,6 +2,14 @@
 <div id="content">
     模版: default list
     {{ .Content }}
+    {{ $pages := .Pages }}
+    <ul>
+        {{ range $pages }}
+            <li>
+                <a href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a>
+            </li>
+        {{ end }}
+    </ul>
 </div>
 {{end}}
 
