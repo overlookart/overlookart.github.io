@@ -42,3 +42,28 @@ end
 ```
 
 ---
+
+> M系列芯片的mac电脑.a文件编译报错  
+> 报错内容: xxx/Pods/UMCShare/UMShare/SocialLibraries/WeChat/WechatSDK/libSocialOfficialWeChat.a(UMSocialOfficialWechatHandler.o), building for iOS Simulator, but linking in object file built for iOS, file '/Users/xx/Desktop/xxx/demoProject/Pods/UMCShare/UMShare/SocialLibraries/WeChat/WechatSDK/libSocialOfficialWeChat.a' for architecture arm64  
+
+1.在podfile文件中添加如下脚本
+
+``` shell
+post_install do|installer|
+    installer.pods_project.build_configurations.eachdo|config|
+        config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"]="arm64"
+    end
+end
+
+```
+
+2.xcode 中进行如下配置：
+BuildSetting -> Architectures -> Excluded Architectures ->
+AnyiOS Simulator SDK : arm64
+
+3.配置完毕之后，执行一下pod install ，clean 一下xcode，在运行就好了。
+
+---  
+
+> Xcode 13  
+> 报错内容: the Legacy Build System will be removed in a future release you can configure the selected build system and this deprecation message in file > Workspace Settings > New Build System
