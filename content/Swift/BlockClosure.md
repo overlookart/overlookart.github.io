@@ -35,6 +35,6 @@ author: "OverookArt"
 
     ``` Swift
     typealias closureType = @convention(block) (String) -> Void
-    // OC_block 为 OC 定义的 blocl
-    let closure = unsafeBitCast(OC_block, to: closureType.self)
+    // OC_block 为 OC 定义的 block
+    let closure = unsafeBitCast(OC_block as AnyObject, to: closureType.self)
     ```
