@@ -49,8 +49,9 @@ Hugo原生支持GoAT
 
 [mermaid js 官方文档](https://mermaid.js.org/syntax/sequenceDiagram.html)
 
-Hugo目前没有提供 Mermaid 的默认模板。
+Hugo目前没有提供 渲染 Mermaid 的模板。
 
+可以通过 Hugo 提供的 Markdown Render Hooks 自定义渲染 mermaid 标识的代码块
 
 
 1. 创建一个匹配 md 文件中以 mermaid 标识的代码块内容的布局模版  
