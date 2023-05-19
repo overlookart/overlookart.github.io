@@ -66,7 +66,7 @@ Hugo目前没有提供 Mermaid 的默认模板。
 
 ```
 
-2. 在 Content 布局模版底部添加渲染 mermaid 功能，需要借助 mermaid js 来渲染 mermaid 代码块的内容
+2. 在 Content View 布局模版底部添加渲染 mermaid 功能，需要借助 mermaid js 来渲染 mermaid 代码块的内容
 
 ``` html
 <!-- layouts/_default/single.html -->
