@@ -1,6 +1,6 @@
 ---
 # 文章的标题
-title: "Hugoconfig"
+title: "HUGO 项目配置"
 # 文章的时间
 date: 2023-03-03T17:55:54+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
@@ -10,8 +10,6 @@ description: "文章描述"
 # 作者
 author: "OverookArt"
 ---
-
-# HUGO 项目配置  
 
 > HUGO 项目初始化后 会在项目根目录生成 ./config.toml 的配置文件  
 > HUGO 项目支持 config.toml, config.yaml, config.json 三种格式  

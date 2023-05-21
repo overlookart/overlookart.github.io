@@ -54,6 +54,32 @@ $ hugo -E #编译已经过期的文章
 $ hugo -F #编译即将发布的文章
 ```  
 
+## Hugo 如何工作的  
+
+1. 网站初始化:加载配置，Hugo会根据配置加载网站配置,主题等信息初始化网站  
+2. 载入数据:解析 Markdown 和 TOML,构建数据结构，Hugo会解析并载入网站内容文件夹的Markdown文件、TOML配置等数据源,转换为Hugo的数据结构。  
+3. 站点构建:创建网站目录结构，根据配置创建网站目录结构,如content、themes、static、data等文件夹。
+4. 主题应用:加载主题至网站，根据主题配置加载主题文件夹,将主题的模板、静态资源等合并到网站中。
+5. 页面渲染:渲染模板生成HTML，Hugo根据templates中的模版和数据的渲染生成HTML页面。并将CSS、JS等资源复制到输出的public文件夹。
+6. 资源处理:复制CSS, JS等至输出文件夹， 输出public:Hugo将渲染生成的HTML页面以及资源文件输出到public文件夹。public文件夹中的内容就是最终构建的静态网站。  
+7. 输出和发布:构建输出文件夹并部署，将public文件夹的内容部署至Web服务器,最终完成网站的发布。
+
+``` mermaid
+sequenceDiagram
+  participant 项目启动
+  participant 载入数据
+  participant 站点构建
+  participant 主题应用
+  participant 页面渲染
+
+  项目启动->>载入数据: 加载网站配置,主题信息
+  载入数据->>站点构建: 解析 Markdown 和 TOML 构建数据结构
+  站点构建->>主题应用: 创建网站目录结构
+  主题应用->>页面渲染: 加载主题文件
+```
+
+![gif](https://media4.giphy.com/media/RbDKaczqWovIugyJmW/giphy.gif)
+
 ## 部署到 Github  
 
 ### 先决条件
@@ -157,6 +183,10 @@ GitHub Pages网站有三种类型：项目、用户和组织。项目站点连�
    ```
 
 8. 使用类似“添加工作流”的提交消息将更改提交到本地存储库，然后推送到GitHub。
+
+content 提供 markdown 文件作为页面内容
+
+layouts 提供页面布局及样式
 
 ## Hugo Modules  
 
