@@ -19,5 +19,3 @@ author: "OverookArt"
 ---
 
 # Site Home Page Content  
-
-![gif](https://media4.giphy.com/media/RbDKaczqWovIugyJmW/giphy.gif)
