@@ -25,5 +25,15 @@ author: "OverookArt"
 以下在_default/baseof.html上定义了一个简单的基本模板。作为默认模板，它是将呈现所有页面的外壳，除非您指定另一个更接近查找顺序开头的*baseof.html。  
 
 ``` html
-
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <div id="main">
+            {{- block "main" . }}{{- end }}
+        </div>
+        {{- partial "footer.html" . -}}
+    </body>
+</html>
 ```
