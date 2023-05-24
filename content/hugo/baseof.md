@@ -17,12 +17,13 @@ description: "文章描述"
 author: "OverookArt"
 ---
 
-> 基础和块结构允许您定义网站主框架外壳  
+> 基础和块结构允许您定义网站页面结构的主框架  
 > 关键字 block 允许您定义页面一个或多个主模板的外壳，然后根据需要填写或覆盖部分  
 
 ## 定义主框架模版  
 
-以下在_default/baseof.html上定义了一个简单的基本模板。作为默认模板，它是将呈现所有页面的外壳，除非您指定另一个更接近查找顺序开头的*baseof.html。  
+以下在_default/baseof.html上定义了一个简单的基础模板。作为默认模板，它是将呈现所有页面结构的框架，除非您指定另一个更接近查找顺序开头的*baseof.html。  
+包含  document 的 html head 和 body header footer
 
 ``` html
 <!DOCTYPE html>
@@ -37,3 +38,10 @@ author: "OverookArt"
     </body>
 </html>
 ```
+
+## Block 模块化  
+
+## Partial 组件化  
+
+## 在其他模版内覆盖  
+
