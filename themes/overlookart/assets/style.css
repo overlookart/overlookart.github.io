@@ -1244,10 +1244,6 @@ video {
   z-index: 40;
 }
 
-.z-50 {
-  z-index: 50;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1281,24 +1277,12 @@ video {
   display: none;
 }
 
-.h-60 {
-  height: 15rem;
+.h-16 {
+  height: 4rem;
 }
 
 .h-full {
   height: 100%;
-}
-
-.h-6 {
-  height: 1.5rem;
-}
-
-.h-20 {
-  height: 5rem;
-}
-
-.h-16 {
-  height: 4rem;
 }
 
 .w-full {

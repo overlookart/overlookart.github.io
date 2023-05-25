@@ -3,11 +3,12 @@
     <h1 style="text-align: center;">
         <span >{{ .Text | safeHTML }}</span>
     </h1>
-{{ end }}
-{{ if eq .Level 2 }}
+{{ else if eq .Level 2 }}
     <h2>
         <span class="content">{{ .Text | safeHTML }}</span>
     </h2>
+{{ else }}
+    <h{{ .Level }}>{{ .Text | safeHTML }}</h{{ .Level }}>
 {{ end }}
 </div>
 
