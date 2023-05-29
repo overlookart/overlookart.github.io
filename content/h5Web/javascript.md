@@ -17,8 +17,6 @@ lastmod: 2023-02-27T10:27:01+08:00
 author: "OverookArt"
 ---
 
-# Javascript 常用脚本  
-
 ## 格式化时间[Date]
 
 ``` js

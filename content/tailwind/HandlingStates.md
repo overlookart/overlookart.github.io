@@ -21,7 +21,18 @@ author: "OverookArt"
 
 ## 伪类  
 
-### Hover 悬停状态  
+> hover: 鼠标悬停状态  
+> focus: 获得焦点状态  
+> active: 被点击激活状态  
+> disabled: 禁用状态  
+> checked: 被选中状态  
+> focus-within: 子元素获得焦点状态  
+> first: 第一个子元素  
+> last: 最后一个子元素  
+> odd: 奇数索引的子元素  
+> even: 偶数索引的子元素  
+> visited: 链接访问后的状态  
+> group-hover: 鼠标悬停在父元素上激活  
 
 例如，bg-sky-700为默认状态下的背景，鼠标悬停时背景变为：bg-sky-700
 
@@ -31,9 +42,6 @@ author: "OverookArt"
 </button>
 ```
 
-### Focus 焦点状态  
-
-### Active 激活状态
 
 ## 伪元素
 
