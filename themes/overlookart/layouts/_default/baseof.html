@@ -4,7 +4,9 @@
     <body>
         {{- partial "header.html" . -}}
         <div id="main">
-            {{- block "main" . }}{{- end }}
+            {{- block "main" . }}
+                <p>可被其他模版覆盖的内容</p>
+            {{- end }}
         </div>
         {{- partial "footer.html" . -}}
     </body>
