@@ -27,6 +27,9 @@ author: "OverookArt"
 > disabled: 禁用状态  
 > checked: 被选中状态  
 > focus-within: 子元素获得焦点状态  
+
+父元素控制自元素的样式
+
 > first: 第一个子元素  
 > last: 最后一个子元素  
 > odd: 奇数索引的子元素  
