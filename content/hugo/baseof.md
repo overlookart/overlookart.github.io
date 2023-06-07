@@ -24,7 +24,7 @@ author: "OverookArt"
 
 以下在_default/baseof.html上定义了一个简单的基础模板。它定义了网站的基本结构和标题等共用元素。  
 其中 {{ block "main" . }}{{ end }} 是一个 Block， 其他模板通过继承并重写覆盖它的区域。  
-{{- partial "head.html" . -}} 是嵌入了一个 Partial，该 Partial 可以被其他模版多次使用  
+{{- partial "head.html" . -}} 是嵌入了一个 Partial组件，该 Partial组件 可以被其他模版多次使用  
 它定义了 head、header、main 和 footer 四个区域可以由子模板扩展。
 
 ``` html
@@ -37,19 +37,25 @@ author: "OverookArt"
             {{- block "main" . }}
                 <p>可被其他模版覆盖的内容</p>
             {{- end }}
+            {{block "main2"}}
+                <p>main2</p>
+            {{end}}
         </div>
         {{- partial "footer.html" . -}}
     </body>
 </html>
 ```
 
-## Block 模块化  
+## Block 模块  
 
 Hugo 中的 Block 是一种在模板中定义可重用内容的方法。  
-它允许你定义一个区域,然后在继承该模板的子模板中重写覆盖该区域的内容。  
-Block 使用 {{ block "block_name" }} 和 {{ end }} 标签定义:
+它允许你在主框架 baseof 中定义一个区域,然后在模板中继承重写该区域的内容。  
+不同的页面会根据 Kind 匹配不同的模版，  
+
+使用 {{ block "block_name" }} 和 {{ end }} 标签定义一个 Block 区域:
 
 ``` html
+<!-- baseof.html -->
 <!-- 这定义了一个 content 的 block,包含默认的 <p>默认内容</p> -->
 <body>
     {{ block "content" }} 
@@ -58,7 +64,7 @@ Block 使用 {{ block "block_name" }} 和 {{ end }} 标签定义:
 </body>
 ```
 
-子模板可以使用 {{ define "block_name" }} 和 {{ end }} 扩展这个 block:  
+在模板中使用 {{ define "block_name" }} 和 {{ end }} 重写这个 block:  
 
 ``` html
 <!-- 这将 block 的内容设置为 <p>新内容</p>。 -->
@@ -67,7 +73,9 @@ Block 使用 {{ block "block_name" }} 和 {{ end }} 标签定义:
 {{ end }} 
 ```
 
-当子模板被渲染时,content block 的内容将被替换为子模板定义的内容。输出为:
+当该模板被渲染时,content block 的内容将被替换为子模板定义的内容  
+页面还会加载 主框架baseof 除Block 内容外 的其他内容，  
+这样页面就会保持整个网站主框架结构, 不用在每个模版中重复搭建主框架结构
 
 ``` html
 <body>  
@@ -75,7 +83,24 @@ Block 使用 {{ block "block_name" }} 和 {{ end }} 标签定义:
 </body>
 ```
 
-## Partial 组件化  
+在 baseof.html 中可以定义多个 Block，在模版中可以重写 多个Block
 
-## 在其他模版内覆盖  
+## Partial 组件  
 
+Partial 是 Hugo 中的组件功能，它允许你将模板分割为可重用的片段。这些片段可以在其他模板中嵌入和重用。  
+
+Partial 模版放在项目的 /layouts/partials/ 目录下,如果在主题中使用则位于 /theme/themeName/layouts/partials/ 目录下  
+
+``` html
+<!-- /layouts/partials/head.html -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+```
+
+在模版中使用 {{ partial "Partial_File_Name.html" . }} 将组件嵌入到当前模版中  
+
+``` html
+···
+<!-- '-' 是为了去除前后空格 -->
+{{- partial "head.html" . -}}
+···
+```
