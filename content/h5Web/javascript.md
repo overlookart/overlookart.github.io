@@ -57,6 +57,16 @@ Array.prototype.remove = function(val) {
 };
 ```
 
+### Array 假值去除  
+
+``` js
+const removeFalsy = (arr) => arr.filter(Boolean);
+
+removeFalsy([0, 'a', '', 'as', 'NaN', true, undefined, false]);
+
+//['a', 'as', true]
+```
+
 ### Array 去重  
 
 ``` js
@@ -72,4 +82,50 @@ var arr = [];
 arr.splice(0,0,object);
 // 或者使用 unshift 方法在头部插入一个或多个数据 
 arr.unshift(object);
+```
+
+## 生成随机  
+
+``` js
+// 随机数字
+const random = (min, max) => Math.floor(Math.random() * (max-min+1)+min);
+
+// 随机字符串
+const randomString = () => Math.random().toString(36).slice(2);
+
+// 随机色
+const randomColor = () => `#${Math.random().toString(16).slice(2,8).padEnd(6,'0')}`
+
+```
+
+## 转义 HTML 特殊字符  
+
+``` js
+const escape = (str) => str.replace(/[&<>"']/g, (m) => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[m]));
+
+escape('<div class="medium">');
+
+//&lt;div class=&quot;medium&quot;&gt;
+```
+
+## 检测暗黑模式  
+
+``` js
+const isDarkMode = window.matchMedia && window.matchMedia('prefers-color-scheme: dark').matches;
+```
+
+## 清除所有的cookie  
+
+``` js
+const clearCookies = () => {
+    document.cookie.split(';').forEach( c => {
+        document.cookie = c.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`)
+    })
+}
+```
+
+## 将字符串转为小驼峰  
+
+``` js
+const toCamelCase = (str) => str.trim().replace(/[-_\s]+(.)?/g, (_,c) => (c?c.toUpperCase():''));
 ```
