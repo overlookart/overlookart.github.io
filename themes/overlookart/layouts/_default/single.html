@@ -17,6 +17,9 @@
     mermaid.initialize({ startOnLoad: true });
   </script>
 {{ end }}
+{{ if .Page.Store.Get "hasMarkmap" }}
+
+{{ end }}
 {{end}}
 
 {{define "main2"}}
