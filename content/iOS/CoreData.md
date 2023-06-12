@@ -46,3 +46,56 @@ NSManagedObjectContext上下文的实例跟踪对应用程序类型实例的更�
 NSPersistentStoreCoordinator存储协调员的实例从存储中保存和获取应用程序类型的实例。  
 
 NSPersistentContainer 持久性容器的实例同时设置模型、上下文和存储协调员。  
+
+## 创建持久容器  
+
+``` Swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    ···
+    /// CoreData 持久容器
+    private(set) lazy var persistentContainer: NSPersistentContainer = {
+        // name 传数据模型文件名称
+        let container = NSPersistentContainer(name: "DataStore")
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                fatalError("Unable to load persistent stores: \(error)")
+            }
+        }
+        return container
+    }()
+    ···
+}
+```
+
+持久容器创建后 分别在其managedObjectModel、viewContext和persistentStoreCoordinator属性中保存对模型、上下文和存储协调器实例的引用。  
+
+## 将持久容器的引用传递给视图控制器  
+
+在应用程序的根视图控制器中，引入 CoreData,并创建一个变量来保存对持久容器的引用。  
+
+``` Swift
+import UIKit
+import CoreData
+class ViewController: UIViewController {
+    var container: NSPersistentContainer!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard container != nil else {
+            fatalError("This view needs a persistent container.")
+        }
+        // 持久容器可用.
+    }
+}
+
+// iOS13 在 SceneDelegate 将 AppDelegate 的持久容器引用传递到 rootViewController
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let _ = (scene as? UIWindowScene) else { return }
+        if let rootVC = window?.rootViewController as? ViewController, let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            rootVC.container = appDelegate.persistentContainer
+        }
+    }
+}
+```
