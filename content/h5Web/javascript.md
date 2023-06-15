@@ -129,3 +129,183 @@ const clearCookies = () => {
 ``` js
 const toCamelCase = (str) => str.trim().replace(/[-_\s]+(.)?/g, (_,c) => (c?c.toUpperCase():''));
 ```
+
+## 大小写转换  
+
+``` js
+/**
+ * str: 待转换的字符串
+ * type: 1全大写，2全小写，3首字母大写
+ */
+const turnCase = (str, type) => {
+    switch (type) {
+        case 1:
+            return str.toUpperCase();
+        case 2:
+            return str.toLowerCase();
+        case 3:
+            return str[0].toUpperCase() + str.substring(1).toLowerCase();
+        default:
+            return str
+    }
+}
+```
+
+## 校验数据类型  
+
+``` js
+const typeOf = (obj) => {
+    return Object.prototype.toString.call(obj).slice(8,-1);
+}
+```
+
+## 防抖  
+
+``` js
+const debounce = () => {
+    let timer = null
+    return (callback, wait = 800) => {
+        timer&&clearTimeout(timer)
+        timer = setTimeout(callback, wait)
+    }
+}
+
+```
+
+## 手机号脱敏  
+
+``` js
+const hideMobile = (mobile) => {
+    reture mobile.replace(/^(\d{3})\d{4}(\d{4})$/,"$1****$2");
+}
+```
+
+## 开启全屏  
+
+``` js
+const launchFullScreen = (element){
+    if(element.requestFullscreen){
+        element.requestFullscreen();
+    }else if (element.mozRequestFullScreen){
+        element.mozRequestFullScreen();
+    }else if (element.msRequestFullscreen){
+        element.msRequestFullscreen();
+    }else if (element.webkitRequestFullscreen){
+        element.webkitRequestFullscreen();
+    }
+}
+```
+
+## 关闭全屏  
+
+``` js
+const exitFullScreen = () => {
+    if(document.exitFullscreen){
+        document.exitFullscreen();
+    }else if (document.msExitFullscreen){
+        document.msExitFullscreen();
+    }else if (document.mozCancelFullScreen){
+        document.mozCancelFullScreen();
+    }else if (document.webkitExitFullscreen){
+        document.webkitExitFullscreen();
+    }
+}
+```
+
+## 解析URL参数  
+
+``` js
+const getSearchParams = () => {
+    const searchPar = new URLSearchParams(window.location.search);
+    const paramsObj = {};
+    for (const [key, value] of searchPar.entries()){
+        paramsObj[key] = value;
+    }
+    return paramsObj;
+}
+```
+
+## 判断设备类型  
+
+``` js
+const getOSType = () => {
+    let u = navigator.userAgent;
+    let app = navigator.appVersion;
+    let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+    let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if (isIOS) {
+        return 1;
+    } else if (isAndroid) {
+        return 2;
+    }else {
+        return 3;
+    }
+}
+```
+
+## 滚动到页面顶部  
+
+``` js
+const scrollToTop = () => {
+    const height = document.documentElement.scrollTop || document.body.scrollTop;
+    if(height > 0){
+        window.requestAnimationFrame(scrollToTop);
+        window.scrollTo(0, height - height / 8);
+    }
+}
+```
+
+## 滚动到元素的位置  
+
+``` js
+const smoothScroll = (element) => {
+    document.querySelector(element).scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+```
+
+## uuid
+
+``` js
+const uuid = () => {
+    const temp_url = URL.createObjectURL(new Blob());
+    const uuid = temp_url.toString();
+    //释放这个URL
+    URL.revokeObjectURL(temp_url);
+    return uuid.substring(uuid.lastIndexOf('/')+1);
+}
+```
+
+## 金额格式化  
+
+``` js
+/**
+ * number: 要格式化的数字
+ * decimals: 保留几位小数
+ * dec_point: 小数点符号
+ * thousands_sep: 千分位符号
+ */
+const moneyFormat = (number, decimals, dec_point, thousands_sep) => {
+    number = (number + '').replace(/[^0-9+-Ee.]/g, '');
+    const n = !isFinite(+number) ? 0 : +number;
+    const prce = !isFinite(+decimals) ? 2 : Math.abs(decimals);
+    const sep = typeof thousands_sep === 'undefined' ? ',' : thousands_sep;
+    const dec = typeof dec_point === 'undefined' ? '.' : dec_point;
+    let s = '';
+    const toFixedFix = function(n, prec) {
+        const k = Math.pow(10, prec)
+        return '' + Math.ceil(n*k)/k;
+    }
+    s = (prec ? toFixedFix(n, prec) : ''+Math.round(n)).split('.');
+    const re = /(-?\d+)(\d{3})/
+    while (re.test(s[0])) {
+        s[0] = s[0].replace(re, '$1' + sep + '$2');
+    }
+    if((s[1] || '').length < prec) {
+        s[1] = s[1] || '';
+        s[1] += new Array(prec - s[1].length + 1).join('0');
+    }
+    return s.join(dec);
+}
+```

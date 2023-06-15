@@ -105,16 +105,17 @@ theme = 'newTheme' #启动项目后生效
     $ npx tailwindcss init
     ```
 
-4. 在 tailwind.config.js 文件配置 content
+4. 配置模板路径
 
     ``` js
+    //tailwind.config.js
     module.exports = {
-        //用你的主题布局文件以这种方式填充content属性
+        //在tailwind.config.js文件中添加所有模板文件的路径。
         content: ['content/**/*.md', 'layouts/**/*.html'],
     }
     ```
 
-5. 在主题的文件夹中创建tailwind.css 文件并添加一下模块
+5. 将Tailwind指令添加到 tailwind.css 中
 
     ``` css
     @tailwind base;
@@ -122,7 +123,8 @@ theme = 'newTheme' #启动项目后生效
     @tailwind utilities
     ```
 
-6. 在package.json, 在scripts 部分添加build和watch命令
+6. 在package.json, 在scripts 部分添加build和watch命令  
+   运行CLI工具来扫描模板文件的类并构建CSS。  
 
     ``` json
     "scripts": {
@@ -145,7 +147,7 @@ theme = 'newTheme' #启动项目后生效
     $ npm run build
     ```
 
-9.  在 head 里面引用编译好的样式文件
+9. 在 head 里面引用编译好的样式文件
 
     ``` html
     <!--  注意 文件的路径为编译后输出到 ./ assets/ 下的路径 -->
