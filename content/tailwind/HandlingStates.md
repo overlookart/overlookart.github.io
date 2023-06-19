@@ -45,12 +45,19 @@ author: "OverookArt"
 </button>
 ```
 
-
 ## 伪元素
 
 ## 媒体设备与功能
 
 ### 响应式断点处理
+
+| 断点前缀 | 最小宽度 | CSS |
+| ------ | ------ | ------ |
+| sm | 640px | @media (min-width: 640px){...} |
+| md | 768px | @media (min-width: 768px){...} |
+| lg | 1024px| @media (min-width: 1024px){...}|
+| xl | 1280px| @media (min-width: 1280px){...}|
+| 2xl| 1536px| @media (min-width: 1536px){...}|
 
 ### 主题颜色处理
 
