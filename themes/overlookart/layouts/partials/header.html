@@ -7,7 +7,7 @@
             {{ range .Site.Menus.main }}
 
             {{ $js := printf "console.debug('按钮点击');window.location.href='%s%s'" site.BaseURL .URL}}
-            {{ $dic := dict "title" .Name "click" $js "class" "bg-lime-300 px-3 rounded-full h-8" "style" "color:red"}}
+            {{ $dic := dict "title" .Name "click" $js "class" "bg-teal-400 px-3 rounded-full h-8"}}
             {{ partial "Button.html" $dic }}            
             {{ end }}
         </div>

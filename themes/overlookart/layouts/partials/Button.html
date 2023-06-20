@@ -1,9 +1,9 @@
 <!-- 
     title: 按钮的标题
-    class: CSS 类名
-    style: 样式
+    class: CSS tailwind 类名
+    style: 内联样式
     click: 点击事件
  -->
-<button  onclick="{{ .click | safeJS }}"  class="{{.class}}" style="{{.style}}">
+<button  onclick="{{ .click | safeJS }}"  class="{{.class}} hover:bg-teal-500" style="{{.style}}">
     {{.title}}
 </button>
