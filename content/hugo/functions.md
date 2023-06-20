@@ -260,6 +260,13 @@ author: "OverookArt"
 // 打印结果: 3
 ```
 
+### 添加新的键值对  
+
+``` js
+{{ $myDict := dict "key1" "value1" "key2" "value2" }}
+{{ $myDict = $myDict | merge (dict "key3" "value3") }}
+```
+
 ### 通过 key 取 value  
 
 ``` js
