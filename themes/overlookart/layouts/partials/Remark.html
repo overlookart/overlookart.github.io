@@ -1,0 +1,27 @@
+<textarea id="source">
+    {{ .RawContent }}
+</textarea>
+
+<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    
+</script>
+<script>
+    var slideshow = remark.create({
+        // 显示比例
+        ratio: '16:9',
+
+        navigation: {
+            scroll: false,
+            touch: true,
+            click: true
+        },
+
+        timer: {
+            startOnChange: true,
+            resetable: true,
+            enabled: true
+        },
+
+        includePresenterNotes: false
+    });
+</script>
