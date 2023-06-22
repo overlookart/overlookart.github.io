@@ -45,11 +45,11 @@ name: 首页
 创建一个用于渲染 Remark 的 partials 组件 /layout/partials/Remark.html
 
 ``` html
-<textarea id="source">
+<textarea id="source" >
     {{ .RawContent }}
 </textarea>
 
-<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"/>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"/>
     
 <script>
     var slideshow = remark.create();
