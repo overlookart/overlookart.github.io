@@ -1,6 +1,6 @@
 <div class="backdrop-blur-sm bg-stone-100/40 p-2">
     <a class="block text-2xl" href="{{ .RelPermalink }}">{{ .Name }}</a>
-    <p>{{ .Description }}</p>
+    <p class="line-clamp-2">{{ .Description }}</p>
     <p>作者: {{ .Params.Author }}</p>
     <p class="border-l-4 border-amber-300">{{ .Lastmod.Format "2006-01-02 15:04:05" }}</p>
     
