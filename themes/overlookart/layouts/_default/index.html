@@ -3,12 +3,6 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 <div id="section">
-    <div style="background-color: aliceblue;">
-        {{ $str := string "String我" }}
-        {{ printf "%#v" $str}}
-        {{ upper $str }}
-    </div>
-    
     {{ partial "section.html" . }}
 </div>
 {{ end }}
