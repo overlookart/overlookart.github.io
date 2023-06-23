@@ -1330,10 +1330,6 @@ video {
   border-bottom-width: 1px;
 }
 
-.border-l-2 {
-  border-left-width: 2px;
-}
-
 .border-l-4 {
   border-left-width: 4px;
 }
@@ -1430,11 +1426,6 @@ video {
 .text-pink-600 {
   --tw-text-opacity: 1;
   color: rgb(219 39 119 / var(--tw-text-opacity));
-}
-
-.text-slate-100 {
-  --tw-text-opacity: 1;
-  color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
 .text-transparent {
