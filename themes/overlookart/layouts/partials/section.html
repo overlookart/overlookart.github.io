@@ -9,8 +9,8 @@
                 <a class="text-3xl font-sans text-pink-600" href="{{ .RelPermalink }}">{{.Name}}</a>
             </div>
             <!-- 分组的内容 -->
-            <div class="overflow-auto pb-4">
-                <div class="flex flex-row flex-nowrap space-x-3  scroll-smooth">
+            <div class="overflow-auto pb-4 snap-x">
+                <div class="flex flex-row flex-nowrap space-x-3">
                     <!-- 获取分组下所有的页面 -->
                     {{ $allPages := .Pages}}
                     <!-- 遍历页面:为每个页面创建内容 -->
