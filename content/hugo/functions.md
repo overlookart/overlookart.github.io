@@ -237,9 +237,15 @@ author: "OverookArt"
 ``` js
 // $index 绑定下标
 // $item 绑定元素
-{{range $index, $item := array }}
+{{range $index, $item := $array }}
     {{ printf "<index:%#v item:%#v>" $index $item }}
 {{end}}
+
+//遍历前几个元素
+{{ range first 3 $array }} {{ end }}
+
+//遍历后几个元素
+{{ range after 3 $array }} {{ end }}
 ```
 
 ## 字典  
