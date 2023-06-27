@@ -1,7 +1,7 @@
 {{define "main"}}
 <div class="w-full max-w-8xl">
     <div class="flex">
-        <aside class=" fixed top-10 lg:w-40 lg:block hidden">
+        <aside class=" fixed overflow-scroll lg:w-40 lg:block hidden">
             {{ .TableOfContents }}
         </aside>
         <article class="prose prose-zinc prose-lg  mx-auto">
@@ -9,20 +9,7 @@
             <h1 style="text-align: center;">{{ .Title }}</h1>
             {{ .Content }}
         </article>
-        <div class="max-w-[240px]">
-          <p>RelPermalink: {{.RelPermalink}}</p>
-          <p>所属分类: {{ .Type }}</p>
-          <p>模版类型: {{ .Kind }}</p>
-          <p>BundleType: {{ .BundleType }}</p>
-          <p>创建日期: {{ .Date.Format "2006-01-02 15:04:05" }}</p>
-          <p>最后修改日期: {{ .Lastmod.Format "2006-01-02 15:04:05" }}</p>
-          <p>作者: {{ .Params.Author }}</p>
-          <p>字数: {{ .WordCount }}</p>
-          <p>预计阅读时长: {{ .ReadingTime }} 分钟</p>
-          <p>关联的资源: {{ .Resources }}</p>
-          <p>页面的别名: {{ .Aliases }}</p>
-          <p>{{ .Description }}</p>
-        </div>
+        {{ partial "PageVar.html" . }}
     </div>
 </div>
 {{ if .Page.Store.Get "hasMermaid" }}

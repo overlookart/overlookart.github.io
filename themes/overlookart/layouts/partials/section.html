@@ -5,10 +5,10 @@
     {{ range $allSections }}
         <section class="border mb-4">
             <!-- 分组的标题 -->
-            <div class="mb-1 justify-between flex flex-row">
+            <div class="mb-1 justify-between content-center flex flex-nowrap ">
                 <p class="text-3xl font-sans text-pink-600" >{{.Name}}</p>
                 {{ if gt .Pages.Len 5 }}
-                 <a href="{{ .RelPermalink }}">更多</a>
+                 <a class="inline-block" href="{{ .RelPermalink }}">更多</a>
                 {{ end }}
             </div>
             <!-- 分组的内容 -->
