@@ -1,8 +1,20 @@
 <!-- 页面变量 -->
 <div class="max-w-[240px]">
     <p>RelPermalink: {{.RelPermalink}}</p>
+    <p>Data: {{ .Data }}</p>
+    <p>Draft: {{ .Draft }}</p>
+    <p>File: {{ .File }}</p>
+    <p>FuzzyWordCount: {{ .FuzzyWordCount }}</p>
+    <P>IsHome: {{ .IsHome }}</P>
+    <p>IsNode: {{ .IsNode }}</p>
+    <p>IsPage: {{ .IsPage }}</p>
+    <p>IsSection: {{ .IsSection }}</p>
+    <p>IsTranslated: {{ .IsTranslated }}</p>
+    <p>Language: {{ .Language }}</p>
+    <p>LinkTitle: {{ .LinkTitle }}</p>
+    <p>Next: {{ .Next }}</p>
     <p>所属分类: {{ .Type }}</p>
-    <p>模版类型: {{ .Kind }}</p>
+    <p>模版种类: {{ .Kind }}</p>
     <p>BundleType: {{ .BundleType }}</p>
     <p>创建日期: {{ .Date.Format "2006-01-02 15:04:05" }}</p>
     <p>最后修改日期: {{ .Lastmod.Format "2006-01-02 15:04:05" }}</p>
@@ -11,5 +23,4 @@
     <p>预计阅读时长: {{ .ReadingTime }} 分钟</p>
     <p>关联的资源: {{ .Resources }}</p>
     <p>页面的别名: {{ .Aliases }}</p>
-    <p>{{ .Description }}</p>
   </div>
