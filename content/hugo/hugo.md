@@ -10,8 +10,11 @@ description: "HUGO 的快速使用"
 ## 快速使用  
 
 ``` shell
-# 安装
+# macOS安装
 $ brew install hugo
+
+# windows 安装
+$
 
 # 查看安装的版本 
 $ hugo version
