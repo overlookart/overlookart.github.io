@@ -1,16 +1,24 @@
 {{define "main"}}
 <div class="w-full max-w-8xl">
     <div class="flex">
-        <aside class=" fixed top-10 z-40 lg:w-40 lg:block hidden">
+        <aside class=" fixed overflow-scroll lg:w-40 lg:block hidden">
             {{ .TableOfContents }}
         </aside>
-        <article class="prose prose-zinc prose-lg mx-auto">
+        <article class="prose prose-zinc prose-lg  mx-auto">
             模版: default single
+            <h1 style="text-align: center;">{{ .Title }}</h1>
             {{ .Content }}
         </article>
+        {{ partial "PageVar.html" . }}
     </div>
 </div>
-
+{{ if .Page.Store.Get "hasMermaid" }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+{{ end }}
+{{ if .Page.Store.Get "hasMarkmap" }}
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
+{{ end }}
 {{end}}
-        
-       

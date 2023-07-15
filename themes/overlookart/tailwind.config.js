@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage:{
-                "sitebg":"url('https://source.unsplash.com/collection/399194')"
+                "sitebg":"url('https://source.unsplash.com/random/1280x800?simple,color,bright')"
             }
         },
     },
@@ -13,6 +13,9 @@ module.exports = {
         plugin((addUtilities, addComponents, e, prefix, config) => {
             // Add your custom styles here
         }),
-        require('@tailwindcss/typography'),
+        require('@tailwindcss/typography')({
+            // 自定义 typography 插件的类名
+            className: 'prose'
+        }),
     ],
 }

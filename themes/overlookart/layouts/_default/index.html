@@ -3,10 +3,6 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 <div id="section">
-    <div style="background-color: aliceblue;">
-        {{ hugo.Environment }}
-    </div>
-    
     {{ partial "section.html" . }}
 </div>
 {{ end }}

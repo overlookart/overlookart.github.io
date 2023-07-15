@@ -124,6 +124,37 @@ author: "OverookArt"
 {{ math.Sqrt 81 }} //结果: 9
 ```
 
+## 字符串  
+
+### 创建一个字符串  
+
+``` js
+// 通过字面创建
+{{ $str := "String" }}
+// 通过 string 函数创建
+{{ $str := string "String" }}
+{{ printf "%#v" $str }}
+// 打印结果: "String"
+```
+
+### 字符串的长度  
+
+``` js
+{{ strings.RuneCount $str }}
+// 显示结果: 6
+```
+
+### 大小写转化  
+
+``` js
+// 转化为小写
+{{ lower $str }}
+// 显示结果: string
+// 转化为大写
+{{ upper $str }}
+// 显示结果: STRING
+```
+
 ## 数组  
 
 ### 创建一个数组  
@@ -131,6 +162,14 @@ author: "OverookArt"
 ``` js
 {{ $array :=  slice "item1" "item2" "item3" }}
 {{ printf "%#v" $array }}
+```
+
+### 获取数组的长度  
+
+``` js
+{{ $array := slice "1" "2" "3" }}
+{{ printf "%#v" $array.Len }}
+// 打印结果: 3
 ```
 
 ### 为一个数组添加元素  
@@ -198,9 +237,15 @@ author: "OverookArt"
 ``` js
 // $index 绑定下标
 // $item 绑定元素
-{{range $index, $item := array }}
+{{range $index, $item := $array }}
     {{ printf "<index:%#v item:%#v>" $index $item }}
 {{end}}
+
+//遍历前几个元素
+{{ range first 3 $array }} {{ end }}
+
+//遍历后几个元素
+{{ range after 3 $array }} {{ end }}
 ```
 
 ## 字典  
@@ -211,6 +256,21 @@ author: "OverookArt"
 {{ $dic := dict "key" "value" }}
 {{ printf "%#v" $dic }}
 // 打印结果: {"key":"value"}
+```
+
+### 获取字典的长度  
+
+``` js
+{{ $dic := dict "key1" "value1" "key2" "value2" "key3" "value3" }}
+{{ printf "%#v" $dic.Len }}
+// 打印结果: 3
+```
+
+### 添加新的键值对  
+
+``` js
+{{ $myDict := dict "key1" "value1" "key2" "value2" }}
+{{ $myDict = $myDict | merge (dict "key3" "value3") }}
 ```
 
 ### 通过 key 取 value  

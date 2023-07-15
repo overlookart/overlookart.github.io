@@ -1,6 +1,6 @@
 ---
 # 文章的标题
-title: "Custom Hugo Theme"
+title: "HUGO 自定义主题"
 # 文章的时间
 date: 2023-02-26T00:02:48+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
@@ -15,15 +15,13 @@ publishDate: 2023-02-26T00:02:48+08:00
 lastmod: 2023-02-26T00:02:48+08:00
 # 作者
 author: "OverookArt"
----
-
-# 自定义 Hugo 主题  
-
+--- 
 ## 创建一个主题  
 
 ``` shell
 # 在项目根目录下执行
-$ hugo new theme [newTheme] #会在项目的主题文件夹下创建对应名字的主题 /theme/newTheme/
+$ hugo new theme [newTheme] 
+#会在项目的theme文件夹下创建对应名字的主题, 例如：/theme/newTheme/
 
 # 在配置文件设置新创建的主题 /config.toml
 theme = 'newTheme' #启动项目后生效
@@ -91,65 +89,73 @@ theme = 'newTheme' #启动项目后生效
 1. 通过 Node Package Manager 管理三方依赖库
 
     ```shell
-        # 在自定义主题文件夹下执行
-        $ npm init -y
+    # 在自定义主题文件夹下执行
+    $ npm init -y
     ```
 
 2. 安装Tailwind CSS 依赖库
 
     ``` shell
-        $ npm install -D tailwindcss
+    $ npm install -D tailwindcss
     ```
 
 3. 初始化 Tailwind CSS
 
     ``` shell
-        $ npx tailwindcss init
+    $ npx tailwindcss init
     ```
 
-4. 在 tailwind.config.js 文件配置 content
+4. 配置模板路径
 
     ``` js
-        module.exports = {
-            //用你的主题布局文件以这种方式填充content属性
-            content: ['content/**/*.md', 'layouts/**/*.html'],
-        }
+    //tailwind.config.js
+    module.exports = {
+        //在tailwind.config.js文件中添加所有模板文件的路径。
+        content: ['content/**/*.md', 'layouts/**/*.html'],
+    }
     ```
 
-5. 在主题的文件夹中创建tailwind.css 文件并添加一下模块
+5. 将Tailwind指令添加到 tailwind.css 中
 
     ``` css
-        @tailwind base;
-        @tailwind components;
-        @tailwind utilities
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities
     ```
 
-6. 在package.json, 在scripts 部分添加build和watch命令
+6. 在package.json, 在scripts 部分添加build和watch命令  
+   运行CLI工具来扫描模板文件的类并构建CSS。  
 
     ``` json
-        "scripts": {
-            // 编译 ./tailwind.css 文件输出到 ./assets/style.css
-            "build": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css",
-            // 监听页面使用的 css ,实时更新到 ./assets/style.css
-            "watch": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css --watch"
-        }
-    ```
+    "scripts": {
+        // 编译 ./tailwind.css 文件输出到 ./assets/style.css
+        "build": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css",
+        // 监听页面使用的 css ,实时更新到 ./assets/style.css
+        "watch": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css --watch"
+    }
+    ```  
 
-7. 编译 ./tailwind.css
+7. 自定义 tailwind 的值时需要监听
 
     ``` shell
-        $ npm run build
+    $ npm run watch
     ```
 
-8. 在 head 里面引用编译好的样式文件
+8. 打包部署前 编译 ./tailwind.css
 
-    ``` templates
-        * 注意 文件的路径为编译后输出到 ./ assets/ 下的路径
-        {{ $tailwindcss := resources.Get "style.css" }}
-        <link rel="stylesheet" href="{{ $tailwindcss.Permalink }}">
+    ``` shell
+    $ npm run build
     ```
 
-9. markdown 语法失效问题的解决  
+9. 在 head 里面引用编译好的样式文件
+
+    ``` html
+    <!--  注意 文件的路径为编译后输出到 ./ assets/ 下的路径 -->
+    {{ $tailwindcss := resources.Get "style.css" }}
+    <link rel="stylesheet" href="{{ $tailwindcss.Permalink }}">
+    ```
+
+10. markdown 语法插件 typography  
 
     ``` shell
         # 需要引入 tailwindcss 的插件

@@ -14,7 +14,7 @@
             "identifier": "404",
             "name": "404-:P",
             "pre": "<i class='fa fa-heart'></i>",
-            "url": "/menu/",
+            "url": "/404/",
             "weight": -110
         }
     ]

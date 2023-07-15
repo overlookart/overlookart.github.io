@@ -1,38 +1,24 @@
     <!-- 获取网站的所有分组 -->
     {{ $allSections := .Site.Sections }}
     <!-- 遍历分组:为每个分组创建内容 -->
+    <div>{{ $allSections }}</div>
     {{ range $allSections }}
-        <section class="border-2 mb-4 rounded-2xl">
+        <section class="border mb-4">
             <!-- 分组的标题 -->
-            <div class="mb-1">
-                <span class="text-3xl font-sans text-pink-600">{{ .Name }}</span>
+            <div class="mb-1 justify-between content-center flex flex-nowrap ">
+                <p class="text-3xl font-sans text-pink-600" >{{.Name}}</p>
+                {{ if gt .Pages.Len 5 }}
+                 <a class="inline-block" href="{{ .RelPermalink }}">更多</a>
+                {{ end }}
             </div>
             <!-- 分组的内容 -->
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2">
+            <div class="flex flex-row flex-nowrap space-x-3 overflow-auto snap-x pb-4 px-3">
                 <!-- 获取分组下所有的页面 -->
                 {{ $allPages := .Pages}}
                 <!-- 遍历页面:为每个页面创建内容 -->
-                {{ range $allPages}}
-                    <div class="border-2 backdrop-blur">
-                        <a class="block" href="{{ .RelPermalink }}">RelPermalink: {{.RelPermalink}}</a>
-                        <p>Title: {{ .Name }}</p>
-                        <p>Type: {{ .Type }}</p>
-                        <p>Kind: {{ .Kind }}</p>
-                        <p>Date: {{ .Date }}</p>
-                        <p>Author: {{ .Params.Author }}</p>
-                    </div>
+                {{ range first 5 $allPages}}
+                    {{ partial "PageCell.html" . }}       
                 {{ end}}
             </div>
         </section>
     {{ end }}
-            
-    
-        
-
-        
-                
-            
-    
-
-    
-    

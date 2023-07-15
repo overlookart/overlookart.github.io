@@ -1,6 +1,6 @@
 ---
 # 文章的标题
-title: "Hugoconfig"
+title: "HUGO 项目配置"
 # 文章的时间
 date: 2023-03-03T17:55:54+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
@@ -10,8 +10,6 @@ description: "文章描述"
 # 作者
 author: "OverookArt"
 ---
-
-# HUGO 项目配置  
 
 > HUGO 项目初始化后 会在项目根目录生成 ./config.toml 的配置文件  
 > HUGO 项目支持 config.toml, config.yaml, config.json 三种格式  
@@ -133,4 +131,56 @@ author: "OverookArt"
 ``` templates
 <!-- 获取菜单配置 -->
 {{ .Site.Menus.main }}
+```
+
+## Markup 配置  
+
+``` json
+// /config/_default/markup.json
+{
+    //Markdown 默认的渲染器
+    "defaultMarkdownHandler": "goldmark",
+    "goldmark": {
+        //扩展配置
+        "extensions": {
+            "strikethrough": true, //是否启用删除线扩展
+            "definitionList": true, //是否启用自定义列表
+            "linkify": true, //链接转换扩展,会将纯文本中的 URL 和邮箱转换为链接
+            "table": true, //是否启用表格扩展
+
+        },
+        //解析器配置
+        "parser": {
+            "wrapStandAloneImageWithinParagraph": true
+        },
+        //渲染器配置
+        "renderer": {
+            "hardWraps": true,
+            "unsafe": true, //是否启用不安全的 HTML 渲染，开启后可以解析 html 标签并渲染
+            "xhtml": true
+        }
+    },
+    //单篇页面的标题目录配置
+    "tableOfContents": { 
+        "startLevel": 1, //从标题级别1（h1）开始渲染目录。
+        "endLevel": 3, //从标题级别3（h3）结束渲染目录。
+        "ordered": true //是否生成有序列表。
+    },
+    //代码语法高亮配置
+    "highlight": {
+        "codeFences": true, //是否启用代码块的 Markdown 语法
+        "style": "doom-one2", //高亮样式: 提供多种高亮样式可进行配置
+        "noClasses":true, //是否禁用 CSS 类名
+        "guessSyntax": false, //是否自动猜测代码块的语言
+        "lineNos": true, //是否显示行号
+        "lineNoStart": 1, //行号开始数值
+        "lineNumbersInTable": false, //每一行是否在单行内不换行展示
+        "hl_Lines": "2 4 6-8", //高亮显示行数，第2行和第四行进行高亮显示
+        "hl_inline": false,//是否启用内联代码高亮显示，启用后代码块被 ` ` 包裹，失去原有的段落格式
+        "noHl": true,//是否开启禁用高亮显示
+        "anchorLineNos": false,//是否为每一行生成唯一的链接
+        "lineAnchors": "",
+        "tabWidth": 4 //指定制表符的宽度
+    }
+}
 ```

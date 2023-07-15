@@ -3,10 +3,11 @@
     {{- partial "head.html" . -}}
     <body>
         {{- partial "header.html" . -}}
-        <div id="content">
-            {{- block "main" . }}{{- end }}
+        <div id="main">
+            {{- block "main" . }}
+                <p>可被其他模版覆盖的内容</p>
+            {{- end }}
         </div>
-
         {{- partial "footer.html" . -}}
     </body>
 </html>

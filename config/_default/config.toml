@@ -14,7 +14,7 @@ defaultContentLanguage = 'en'
 
 defaultContentLanguageInSubdir = true
 
-
+enableGitInfo = true
 
 # 模块配置
 [module]
@@ -24,10 +24,3 @@ defaultContentLanguageInSubdir = true
 
 # 参数配置
 [params]
-# ----------- terminal 主题参数配置 --------------
-# 主题颜色
-themeColor = "orange"
-# 全屏模式
-fullWidthTheme = false
-# 居中模式
-centerTheme = true

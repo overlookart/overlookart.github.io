@@ -1,0 +1,40 @@
+{
+    "asciidocExt": {},
+    "defaultMarkdownHandler": "goldmark",
+    "goldmark": {
+        "extensions": {
+            "strikethrough": true,
+            "definitionList": true,
+            "linkify": true,
+            "table": true
+        },
+        "parser": {
+            "wrapStandAloneImageWithinParagraph": true
+        },
+        "renderer": {
+            "hardWraps": true,
+            "unsafe": true,
+            "xhtml": true
+        }
+    },
+    "highlight": {
+        "codeFences": true,
+        "style": "doom-one2",
+        "noClasses":true,
+        "guessSyntax": false,
+        "lineNos": true,
+        "lineNoStart": 1,
+        "lineNumbersInTable": false,
+        "noHl": false,
+        "hl_Lines": "2 4 6-8",
+        "hl_inline": false,
+        "anchorLineNos": false,
+        "lineAnchors": "",
+        "tabWidth": 4
+    },
+    "tableOfContents": {
+        "startLevel": 1,
+        "endLevel": 3,
+        "ordered": true
+    }
+}

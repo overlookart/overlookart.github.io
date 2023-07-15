@@ -1,8 +1,8 @@
 ---
 # 文章的标题
-title: "BackdropBlur"
+title: "Slack"
 # 文章的时间
-date: 2023-03-19T10:21:04+08:00
+date: 2023-05-16T09:48:50+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
@@ -16,5 +16,3 @@ description: "文章描述"
 # 作者
 author: "OverookArt"
 ---
-
-## 背景模糊  
