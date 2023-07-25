@@ -46,12 +46,12 @@ author: "OverookArt"
 
 ## 功能  
 
-1. [SwifterSwift]("https://github.com/SwifterSwift/SwifterSwift")
+1. [最强扩展库 SwifterSwift]("https://github.com/SwifterSwift/SwifterSwift")
 2. [RxSwift]("https://github.com/ReactiveX/RxSwift")
 3. [SwiftyJSON]("https://github.com/SwiftyJSON/SwiftyJSON")
 4. [HandyJSON]("https://github.com/alibaba/HandyJSON")
-5. [Hero]("Github:https://github.com/HeroTransitions/Hero")
-6. [Tiercel]("https://github.com/Danie1s/Tiercel")
+5. [VC 跳转动画 Hero]("Github:https://github.com/HeroTransitions/Hero")
+6. [下载框架 Tiercel]("https://github.com/Danie1s/Tiercel")
 7. [App Store 版本管理 Siren]("https://github.com/ArtSabintsev/Siren")
 8. [通知横幅 NotificationBanner]("https://github.com/Daltron/NotificationBanner")
 9. [聊天 Chatto]("https://github.com/badoo/Chatto")

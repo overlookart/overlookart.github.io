@@ -20,6 +20,7 @@ author: "OverookArt"
 ## 工具集合  
 
 > [在线工具](https://tool.lu "在线工具")  
+> [编码加解密]("https://www.toolhelper.cn")  
 
 ## Linux命令大全  
 
