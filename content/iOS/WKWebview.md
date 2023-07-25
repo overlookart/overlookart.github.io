@@ -53,3 +53,23 @@ extension Reactive where Base: WKWebView {
 }
 
 ```  
+
+## 滑动之后白屏问题  
+
+子类继承 WKWebView 后，对子类进行扩展并遵守 UIScrollViewDelegate 协议，实现了 UIScrollViewDelegate 中的方法  
+
+``` Swift
+//BaseWebView.swift
+BaseWebView: WKWebView {
+    ...
+}
+extension BaseWebView: UIScrollViewDelegate {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        ...
+    }
+
+    public func scrollView ...
+}
+```
+
+用 BaseWebView 或者其子类加载网页后，滑动的时候就会出现网页有部分内容没有进行渲染  
