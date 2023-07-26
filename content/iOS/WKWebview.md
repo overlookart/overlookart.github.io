@@ -54,6 +54,29 @@ extension Reactive where Base: WKWebView {
 
 ```  
 
+## 注入 JS 脚本  
+
+WKWebView 的 configuration 属性下 userContentController 管理用户脚本  
+
+``` Swift
+
+/// 添加用户脚本
+/// - Parameters:
+///   - script: js脚本代码
+///   - injectionTime: 注入时间
+///   - forMainFrameOnly: 是否仅在主Frame注入
+///   - world: 关键词
+public func addUserScript(script: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool, world: String? = nil) {
+    let userScript = WKUserScript(source: script, injectionTime: injectionTime, forMainFrameOnly: forMainFrameOnly)
+    addUserScript(script: userScript)
+}
+
+func addUserScript(script: WKUserScript) {
+    webview.configuration.userContentController.addUserScript(script)
+}
+
+```
+
 ## 滑动之后白屏问题  
 
 子类继承 WKWebView 后，对子类进行扩展并遵守 UIScrollViewDelegate 协议，实现了 UIScrollViewDelegate 中的方法  
