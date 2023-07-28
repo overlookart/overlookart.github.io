@@ -77,6 +77,17 @@ func addUserScript(script: WKUserScript) {
 
 ```
 
+## 执行 JS 脚本  
+
+WKWebView 提供了直接执行 JS 脚本的方法 evaluateJavaScript(_:completionHandler:)
+
+``` Swift
+webView.evaluateJavaScript("java script") { result, error in
+    // result 执行脚本的结果
+    // error 执行脚本的错误       
+}
+```
+
 ## 滑动之后白屏问题  
 
 子类继承 WKWebView 后，对子类进行扩展并遵守 UIScrollViewDelegate 协议，实现了 UIScrollViewDelegate 中的方法  
