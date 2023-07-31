@@ -54,6 +54,27 @@ extension Reactive where Base: WKWebView {
 
 ```  
 
+## 那些被 WKWebview 抛弃的属性  
+
+在 UIWebview 中有这么一个属性 paginationMode 翻页模式，做一些阅读器的功能会使用到，它有五个枚举值：
+
+* unpaginated 无分页模式
+* leftToRight 从左到右
+* rightToLeft 从右到左
+* topToBottom 从上到下
+* bottomToTop 从下到上
+  
+paginationMode 属性虽然被 WKWebView 抛弃了，单还是可以通过 CSS 实现
+
+``` css
+body {
+    /* 翻页模式 x:水平，y:垂直 */
+    overflow: -webkit-paged-y !important;
+    /* 翻页方向 t:上，l:左，b:下，r:右, ttb:从上到下 */
+    direction: ttb !important;
+}
+```
+
 ## 注入 JS 脚本  
 
 WKWebView 的 configuration 属性下 userContentController 管理用户脚本  
