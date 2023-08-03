@@ -109,6 +109,37 @@ webView.evaluateJavaScript("java script") { result, error in
 }
 ```
 
+## 接收网页发送的消息  
+
+``` Swift
+class ClassName {
+    /// 添加脚本消息处理
+    /// - Parameters:
+    ///   - handler: 消息处理
+    ///   - name: 脚本消息名称
+    public func addScriptMessageHandler(_ handler: WKScriptMessageHandler, name: String) {
+        webview.configuration.userContentController.add(handler, name: name)
+    }
+}
+
+//在网页中发送消息
+//function postMessage(message){
+//    window.webkit.messageHandlers.messageName.postMessage(message);
+//}
+
+//消息处理者需要遵守 WKScriptMessageHandler 协议并实现方法
+extension ClassName: WKScriptMessageHandler{
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        //接收到消息的名称
+        message.name
+        //接收到消息的内容
+        message.body
+    }
+}
+
+
+```
+
 ## 滑动之后白屏问题  
 
 子类继承 WKWebView 后，对子类进行扩展并遵守 UIScrollViewDelegate 协议，实现了 UIScrollViewDelegate 中的方法  
