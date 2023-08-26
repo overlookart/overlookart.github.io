@@ -10,7 +10,7 @@ theme = 'overlookart'
 copyright = 'OverlookArt'
 
 # 默认内容语言
-defaultContentLanguage = 'en'
+defaultContentLanguage = 'zh'
 
 defaultContentLanguageInSubdir = true
 
