@@ -14,5 +14,5 @@ publishDate: {{ .PublishDate.Format "2006-01-02 15:04:05" }}
 # 上次修改的日期
 lastmod: {{ .Lastmod.Format "2006-01-02 15:04:05" }}
 # 作者
-author: "OverookArt"
+author: "OverLookArt"
 ---
