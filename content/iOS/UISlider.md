@@ -56,3 +56,46 @@ slider.isContinuous = true
 slider.behavioralStyle
 slider.preferredBehavioralStyle
 ```
+
+## 在滑块的位置添加其他 View  
+
+``` swift
+class CustomSlider: UISlider {
+    private lazy var overlayView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        // 将叠加视图的用户交互关闭
+        view.isUserInteractionEnabled = false
+        reture view
+    }()
+
+    /// 初始化方法
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        //以 thumbImg 的大小修改 Slider 的 thumb 大小
+        self.setThumbImage(UIImage(named: "thumbImg"), for: .normal);
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    /// 重写滑块拇指大小的方法
+    override func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect {
+        let r = super.thumbRect(forBounds: bounds, trackRect: rect, value: value)
+        // 将叠加视图的 frame 改为滑块拇指的 frame，这样就能达到叠加视图根据滑块拇指位置及时更新
+        overlayView.frame = r
+        return r
+    }
+
+    /// 将用户交互事件穿透到 UISlider 上
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let view = super.hitTest(point, with: event)
+        if view == overlayView {
+            return nil
+        }
+        return view
+    }
+
+}
+```
