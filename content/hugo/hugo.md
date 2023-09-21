@@ -7,7 +7,7 @@ description: "HUGO 的快速使用"
 
 ## HUGO 简介  
 
-[HUGO 官网]("https://gohugo.io")  
+[HUGO 官网](https://gohugo.io)  
 
 Hugo是一款由Go语言开发的静态网站生成器。它的主要特点是:  
 

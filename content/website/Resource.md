@@ -19,6 +19,6 @@ author: "OverookArt"
 
 ## Mac App 下载  
 
-[macapp]("https://macapp.org.cn/")
+[macapp](https://macapp.org.cn/)
 
-[xclient]("https://xclient.info")
+[xclient](https://xclient.info)

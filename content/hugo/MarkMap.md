@@ -39,10 +39,10 @@ Markmap是Markdown和思维导图的组合。
 
 ## 使用方案  
 
-1. [基于 React 框架的使用]("https://stackblitz.com/edit/markmap?file=index.tsx")
-2. [基于 Vue 框架的使用]("https://stackblitz.com/edit/markmap-vue?file=src/app.vue")
-3. [基于 auto-loader 的使用]("https://stackblitz.com/edit/markmap-autoloader?file=index.html")
-4. [VS Code 插件]("https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode")
+1. [基于 React 框架的使用](https://stackblitz.com/edit/markmap?file=index.tsx)
+2. [基于 Vue 框架的使用](https://stackblitz.com/edit/markmap-vue?file=src/app.vue)
+3. [基于 auto-loader 的使用](https://stackblitz.com/edit/markmap-autoloader?file=index.html)
+4. [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode)
 
 ## 在 Hugo 中的使用  
 

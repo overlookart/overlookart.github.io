@@ -17,7 +17,7 @@ lastmod: 2023-03-06T17:55:48+08:00
 author: "OverookArt"
 ---
 
-> [echarts 官网]("https://echarts.apache.org/zh/index.html")  
+> [echarts 官网](https://echarts.apache.org/zh/index.html)  
 # 基于VUE3 下的 ECharts  
 
 ## 安装  
