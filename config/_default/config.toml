@@ -1,4 +1,5 @@
-baseURL = 'http://example.org/'
+# 网站绝对 URL
+baseURL = 'https://overlookart.github.io/'
 languageCode = 'en-us'
 # 网站标题
 title = 'OverlookArt'
