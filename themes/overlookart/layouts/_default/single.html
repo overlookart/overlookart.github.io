@@ -1,10 +1,12 @@
 {{define "main"}}
-<div class="w-full max-w-8xl">
+<div class="w-full">
     <div class="flex">
-        <aside class=" fixed overflow-scroll lg:w-40 lg:block hidden">
-            {{ .TableOfContents }}
+        <aside class="flex-none  lg:w-40 lg:block hidden">
+            <div class="fixed overflow-scroll">
+              {{ .TableOfContents }}
+            </div>
         </aside>
-        <article class="prose prose-zinc prose-lg  mx-auto">
+        <article class="flex-auto prose prose-zinc prose-base max-w-none  mx-auto">
             模版: default single
             <h1 style="text-align: center;">{{ .Title }}</h1>
             {{ .Content }}
@@ -12,12 +14,14 @@
         {{ partial "PageVar.html" . }}
     </div>
 </div>
+<!-- 图表 -->
 {{ if .Page.Store.Get "hasMermaid" }}
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });
   </script>
 {{ end }}
+<!-- markmap -->
 {{ if .Page.Store.Get "hasMarkmap" }}
   <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
 {{ end }}
