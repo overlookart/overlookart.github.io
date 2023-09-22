@@ -18,5 +18,4 @@ author: "OverLookArt"
 ---
 
 
-<iframe src="https://www.hello-algo.com/"  style="width:800px; height:-webkit-fill-available;"></iframe>
-
+{{< iframe "abc" >}}
