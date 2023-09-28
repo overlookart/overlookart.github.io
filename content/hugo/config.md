@@ -51,7 +51,7 @@ author: "OverookArt"
 }
 ```
 
-## 目录配置  
+## 项目目录配置  
 
 ``` json
 {   // config.json
