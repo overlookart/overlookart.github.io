@@ -87,16 +87,18 @@ extension Unpacker: SSZipArchiveDelegate {
 
 ``` markmap
 # EPUB解压后文件
-* 解析 container.xml 文件
+* 解析 container.xml 文件  
+    * 获取 资源文件根目录 RootPath
     * 获取 content.opf 文件路径
 
 * 解析  content.opf 文件  
     * metadata  (元数据，包含书籍名称，版权，作者，出版方等信息)
-    * manifest  (整本书的文件清单, 包含目录文件 toc.ncx 路径)
+    * manifest  (整本书的资源文件清单, 包含目录文件 toc.ncx 路径)
     * spine  (书脊，所有xhtml文档的线性阅读顺序)  
 * 解析 toc.ncx 文件  
     * label (目录标题)  
-    * contentSrc (内容资源文件路径)
+    * contentSrc (内容资源文件路径) 
+    * navItems (子目录)
 ```
 
 ### 解析器委托代理事件  
@@ -183,7 +185,8 @@ class Parser {
 ``` markmap
 # ParserData
 * Container  
-    * ResourcePath
+    * rootPath  
+    * contentPath
 * Content
     * Metadata  
         * title  书名
