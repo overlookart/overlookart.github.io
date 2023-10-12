@@ -17,13 +17,27 @@ description: "Epub 电子书 的解析器和阅读器"
 author: "OverookArt"
 ---
 
+> 阅读 EPUB 电子书的三板斧 `解包器`, `解析器`, `阅读器`  
+
+``` mermaid
+sequenceDiagram
+    box 离线阅读
+    participant A as 阅读器
+    participant B as 解析器
+    participant C as 解包器
+    end
+    A->>C: 让解包器解压缩 EPUB 文件
+    C-->>B: 得到解压缩后的 EPUB 文件夹
+    B-->>A: 得到解析后的 EPUB 数据模型
+```
+
 ## Epub 解包器  
 
 EPUB 文件其实是一个压缩包，使用压缩工具可将其解压，得到一个 EPUB 文件夹。
 
 在 iOS 平台使用开源的解压缩工具库 SSZipArchive ，
 
-``` swift 
+``` swift  
 // Unpacker.swift
 import SSZipArchive
 import Foundation
