@@ -182,6 +182,7 @@ class Parser {
 
 ``` markmap
 # ParserData
+
     * Container  
         * ResourcePath
     * Content
