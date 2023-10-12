@@ -29,30 +29,35 @@ sequenceDiagram
     A->>C: 让解包器解压缩 EPUB 文件
     C-->>B: 得到解压缩后的 EPUB 文件夹
     B-->>A: 得到解析后的 EPUB 数据模型
-
+    
     box 在线阅读
     participant A1 as 阅读器
     participant B1 as 解析器
     participant C1 as 服务器
     end
+    rect rgb(238, 180, 185)
+    par
     A1->>C1: 请求 EPUB 基础数据
     Note over A1,C1: 基础数据包括 Content, Toc, CSS 等文件
     C1-->>B1: 解析网络数据
     B1-->>A1: 配置基础数据
-    loop 加载与渲染页面数据
+    end
+    end
+    rect rgb(243, 178, 128)
+    par 加载与渲染页面数据
     A1->>C1: 请求页面数据
     create actor D as 解密者
     C1->>D: 解密页面内容
     D-->>A1: 得到页面的原始数据
-    loop 请求多张图片资源
+    loop 
         A1->>C1: 请求页面图片资源
         C1-->>A1: 将图片资源配置到页面数据中
     end
     A1->>C1: 请求页面的书签与笔记数据
     C1-->>A1: 将书签笔记配置到页面数据中进行最终的页面渲染
     end
+    end
 ```
-
 
 ## Epub 解包器  
 
