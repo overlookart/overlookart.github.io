@@ -99,7 +99,7 @@ extension Unpacker: SSZipArchiveDelegate {
     * contentSrc (内容资源文件路径)
 ```
 
-### 解析器代理事件  
+### 解析器委托代理事件  
 
 ``` swift  
 // Parser.swift
@@ -108,13 +108,13 @@ protocol ParserDelegate {
     /// 开始解析 epub
     func beginParserEpub(url: URL)
     
-    /// 解析 container
+    /// 已解析 container
     func didParserContainer()
     
-    /// 解析 Content
+    /// 已解析 Content
     func didParserContent()
     
-    /// 解析 TOC
+    /// 已解析 TOC
     func didParserToc()
     
     /// 解析 epub 完成
@@ -148,6 +148,11 @@ enum ParserError: Error {
 ``` swift  
 // Parser.swift
 class Parser {
+    /// 声明解析后
+    var parserData = ParserData()
+    /// 声明代理
+    var delegate: ParserDelegate?
+
     /// 开始解析 Epub解压后的 文件内容
     private func beginParserEpub(url: URL) throws { ··· }  
 
@@ -159,7 +164,56 @@ class Parser {
 
     /// 解析 TOC 目录
     private func parseToc() throws { ··· }
+
+
+    /// 衍生方法
+
+    /// 解析外部的 container 文件
+    public func parseContainer(data: Data) throws  -> Container { ··· }
+    /// 解析外部的 Content 文件
+    public func parseContent(data: Data) throws -> Content { ··· }
+    /// 解析外部的 TOC 目录文件
+    public func parseToc(data: Data) throws -> Toc { ··· }  
+    
 }
+```
+
+### 解析后的数据  
+
+``` markmap
+# ParserData
+    * Container  
+        * ResourcePath
+    * Content
+        * Metadata  
+            * title  书名
+            * creators  作者
+            * publisher  出版方
+            * identifier 唯一标识  
+            * date 出版日期  
+            * rights 版权  
+            * description 描述  
+            * language 语言  
+            * cover 封面图
+        * Manifest  
+            * [Resource]  
+                * id 唯一标识
+                * href 文件相对路径
+                * mediaType 文件类型
+                * rootPath 文件根路径
+        * Spine  
+            * [SpineItem]  
+                * idref  
+                * Resource
+                * content 页面内容
+                * audio 音频地址
+                * permissions 阅读权限 0可读 1试读 2付费
+    * Toc
+        * [NavItem] 
+            * id 唯一标识
+            * label 章节标题
+            * contentSrc 章节内容资源
+            * navItems 子章节
 ```
 
 ## Epub 阅读器  
