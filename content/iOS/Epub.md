@@ -182,39 +182,38 @@ class Parser {
 
 ``` markmap
 # ParserData
-
-    * Container  
-        * ResourcePath
-    * Content
-        * Metadata  
-            * title  书名
-            * creators  作者
-            * publisher  出版方
-            * identifier 唯一标识  
-            * date 出版日期  
-            * rights 版权  
-            * description 描述  
-            * language 语言  
-            * cover 封面图
-        * Manifest  
-            * [Resource]  
-                * id 唯一标识
-                * href 文件相对路径
-                * mediaType 文件类型
-                * rootPath 文件根路径
-        * Spine  
-            * [SpineItem]  
-                * idref  
-                * Resource
-                * content 页面内容
-                * audio 音频地址
-                * permissions 阅读权限 0可读 1试读 2付费
-    * Toc
-        * [NavItem] 
+* Container  
+    * ResourcePath
+* Content
+    * Metadata  
+        * title  书名
+        * creators  作者
+        * publisher  出版方
+        * identifier 唯一标识  
+        * date 出版日期  
+        * rights 版权  
+        * description 描述  
+        * language 语言  
+        * cover 封面图
+    * Manifest  
+        * [Resource]  
             * id 唯一标识
-            * label 章节标题
-            * contentSrc 章节内容资源
-            * navItems 子章节
+            * href 文件相对路径
+            * mediaType 文件类型
+            * rootPath 文件根路径
+    * Spine  
+        * [SpineItem]  
+            * idref  
+            * Resource
+            * content 页面内容
+            * audio 音频地址
+            * permissions 阅读权限 0可读 1试读 2付费
+* Toc
+    * [NavItem] 
+        * id 唯一标识
+        * label 章节标题
+        * contentSrc 章节内容资源
+        * navItems 子章节
 ```
 
 ## Epub 阅读器  
