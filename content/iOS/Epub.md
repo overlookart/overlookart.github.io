@@ -31,22 +31,24 @@ sequenceDiagram
     B-->>A: 得到解析后的 EPUB 数据模型
     
     box 在线阅读
-    participant A1 as 阅读器
-    participant B1 as 解析器
-    participant C1 as 服务器
+    participant A1 as Reader
+    participant B1 as Parser
+    participant C1 as Server
     end
     rect rgb(238, 180, 185)
     par
     A1->>C1: 请求 EPUB 基础数据
-    Note over A1,C1: 基础数据包括 Content, Toc, CSS 等文件
+    Note over A1,C1: 基础数据包括 Content, Toc, CSS, 密钥 等文件
     C1-->>B1: 解析网络数据
     B1-->>A1: 配置基础数据
+    A1->>C1: 请求最后一次阅读页面数据
+    C1-->>A1: 获得要渲染页面标识
     end
     end
     rect rgb(243, 178, 128)
     par 加载与渲染页面数据
     A1->>C1: 请求页面数据
-    create actor D as 解密者
+    create actor D as Decryptor
     C1->>D: 解密页面内容
     D-->>A1: 得到页面的原始数据
     loop 
