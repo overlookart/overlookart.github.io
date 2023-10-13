@@ -194,7 +194,7 @@ enum ParserError: Error {
 ``` swift  
 // Parser.swift
 class Parser {
-    /// 声明解析后
+    /// 声明解析 EPUB 数据模型
     var parserData = ParserData()
     /// 声明代理
     var delegate: ParserDelegate?
