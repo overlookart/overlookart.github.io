@@ -27,27 +27,25 @@ $ hugo new theme [newTheme]
 theme = 'newTheme' #启动项目后生效
 ```
 
-
-
 ## 文件结构说明  
 
 ``` shell
 ./theme # 项目的主题目录
-    |--newTheme #新建的主题目录
-        |--archetypes #新建页面时的扉页模版
-        |--|--default.md #默认的扉页模版
-        |--|--posts.md # 在 posts 分组下新建页面的扉页模版 优先级比 default 高
-        |--assets # Hugo Pipes 的资源(css, js),通过.Permalink,.RelPermalink 引用发布到项目 public
-        |--|--style.css # 主题用到的 css 文件
-        |--layout #页面的模版文件
-        |--|_default # 页面默认默认模版位置
-        |--|--|--baseof.html #站点的主框架,首先要加载的内容
-        |--|--|--index.html #首页模版 Kind 为 home 的页面会匹配该模版
-        |--|--|--list.html #分组模版 Kind 为 section 的页面会匹配该模版
-        |--|--|--single.html #单页面模版 Kind 为 page 的页面会匹配该模版
-        |--|partials # 放一些子模块
-        |--static #主题使用到的 img...
-        |--theme.toml #主题配置文件
+    |__newTheme #新建的主题目录
+        |__archetypes #新建页面时的扉页模版
+            |__default.md #默认的扉页模版
+            |__posts.md # 在 posts 分组下新建页面的扉页模版 优先级比 default 高
+        |__assets # Hugo Pipes 的资源(css, js),通过.Permalink,.RelPermalink 引用发布到项目 public
+            |__style.css # 主题用到的 css 文件
+        |__layout #页面的模版文件
+            |__default # 页面默认默认模版位置
+                |__baseof.html #站点的主框架,首先要加载的内容
+                |__index.html #首页模版 Kind 为 home 的页面会匹配该模版
+                |__list.html #分组模版 Kind 为 section 的页面会匹配该模版
+                |__single.html #单页面模版 Kind 为 page 的页面会匹配该模版
+            |__partials # 放一些子模块
+        |__static #主题使用到的 img...
+        |__theme.toml #主题配置文件
 ```
 
 ## Hugo Theme 是如何工作的？
