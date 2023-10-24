@@ -4,11 +4,11 @@
         <span >{{ .Text | safeHTML }}</span>
     </h1>
 {{ else if eq .Level 2 }}
-    <h2>
+    <h2 id="{{ .Anchor | safeURL }}">
         <span class="content">{{ .Text | safeHTML }}</span>
     </h2>
 {{ else }}
-    <h{{ .Level }}>{{ .Text | safeHTML }}</h{{ .Level }}>
+    <h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ .Level }}>
 {{ end }}
 </div>
 
