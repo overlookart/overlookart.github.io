@@ -18,6 +18,9 @@ author: "OverookArt"
 ---
 
 > 阅读 EPUB 电子书的三板斧 `解包器`, `解析器`, `阅读器`  
+> iOS EPUB 电子书 通过RPS(Reader Parser Server)实现在线阅读，并通过RSA，AES 双重加密保证数据的安全性
+> 阅读器采用复用页面机制(Page Reuse Mechanism)用使程序开销降到最低并保证阅读体验
+> 使用 WebKit 框架 作为swift代码与电子书html页面交互的桥梁，并编写辅助js脚本实现翻页模式，字号，主题的切换
 
 ``` mermaid
 sequenceDiagram
