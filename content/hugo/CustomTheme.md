@@ -48,6 +48,15 @@ theme = 'newTheme' #启动项目后生效
         |__theme.toml #主题配置文件
 ```
 
+## 应用主题  
+
+在配置文件中配置主题  
+
+``` toml
+<!-- config.toml -->
+theme = 'newTheme'
+```
+
 ## Hugo Theme 是如何工作的？
 
 ### 页面加载流程
