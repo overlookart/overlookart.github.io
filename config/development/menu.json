@@ -16,6 +16,13 @@
             "pre": "<i class='fa fa-heart'></i>",
             "url": "/menu/",
             "weight": -110
+        },
+        {
+            "identifier": "sitemap",
+            "name": "网站地图",
+            "pre": "<i class=''></i>",
+            "url": "/sitemap.xml",
+            "weight": -110
         }
     ],
     "docs":[

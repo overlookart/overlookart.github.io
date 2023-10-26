@@ -3,7 +3,7 @@
         {
             "identifier": "about",
             "name": "关于",
-            "pre": "<i class='fa fa-heart'></i>",
+            "pre": "<i class=''></i>",
             "url": "/about/",
             "weight": -100,
             "params": {
@@ -13,8 +13,15 @@
         {
             "identifier": "404",
             "name": "404",
-            "pre": "<i class='fa fa-heart'></i>",
+            "pre": "<i class=''></i>",
             "url": "/404/",
+            "weight": -110
+        },
+        {
+            "identifier": "sitemap",
+            "name": "网站地图",
+            "pre": "<i class=''></i>",
+            "url": "/sitemap.xml",
             "weight": -110
         }
     ]
