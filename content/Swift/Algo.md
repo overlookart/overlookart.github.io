@@ -17,5 +17,4 @@ description: "文章描述"
 author: "OverLookArt"
 ---
 
-
-{{< iframe "abc" >}}
+{{< iframe src="https://www.hello-algo.com/" >}}
