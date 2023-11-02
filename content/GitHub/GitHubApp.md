@@ -17,6 +17,10 @@ description: "文章描述"
 author: "OverLookArt"
 ---
 
-* [Marketplace](https://github.com/marketplace)  
+> GitHub Apps 是扩展 GitHub 功能的工具。
+> GitHub Apps 可以对 GitHub 执行一些操作，例如打开问题、对拉取请求添加注释和管理项目。 
+> 它们还可以根据 GitHub 上发生的事件在 GitHub 之外执行操作。
+
+* [应用市场 Marketplace](https://github.com/marketplace)  
 
 * [Document](https://docs.github.com/zh/apps/overview/)

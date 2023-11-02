@@ -9,6 +9,7 @@
         </article>
         {{ partial "PageVar.html" . }}
     </div>
+    <div class="giscus-frame"></div>
 </div>
 <!-- 图表 -->
 {{ if .Page.Store.Get "hasMermaid" }}
@@ -21,4 +22,19 @@
 {{ if .Page.Store.Get "hasMarkmap" }}
   <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
 {{ end }}
+<script src="https://giscus.app/client.js"
+        data-repo="overlookart/overlookart.github.io"
+        data-repo-id="R_kgDOI5Ohjw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOI5Ohj84Canw7"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
 {{end}}
