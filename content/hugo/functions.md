@@ -1,6 +1,6 @@
 ---
 # 文章的标题
-title: "Hugo Functions"
+title: "Hugo Syntax"
 # 文章的时间
 date: 2023-02-27T17:55:54+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
@@ -17,7 +17,6 @@ lastmod: 2023-02-27T17:55:54+08:00
 author: "OverookArt"
 ---
 
-# Hugo 模版中的方法  
 
 ## Hugo 的相关数据  
 
