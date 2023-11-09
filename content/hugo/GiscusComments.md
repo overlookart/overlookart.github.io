@@ -1,12 +1,12 @@
 ---
 # 文章的标题
-title: "GiscusComments"
+title: "Giscus 评论区"
 # 文章的时间
 date: 2023-11-02T09:23:57+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
-description: "文章描述"
+description: "用 Giscus 为你的网站构建评论区"
 # 文章的过期时间  过期后不会发布到文章列表
 #expiryDate:  //.ExpiryDate
 # 文章的发布时间  未到达发布时间不会发布到文章列表
@@ -23,7 +23,8 @@ author: "OverLookArt"
 
 * 一个公开的 GitHub 仓库  
 * 仓库启用了 Discussions 功能  
-* 仓库安装了 Giscus APP
+* 仓库安装了 Giscus APP  
+* 网站代码托管于该仓库
 
 ## 安装 Giscus  
 
@@ -64,7 +65,17 @@ author: "OverLookArt"
 
 > 参数说明  
 
-* data-repo :连接的仓库，由 `用户名/仓库名` 组成  
-* data-repo-id : 连接仓库的id，当连接仓库成功后该值自动生成  
+* data-repo: 连接的仓库，由 `用户名/仓库名` 组成  
+* data-repo-id: 连接仓库的id，当连接仓库成功后该值自动生成  
+* data-category: discussions 所在的分类  
+* data-category-id: 选择 discussions 分类后该值自动生成
+* data-mapping: 页面与 discussion 映射关系  
+* data-reactions-enabled: 是否启用主帖子上的反应 1启用,0禁用  
+* data-emit-metadata: 是否输出 discussion 的元数据 1输出,0不输出  
+* data-input-position: 评论框所在的位置 top顶部,bottom底部  
+* data-theme: giscus 的显示主题  
+* data-lang: giscus 的显示语言
   
-在你想让评论出现的位置添加以下 `<script>` 标签  
+在你想让评论出现的页面模版中添加生成好的 `<script>` 标签, 并在嵌入使用 .giscus 和 .giscus-frame 选择器的标签来自定义容器布局  
+
+> 可以利用 Hugo 提供的 `Shortcodes`, `Render Hooks`, `Partial` 灵活的使用  
