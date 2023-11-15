@@ -29,7 +29,26 @@ let pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientatio
 
 UIPageViewControllerDelegate  
 
-UIPageViewControllerDataSource  
+``` swift
+//UIPageViewControllerDataSource  
+func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    //返回上一页的视图控制器
+}
+
+func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    //返回下一页的视图控制器
+}
+
+func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    //返回 PageControl 中的数量，⚠️⚠️⚠️水平翻页模式下返回1将不会展示页面展示 PageControl
+    return 1
+}
+    
+func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+    //返回在 PageControl 中的选定项的索引
+    return 1
+}
+```
 
 ## 翻页控制  
 
