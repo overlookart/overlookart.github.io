@@ -1,14 +1,16 @@
 {{define "main"}}
 <div class="w-full">
     <div class="flex">
-        {{ partial "toc" . }}
-        <article class="prose prose-zinc prose-base flex-auto max-w-none  mx-auto">
+        {{ partial "toc.html" . }}
+        <article class="prose prose-zinc prose-base flex-auto mx-auto bg-slate-500">
             模版: default single
             <h1 style="text-align: center;">{{ .Title }}</h1>
             {{ .Content }}
+            {{ partial "Comment.html" . }}
         </article>
         {{ partial "PageVar.html" . }}
     </div>
+    
 </div>
 <!-- 图表 -->
 {{ if .Page.Store.Get "hasMermaid" }}

@@ -18,6 +18,9 @@ author: "OverookArt"
 ---
 
 > 阅读 EPUB 电子书的三板斧 `解包器`, `解析器`, `阅读器`  
+> iOS EPUB 电子书 通过RPS(Reader Parser Server)实现在线阅读，并通过RSA，AES 双重加密保证数据的安全性
+> 阅读器采用复用页面机制(Page Reuse Mechanism)用使程序开销降到最低并保证阅读体验
+> 使用 WebKit 框架 作为swift代码与电子书html页面交互的桥梁，并编写辅助js脚本实现翻页模式，字号，主题的切换
 
 ``` mermaid
 sequenceDiagram
@@ -31,22 +34,24 @@ sequenceDiagram
     B-->>A: 得到解析后的 EPUB 数据模型
     
     box 在线阅读
-    participant A1 as 阅读器
-    participant B1 as 解析器
-    participant C1 as 服务器
+    participant A1 as Reader
+    participant B1 as Parser
+    participant C1 as Server
     end
     rect rgb(238, 180, 185)
     par
     A1->>C1: 请求 EPUB 基础数据
-    Note over A1,C1: 基础数据包括 Content, Toc, CSS 等文件
+    Note over A1,C1: 基础数据包括 Content, Toc, CSS, 密钥 等文件
     C1-->>B1: 解析网络数据
     B1-->>A1: 配置基础数据
+    A1->>C1: 请求最后一次阅读页面数据
+    C1-->>A1: 获得要渲染页面标识
     end
     end
     rect rgb(243, 178, 128)
     par 加载与渲染页面数据
     A1->>C1: 请求页面数据
-    create actor D as 解密者
+    create actor D as Decryptor
     C1->>D: 解密页面内容
     D-->>A1: 得到页面的原始数据
     loop 
@@ -192,7 +197,7 @@ enum ParserError: Error {
 ``` swift  
 // Parser.swift
 class Parser {
-    /// 声明解析后
+    /// 声明解析 EPUB 数据模型
     var parserData = ParserData()
     /// 声明代理
     var delegate: ParserDelegate?

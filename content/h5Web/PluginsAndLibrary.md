@@ -81,7 +81,6 @@ author: "OverookArt"
 
 ## JS调试
 
-* vconsole
-* eruda
-* [spy-debugger](https://github.com/wuchangming/spy-debugger) 
-
+* [vconsole](https://github.com/Tencent/vConsole)
+* [eruda](https://eruda.liriliri.io)  
+* [spy-debugger](https://github.com/wuchangming/spy-debugger)  

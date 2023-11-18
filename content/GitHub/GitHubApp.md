@@ -1,8 +1,8 @@
 ---
 # 文章的标题
-title: "算法"
+title: "GitHubApp"
 # 文章的时间
-date: 2023-09-18T10:23:22+08:00
+date: 2023-11-01T14:04:44+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
@@ -17,4 +17,10 @@ description: "文章描述"
 author: "OverLookArt"
 ---
 
-{{< iframe src="https://www.hello-algo.com/" >}}
+> GitHub Apps 是扩展 GitHub 功能的工具。
+> GitHub Apps 可以对 GitHub 执行一些操作，例如打开问题、对拉取请求添加注释和管理项目。 
+> 它们还可以根据 GitHub 上发生的事件在 GitHub 之外执行操作。
+
+* [应用市场 Marketplace](https://github.com/marketplace)  
+
+* [Document](https://docs.github.com/zh/apps/overview/)

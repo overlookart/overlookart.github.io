@@ -29,5 +29,52 @@ let pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientatio
 
 UIPageViewControllerDelegate  
 
-UIPageViewControllerDataSource  
+``` swift
+//UIPageViewControllerDataSource  
+func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    //返回上一页的视图控制器
+}
 
+func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    //返回下一页的视图控制器
+}
+
+func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    //返回 PageControl 中的数量，⚠️⚠️⚠️水平翻页模式下返回1将不会展示页面展示 PageControl
+    return 1
+}
+    
+func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+    //返回在 PageControl 中的选定项的索引
+    return 1
+}
+```
+
+## 翻页控制  
+
+``` swift  
+/// 下一页
+public func setupNextPage(){
+    /// 获取当前展示的视图控制器
+    guard let currentViewController = pageVC.viewControllers?.first else { return }
+    /// 获取下一页的视图控制器
+    guard let nextViewController = pageVC.dataSource?.pageViewController(pageVC, viewControllerAfter: currentViewController) else { return }
+    /// 设置下一页为当前显示的ViewController
+    pageVC.delegate?.pageViewController?(pageVC, willTransitionTo: [nextViewController])
+    pageVC.setViewControllers([nextViewController], direction: .forward, animated: true) { completed in
+        self.pageVC.delegate?.pageViewController?(self.pageVC, didFinishAnimating: true, previousViewControllers: [currentViewController], transitionCompleted: completed)
+}
+
+
+/// 上一页
+public func setupPrevPage(){
+    /// 获取当前展示的视图控制器
+    guard let currentViewController = pageVC.viewControllers?.first else { return }
+    /// 获取上一页的视图控制器
+    guard let prevViewController = pageVC.dataSource?.pageViewController(pageVC, viewControllerBefore: currentViewController) else { return }
+    /// 设置上一页为当前显示的ViewController
+    pageVC.delegate?.pageViewController?(pageVC, willTransitionTo: [prevViewController])
+    pageVC.setViewControllers([prevViewController], direction: .reverse, animated: true) { completed in
+        self.pageVC.delegate?.pageViewController?(self.pageVC, didFinishAnimating: true, previousViewControllers: [currentViewController], transitionCompleted: completed)
+}
+```  

@@ -1,12 +1,12 @@
 ---
 # 文章的标题
-title: "算法"
+title: "GitHub"
 # 文章的时间
-date: 2023-09-18T10:23:22+08:00
+date: 2023-11-01T14:02:04+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
-description: "文章描述"
+description: "GitHub 探索"
 # 文章的过期时间  过期后不会发布到文章列表
 #expiryDate:  //.ExpiryDate
 # 文章的发布时间  未到达发布时间不会发布到文章列表
@@ -17,4 +17,4 @@ description: "文章描述"
 author: "OverLookArt"
 ---
 
-{{< iframe src="https://www.hello-algo.com/" >}}
+{{< iframe src="https://docs.github.com/zh" >}}
