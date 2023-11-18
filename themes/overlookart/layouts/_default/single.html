@@ -1,11 +1,7 @@
 {{define "main"}}
 <div class="w-full">
     <div class="flex">
-        <aside class="flex-none  lg:w-40 lg:block hidden">
-            <div class="fixed overflow-scroll">
-              {{ .TableOfContents }}
-            </div>
-        </aside>
+        {{ partial "toc" . }}
         <article class="prose prose-zinc prose-base flex-auto max-w-none  mx-auto">
             模版: default single
             <h1 style="text-align: center;">{{ .Title }}</h1>
