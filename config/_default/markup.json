@@ -33,8 +33,8 @@
         "tabWidth": 4
     },
     "tableOfContents": {
-        "startLevel": 2,
+        "startLevel": 1,
         "endLevel": 3,
-        "ordered": false
+        "ordered": true
     }
 }
