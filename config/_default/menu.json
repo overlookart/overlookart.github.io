@@ -4,7 +4,7 @@
             "identifier": "about",
             "name": "关于",
             "pre": "<i class=''></i>",
-            "url": "/about/",
+            "url": "/zh/about/",
             "weight": -100,
             "params": {
                 "class": "highlight-menu-item"
@@ -14,14 +14,14 @@
             "identifier": "404",
             "name": "404",
             "pre": "<i class=''></i>",
-            "url": "/404/",
+            "url": "/zh/404/",
             "weight": -110
         },
         {
             "identifier": "sitemap",
             "name": "网站地图",
             "pre": "<i class=''></i>",
-            "url": "/sitemap.xml",
+            "url": "/zh/sitemap.xml",
             "weight": -110
         }
     ]

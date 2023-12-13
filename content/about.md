@@ -1,8 +1,10 @@
-+++
-title = "About"
-date = "2019-01-25"
-author = "OverlookArt"
-+++
+---
+title: "About"
+date: "2019-01-25"
+author: "OverlookArt"
+draft: false
+---
+
 
 # Hi there, see you!
 
