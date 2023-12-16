@@ -1,7 +1,6 @@
     <!-- 获取网站的所有分组 -->
     {{ $allSections := .Site.Sections }}
     <!-- 遍历分组:为每个分组创建内容 -->
-    <div>{{ $allSections }}</div>
     {{ range $allSections }}
         <section class="border mb-4">
             <!-- 分组的标题 -->
