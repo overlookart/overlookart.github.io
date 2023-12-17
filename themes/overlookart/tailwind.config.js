@@ -15,11 +15,21 @@ module.exports = {
                 DEFAULT: {
                     css: {
                         'code::before': {
-                            content: ''
+                            content: 'none'
                         },
                         'code::after': {
-                            content: ''
-                        }
+                            content: 'none'
+                        },
+                        'blockquote  p:first-of-type::before': {
+                            content: 'none'
+                        },
+                        'blockquote  p:last-of-type::after': {
+                            content: 'none'
+                        },
+                        'blockquote  p': {
+                            'font-style': 'normal',
+                            'font-weight': '300'
+                        },                        
                     }
                 }
             }

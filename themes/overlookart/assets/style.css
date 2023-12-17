@@ -728,11 +728,11 @@ video {
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *))::before {
-  content: ;
+  content: none;
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *))::after {
-  content: ;
+  content: none;
 }
 
 .prose :where(a code):not(:where([class~="not-prose"] *)) {
@@ -978,6 +978,19 @@ video {
 
 .prose :where(.prose > :last-child):not(:where([class~="not-prose"] *)) {
   margin-bottom: 0;
+}
+
+.prose :where(blockquote  p:first-of-type):not(:where([class~="not-prose"] *))::before {
+  content: none;
+}
+
+.prose :where(blockquote  p:last-of-type):not(:where([class~="not-prose"] *))::after {
+  content: none;
+}
+
+.prose :where(blockquote  p):not(:where([class~="not-prose"] *)) {
+  font-style: normal;
+  font-weight: 300;
 }
 
 .prose-base {

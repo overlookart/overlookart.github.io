@@ -31,3 +31,10 @@ body {
   border-width: 1px;
   border-color: #ef7060;
   padding: 1px 4px; }
+
+/* 引用 */
+#nice blockquote {
+  border-left-color: #ef7060;
+  background: #fff9f9; }
+
+/* 引用文字 */
