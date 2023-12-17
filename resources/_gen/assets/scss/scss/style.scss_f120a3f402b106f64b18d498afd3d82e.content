@@ -2,6 +2,7 @@
 body {
   margin: 0px; }
 
+/* 二级标题 */
 #nice h2 {
   border-bottom: 2px solid #ef7060;
   font-size: 1.3em; }
@@ -24,3 +25,9 @@ body {
   vertical-align: bottom;
   border-bottom: 36px solid #efebe9;
   border-right: 20px solid transparent; }
+
+#nice code {
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: #ef7060;
+  padding: 1px 4px; }

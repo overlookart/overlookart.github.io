@@ -14,9 +14,6 @@ module.exports = {
             typography: {
                 DEFAULT: {
                     css: {
-                        code: {
-                            color: 'rgb(239, 112, 96)'
-                        },
                         'code::before': {
                             content: ''
                         },

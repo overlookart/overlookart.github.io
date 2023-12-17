@@ -5,7 +5,9 @@
         <article class="prose prose-zinc prose-base flex-auto mx-auto">
             模版: default single
             <h1 style="text-align: center;">{{ .Title }}</h1>
-            {{ .Content }}
+            <div id="nice">
+              {{ .Content }}
+            </div>
             {{ partial "Comment.html" . }}
         </article>
         {{ partial "PageVar.html" . }}

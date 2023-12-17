@@ -1,4 +1,3 @@
-<div id="nice">
 {{ if eq .Level 1 }}
     <h1 style="text-align: center;">
         <span >{{ .Text | safeHTML }}</span>
@@ -10,4 +9,3 @@
 {{ else }}
     <h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ .Level }}>
 {{ end }}
-</div>
