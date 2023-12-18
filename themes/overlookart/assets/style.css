@@ -422,6 +422,16 @@ video {
   display: none;
 }
 
+h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+  font-size: revert;
+  font-weight: revert;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -836,6 +846,7 @@ video {
 
 .prose :where(tbody td):not(:where([class~="not-prose"] *)) {
   vertical-align: baseline;
+  vertical-align: middle;
 }
 
 .prose :where(tfoot):not(:where([class~="not-prose"] *)) {
