@@ -20,6 +20,7 @@ module.exports = {
                         'code::after': {
                             content: 'none'
                         },
+
                         'blockquote  p:first-of-type::before': {
                             content: 'none'
                         },
@@ -29,7 +30,11 @@ module.exports = {
                         'blockquote  p': {
                             'font-style': 'normal',
                             'font-weight': '300'
-                        },                        
+                        },
+                        
+                        'tbody td': {
+                            'vertical-align': 'middle'
+                        }
                     }
                 }
             }
