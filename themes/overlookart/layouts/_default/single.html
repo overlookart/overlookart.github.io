@@ -25,4 +25,9 @@
 {{ if .Page.Store.Get "hasMarkmap" }}
   <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
 {{ end }}
+
+{{ $js := resources.Get "js/main.js" | js.Build (dict "params" (dict "api" "123123")) }}
+<script src="{{ $js.RelPermalink }}"></script>
+
 {{end}}
+
