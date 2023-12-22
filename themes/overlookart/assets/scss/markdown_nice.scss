@@ -33,8 +33,11 @@
 #nice blockquote {
     border-left-color: rgb(239, 112, 96);
     background: #fff9f9;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 /* 引用文字 */
 #nice blockquote p {
-
+    margin-top: 0px;
+    margin-bottom: 0px;
 }

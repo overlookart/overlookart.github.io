@@ -14,6 +14,10 @@ module.exports = {
             typography: {
                 DEFAULT: {
                     css: {
+                        h2: {
+                            'margin-top': 'unset',
+                            'margin-bottom': 'unset'
+                        },
                         'code::before': {
                             content: 'none'
                         },

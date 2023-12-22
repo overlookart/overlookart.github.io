@@ -34,6 +34,11 @@ body {
 /* 引用 */
 #nice blockquote {
   border-left-color: #ef7060;
-  background: #fff9f9; }
+  background: #fff9f9;
+  padding-top: 1em;
+  padding-bottom: 1em; }
 
 /* 引用文字 */
+#nice blockquote p {
+  margin-top: 0px;
+  margin-bottom: 0px; }
