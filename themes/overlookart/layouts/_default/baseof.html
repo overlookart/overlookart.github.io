@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    {{ $js := resources.Get "js/main.js" | js.Build (dict "params" (dict "api" "123123")) }}
+    <script src="{{ $js.RelPermalink }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
     {{- partial "head.html" . -}}
     <body>
         {{- partial "header.html" . -}}
@@ -11,3 +14,25 @@
         {{- partial "footer.html" . -}}
     </body>
 </html>
+
+
+<script>
+    window.onload = function () {
+      lax.init()
+  
+      // Add a driver that we use to control our animations
+      lax.addDriver('scrollY', function () {
+        return window.scrollY
+      })
+  
+      // Add animation bindings to elements
+      lax.addElements('.selector', {
+        scrollY: {
+          translateX: [
+            ["elInY", "elCenterY", "elOutY"],
+            [0, 'screenWidth/2', 'screenWidth'],
+          ]
+        }
+      })
+    }
+  </script>
