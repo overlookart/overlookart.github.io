@@ -14,6 +14,7 @@ module.exports = {
             typography: {
                 DEFAULT: {
                     css: {
+                        'max-width': '90ch',
                         h2: {
                             'margin-top': 'unset',
                             'margin-bottom': 'unset'

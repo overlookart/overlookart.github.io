@@ -993,6 +993,10 @@ h1,
   margin-bottom: 0;
 }
 
+.prose {
+  max-width: 90ch;
+}
+
 .prose :where(blockquote  p:first-of-type):not(:where([class~="not-prose"] *))::before {
   content: none;
 }
