@@ -19,6 +19,9 @@ module.exports = {
                             'margin-top': 'unset',
                             'margin-bottom': 'unset'
                         },
+                        '* + p': {
+                            'margin-top': '1em'
+                        },
                         'code::before': {
                             content: 'none'
                         },
