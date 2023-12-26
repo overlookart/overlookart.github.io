@@ -29,6 +29,9 @@ author: "OverookArt"
 * [Naive UI](https://www.naiveui.com/)  
 * [SalesForce](https://www.lightningdesignsystem.com)  
 * [tailwindcss](https://tailwindcss.com)
+* [shadcn](https://ui.shadcn.com)
+* [daisyui](https://daisyui.com/)
+* [Radix](https://www.radix-ui.com)
   
 ## 富文本  
 
