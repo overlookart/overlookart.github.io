@@ -12,4 +12,7 @@
         font-size: revert;
         font-weight: revert;
     }
+    dl, dd {
+        margin: revert;
+    }
 }
