@@ -43,3 +43,6 @@ body {
 #nice blockquote p {
   margin-top: 0px;
   margin-bottom: 0px; }
+
+#nice pre code {
+  border-width: 0px; }
