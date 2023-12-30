@@ -103,96 +103,78 @@ Second Term
 : This is one definition of the second term.
 : This is another definition of the second term.
 
- 
 > **任务列表**
 > 任务列表使您可以创建带有复选框的项目列表
-> 创建任务列表:在任务列表项之前添加破折号-和方括号[ ]，并在[ ]前面加上空格。要选择一个复选框，请在方括号[x]之间添加 x
+> 创建任务列表:在任务列表项之前添加减号和方括号`- [ ]`，。要选择一个复选框，请在方括号[x]之间添加 x
 
 - [x] Write the press release
 - [ ] Update the website
 - [ ] Contact the media
 
-# 代码
+## 代码
 
-## 单行代码
+**代码块**
 >
-> 要将单词或短语表示为代码，请将其包裹在反引号中  
+> 要将单词或短语表示为代码，请将其包裹在反引号 `` `code` ``  
+> 转义反引号
+> 要表示代码的单词或短语中包含一个或多个反引号，则可以通过将单词或短语包裹在双反引号
+> ``Use Your `Code` in Markdown File``
 
-```
-`var count = 0`
-```
-
-`var count = 0`
-
-## 多行代码
+**多行代码**
 >
 > 将代码块的每一行缩进至少四个空格或一个制表符 或用前后三个反引号
+> 许多Markdown处理器都支持受围栏代码块的语法高亮显示。
+> 在受防护的代码块之前的反引号旁边指定一种语言。
 
     public func setup(data:Any){
         
     }
 
-```
-[```]  
+``` swift
+``` swift  
 public func setup(data:Any){
 
 }
-[```]
+\```
 ```
 
-## 代码语法高亮
->
-> 许多Markdown处理器都支持受围栏代码块的语法突出显示。
-> 在受防护的代码块之前的反引号旁边指定一种语言。
-
-``` json
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
-
-## 转义反引号
->
-> 如果你要表示为代码的单词或短语中包含一个或多个反引号，则可以通过将单词或短语包裹在双反引号  
-
-``Use Your `Code` in Markdown File``
-
-# 分割语法
+## 分割语法
 >
 > 在单独一行上使用三个或多个星号 `***`、破折号 `---` 或下划线 `___` ，并且不能包含其他内容  
 ---
 ***
 
-# 链接语法
+## 链接语法
 >
-> 链接文本放在中括号内，链接地址放在后面的括号中，链接title可选  `[超链接显示名称](超链接地址 "链接title是当鼠标悬停在链接上时会出现的文字")` title是可选的  
-[Markdown语法](https://markdown.com.cn "Markdown语法")
-
-## 网址和Email地址
->
+> 链接文本放在中括号内，链接地址放在后面的括号中，
+> `[超链接显示名称](超链接地址 "链接title是当鼠标悬停在链接上时会出现的文字")` title是可选的  
+> [Markdown语法](https://markdown.com.cn "Markdown语法")  
 > 使用尖括号可以很方便地把URL或者email地址变成可点击的链接
-<https://markdown.com.cn> , <markdown@example.com>
-
-## 格式化链接
->
+> <https://markdown.com.cn> , <markdown@example.com>  
 > 强调链接, 在链接语法前后增加星号。 要将链接表示为代码，请在方括号中添加反引号  
 I love supporting the **[EFF](https://eff.org)**.  
 This is the *[Markdown Guide](https://www.markdownguide.org)*.  
 See the section on [`code`](#code).
 
-## 引用类型链接
+**引用链接**
 
-# 图片语法
+[markdown] [1]
 
-## 普通图片
->
+[1]: https://www.markdownguide.org
+
+``` md
+[markdown] [1]
+
+[1]: https://www.markdownguide.org
+```
+
+## 图片语法
+
+> **普通图片**
 > `![替代文本](图片地址 "图片标题")`
 > ![这是图片](https://markdown.com.cn/hero.png "图片标题")
 >
-## 链接图片
->
+> **链接图片**
 > `[![替代文本](图片地址 "图片标题")](https://markdown.com.cn)`
 > [![这是图片](https://markdown.com.cn/hero.png "图片标题")](https://markdown.com.cn)
 
@@ -292,13 +274,3 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 [TOC]
 
 # 标签语法
-
-# 流程图
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
