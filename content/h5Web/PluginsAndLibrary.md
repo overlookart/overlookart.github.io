@@ -20,10 +20,13 @@ author: "OverookArt"
 
 ## 静态网站框架  
 
-* [VuePress](https://www.vuepress.cn/)  
+* [Astor](https://astro.build)
+* [VuePress](https://www.vuepress.cn/)
+* [Hugo](https://gohugo.io)
 
 ## UI 框架  
 
+* [Storybook](https://storybook.js.org)
 * [Vuetify](https://vuetifyjs.com/en/)  
 * [NuxtJs](https://nuxtjs.org/docs/)  
 * [Naive UI](https://www.naiveui.com/)  
