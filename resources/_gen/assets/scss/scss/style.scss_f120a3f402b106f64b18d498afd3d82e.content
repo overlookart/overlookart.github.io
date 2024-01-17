@@ -46,3 +46,10 @@ body {
 
 #nice pre code {
   border-width: 0px; }
+
+#TableOfContents ol {
+  list-style-type: none;
+  counter-reset: item; }
+
+#TableOfContents li {
+  margin: 15px 0 15px 20px; }
