@@ -66,7 +66,7 @@ author: "OverookArt"
 
 ## 图表  
 
-* [d3JS](https://d3js.org)
+* [d3js](https://d3js.org)
 * [Vue-ChartJs](https://vue-chartjs.org)  
 
 ## 用户引导  
