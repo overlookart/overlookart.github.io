@@ -139,14 +139,15 @@ public func setup(data:Any){
 ```
 
 ## 分割语法
->
-> 在单独一行上使用三个或多个星号 `***`、破折号 `---` 或下划线 `___` ，并且不能包含其他内容  
+
+分割语法用于要结束当前内容，分割两块不同的内容
+> 在单独一行上使用三个或多个星号 `***`、连字符 `---` 或下划线 `___` ，并且不能包含其他内容  
 ---
 ***
 
 ## 链接语法
->
-> 链接文本放在中括号内，链接地址放在后面的括号中，
+
+链接文本放在中括号内，链接地址放在后面的括号中，
 > `[超链接显示名称](超链接地址 "链接title是当鼠标悬停在链接上时会出现的文字")` title是可选的  
 > [Markdown语法](https://markdown.com.cn "Markdown语法")  
 > 使用尖括号可以很方便地把URL或者email地址变成可点击的链接
@@ -178,77 +179,37 @@ See the section on [`code`](#code).
 > `[![替代文本](图片地址 "图片标题")](https://markdown.com.cn)`
 > [![这是图片](https://markdown.com.cn/hero.png "图片标题")](https://markdown.com.cn)
 
-# 转译字符语法
+## 转译字符语法  
 
-## 普通字符转译
->
+> 普通字符转译
 > 要显示原本用于格式化 Markdown 文档的字符，请在字符前面添加反斜杠字符 \
 > `\\`,`\*`,`\_`,`\{}`,`\[]`,`\()`,`\#`,`\+`,`\-`,`\.`,`\!`,`\|`
->
-## 特殊字符转译
->
+>  
+
+> 特殊字符转译
 > 在 HTML 文件中，有两个字符需要特殊处理： < 和 &
 > < 符号用于起始标签，& 符号则用于标记 HTML 实体
-> 你必须要使用实体的形式，是 &lt; 和 &amp;
+> 你必须要使用实体的形式，是 `&lt;` 和 `&amp;`
 
-# 内嵌 HTML 语法
 
-## 行级标签
+
+## 表格
 >
-> HTML 的行级內联标签如 `<span>`、`<cite>`、`<del>` 不受限制，可以在 Markdown 的段落、列表或是标题里任意使用
-> This **word** is bold. This <em>word</em> is italic.
->
-## 块级标签
->
-> 区块元素──比如 `<div>`、`<table>`、`<pre>`、`<p>` 等标签，必须在前后加上空行，以便于内容区分  
+> 要添加表格，请使用三个或多个连字符`---`创建每列的标题，并使用`|`分隔每列。  
+> 可以通过在标题行中的连字符的左侧，右侧或两侧添加冒号`:`，将列中的文本对齐到左侧，右侧或中心。
+> 可以在表格中添加[链接]()，`代码`，和**强调**语法
 
-```
-<table>
-    <tr>
-        <td>Foo</td>
-    </tr>
-</table>
-```
-
-<table>
-    <tr>
-        <td>Foo</td>
-    </tr>
-</table>
-
-# 表格
-
-## 基础表格
->
-> 要添加表，请使用三个或多个连字符（---）创建每列的标题，并使用管道（|）分隔每列。您可以选择在表的任一端添加管道
-
-```
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
-```
-
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
-
-## 内容对齐
->
-> 您可以通过在标题行中的连字符的左侧，右侧或两侧添加冒号（:），将列中的文本对齐到左侧，右侧或中心
-
-```
+``` markdown
 | Syntax      | Description | Test Text     |
 | :---        |    :----:   |          ---: |
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
 ```
 
-## 格式化文字
->
-> 您可以在表格中设置文本格式。例如，您可以添加链接，代码（仅反引号（`）中的单词或短语，而不是代码块）和强调
-> 不能添加标题，块引用，列表，水平规则，图像或HTML标签
+| Syntax      | Description | Test Text     |
+| :---        |    :----:   |          ---: |
+| Header      | Title       | Here's this   |
+| Paragraph   | Text        | And more      |
 
 # 脚注语法
 
@@ -274,3 +235,27 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 [TOC]
 
 # 标签语法
+# 内嵌 HTML 语法
+
+## 行级标签
+>
+> HTML 的行级內联标签如 `<span>`、`<cite>`、`<del>` 不受限制，可以在 Markdown 的段落、列表或是标题里任意使用
+> This **word** is bold. This <em>word</em> is italic.
+>
+## 块级标签
+>
+> 区块元素──比如 `<div>`、`<table>`、`<pre>`、`<p>` 等标签，必须在前后加上空行，以便于内容区分  
+
+```
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
+```
+
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>

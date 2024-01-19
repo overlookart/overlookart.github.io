@@ -15,4 +15,8 @@
     dl, dd {
         margin: revert;
     }
+
+    ol, ul {
+        padding: revert;
+    }
 }
