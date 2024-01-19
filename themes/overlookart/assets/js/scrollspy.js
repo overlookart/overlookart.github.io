@@ -19,6 +19,8 @@ const TocNavigationItemQuery = '#TableOfContents li';
 /// 查询文章标题 header 的 css和标签及id
 const ArticleHeaderQuery = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
+const ActiveNavItemClass = 'active-nav-item';
+
 
 const scrollToTocElement = (tocItemElement, tocNavigation) => {
     let itemHeight = tocItemElement.querySelector("a").offsetHeight;
@@ -55,7 +57,7 @@ const computeArticleHeaderOffset = (headers) => {
 } 
 
 /// 滑动处理
-const scrollHandler = (offsets) => {
+const scrollHandler = (offsets, navItemsLinkRef, preNavItemLink) => {
     let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
     var newActive;
@@ -67,14 +69,29 @@ const scrollHandler = (offsets) => {
     
     var newActiveLink;
     if(newActive){
-        // newActiveLink = 
+        newActiveLink = navItemsLinkRef[newActive.id];
     }
 
-    console.debug(newActive);
+    if(newActive && !newActiveLink){
+        console.debug('没有找到目录 item 的 a 链接');
+    }else if(newActiveLink !== preNavItemLink){
+        if(preNavItemLink){
+            // 移除之前激活的目录导航项的激活 class
+            preNavItemLink.classList.remove(ActiveNavItemClass);
+        }
+        if(newActiveLink){
+            // 为新的目录导航项添加激活 class
+            newActiveLink.classList.add(ActiveNavItemClass);
+        }
+    }
+
+    console.debug(newActive, newActiveLink);
+
+    return newActiveLink;
 
 }
 
-const setupScrollSpy = () => {
+const setupScrollspy = () => {
     // 查询文章目录标题元素
     let headers = document.querySelectorAll(ArticleHeaderQuery);
     if(!headers) { console.warn('没有找到文字目录标题元素'); return; }
@@ -93,9 +110,11 @@ const setupScrollSpy = () => {
     let navigationItemLinkRef = buildIdToNavigationElementMap(navigationItems);
     console.debug(navigationItemLinkRef);
 
+    var navItemLink;
+
     window.addEventListener('scroll', () => {
-        scrollHandler(articleHeadersOffset);
+        navItemLink = scrollHandler(articleHeadersOffset, navigationItemLinkRef, navItemLink);
     });
 }
 
-export { setupScrollSpy };
+export { setupScrollspy };
