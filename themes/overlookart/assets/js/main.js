@@ -1,9 +1,12 @@
 import * as params from '@params';
 import lax from './modules/lax'
+import { setupScrollspy } from './scrollspy';
+
 console.debug('加载主脚本');
 
 window.onload = () => {
     console.debug('整个页面及所有依赖资源如样式表和图片都已完成');
+    setupScrollspy();
 }
 
 window.oncopy = (event) => {

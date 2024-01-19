@@ -20,10 +20,17 @@ author: "OverookArt"
 
 ## 静态网站框架  
 
-* [VuePress](https://www.vuepress.cn/)  
+* [Astor](https://astro.build)
+* [VuePress](https://www.vuepress.cn/)
+* [Hugo](https://gohugo.io)
+
+## PPT 框架  
+
+* [revealJS](https://revealjs.com)
 
 ## UI 框架  
 
+* [Storybook](https://storybook.js.org)
 * [Vuetify](https://vuetifyjs.com/en/)  
 * [NuxtJs](https://nuxtjs.org/docs/)  
 * [Naive UI](https://www.naiveui.com/)  
@@ -59,6 +66,7 @@ author: "OverookArt"
 
 ## 图表  
 
+* [d3js](https://d3js.org)
 * [Vue-ChartJs](https://vue-chartjs.org)  
 
 ## 用户引导  
