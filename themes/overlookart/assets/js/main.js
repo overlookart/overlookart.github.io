@@ -1,12 +1,14 @@
 import * as params from '@params';
 import lax from './modules/lax'
-import { setupScrollspy } from './scrollspy';
+import { setupScrollspy , scrollspy} from './scrollspy';
 
 console.debug('加载主脚本');
 
+
+
 window.onload = () => {
     console.debug('整个页面及所有依赖资源如样式表和图片都已完成');
-    setupScrollspy();
+    scrollspy.func(scrollspy.val);
 }
 
 window.oncopy = (event) => {
@@ -38,6 +40,7 @@ window.onpopstate = (event) => {
 
 window.onpageshow = (event) => {
     console.debug('进入页面!', event);
+    setupScrollspy();
 }
 window.onpagehide = (event) => {
     console.debug('离开页面!', event);

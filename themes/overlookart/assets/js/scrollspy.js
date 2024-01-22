@@ -117,4 +117,18 @@ const setupScrollspy = () => {
     });
 }
 
-export { setupScrollspy };
+const scrollspy = {
+    // 查询 Toc 目录元素
+    TocNavigationQuery: '#TableOfContents',
+    /// 查询 Toc 导航项的 id和标签
+    TocNavigationItemQuery: '#TableOfContents li',
+    /// 查询文章标题 header 的 css和标签及id
+    ArticleHeaderQuery: 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]',
+
+    ActiveNavItemClass: 'active-nav-item',
+    func: (val) => {
+        console.log('函数',val);
+    }
+}
+
+export { setupScrollspy, scrollspy };
