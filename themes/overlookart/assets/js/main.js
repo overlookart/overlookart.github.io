@@ -8,7 +8,7 @@ console.debug('加载主脚本');
 
 window.onload = () => {
     console.debug('整个页面及所有依赖资源如样式表和图片都已完成');
-    scrollspy.func(scrollspy.val);
+    scrollspy.setup();
 }
 
 window.oncopy = (event) => {
@@ -40,7 +40,7 @@ window.onpopstate = (event) => {
 
 window.onpageshow = (event) => {
     console.debug('进入页面!', event);
-    setupScrollspy();
+    // setupScrollspy();
 }
 window.onpagehide = (event) => {
     console.debug('离开页面!', event);
@@ -52,4 +52,9 @@ window.onbeforeunload = (event) => {
 window.onresize = (event) => {
     console.debug('窗口大小调整!', event);
 }
+
+
+window.addEventListener('scroll', () => {
+    scrollspy.scrollHandler();
+});
 
