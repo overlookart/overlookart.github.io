@@ -23,31 +23,6 @@ const scrollToTocElement = (tocItemElement, tocNavigation) => {
     tocNavigation.scrollTo({ top: scrollTop, behavior: 'smooth'});
 }  
 
-const setupScrollspy = () => {
-    // 查询文章目录标题元素
-    let headers = document.querySelectorAll(thisArticleHeaderQuery);
-    if(!headers) { console.warn('没有找到文字目录标题元素'); return; }
-
-    // 查询 TOC 目录元素
-    let tocNavigation = document.querySelector(TocNavigationQuery);
-    if(!tocNavigation) { console.warn('没有找到 TOC 目录元素'); return; }
-
-    // 查询 TOC 目录导航元素
-    let navigationItems = document.querySelectorAll(TocNavigationItemQuery);
-    if(!navigationItems) { console.warn('没有找到目录导航元素'); return; }
-
-    let articleHeadersOffset = computeArticleHeaderOffset(headers);
-    console.debug(articleHeadersOffset);
-
-    let navigationItemLinkRef = buildIdToNavigationElementMap(navigationItems);
-    console.debug(navigationItemLinkRef);
-
-    var navItemLink;
-
-    window.addEventListener('scroll', () => {
-        navItemLink = scrollHandler(articleHeadersOffset, navigationItemLinkRef, navItemLink);
-    });
-}
 
 const scrollspy = {
     // 查询 Toc 目录元素
@@ -56,13 +31,13 @@ const scrollspy = {
     TocNavigationItemQuery: '#TableOfContents li',
     /// 查询文章标题 header 的 css和标签及id
     ArticleHeaderQuery: 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]',
-
+    /// 目录导航项激活时的样式
     ActiveNavItemClass: 'active-nav-item',
 
     navItemsLinkRef: {},
-    
+    /// 文章内的标题位置
     articleHeaderOffset: [],
-
+    /// 当前的导航项
     currentNavItemLink: null,
 
     setupNavItemsLinkRef: function(navigationItems){
@@ -136,4 +111,4 @@ const scrollspy = {
     }
 }
 
-export { setupScrollspy, scrollspy };
+export { scrollspy };

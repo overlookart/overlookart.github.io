@@ -1,6 +1,6 @@
 import * as params from '@params';
 import lax from './modules/lax'
-import { setupScrollspy , scrollspy} from './scrollspy';
+import { scrollspy } from './scrollspy';
 
 console.debug('加载主脚本');
 
