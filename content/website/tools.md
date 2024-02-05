@@ -39,6 +39,10 @@ author: "OverookArt"
 > [正则表达式](https://projects.verou.me/regexplained "正则表达式")  
 > 在线验证正则表达式 匹配规则
 
+## Git  
+
+> [为你的项目创建必要的 .gitignore 文件](https://www.toptal.com/developers/gitignore)
+
 ## JSON在线解析  
 
 > [JSON解析](https://www.json.cn "JSON在线解析")  
