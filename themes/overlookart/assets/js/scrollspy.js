@@ -1,16 +1,4 @@
 
-//https://gomakethings.com/debouncing-your-javascript-events/
-const debounced = (func) => {
-    let timeout;
-    return () => {
-        if(timeout){
-            window.cancelAnimationFrame(timeout);
-        }
-        timeout = window.requestAnimationFrame(func);
-    }
-}
-
-
 const scrollToTocElement = (tocItemElement, tocNavigation) => {
     let itemHeight = tocItemElement.querySelector("a").offsetHeight;
 
@@ -35,10 +23,28 @@ const scrollspy = {
     ActiveNavItemClass: 'active-nav-item',
 
     navItemsLinkRef: {},
+
+    /// 文章内容的所有标题元素
+    articleHeaderElements: [],
+
     /// 文章内的标题位置
     articleHeaderOffset: [],
     /// 当前的导航项
     currentNavItemLink: null,
+    /// 是否为文章页
+    isArticle: false,
+
+    /// 滑动 Toc
+    scrollToTocElement: function(tocItemElement, tocNavigation){
+        let itemHeight = tocItemElement.querySelector("a").offsetHeight;
+        let scrollTop = tocItemElement.offsetTop - tocNavigation.offsetHeight / 2 + itemHeight / 2 - tocNavigation.offsetTop;
+
+        if(scrollTop < 0) {
+            scrollTop = 0;
+        }
+
+        tocNavigation.scrollTo({ top: scrollTop, behavior: 'smooth'});
+    },
 
     setupNavItemsLinkRef: function(navigationItems){
         const navItemLinkRef = {};
@@ -52,6 +58,7 @@ const scrollspy = {
         this.navItemsLinkRef = navItemLinkRef;
     },
 
+    /// 更新文章内容 header 的垂直位置
     setupArticleHeaderOffset: function(headers){
         var offsets = [];
         headers.forEach(header => {
@@ -62,10 +69,14 @@ const scrollspy = {
     },
 
     setup: function(){
+
+        this.isArticle = document.getElementById('article') ? true : false;
+        if(!this.isArticle) {console.warn('未找到文章页的标识'); return; }
+
         // 查询文章目录标题元素
         let headers = document.querySelectorAll(this.ArticleHeaderQuery);
         if(!headers) { console.warn('没有找到文字目录标题元素'); return; }
-
+        this.articleHeaderElements = headers;
         // 查询 TOC 目录元素
         let tocNavigation = document.querySelector(this.TocNavigationQuery);
         if(!tocNavigation) { console.warn('没有找到 TOC 目录元素'); return; }
@@ -79,7 +90,9 @@ const scrollspy = {
 
     },
 
+    /// 页面滑动时处理
     scrollHandler: function(){
+        if (!this.isArticle) { return }
         let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
         var newActive;
@@ -108,6 +121,14 @@ const scrollspy = {
         }
         console.debug(newActive, newActiveLink);
         this.currentNavItemLink = newActiveLink;
+    },
+
+
+    /// 窗口大小变化时处理
+    resizeHandler: function(){
+        if(!this.isArticle) { return }
+        this.setupArticleHeaderOffset(this.headers);
+        this.scrollHandler();
     }
 }
 

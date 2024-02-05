@@ -4,7 +4,16 @@ import { scrollspy } from './scrollspy';
 
 console.debug('加载主脚本');
 
-
+//https://gomakethings.com/debouncing-your-javascript-events/
+const debounced = (func) => {
+    let timeout;
+    return () => {
+        if(timeout){
+            window.cancelAnimationFrame(timeout);
+        }
+        timeout = window.requestAnimationFrame(func);
+    }
+}
 
 window.onload = () => {
     console.debug('整个页面及所有依赖资源如样式表和图片都已完成');
@@ -51,10 +60,9 @@ window.onbeforeunload = (event) => {
 
 window.onresize = (event) => {
     console.debug('窗口大小调整!', event);
+    debounced(scrollspy.resizeHandler());
 }
 
-
 window.addEventListener('scroll', () => {
-    scrollspy.scrollHandler();
+    debounced(scrollspy.scrollHandler());
 });
-

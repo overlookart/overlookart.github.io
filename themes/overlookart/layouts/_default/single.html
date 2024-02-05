@@ -1,7 +1,7 @@
 {{define "main"}}
-<div class="w-full">
+<div class="w-full" id="article">
     <div class="flex">
-        {{ partial "toc.html" . }}
+        {{- partial "toc.html" . -}}
         <article class="prose prose-zinc flex-auto mx-auto shadow-lg px-10">
             <h1 style="text-align: center;">{{ title .Title }}</h1>
             <div id="nice">
@@ -11,7 +11,6 @@
         </article>
         {{ partial "PageVar.html" . }}
     </div>
-    
 </div>
 <!-- 图表 -->
 {{ if .Page.Store.Get "hasMermaid" }}
