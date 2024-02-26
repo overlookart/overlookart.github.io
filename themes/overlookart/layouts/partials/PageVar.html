@@ -2,6 +2,7 @@
 <div class="max-w-[240px]">
     <p>RelPermalink: {{.RelPermalink}}</p>
     <p>Data: {{ .Data }}</p>
+    <p>Date: {{ .Date }}</p>
     <p>Draft: {{ .Draft }}</p>
     <p>File: {{ .File }}</p>
     <p>FuzzyWordCount: {{ .FuzzyWordCount }}</p>
@@ -10,6 +11,7 @@
     <p>IsPage: {{ .IsPage }}</p>
     <p>IsSection: {{ .IsSection }}</p>
     <p>IsTranslated: {{ .IsTranslated }}</p>
+    <p>HasShortcode: {{ .HasShortcode "Shortcode"}}</p>
     <p>Language: {{ .Language }}</p>
     <p>LinkTitle: {{ .LinkTitle }}</p>
     <p>Next: {{ .Next }}</p>
@@ -23,5 +25,19 @@
     <p>预计阅读时长: {{ .ReadingTime }} 分钟</p>
     <p>关联的资源: {{ .Resources }}</p>
     <p>页面的别名: {{ .Aliases }}</p>
-    <p>Git提交信息: {{ .GitInfo }}</p>
+    <p>CodeOwners: {{ .CodeOwners }}</p>
+    
+    <div class="border-red-400 border-2">
+      <p>Git提交信息</p>
+      {{ with .GitInfo }}
+      <p>AbbreviatedHash: {{ .AbbreviatedHash }}</p>
+      <p>AuthorDate: {{ .AuthorDate.Format "2006-01-02" }}</p>
+      <p>提交者邮箱: {{ .AuthorEmail }}</p>
+      <p>提交者名称: {{ .AuthorName }}</p>
+      <p>CommitDate: {{ .CommitDate.Format "2006-01-02" }}</p>
+      <!-- <p>Hash: {{ .Hash }}</p> -->
+      <p>Subject: {{ .Subject }}</p>
+      {{ end }}
+      
+    </div>
   </div>
