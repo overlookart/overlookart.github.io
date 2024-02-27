@@ -19,6 +19,10 @@ author: "OverookArt"
 
 ## Mac App 下载  
 
+[cmacked](https://cmacked.com)
+
+[xmac](https://xmac.app)
+
 [macwk](https://macwk.cn/)
 
 [macapp](https://macapp.org.cn/)
