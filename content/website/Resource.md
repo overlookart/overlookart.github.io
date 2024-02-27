@@ -24,3 +24,11 @@ author: "OverookArt"
 [macapp](https://macapp.org.cn/)
 
 [xclient](https://xclient.info)
+
+## Windows 系统/软件下载
+
+[hellowindows](https://hellowindows.cn)
+
+## 多平台应用下载
+
+[softonic](https://en.softonic.com)
