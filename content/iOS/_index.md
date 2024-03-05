@@ -18,3 +18,8 @@ author: "OverookArt"
 ---
 
 ## iOS 的文章  
+
+官方文档:
+
+* [人机界面指南](https://developer.apple.com/cn/design/human-interface-guidelines/)
+* [Apple 开发者的协议和准则](https://developer.apple.com/cn/support/terms/)
