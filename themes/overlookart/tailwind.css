@@ -17,6 +17,6 @@
     }
 
     ol, ul {
-        padding: revert;
+        padding: unset;
     }
 }
