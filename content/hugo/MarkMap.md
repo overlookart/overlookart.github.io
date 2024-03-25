@@ -44,7 +44,7 @@ Markmap是Markdown和思维导图的组合。
 3. [基于 auto-loader 的使用](https://stackblitz.com/edit/markmap-autoloader?file=index.html)
 4. [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode)
 
-## 在 Hugo 中的使用  
+## 在 Hugo 中使用  
 
 Hugo 中对  Markdown 的代码块语法 有自定义的功能，可将 markmap 设为一种语法进行自定义渲染  
 
