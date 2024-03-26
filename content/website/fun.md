@@ -21,3 +21,6 @@ author: "OverookArt"
 
  [picfinder](https://picfinder.ai)  
 
+## AI 生成音乐
+
+[suno](https://app.suno.ai)
