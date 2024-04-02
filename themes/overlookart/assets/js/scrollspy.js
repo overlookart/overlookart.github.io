@@ -85,7 +85,7 @@ const scrollspy = {
         let navigationItems = document.querySelectorAll(this.TocNavigationItemQuery);
         if(!navigationItems) { console.warn('没有找到目录导航元素'); return; }
 
-        this.setupArticleHeaderOffset(headers);
+        this.setupArticleHeaderOffset(this.articleHeaderElements);
         this.setupNavItemsLinkRef(navigationItems);
 
     },
@@ -127,7 +127,7 @@ const scrollspy = {
     /// 窗口大小变化时处理
     resizeHandler: function(){
         if(!this.isArticle) { return }
-        this.setupArticleHeaderOffset(this.headers);
+        this.setupArticleHeaderOffset(this.articleHeaderElements);
         this.scrollHandler();
     }
 }
