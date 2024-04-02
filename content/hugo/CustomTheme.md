@@ -95,21 +95,22 @@ theme = 'newTheme'
 
 1. 通过 Node Package Manager 管理三方依赖库
 
-    ```shell
+    ``` sh
     # 在自定义主题文件夹下执行
     $ npm init -y
     ```
 
 2. 安装Tailwind CSS 依赖库
 
-    ``` shell
-    $ npm install -D tailwindcss
+    ``` sh
+    npm install -D tailwindcss
     ```
 
 3. 初始化 Tailwind CSS
 
-    ``` shell
-    $ npx tailwindcss init
+    ``` sh
+    npx tailwindcss init
+    # 在主题根目录下会生成 tailwind.config.js 和 tailwind.css 
     ```
 
 4. 配置模板路径
@@ -176,4 +177,95 @@ theme = 'newTheme'
         # class 适应深色模式 dark:prose-invert
         # class 修改单个元素样式 prose-headings:underline prose-a:text-blue-600
         # 元素指示器 详见 https://tailwindcss.com/docs/typography-plugin#element-modifiers
+    ```
+
+11. 修改 tailwind 的基础样式
+
+    ``` css
+    <!-- //newTheme/tailwind.css -->
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    <!-- //修改基础样式 -->
+    @layer base {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: revert;
+            font-weight: revert;
+        }
+        dl, dd {
+            margin: revert;
+        }
+
+        ol, ul {
+            padding: unset;
+        }
+    }
+
+    ```
+
+12. 修改 typography 的默认样式
+
+    ``` js
+    // newTheme/tailwind.config.js
+    /** @type {import('tailwindcss').Config} */
+    const plugin = require('tailwindcss/plugin')
+    module.exports = {
+        corePlugins: {
+            preflight: true,
+        },
+        content: ['content/**/*.md', 'layouts/**/*.html'],
+        theme: {
+            extend: {
+                // 自定义 typography 插件样式
+                typography: {
+                    DEFAULT: {
+                        css: {
+                            // 文章展示区域的最大宽度
+                            'max-width': '90ch',
+                            // 二级目录的边距
+                            h2: {
+                                'margin-top': 'unset',
+                                'margin-bottom': 'unset'
+                            },
+                            // 任何元素与二级目录的上边距
+                            'h2 + *': {
+                                'margin-top': '1.25em'
+                            },
+                            // 段落与任何元素的上边距
+                            '* + p': {
+                                'margin-top': '1.25em'
+                            },
+                            // 去掉 code 元素的开头与结尾的单引号
+                            'code::before': {
+                                content: 'none'
+                            },
+                            'code::after': {
+                                content: 'none'
+                            },
+
+                            'blockquote  p:first-of-type::before': {
+                                content: 'none'
+                            },
+                            'blockquote  p:last-of-type::after': {
+                                content: 'none'
+                            },
+                            'blockquote  p': {
+                                'font-style': 'normal',
+                                'font-weight': '300'
+                            },
+                            // 表格单元格内容垂直居中
+                            'tbody td': {
+                                'vertical-align': 'middle'
+                            }
+                        }
+                    },
+                },
+            },
+        }
+    }
     ```
