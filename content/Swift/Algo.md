@@ -17,4 +17,4 @@ description: "一本通俗易懂的数据结构与算法入门书，引导读者
 author: "OverLookArt"
 ---
 
-{{< iframe src="https://www.hello-algo.com/" >}}
+{{< iframe src="https://www.hello-algo.com/" title="Hello 算法" coustom="自定义参数">}}
