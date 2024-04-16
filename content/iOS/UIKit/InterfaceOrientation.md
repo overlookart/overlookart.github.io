@@ -49,3 +49,37 @@ override func viewDidDisappear(_ animated: Bool) {
 ```
 
 ## 手动旋转屏幕方向
+
+``` swift
+// viewContoller.swift
+
+// 竖屏模式
+private func halfScreen() {
+    if #available(iOS 16.0, *) {
+        guard let windowScene = self.view.window?.windowScene else { return }
+        self.setNeedsUpdateOfSupportedInterfaceOrientations()
+        let iOSWindowScene = UIWindowScene.GeometryPreferences.iOS()
+        iOSWindowScene.interfaceOrientations = .portrait
+        windowScene.requestGeometryUpdate(iOSWindowScene) { error in
+                
+        }
+    } else {
+        UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: "orientation")
+    }
+}
+
+// 横屏模式
+private func fullScreen() {
+    if #available(iOS 16.0, *) {
+        guard let windowScene = self.view.window?.windowScene else { return }
+        self.setNeedsUpdateOfSupportedInterfaceOrientations()
+        let iOSWindowScene = UIWindowScene.GeometryPreferences.iOS()
+        iOSWindowScene.interfaceOrientations = .landscapeLeft
+        windowScene.requestGeometryUpdate(iOSWindowScene) { error in
+                
+        }
+    } else {
+        UIDevice.current.setValue(UIDeviceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+    }
+}
+```
