@@ -29,3 +29,6 @@ author: "OverookArt"
 
 [tinywow](https://tinywow.com)
 
+## AI 编程助手
+
+[fitten code](https://code.fitten.com/)
