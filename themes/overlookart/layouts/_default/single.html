@@ -2,7 +2,7 @@
 <div class="w-full" id="article">
     <div class="flex">
         {{- partial "toc.html" . -}}
-        <article class="prose prose-zinc flex-auto mx-auto shadow-lg px-10">
+        <article class="prose prose-zinc flex-auto mx-auto shadow-lg px-10 max-w-[100ch]">
             <h1 style="text-align: center;">{{ title .Title }}</h1>
             <div id="nice">
               {{ .Content }}
