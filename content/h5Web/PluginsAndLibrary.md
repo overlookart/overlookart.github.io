@@ -46,6 +46,7 @@ author: "OverookArt"
 * [CKEditor 5](https://ckeditor.com/ckeditor-5/)  
 * [Quilljs](https://quilljs.com)  
 * [tiptap](https://tiptap.dev/introduction/)  
+* [Ai Editor](https://aieditor.dev/ '带有 AI 功能的编辑器')  
 
 ## 滚动条  
 
