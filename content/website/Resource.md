@@ -36,3 +36,7 @@ author: "OverookArt"
 ## 多平台应用下载
 
 [softonic](https://en.softonic.com)
+
+## 游戏下载
+
+[byruthub](https://byruthub.org '一个俄罗斯的游戏下载站')  

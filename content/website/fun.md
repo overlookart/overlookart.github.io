@@ -24,3 +24,11 @@ author: "OverookArt"
 ## AI 生成音乐
 
 [suno](https://app.suno.ai)
+
+## AI 工具站
+
+[tinywow](https://tinywow.com)
+
+## AI 编程助手
+
+[fitten code](https://code.fitten.com/)
