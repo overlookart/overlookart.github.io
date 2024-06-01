@@ -4,6 +4,6 @@
     style: 内联样式
     click: 点击事件
  -->
-<button  onclick="{{ .click | safeJS }}"  class="{{.class}} hover:bg-teal-500" style="{{.style}}">
+<button  onclick="{{ .click | safeJS }}"  class="{{ .class }}" style="{{ .style | safeCSS }}">
     {{.title}}
 </button>

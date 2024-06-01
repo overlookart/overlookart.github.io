@@ -1,0 +1,24 @@
+<div class="container mx-auto  shadow-md rounded-xl">
+    <div class="flex  h-screen p-4">
+        <div class="flex-none py-4 backdrop-blur-md bg-white/50 rounded-l-lg w-[215px] overflow-scroll">
+            {{ $allSections := .Site.Sections }}
+            {{ range $allSections }}
+            <!-- <a href="{{.Permalink }}" class="block py-2 px-4 hover:bg-gray-200/40 ">{{.Title }}</a> -->
+            {{ $js := printf "console.debug('按钮点击');window.location.href='%s'" .Permalink }}
+            {{ $dic := dict "title" .Title "click" $js "class" "block py-2 px-4 hover:bg-gray-200/40 w-full"}}
+            {{ partial "BaseUI/Button.html" $dic }}
+            {{ end }}
+            
+        </div>
+        <div id="content" class="grow backdrop-blur-md bg-white/30 overflow-scroll">
+            {{ .Content }}
+            {{ $pages := .Pages }}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                {{ range $pages }}
+                    {{ partial "PageCell.html" . }}
+                {{ end }}
+            </div>
+        </div>
+        <div class="flex-none">右侧区域</div>
+    </div>
+</div>

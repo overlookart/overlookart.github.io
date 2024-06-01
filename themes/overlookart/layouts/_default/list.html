@@ -1,4 +1,10 @@
 {{define "main"}}
+    {{ partial "MainView.html" . }}
+{{end}}
+
+        
+        
+{{ define "content"}}
 <div id="content">
     模版: default list
     {{ .Content }}
@@ -11,8 +17,4 @@
         {{ end }}
     </ul>
 </div>
-{{end}}
-
-        
-        
-        
+{{ end}}     
