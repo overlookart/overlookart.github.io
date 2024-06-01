@@ -8,7 +8,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage:{
-                "sitebg":"url('https://source.unsplash.com/random/1280x800?simple,color,bright')"
+                "sitebg":"url('https://source.unsplash.com/random/1280x800?color,bright,nature,space')"
             },
             // 自定义 typography 插件样式
             typography: {
