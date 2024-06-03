@@ -1,16 +1,30 @@
-<div class="container mx-auto  shadow-md rounded-xl">
-    <div class="flex  h-screen p-4">
-        <div class="flex-none py-4 backdrop-blur-md bg-white/50 rounded-l-lg w-[215px] overflow-scroll">
-            {{ $allSections := .Site.Sections }}
-            {{ range $allSections }}
-            <!-- <a href="{{.Permalink }}" class="block py-2 px-4 hover:bg-gray-200/40 ">{{.Title }}</a> -->
-            {{ $js := printf "console.debug('按钮点击');window.location.href='%s'" .Permalink }}
-            {{ $dic := dict "title" .Title "click" $js "class" "block py-2 px-4 hover:bg-gray-200/40 w-full"}}
-            {{ partial "BaseUI/Button.html" $dic }}
-            {{ end }}
+<div class="container mx-auto">
+    <div class="flex h-screen shadow-gray-600 py-4">
+        <div class=" py-2 backdrop-blur-md bg-white/50 rounded-l-lg w-[215px] overflow-scroll" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
+            <div id="site-header" class="w-full flex flex-col items-center">
+                <div class="font-mono text-[30px] bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text text-center">
+                    {{ .Site.Title }}
+                </div>
+                <div class="w-16 h-16 bg-slate-500 rounded-full"></div>
+            </div>
+            <div id="nav-list">
+                {{ $allSections := .Site.Sections }}
+                {{ range $allSections }}
+                {{ $js := printf "console.debug('按钮点击');window.location.href='%s'" .Permalink }}
+                {{ $dic := dict "title" .Title "click" $js "class" "block py-2 px-4 hover:bg-gray-200/40 w-full"}}
+                {{ partial "BaseUI/Button.html" $dic }}
+                {{ end }}
+            </div>
             
+            <div id="site-menu">
+                {{ range .Site.Menus.main }}
+                {{ $js := printf "console.debug('按钮点击');window.location.href='%s%s'" site.BaseURL .URL}}
+                {{ $dic := dict "title" .Name "click" $js "class" "bg-teal-400 px-1 rounded-md hover:bg-teal-500"}}
+                {{ partial "BaseUI/Button.html" $dic }}            
+                {{ end }}
+            </div>
         </div>
-        <div id="content" class="grow backdrop-blur-md bg-white/30 overflow-scroll">
+        <div id="content" class="grow backdrop-blur-md bg-white/30 overflow-scroll" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
             {{ .Content }}
             {{ $pages := .Pages }}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
