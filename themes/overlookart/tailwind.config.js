@@ -15,9 +15,10 @@ module.exports = {
 
                 // "sitebg":"url('https://api.yimian.xyz/img')"
                 // "sitebg":"url('https://image.anosu.top/pixiv?r18=1')"
-                "sitebg":"url('https://api.asxe.vip/scenery.php')"
+                // "sitebg":"url('https://api.asxe.vip/scenery.php')"
                 // "sitebg":"url('https://www.loliapi.com/acg/')"
                 // "sitebg":"url('http://edgecats.net/')"
+                "sitebg":"url('https://bing.img.run/rand_uhd.php')"
             },
             // 自定义 typography 插件样式
             typography: {
