@@ -1164,6 +1164,10 @@ ol, ul {
   height: 4rem;
 }
 
+.h-24 {
+  height: 6rem;
+}
+
 .h-8 {
   height: 2rem;
 }
@@ -1206,6 +1210,10 @@ ol, ul {
 
 .flex-none {
   flex: none;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
 
 .grow {
@@ -1270,6 +1278,10 @@ ol, ul {
 
 .overflow-scroll {
   overflow: scroll;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 
 .truncate {

@@ -24,17 +24,20 @@
                 {{ end }}
             </div>
         </div>
-        <div id="content" class="grow backdrop-blur-md bg-white/30 overflow-scroll" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
-            <div class="w-full h-16 border-b-[1px] border-slate-500/80">
+        <div id="content" class="flex flex-col grow backdrop-blur-md bg-white/30 " style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
+            <div class="w-full h-24 border-b-[1px] border-slate-500/80">
                 
             </div>
-            {{ .Content }}
-            {{ $pages := .Pages }}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-                {{ range $pages }}
-                    {{ partial "PageCell.html" . }}
-                {{ end }}
+            <div class="flex-grow overflow-scroll scroll-smooth">
+                {{ .Content }}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+                    {{ $pages := .Pages }}
+                    {{ range $pages }}
+                        {{ partial "PageCell.html" . }}
+                    {{ end }}
+                </div>
             </div>
+            
         </div>
         <div class="flex-none">右侧区域</div>
     </div>
