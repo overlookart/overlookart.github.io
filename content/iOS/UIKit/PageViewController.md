@@ -17,13 +17,42 @@ description: "UIPageViewController 的使用"
 author: "OverLookArt"
 ---
 
-## 创建一个 PageViewController  
+## 创建 PageViewController  
 
 ``` swift
 // transitionStyle 指定页面切换时的过渡样式
 // navigationOrientation 指定页面切换导航方向 水平，垂直
 let pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .vertical)
+
+// 设置 PageViewController 的 dataSource 和 delegate
+pageVC.delegate = ...
+
+pageVC.dataSource = ...
+
+// 设置 PageViewController 的 viewControllers
+pageVC.setViewControllers([...], direction: .forward, animated: true, completion: nil)
 ```  
+
+## 数据与页面联动
+
+``` swift
+/// 获取页面对应的数据下标索引
+/// - Parameter entryPage: 页面
+/// - Returns: 下标索引
+private func indexOf(ViewController viewController: UIViewController) -> Int? {
+    // dataSource 中查找 viewController 的索引
+    // id 字段为 数据 的唯一标识
+    return dataSource.firstIndex(where: { $0.id == viewController.id })
+}
+/// 通过下标索引获取 ViewController
+/// - Parameter index: 下标索引
+/// - Returns: ViewController
+private func viewControllerOf(Index index: Int) -> UIViewController? {
+    let viewControllers = UIViewController()
+    viewController.id = dataSource[index].id
+    return viewController
+}
+```
 
 ## 协议代理  
 
@@ -31,12 +60,28 @@ UIPageViewControllerDelegate
 
 ``` swift
 //UIPageViewControllerDataSource  
+/// 获取上一页的视图控制器
 func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-    //返回上一页的视图控制器
+    // 数据类型转换
+    guard let vc = viewController as? CustomViewController else { return nil }
+    // 获取上一页的下标索引
+    guard let index = indexOf(ViewController: vc) else { return nil }
+    // 索引校验，防止数据越界
+    if index <= 0 { return nil}
+    // 返回上一页的视图控制器
+    return viewControllerOf(Index: index - 1)
 }
 
+/// 获取下一页的视图控制器
 func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-    //返回下一页的视图控制器
+    // 数据类型转换
+    guard let vc = viewController as? CustomViewController else { return nil }
+    // 获取下一页的下标索引
+    guard let index = indexOf(ViewController: vc) else { return nil }
+    // 索引校验，防止数据越界
+    if index >= dataSource.count - 1 { return nil }
+    // 返回下一页的视图控制器
+    return viewControllerOf(Index: index + 1)
 }
 
 func presentationCount(for pageViewController: UIPageViewController) -> Int {
@@ -50,7 +95,7 @@ func presentationIndex(for pageViewController: UIPageViewController) -> Int {
 }
 ```
 
-## 翻页控制  
+## 手动翻页控制  
 
 ``` swift  
 /// 下一页

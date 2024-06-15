@@ -1307,6 +1307,10 @@ ol, ul {
   border-bottom-width: 1px;
 }
 
+.border-b-\[1px\] {
+  border-bottom-width: 1px;
+}
+
 .border-l-4 {
   border-left-width: 4px;
 }
@@ -1338,6 +1342,10 @@ ol, ul {
 .border-red-400 {
   --tw-border-opacity: 1;
   border-color: rgb(248 113 113 / var(--tw-border-opacity));
+}
+
+.border-slate-500\/80 {
+  border-color: rgb(100 116 139 / 0.8);
 }
 
 .bg-black\/30 {
@@ -1376,7 +1384,7 @@ ol, ul {
 }
 
 .bg-sitebg {
-  background-image: url('https://source.unsplash.com/random/1280x800?architecture');
+  background-image: url('https://bing.img.run/rand_uhd.php');
 }
 
 .from-indigo-500 {
