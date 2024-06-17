@@ -7,7 +7,7 @@
                 </div>
                 <div class="w-16 h-16 bg-slate-500 rounded-full"></div>
             </div>
-            <div id="nav-list">
+            <div id="section-list">
                 {{ $allSections := .Site.Sections }}
                 {{ range $allSections }}
                 {{ $js := printf "console.debug('按钮点击');window.location.href='%s'" .Permalink }}
