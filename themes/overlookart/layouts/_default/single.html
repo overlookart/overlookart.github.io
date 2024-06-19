@@ -51,8 +51,8 @@
 {{ end }}
 
 {{ define "content" }}
-<div class="flex-grow overflow-scroll scroll-smooth flex">
-  <article class="prose prose-zinc px-10 grow bg-white">
+<div class="flex-grow overflow-scroll scroll-smooth flex relative">
+  <article class="prose prose-zinc px-10 grow mx-auto lg:prose-lg sm:prose-sm  bg-white overflow-scroll">
     <h1 style="text-align: center;">{{ title .Title }}</h1>
     <div id="nice">
       {{ .Content }}
