@@ -20,15 +20,30 @@ author: "OverookArt"
 
 ## 静态网站框架  
 
-* [VuePress](https://www.vuepress.cn/)  
+* [Astor](https://astro.build)
+* [VuePress](https://www.vuepress.cn/)
+* [Hugo](https://gohugo.io)
+
+## PPT 框架  
+
+* [revealJS](https://revealjs.com)
+
+## 前端框架  
+
+* [Nue](https://nue.dev)  
+* [Vue](https://cn.vuejs.org)
 
 ## UI 框架  
 
+* [Storybook](https://storybook.js.org)
 * [Vuetify](https://vuetifyjs.com/en/)  
 * [NuxtJs](https://nuxtjs.org/docs/)  
 * [Naive UI](https://www.naiveui.com/)  
 * [SalesForce](https://www.lightningdesignsystem.com)  
 * [tailwindcss](https://tailwindcss.com)
+* [shadcn](https://ui.shadcn.com)
+* [daisyui](https://daisyui.com/)
+* [Radix](https://www.radix-ui.com)
   
 ## 富文本  
 
@@ -36,6 +51,7 @@ author: "OverookArt"
 * [CKEditor 5](https://ckeditor.com/ckeditor-5/)  
 * [Quilljs](https://quilljs.com)  
 * [tiptap](https://tiptap.dev/introduction/)  
+* [Ai Editor](https://aieditor.dev/ '带有 AI 功能的编辑器')  
 
 ## 滚动条  
 
@@ -56,6 +72,7 @@ author: "OverookArt"
 
 ## 图表  
 
+* [d3js](https://d3js.org)
 * [Vue-ChartJs](https://vue-chartjs.org)  
 
 ## 用户引导  
@@ -81,7 +98,6 @@ author: "OverookArt"
 
 ## JS调试
 
-* vconsole
-* eruda
-* [spy-debugger](https://github.com/wuchangming/spy-debugger) 
-
+* [vconsole](https://github.com/Tencent/vConsole)
+* [eruda](https://eruda.liriliri.io)  
+* [spy-debugger](https://github.com/wuchangming/spy-debugger)  

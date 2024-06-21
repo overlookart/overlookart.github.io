@@ -61,3 +61,14 @@ author: "OverookArt"
 ### 预览增强
 
 > Markdown Preview Enhanced
+
+## 功能增强插件
+
+### 汉化
+
+> Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code
+
+### 语言输入
+
+> VS Code Speech
+> Chinese (Simplified, China) language support for VS Code Speech

@@ -6,7 +6,7 @@
         <div class="flex space-x-4 ">
             {{ range .Site.Menus.main }}
             {{ $js := printf "console.debug('按钮点击');window.location.href='%s%s'" site.BaseURL .URL}}
-            {{ $dic := dict "title" .Name "click" $js "class" "bg-teal-400 px-3 rounded-full h-8"}}
+            {{ $dic := dict "title" .Name "click" $js "class" "bg-teal-400 px-3 rounded-full h-8 hover:bg-teal-500"}}
             {{ partial "BaseUI/Button.html" $dic }}            
             {{ end }}
         </div>

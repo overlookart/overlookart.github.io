@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
+    {{ $js := resources.Get "js/main.js" | js.Build (dict "params" (dict "api" "123123")) }}
+    <script src="{{ $js.RelPermalink }}"></script>
     {{- partial "head.html" . -}}
     <body>
-        {{- partial "header.html" . -}}
-        <div id="main">
-            {{- block "main" . }}
-                <p>可被其他模版覆盖的内容</p>
-            {{- end }}
+        <div class=" bg-center bg-no-repeat bg-cover fixed top-0 -z-10 w-full h-full bg-sitebg"></div>
+        <!-- <div class="bg-center  bg-cover bg-fixed w-full h-full top-0 -z-10 bg-sitebg">-->
+        <div class="container mx-auto">
+            <div class="flex h-screen shadow-gray-600 py-4">
+                <div class="flex-none py-2 backdrop-blur-md bg-white/50 rounded-l-lg w-[215px] overflow-scroll" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
+                    {{- block "leftSideBar" . -}}
+                    <p>可被其他模版覆盖的左侧内容</p>
+                    {{- end -}}
+                </div>
+                <div id="content" class="flex flex-col grow backdrop-blur-md bg-white/30" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
+                    {{- partial "NavigationBar.html" . -}}
+                    {{- block "content" . -}}
+                    <p>可被其他模版覆盖的内容</p>
+                    {{- end -}}
+                </div>
+                <div class="flex-none backdrop-blur-md bg-white/30 rounded-r-lg w-[215px] mx-auto overflow-scroll">
+                    {{- block "rightSideBar" . -}}
+                    <p>右侧内容</p>
+                    {{- end -}}
+                </div>
+            </div>
         </div>
-        {{- partial "footer.html" . -}}
+        <!--</div> -->
     </body>
 </html>

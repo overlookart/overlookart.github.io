@@ -7,6 +7,8 @@ description: "HUGO 的快速使用"
 
 ## HUGO 简介  
 
+[HUGO 官网](https://gohugo.io)  
+
 Hugo是一款由Go语言开发的静态网站生成器。它的主要特点是:  
 
 * 速度极快:Hugo能在毫秒级内构建网站,主要因为它基于Go开发可以进行并行编译。
@@ -25,7 +27,7 @@ Hugo的这些优点使其成为一个非常流行和强大的静态网站生成�
 ## 快速使用  
 
 ``` shell
-# macOS安装
+# macOS安装/更新版本
 $ brew install hugo
 
 # windows 安装

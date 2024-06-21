@@ -1,26 +1,54 @@
 <!-- 页面变量 -->
-<div class="max-w-[240px]">
-    <p>RelPermalink: {{.RelPermalink}}</p>
-    <p>Data: {{ .Data }}</p>
-    <p>Draft: {{ .Draft }}</p>
-    <p>File: {{ .File }}</p>
-    <p>FuzzyWordCount: {{ .FuzzyWordCount }}</p>
-    <P>IsHome: {{ .IsHome }}</P>
-    <p>IsNode: {{ .IsNode }}</p>
-    <p>IsPage: {{ .IsPage }}</p>
-    <p>IsSection: {{ .IsSection }}</p>
-    <p>IsTranslated: {{ .IsTranslated }}</p>
-    <p>Language: {{ .Language }}</p>
-    <p>LinkTitle: {{ .LinkTitle }}</p>
-    <p>Next: {{ .Next }}</p>
-    <p>所属分类: {{ .Type }}</p>
-    <p>模版种类: {{ .Kind }}</p>
-    <p>BundleType: {{ .BundleType }}</p>
-    <p>创建日期: {{ .Date.Format "2006-01-02 15:04:05" }}</p>
-    <p>最后修改日期: {{ .Lastmod.Format "2006-01-02 15:04:05" }}</p>
-    <p>作者: {{ .Params.Author }}</p>
-    <p>字数: {{ .WordCount }}</p>
-    <p>预计阅读时长: {{ .ReadingTime }} 分钟</p>
-    <p>关联的资源: {{ .Resources }}</p>
-    <p>页面的别名: {{ .Aliases }}</p>
-  </div>
+<div class="max-w-[240px] border-green-300 border-2">
+    
+    <div class="border-blue-300 border-2">
+      <p>页面参数</p>
+      {{ with .Params }}
+        {{ range $k, $v := .}}
+          <p class="text-ellipsis">{{ $k }}: {{ $v }}</p>
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="truncate">
+      <p>RelPermalink: {{.RelPermalink}}</p>
+      <p>Data: {{ .Data }}</p>
+      <p>Date: {{ .Date }}</p>
+      <p>Draft: {{ .Draft }}</p>
+      <p>File: {{ .File }}</p>
+      <p>FuzzyWordCount: {{ .FuzzyWordCount }}</p>
+      <P>IsHome: {{ .IsHome }}</P>
+      <p>IsNode: {{ .IsNode }}</p>
+      <p>IsPage: {{ .IsPage }}</p>
+      <p>IsSection: {{ .IsSection }}</p>
+      <p>IsTranslated: {{ .IsTranslated }}</p>
+      <p>HasShortcode: {{ .HasShortcode "Shortcode"}}</p>
+      <p>Language: {{ .Language }}</p>
+      <p>LinkTitle: {{ .LinkTitle }}</p>
+      <p>Next: {{ .Next }}</p>
+      <p>Type: {{ .Type }}</p>
+      <p>Kind: {{ .Kind }}</p>
+      <p>BundleType: {{ .BundleType }}</p>
+      <p>创建日期: {{ .Date.Format "2006-01-02 15:04:05" }}</p>
+      <p>最后修改日期: {{ .Lastmod.Format "2006-01-02 15:04:05" }}</p>
+      <p>作者: {{ .Params.Author }}</p>
+      <p>字数: {{ .WordCount }}</p>
+      <p>预计阅读时长: {{ .ReadingTime }} 分钟</p>
+      <p>关联的资源: {{ .Resources }}</p>
+      <p>页面的别名: {{ .Aliases }}</p>
+      <p>CodeOwners: {{ .CodeOwners }}</p>
+    </div>
+    
+    <div class="border-red-400 border-2">
+      <p>Git提交信息</p>
+      {{ with .GitInfo }}
+      <p>AbbreviatedHash: {{ .AbbreviatedHash }}</p>
+      <p>AuthorDate: {{ .AuthorDate.Format "2006-01-02" }}</p>
+      <p>AuthorEmail: {{ .AuthorEmail }}</p>
+      <p>AuthorName: {{ .AuthorName }}</p>
+      <p>CommitDate: {{ .CommitDate.Format "2006-01-02" }}</p>
+      <p class="truncate">Hash: {{ .Hash }}</p>
+      <p>Subject: {{ .Subject }}</p>
+      {{ end }}
+      
+    </div>
+</div>

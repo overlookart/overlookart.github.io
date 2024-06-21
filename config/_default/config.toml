@@ -1,3 +1,4 @@
+# 网站绝对 URL
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 # 网站标题
@@ -10,10 +11,12 @@ theme = 'overlookart'
 copyright = 'OverlookArt'
 
 # 默认内容语言
-defaultContentLanguage = 'en'
+defaultContentLanguage = 'zh'
 
+# 在子目录里呈现默认语言
 defaultContentLanguageInSubdir = true
 
+# 启用 GitInfo 
 enableGitInfo = true
 
 # 模块配置

@@ -1,1 +1,15 @@
-@import "background"
+@import "background";
+@import "markdown_nice";
+
+#TableOfContents ol{
+    list-style-type: none;
+    counter-reset: item;
+}
+
+#TableOfContents li {
+    margin: 15px 0 15px 20px;
+}
+
+.active-nav-item {
+    background-color: bisque;
+}

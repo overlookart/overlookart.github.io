@@ -1,7 +1,6 @@
     <!-- 获取网站的所有分组 -->
     {{ $allSections := .Site.Sections }}
     <!-- 遍历分组:为每个分组创建内容 -->
-    <div>{{ $allSections }}</div>
     {{ range $allSections }}
         <section class="border mb-4">
             <!-- 分组的标题 -->
@@ -11,6 +10,7 @@
                  <a class="inline-block" href="{{ .RelPermalink }}">更多</a>
                 {{ end }}
             </div>
+            <div>子分组: {{ .Sections }}</div>
             <!-- 分组的内容 -->
             <div class="flex flex-row flex-nowrap space-x-3 overflow-auto snap-x pb-4 px-3">
                 <!-- 获取分组下所有的页面 -->

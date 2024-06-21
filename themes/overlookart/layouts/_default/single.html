@@ -1,24 +1,60 @@
-{{define "main"}}
-<div class="w-full max-w-8xl">
-    <div class="flex">
-        <aside class=" fixed overflow-scroll lg:w-40 lg:block hidden">
-            {{ .TableOfContents }}
-        </aside>
-        <article class="prose prose-zinc prose-lg  mx-auto">
-            模版: default single
-            <h1 style="text-align: center;">{{ .Title }}</h1>
-            {{ .Content }}
-        </article>
-        {{ partial "PageVar.html" . }}
+
+
+
+
+{{ define "leftSideBar" }}
+<div id="site-header" class="w-full flex flex-col items-center">
+    <div class="font-mono text-[30px] bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text text-center">
+        {{ .Site.Title }}
     </div>
+    <div class="w-16 h-16 bg-slate-500 rounded-full"></div>
 </div>
+<div id="section-list">
+    {{ $allSections := .Site.Sections }}
+    {{ range $allSections }}
+    {{ $js := printf "console.debug('按钮点击');window.location.href='%s'" .Permalink }}
+    {{ $dic := dict "title" .Title "click" $js "class" "block py-2 px-4 hover:bg-gray-200/40 w-full"}}
+    {{ partial "BaseUI/Button.html" $dic }}
+    {{ end }}
+</div>
+
+<div id="site-menu">
+    {{ range .Site.Menus.main }}
+    {{ $js := printf "console.debug('按钮点击');window.location.href='%s%s'" site.BaseURL .URL}}
+    {{ $dic := dict "title" .Name "click" $js "class" "bg-teal-400 px-1 rounded-md hover:bg-teal-500"}}
+    {{ partial "BaseUI/Button.html" $dic }}            
+    {{ end }}
+</div>
+{{ end }}
+
+{{ define "content" }}
+<div class="grid grid-cols-1 overflow-scroll scroll-smooth ">
+  <article class="prose prose-zinc px-10  max-w-none bg-white overflow-scroll ">
+    <h1 style="text-align: center;">{{ title .Title }}</h1>
+    <div id="nice">
+      {{ .Content }}
+    </div>
+    {{ partial "Comment.html" . }}
+</article>
+</div>
+
+<!-- 图表 -->
 {{ if .Page.Store.Get "hasMermaid" }}
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });
   </script>
 {{ end }}
+<!-- markmap -->
 {{ if .Page.Store.Get "hasMarkmap" }}
   <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
 {{ end }}
-{{end}}
+
+{{ end }}
+
+{{ define "rightSideBar" }}
+<div class="pt-16">
+  {{- partial "toc.html" . -}}
+  <!-- {{ partial "PageVar.html" . }} -->
+</div>
+{{ end }}
