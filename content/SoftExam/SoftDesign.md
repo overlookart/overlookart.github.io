@@ -86,6 +86,6 @@ author: "OverLookArt"
 
 ## 考点试题
 
-> 剑锋须从磨砺出
+> 剑峰须从磨砺出
 
 {{< iframe src="https://ruankaokao.com/" title="软考达人" coustom="自定义参数">}}
