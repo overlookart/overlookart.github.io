@@ -11,10 +11,10 @@ theme = 'overlookart'
 copyright = 'OverlookArt'
 
 # 默认内容语言
-defaultContentLanguage = 'zh'
+# defaultContentLanguage = 'zh'
 
 # 在子目录里呈现默认语言
-defaultContentLanguageInSubdir = true
+# defaultContentLanguageInSubdir = true
 
 # 启用 GitInfo 
 enableGitInfo = true
