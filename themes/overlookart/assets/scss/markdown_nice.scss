@@ -16,10 +16,19 @@
 /* 二级标题修饰 请参考有实例的主题 */
 #nice h2:after {
     display: inline-block;
-    content: " ";
+    content: "😊";
     vertical-align: bottom;
-    border-bottom: 36px solid #efebe9;
-    border-right: 20px solid transparent;
+    // border-bottom: 36px solid #efebe9;
+    // border-right: 20px solid transparent;
+    animation: spin 1s linear infinite;
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
 }
 
 #nice code {
