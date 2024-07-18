@@ -1,5 +1,3 @@
 ---
-title: "Hugo"
+title: "HUGO"
 ---
-
-# hugo 分组索引

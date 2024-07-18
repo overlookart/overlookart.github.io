@@ -26,6 +26,7 @@
 
 {{ define "content" }}
 <div class="flex-grow overflow-scroll scroll-smooth">
+    <h1 style="text-align: center;" class="pt-8">{{ title .Title }}</h1>
     {{ .Content }}
     {{- partial "PageList.html" . -}}
 </div>
