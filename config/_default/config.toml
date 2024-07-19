@@ -19,6 +19,9 @@ copyright = 'OverlookArt'
 # 启用 GitInfo 
 enableGitInfo = true
 
+# 启用表情符号
+enableEmoji = true
+
 # 模块配置
 [module]
 [[module.imports]]
