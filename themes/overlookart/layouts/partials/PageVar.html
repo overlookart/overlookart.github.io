@@ -3,11 +3,7 @@
     
     <div class="border-blue-300 border-2">
       <p>页面参数</p>
-      {{ with .Params }}
-        {{ range $k, $v := .}}
-          <p class="text-ellipsis">{{ $k }}: {{ $v }}</p>
-        {{ end }}
-      {{ end }}
+      <pre>{{ debug.Dump .Params }}</pre>
     </div>
     <div class="truncate">
       <p>RelPermalink: {{.RelPermalink}}</p>
