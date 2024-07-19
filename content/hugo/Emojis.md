@@ -42,7 +42,7 @@ Hello, :wave:
 
 Hugo 提供了丰富的表情符号，你可以在 [Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet/) 中查看。
 
-* 微笑的面部表情
+### 微笑的面部表情
 
 | emoji | 代码 | emoji | 代码 |
 | --- | --- | --- | --- |
@@ -54,9 +54,29 @@ Hugo 提供了丰富的表情符号，你可以在 [Emoji Cheat Sheet](https://w
 | :melting_face: | `:melting_face:` | :wink: | `:wink:` |
 | :blush: | `:blush:` | :innocent: | `:innocent:` |
 
-* 面部动作表情
+### 面部动作表情
 
 | emoji | 代码 | emoji | 代码 |
 | --- | --- | --- | --- |
 | :smiling_face_with_three_hearts: | `:smiling_face_with_3_hearts:` | :heart_eyes: | `:heart_eyes:` |
 | :star_struck: | `:star_struck:` | :kissing_heart: | `:kissing_heart:` |
+| :kissing: | `:kissing:` | :relaxed: | `:relaxed:` |
+| :kissing_closed_eyes: | `:kissing_closed_eyes:` | :kissing_smiling_eyes: | `:kissing_smiling_eyes:` |
+| :smiling_face_with_tear: | `:smiling_face_with_tear:` |  |  |
+
+### 带舌头的面部表情
+
+| emoji | 代码 | emoji | 代码 |
+| --- | --- | --- | --- |
+| :yum: | `:yum:` | :stuck_out_tongue: | `:stuck_out_tongue:` |
+| :stuck_out_tongue_winking_eye: | `:stuck_out_tongue_winking_eye:` | :zany_face: | `:zany_face:` |
+| :stuck_out_tongue_closed_eyes: | `:stuck_out_tongue_closed_eyes:` | :money_mouth_face: | `:money_mouth_face:` |
+
+### 带手的面部表情
+
+| emoji | 代码 | emoji | 代码 |
+| --- | --- | --- | --- |
+| :hugs: | `:hugs:` | :hand_over_mouth: | `:hand_over_mouth:` |
+| :face_with_open_eyes_and_hand_over_mouth: | `:face_with_open_mouth_and_hand_over_mouth:` | :face_with_peeking_eye: | `:face_with_peeking_eye:` |
+| :shushing_face: | `:shushing_face:` | :thinking: | `:thinking:` |
+| :saluting_face: | `:saluting_face:` | | |

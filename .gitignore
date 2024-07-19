@@ -2,3 +2,5 @@ public
 themes/overlookart/node_modules
 .pnpm-debug.log
 pnpm-lock.yaml
+style.scss_*.json
+style.scss_*.content
