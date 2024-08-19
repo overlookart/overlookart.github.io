@@ -57,7 +57,7 @@ override func viewDidDisappear(_ animated: Bool) {
 private func halfScreen() {
     if #available(iOS 16.0, *) {
         guard let windowScene = self.view.window?.windowScene else { return }
-        self.setNeedsUpdateOfSupportedInterfaceOrientations()
+        UIViewController.attemptRotationToDeviceOrientation()
         let iOSWindowScene = UIWindowScene.GeometryPreferences.iOS()
         iOSWindowScene.interfaceOrientations = .portrait
         windowScene.requestGeometryUpdate(iOSWindowScene) { error in
@@ -72,7 +72,7 @@ private func halfScreen() {
 private func fullScreen() {
     if #available(iOS 16.0, *) {
         guard let windowScene = self.view.window?.windowScene else { return }
-        self.setNeedsUpdateOfSupportedInterfaceOrientations()
+        UIViewController.attemptRotationToDeviceOrientation()
         let iOSWindowScene = UIWindowScene.GeometryPreferences.iOS()
         iOSWindowScene.interfaceOrientations = .landscapeLeft
         windowScene.requestGeometryUpdate(iOSWindowScene) { error in
