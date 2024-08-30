@@ -8,7 +8,7 @@
         <!-- <div class="bg-center  bg-cover bg-fixed w-full h-full top-0 -z-10 bg-sitebg">-->
         <div class="container mx-auto">
             <div class="flex h-screen shadow-gray-600 py-4">
-                <div class="flex-none py-2 backdrop-blur-md bg-white/50 rounded-l-lg w-[215px] overflow-scroll" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
+                <div class="flex-none py-2 backdrop-blur-md bg-white/50 rounded-l-lg w-[215px]" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
                     {{- block "leftSideBar" . -}}
                     <p>可被其他模版覆盖的左侧内容</p>
                     {{- end -}}
@@ -21,7 +21,7 @@
                 </div>
                 <div class="flex-none backdrop-blur-md bg-white/30 rounded-r-lg w-[215px] mx-auto overflow-scroll">
                     {{- block "rightSideBar" . -}}
-                    <p>右侧内容</p>
+                    <p>请使用 block "rightSideBar" 定义右侧内容</p>
                     {{- end -}}
                 </div>
             </div>
