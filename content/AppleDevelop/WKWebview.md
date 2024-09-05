@@ -80,20 +80,65 @@ body {
 WKWebView 的 configuration 属性下 userContentController 管理用户脚本  
 
 ``` Swift
+extension WKWebViewConfiguration {
+    /// 添加用户脚本
+    /// - Parameters:
+    ///   - script: js脚本代码
+    ///   - injectionTime: 注入时间
+    ///   - forMainFrameOnly: 是否仅在主Frame注入
+    ///   - world: 关键词
+    public func addUserScript(script: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool, world: String? = nil) {
+        let userScript = WKUserScript(source: script, injectionTime: injectionTime, forMainFrameOnly: forMainFrameOnly)
+        addUserScript(script: userScript)
+    }
 
-/// 添加用户脚本
-/// - Parameters:
-///   - script: js脚本代码
-///   - injectionTime: 注入时间
-///   - forMainFrameOnly: 是否仅在主Frame注入
-///   - world: 关键词
-public func addUserScript(script: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool, world: String? = nil) {
-    let userScript = WKUserScript(source: script, injectionTime: injectionTime, forMainFrameOnly: forMainFrameOnly)
-    addUserScript(script: userScript)
+    /// 添加用户脚本
+    /// - Parameters:
+    ///   - fileName: js脚本文件名
+    ///   - injectionTime: 注入时间
+    ///   - forMainFrameOnly: 是否仅在主Document注入
+    ///   - world: 关键词
+    public func addUserScript(fileName: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool, world: String? = nil) throws {
+        do {
+            let source = try String(contentsOfFile: Bundle.main.path(forResource: fileName, ofType: "js") ?? "", encoding: .utf8)
+            let userScript = WKUserScript(source: source, injectionTime: injectionTime, forMainFrameOnly: forMainFrameOnly)
+            addUserScript(script: userScript)
+        } catch  {
+            throw error
+        }
+    }
+
+    /// 添加用户脚本
+    /// - Parameter script: 用户脚本
+    func addUserScript(script: WKUserScript) {
+        userContentController.addUserScript(script)
+    }
+    
+    /// 移除所有的用户脚本
+    public func removeAllUserScript() {
+        if userContentController.userScripts.count > 0 {
+            userContentController.removeAllUserScripts()
+        }
+    }
 }
 
-func addUserScript(script: WKUserScript) {
-    webview.configuration.userContentController.addUserScript(script)
+```
+
+## 禁用 JavaScript 
+
+禁用 JavaScript 后，Web视图不会执行Web内容引用的JavaScript代码。这包括在内联`<script>`元素、javascript：URL和所有其他引用的JavaScript内容中找到的JavaScript代码。但不会影响 WKUserScripts、evaluteJavaScript、callAsyncJavaScript，它们任可以执行。
+
+``` Swift
+extension WKWebViewConfiguration {
+    /// 设置是否启用 JavaScript
+    /// - Parameter enabled: 是否启用 
+    public func setupJavaScriptEnabled(_ enabled: Bool) {
+        if #available(iOS 14.0, *) {
+            defaultWebpagePreferences.allowsContentJavaScript = enabled
+        } else {
+            preferences.javaScriptEnabled = enabled
+        }
+    }
 }
 
 ```
