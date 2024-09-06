@@ -52,6 +52,7 @@ author: "OverookArt"
 * [Quilljs](https://quilljs.com)  
 * [tiptap](https://tiptap.dev/introduction/)  
 * [Ai Editor](https://aieditor.dev/ '带有 AI 功能的编辑器')  
+* [Lexical](https://github.com/facebook/lexical 'facebook出品')
 
 ## 滚动条  
 
