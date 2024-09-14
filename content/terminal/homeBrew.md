@@ -45,6 +45,10 @@ macOS（或 Linux）缺失的软件包的管理器
 
 > $ brew install wget
 
+### 升级工具包
+
+> $ brew upgrade `packageName`
+
 ### 安装目录  
 
 > Homebrew 会将软件包安装到独立目录，并将其文件软链接至 /usr/local 。
