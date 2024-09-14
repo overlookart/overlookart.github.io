@@ -13,16 +13,22 @@
                     <p>可被其他模版覆盖的左侧内容</p>
                     {{- end -}}
                 </div>
-                <div id="content" class="flex flex-col grow backdrop-blur-md bg-white/30" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
+                <div id="content" class="flex flex-col grow backdrop-blur-md bg-white/30 rounded-r-lg" style="box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);">
                     {{- partial "NavigationBar.html" . -}}
-                    {{- block "content" . -}}
-                    <p>可被其他模版覆盖的内容</p>
-                    {{- end -}}
-                </div>
-                <div class="flex-none backdrop-blur-md bg-white/30 rounded-r-lg w-[215px] mx-auto overflow-scroll">
-                    {{- block "rightSideBar" . -}}
-                    <p>请使用 block "rightSideBar" 定义右侧内容</p>
-                    {{- end -}}
+                    <div class="overflow-scroll flex">
+                        <div class="grow">
+                            {{- block "content" . -}}
+                            <p>可被其他模版覆盖的内容</p>
+                            {{- end -}}
+                        </div>
+                        {{ if eq .Kind "page" }} 
+                            <div class=" backdrop-blur-md bg-white/30  w-[215px] h-full mx-auto overflow-scroll">
+                                {{- block "rightSideBar" . -}}
+                                <p>请使用 block "rightSideBar" 定义右侧内容</p>
+                                {{- end -}}
+                            </div>
+                        {{ end }}
+                    </div>
                 </div>
             </div>
         </div>

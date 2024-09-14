@@ -1,9 +1,8 @@
 {{ define "leftSideBar" }}
 {{- partial "LeftSideBar/LeftSideBar" . -}}
 {{ end }}
-
 {{ define "content" }}
-<div class="grid grid-cols-1 overflow-scroll scroll-smooth ">
+<div class="overflow-scroll scroll-smooth ">
   <article class="prose prose-zinc px-10  max-w-none bg-white">
     <h1 style="text-align: center;" class="pt-8">{{ title .Title }}</h1>
     <div id="nice">
@@ -28,8 +27,5 @@
 {{ end }}
 
 {{ define "rightSideBar" }}
-<div class="pt-16">
   {{- partial "toc.html" . -}}
-  <!-- {{ partial "PageVar.html" . }} -->
-</div>
 {{ end }}
