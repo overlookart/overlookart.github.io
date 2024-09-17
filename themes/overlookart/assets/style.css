@@ -1036,10 +1036,6 @@ ol, ul {
   margin-bottom: 0;
 }
 
-.prose {
-  max-width: 90ch;
-}
-
 .prose :where(* + p):not(:where([class~="not-prose"] *)) {
   margin-top: 1.25em;
 }
@@ -1188,12 +1184,12 @@ ol, ul {
   width: 100%;
 }
 
-.max-w-\[240px\] {
-  max-width: 240px;
+.min-w-full {
+  min-width: 100%;
 }
 
-.max-w-none {
-  max-width: none;
+.max-w-\[240px\] {
+  max-width: 240px;
 }
 
 .flex-none {
