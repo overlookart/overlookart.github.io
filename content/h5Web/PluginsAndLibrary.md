@@ -54,6 +54,11 @@ author: "OverookArt"
 * [Ai Editor](https://aieditor.dev/ '带有 AI 功能的编辑器')  
 * [Lexical](https://github.com/facebook/lexical 'facebook出品')
 
+## 文本比对  
+
+* [jsdiff 文本比对](https://github.com/kpdecker/jsdiff)  
+* [diff2html 高亮显示差异](https://github.com/rtfpessoa/diff2html)  
+
 ## 滚动条  
 
 * [vuescrolljs](https://vuescrolljs.yvescoding.org/zh/guide/)  
