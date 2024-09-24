@@ -31,8 +31,8 @@ const scrollspy = {
     articleHeaderOffset: [],
     /// 当前的导航项
     currentNavItemLink: null,
-    /// 是否为文章页
-    isArticle: false,
+    /// 文章容器
+    articleContainer: null,
 
     /// 滑动 Toc
     scrollToTocElement: function(tocItemElement, tocNavigation){
@@ -70,8 +70,13 @@ const scrollspy = {
 
     setup: function(){
 
-        this.isArticle = document.getElementById('article') ? true : false;
-        if(!this.isArticle) {console.warn('未找到文章页的标识'); return; }
+        this.articleContainer = document.getElementById('article-container');
+        console.debug('article container', this.articleContainer);
+        if(!this.articleContainer) {console.warn('未找到文章页的标识'); return; }
+        this.articleContainer.addEventListener('scroll', () => {
+            this.scrollHandler();
+        });
+
 
         // 查询文章目录标题元素
         let headers = document.querySelectorAll(this.ArticleHeaderQuery);
@@ -92,9 +97,10 @@ const scrollspy = {
 
     /// 页面滑动时处理
     scrollHandler: function(){
-        if (!this.isArticle) { return }
-        let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-
+        
+        if (!this.articleContainer) { return }
+        let scrollPosition = this.articleContainer.scrollTop;
+        console.debug('scroll', this.articleHeaderOffset);
         var newActive;
         this.articleHeaderOffset.forEach(item => {
             if(scrollPosition >= item.offset - 80){
@@ -126,7 +132,7 @@ const scrollspy = {
 
     /// 窗口大小变化时处理
     resizeHandler: function(){
-        if(!this.isArticle) { return }
+        if(!this.articleContainer) { return }
         this.setupArticleHeaderOffset(this.articleHeaderElements);
         this.scrollHandler();
     }

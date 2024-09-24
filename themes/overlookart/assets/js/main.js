@@ -64,5 +64,5 @@ window.onresize = (event) => {
 }
 
 window.addEventListener('scroll', () => {
-    debounced(scrollspy.scrollHandler());
+    
 });
