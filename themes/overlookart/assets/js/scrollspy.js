@@ -71,7 +71,6 @@ const scrollspy = {
     setup: function(){
 
         this.articleContainer = document.getElementById('article-container');
-        console.debug('article container', this.articleContainer);
         if(!this.articleContainer) {console.warn('未找到文章页的标识'); return; }
         this.articleContainer.addEventListener('scroll', () => {
             this.scrollHandler();
@@ -99,14 +98,17 @@ const scrollspy = {
     scrollHandler: function(){
         
         if (!this.articleContainer) { return }
+        // 获取当前文章容器的滚动位置
         let scrollPosition = this.articleContainer.scrollTop;
-        console.debug('scroll', this.articleHeaderOffset);
-        var newActive;
-        this.articleHeaderOffset.forEach(item => {
-            if(scrollPosition >= item.offset - 80){
-                newActive = document.getElementById(item.id);
-            }
+        // 获取文章容器的顶部位置
+        let offsetTop = this.articleContainer.offsetTop;
+        // 声明新的激活目录导航项
+        var newActive = this.articleHeaderOffset.reduce((prev, curr) => {
+            let prevOffset =  scrollPosition - prev.offset + offsetTop;
+            let currOffset = scrollPosition -curr.offset + offsetTop;
+            return Math.abs(prevOffset) < Math.abs(currOffset) ? prev : curr;
         });
+        
     
         var newActiveLink;
         if(newActive){
