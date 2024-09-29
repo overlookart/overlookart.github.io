@@ -68,6 +68,16 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.debug('DOM加载完成!');
+    console.debug('DOM树 加载完成!');
     scrollspy.setup();
+});
+
+document.addEventListener('readystatechange', (event) => {
+    if (event.target.readyState === 'loading') {
+        console.debug('DOM 仍在加载中...');
+    } else if (event.target.readyState === 'interactive') {
+        console.debug('DOM 已可交互');
+    } else if (event.target.readyState === 'complete') {
+        console.debug('DOM 所有资源加载完成!');
+    }
 });
