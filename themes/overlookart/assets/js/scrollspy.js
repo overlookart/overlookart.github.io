@@ -21,7 +21,9 @@ const scrollspy = {
     ArticleHeaderQuery: 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]',
     /// 目录导航项激活时的样式
     ActiveNavItemClass: 'active-nav-item',
-
+    /// 目录导航项显示时的样式
+    NavItemHiddenClass: 'nav-item-hidden',
+    
     navItemsLinkRef: {},
 
     /// 文章内容的所有标题元素
@@ -33,6 +35,20 @@ const scrollspy = {
     currentNavItemLink: null,
     /// 文章容器
     articleContainer: null,
+
+    hasClass: function(element, className) {
+        return element.classList.contains(className);
+    },
+    addClass: function(element, className) {
+        if(!this.hasClass(element, className)) {
+            element.classList.add(className);
+        }
+    },
+    removeClass: function(element, className) {
+        if(this.hasClass(element, className)) {
+            element.classList.remove(className);
+        }
+    },
 
     /// 滑动 Toc
     scrollToTocElement: function(tocItemElement, tocNavigation){
@@ -88,7 +104,27 @@ const scrollspy = {
         // 查询 TOC 目录导航元素
         let navigationItems = document.querySelectorAll(this.TocNavigationItemQuery);
         if(!navigationItems) { console.warn('没有找到目录导航元素'); return; }
+        console.debug('所有的目录导航项',navigationItems);
+        navigationItems
+        let superNavigationItems = Array.from(navigationItems).filter(item => {
+            return item.querySelector('ol') !== null
+        });
 
+        console.debug('所有的父级目录',superNavigationItems);
+
+        for (const item of superNavigationItems) {
+            console.debug('父级目录',item);
+            item.getElementsByTagName('a')[0].addEventListener('click', (event) => {
+                console.debug('父级目录点击事件',event);
+                event.preventDefault();
+                let subNavigation = item.querySelector('ol');
+                if(subNavigation){
+                    this.hasClass(subNavigation, this.NavItemHiddenClass) ? this.removeClass(subNavigation, this.NavItemHiddenClass) : this.addClass(subNavigation, this.NavItemHiddenClass);
+                }
+            });
+        }
+        
+        
         this.setupArticleHeaderOffset(this.articleHeaderElements);
         this.setupNavItemsLinkRef(navigationItems);
 
@@ -103,12 +139,15 @@ const scrollspy = {
         // 获取文章容器的顶部位置
         let offsetTop = this.articleContainer.offsetTop;
         // 声明新的激活目录导航项
+        
+        
         var newActive = this.articleHeaderOffset.reduce((prev, curr) => {
-            let prevOffset =  scrollPosition - prev.offset + offsetTop;
-            let currOffset = scrollPosition -curr.offset + offsetTop;
+            let prevOffset = prev.offset - scrollPosition  ;
+            let currOffset = curr.offset - scrollPosition  ;
             return Math.abs(prevOffset) < Math.abs(currOffset) ? prev : curr;
         });
         
+        console.debug(scrollPosition, newActive);
     
         var newActiveLink;
         if(newActive){
@@ -120,11 +159,11 @@ const scrollspy = {
         }else if(newActiveLink !== this.currentNavItemLink){
             if(this.currentNavItemLink){
                 // 移除之前激活的目录导航项的激活 class
-                this.currentNavItemLink.classList.remove(this.ActiveNavItemClass);
+                this.removeClass(this.currentNavItemLink, this.ActiveNavItemClass);
             }
             if(newActiveLink){
                 // 为新的目录导航项添加激活 class
-                newActiveLink.classList.add(this.ActiveNavItemClass);
+                this.addClass(newActiveLink, this.ActiveNavItemClass);
             }
         }
         console.debug(newActive, newActiveLink);

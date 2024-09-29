@@ -3,7 +3,7 @@ import lax from './modules/lax'
 import { scrollspy } from './scrollspy';
 
 console.debug('加载主脚本');
-
+console.debug('document', document);
 //https://gomakethings.com/debouncing-your-javascript-events/
 const debounced = (func) => {
     let timeout;
@@ -17,7 +17,7 @@ const debounced = (func) => {
 
 window.onload = () => {
     console.debug('整个页面及所有依赖资源如样式表和图片都已完成');
-    scrollspy.setup();
+    debounced(scrollspy.resizeHandler());
 }
 
 window.oncopy = (event) => {
@@ -65,4 +65,9 @@ window.onresize = (event) => {
 
 window.addEventListener('scroll', () => {
     
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.debug('DOM加载完成!');
+    scrollspy.setup();
 });
