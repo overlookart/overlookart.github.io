@@ -27,16 +27,16 @@ author: "OverookArt"
 
 ``` mermaid
 flowchart TD
-    id1[Persistent Container \n NSPersistentContainer]
-    id2[Model \n NSManagedObjectModel]
-    id3[Context \n NSManagedObjectContext]
-    id4[Store Coordinattor \n NSPersistentStoreCoordinator \n ]
-    id5[(Store \n 存储空间)]
+    id1[Persistent Container  NSPersistentContainer]
+    id2[Model  NSManagedObjectModel]
+    id3[Context  NSManagedObjectContext]
+    id4[Store Coordinattor  NSPersistentStoreCoordinator ]
+    id5[(Store 存储空间)]
 
     id1 --- id2
     id1 --- id3
-    id1 --- id4 <--从存储中保存和获取数据的实例--- id5
-    
+    id1 --- id4 
+    id4 <---从存储中保存和获取数据的实例--- id5
 ```
 
 NSManagedObjectModel的实例表示您的应用程序的模型文件，描述您的应用程序的类型、属性和关系。  
