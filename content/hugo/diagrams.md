@@ -80,7 +80,14 @@ Hugo目前没有提供 渲染 Mermaid 的模板。
 {{ if .Page.Store.Get "hasMermaid" }}
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
+    mermaid.initialize({ 
+      // 页面加载时渲染 mermaid 图表
+      startOnLoad: true,
+      // 配置主题
+      theme: 'base',
+      // 配置日志等级
+      logLevel: 3,
+    });
   </script>
 {{ end }}
 {{end}}
