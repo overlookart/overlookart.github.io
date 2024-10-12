@@ -1,20 +1,21 @@
 :root {
-    --emoji-grinning: "😀"
+    --emoji-grinning: "😀";
+    --theme-main-color: #ef7060;
 }
 
 #nice .costom-class {
-    color: rgb(239, 112, 96);
+    color: var(--theme-main-color);
 }
 
 /* 二级标题 */ 
 #nice h2 {
-    border-bottom: 2px solid rgb(239, 112, 96);
+    border-bottom: 2px solid var(--theme-main-color);
 }
 /* 二级标题内容 */
 #nice h2 .content {
     display: inline-block;
     font-weight: bold;
-    background: rgb(239, 112, 96);
+    background: var(--theme-main-color);
     color: #ffffff;
     padding: 3px 10px 1px;
     border-top-right-radius: 3px;
@@ -42,13 +43,13 @@
 #nice code {
     border-radius: 4px;
     border-width: 1px;
-    border-color: rgb(239, 112, 96);
+    border-color: var(--theme-main-color);
     padding: 1px 4px;
 }
 
 /* 引用 */
 #nice blockquote {
-    border-left-color: rgb(239, 112, 96);
+    border-left-color: var(--theme-main-color);
     background: #fff9f9;
     padding-top: 1em;
     padding-bottom: 1em;
