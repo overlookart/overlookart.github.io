@@ -2,7 +2,7 @@
 {{ hugo.Generator }}
 <!-- 获取 css 资源文件 -->
 {{ $style := resources.Get "scss/style.scss" }}
-{{ $a := $style | resources.ToCSS }}
+{{ $a := $style | css.Sass }}
 <!-- 使用 css 样式 -->
 <link rel="stylesheet" href="{{ $a.Permalink }}">
 
