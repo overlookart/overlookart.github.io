@@ -30,6 +30,8 @@ Hugo的这些优点使其成为一个非常流行和强大的静态网站生成�
 # macOS安装/更新版本
 $ brew install hugo
 
+$ brew upgrade hugo
+
 # windows 安装
 $
 
@@ -141,7 +143,7 @@ GitHub Pages网站有三种类型：项目、用户和组织。项目站点连�
     build:
         runs-on: ubuntu-latest
         env:
-        HUGO_VERSION: 0.111.3
+        HUGO_VERSION: 0.135.0
         steps:
         - name: Install Hugo CLI
         run: |
