@@ -17,3 +17,32 @@
 .nav-item-hidden {
     display: none;
 }
+
+.alert-note {
+    border-left-color:#0969da !important;
+    background:#e1edf9 !important;
+}
+
+.alert-note-title {
+    color: #0969da !important;
+}
+
+.alert-tip {
+    border-left-color: #1a7f37 !important;
+    background: #dffae6 !important;
+}
+
+.alert-important {
+    border-left-color: #8250df !important;
+    background: #e7ddfb !important;
+}
+
+.alert-warning {
+    border-left-color: #f0a30a !important;
+    background: #fff3cd !important;
+}
+
+.alert-caution {
+    border-left-color: #f00000 !important;
+    background: #ffe6e6 !important;
+}
