@@ -138,11 +138,31 @@ author: "OverookArt"
 // 打印结果: "String"
 ```
 
+### 字符串拼接
+
+``` js
+// 字符串拼接
+{{ $str1 := "Hello" }}
+{{ $str2 := "World" }}
+{{ $str3 := printf "%s %s" $str1 $str2 }}
+{{ printf "%#v" $str3 }}
+// 打印结果: "Hello World"
+```
+
 ### 字符串的长度  
 
 ``` js
 {{ strings.RuneCount $str }}
 // 显示结果: 6
+```
+
+### 字符串替换  
+
+``` js
+{{ $str1 := "Hello World" }}
+{{ $str2 :=  replace $str1 "l" "o" }}
+{{ printf "%#v" $str2 }}
+// 打印结果: "Heooo Worod"
 ```
 
 ### 大小写转化  
