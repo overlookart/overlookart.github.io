@@ -1,12 +1,4 @@
-:root {
-    --emoji-grinning: "😀";
-    --theme-main-color: #ef7060;
-    --theme-pale-color: #fff9f9;
-}
-
-#nice .costom-class {
-    color: var(--theme-main-color);
-}
+@import "root";
 
 /* 二级标题 */ 
 #nice h2 {
