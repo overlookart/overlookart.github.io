@@ -24,7 +24,8 @@
 }
 
 .alert-note-title {
-    color: #0969da !important;
+    color: #0969da;
+    fill: #0969da;
 }
 
 .alert-tip {
@@ -32,9 +33,19 @@
     background: #dffae6 !important;
 }
 
+.alert-tip-title {
+    color: #1a7f37;
+    fill: #1a7f37;
+}
+
 .alert-important {
     border-left-color: #8250df !important;
     background: #e7ddfb !important;
+}
+
+.alert-important-title {
+    color: #8250df;
+    fill: #8250df;
 }
 
 .alert-warning {
@@ -42,7 +53,16 @@
     background: #fff3cd !important;
 }
 
+.alert-warning-title {
+    color: #f0a30a;
+    fill: #f0a30a;
+}
+
 .alert-caution {
     border-left-color: #f00000 !important;
     background: #ffe6e6 !important;
+}
+.alert-caution-title {
+    color: #f00000;
+    fill: #f00000;
 }
