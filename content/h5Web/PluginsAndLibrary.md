@@ -81,6 +81,10 @@ author: "OverookArt"
 * [d3js](https://d3js.org)
 * [Vue-ChartJs](https://vue-chartjs.org)  
 
+## icon 库
+
+* [xicons](https://xicons.org/#/)  
+
 ## 用户引导  
 
 * [Vue Tour](https://pulsardev.github.io/vue-tour/)  
