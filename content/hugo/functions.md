@@ -189,7 +189,7 @@ author: "OverookArt"
 
 ``` js
 {{ $array := slice "1" "2" "3" }}
-{{ printf "%#v" $array.Len }}
+{{ printf "%#v" len $array }}
 // 打印结果: 3
 ```
 
