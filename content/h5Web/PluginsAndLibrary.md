@@ -44,6 +44,12 @@ author: "OverookArt"
 * [shadcn](https://ui.shadcn.com)
 * [daisyui](https://daisyui.com/)
 * [Radix](https://www.radix-ui.com)
+
+## CSS 用例  
+
+* [CSS Generators](https://css-generators.com)
+* [CSS 可视化](https://css.bqrdh.com)
+* [CSS Inspiration -- CSS灵感](https://csscoco.com/inspiration/#/)
   
 ## 富文本  
 
