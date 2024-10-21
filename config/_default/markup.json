@@ -9,7 +9,10 @@
             "table": true
         },
         "parser": {
-            "wrapStandAloneImageWithinParagraph": true
+            "wrapStandAloneImageWithinParagraph": true,
+            "attribute": {
+                "block": true
+            }
         },
         "renderer": {
             "hardWraps": true,
