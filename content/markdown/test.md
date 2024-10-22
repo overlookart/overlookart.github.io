@@ -1,6 +1,6 @@
 ---
 # 文章的标题
-title: "Test"
+title: "Test Markdown Render"
 # 文章的时间
 date: 2024-01-15T11:29:48+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
@@ -21,7 +21,26 @@ author: "OverLookArt"
 
 ### 三级标题二级目录  
 
-## 测试表格合并单元格  
+## 测试 Blockquote 渲染
+
+> 这是一个正常的 Blockquote
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Important information that users should pay attention to.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Warnings that users should be careful of.
+
+## 测试 Table 渲染  
 
 ### 测试纵向合并单元格  
 

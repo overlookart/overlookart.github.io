@@ -48,21 +48,6 @@ draft: false
 >> `>> `多级引用
 >>> `>>> `多级引用
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Important information that users should pay attention to.
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Warnings that users should be careful of.
-
 ## 强调语法
 
 强调语法主要应用于文章内容的关键信息，以醒目突出展示

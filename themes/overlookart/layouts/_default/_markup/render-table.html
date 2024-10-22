@@ -79,15 +79,9 @@
                         {{ end }}
                     {{ end }}
                 {{end}}
-                <td
-                    {{- with $col.Alignment }}
-                    {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}
-                    {{- end -}}
-                    rowspan="{{ $rowspan }}"
-                    colspan="{{ $colspan }}"
-                >
+                {{ $style := printf "text-align: %s" $col.Alignment  }}
+                <td rowspan="{{ $rowspan }}" colspan="{{ $colspan }}" style="{{ $style }}">
                 {{- $col.Text -}}
-                {{ $rowIndex }}|{{ $colIndex }}
                 </td>
             {{- end }}
         {{- end }}
@@ -95,11 +89,3 @@
     {{- end }}
   </tbody>
 </table>
-
-<div>
-    {{ .THead }}
-</div>
-
-<div>
-{{ .TBody }}
-</div>
