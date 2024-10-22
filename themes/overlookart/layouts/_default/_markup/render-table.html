@@ -1,10 +1,16 @@
+<!-- 表格的行数 -->
+{{- $rowCount := len .TBody }}
+<!-- 表格的列数 -->
+{{- $colCount := len (index .THead 0) }}
+
+
 <table {{- range $k, $v := .Attributes }}
 {{- if $v }}
   {{- printf " %s=%q" $k $v | safeHTMLAttr }}
 {{- end }}
 {{- end }}>
 
-<thead>
+    <thead>
     {{- range .THead }}
       <tr>
         {{- range . }}
@@ -18,52 +24,81 @@
         {{- end }}
       </tr>
     {{- end }}
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     {{- $TBody := .TBody }}
-    {{- $rowCount := len .TBody }}
-    {{- $colCount := len (index .TBody 0) }}
-    {{- range $rowIndex, $row := .TBody }}
     
+    <!-- 遍历每一行 -->
+    {{- range $rowIndex, $row := .TBody }}
+        <!-- 获取下一行 -->
+        {{ $nextRowIndex := add $rowIndex 1 }}
+        {{ $nextRow := index $TBody $nextRowIndex }}
       <tr>
+        <!-- 遍历当前行的每一列 -->
         {{- range $colIndex, $col :=  $row }}
-        {{- if ne $col.Text "^" }}
-        <td
-            
-            {{- with $col.Alignment }}
-              {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}
-            {{- end -}}
-
-            {{ $nextRowIndex := add $rowIndex 1 }}
-            {{ $nextRow := index $.TBody $nextRowIndex }}
-            {{ $nextCol := index $nextRow $colIndex }}
-            {{ $rowspan := 1 }}
-            {{- if eq $nextCol.Text "^" }}
-              {{- $rowspan = add $rowspan 1 -}}
-              {{ $newRowIndex := add $nextRowIndex 1 }}
-              {{ $afterCount := sub $rowCount $newRowIndex }}
-              {{ range after $afterCount $TBody }}
-                {{ $tcol := index . $colIndex }}
-                {{- if eq $tcol.Text "^" }}
-                    {{- $rowspan = add $rowspan 1 -}}
-                {{ else }}
-                    {{- break -}}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-            rowspan="{{ $rowspan }}"
-          >
-            {{- $col.Text -}}
-            {{ $rowIndex }}|{{ $colIndex }}
-
-          </td>
-        {{- end }}
-          
+            <!-- 获取下一行的这列的单元格 -->
+            {{ $nextRowCell := index $nextRow $colIndex }}
+            <!-- 获取这一行的下一列单元格 -->
+            {{ $nextColIndex := add $colIndex 1 }}
+            {{ $nextColCell := index $row $nextColIndex }}
+            {{- if and (ne $col.Text "^") (ne $col.Text "&lt;")  }}
+                <!-- 纵向合并单元格的数量 -->
+                {{ $rowspan := 1 }}
+                <!-- 横向合并单元格的数量 -->
+                {{ $colspan := 1 }}
+                <!-- 纵向合并单元格的处理逻辑 -->
+                <!-- 如果下一行所在该列的单元格的 Text 值是 "^"，则进行纵向合并 -->
+                {{ if eq $nextRowCell.Text "^" }}
+                    <!-- 纵向合并单元格的数量增加 -->
+                    {{ $rowspan = add $rowspan 1 }}
+                    <!-- 再向下查找，直到找到第一个不是 "^" 的单元格，合并单元格结束 -->
+                    {{ $newRowIndex := add $nextRowIndex 1 }}
+                    {{ $afterCount := sub $rowCount $newRowIndex }}
+                    {{ range after $afterCount $TBody }}
+                        {{ $tcol := index . $colIndex }}
+                        {{- if eq $tcol.Text "^" }}
+                            {{- $rowspan = add $rowspan 1 -}}
+                        {{ else }}
+                            {{- break -}}
+                        {{ end }}
+                    {{ end }}
+                {{end}}
+                <!-- 横向合并单元格的处理逻辑 -->
+                <!-- 如果下一行的该列单元格的 Text 值是 "&lt;"，则进行横向合并 -->
+                {{ if eq $nextColCell.Text "&lt;" }}
+                    <!-- 横向合并单元格的数量增加 -->
+                    {{ $colspan = add $colspan 1 }}
+                    <!-- 再向右查找，直到找到第一个不是 "&lt;" 的单元格，合并单元格结束 -->
+                    {{ $newColIndex := add $nextColIndex 1 }}
+                    {{ $afterCount := sub $colCount $newColIndex }}
+                    {{ range $tcol := after $afterCount $row }}
+                        {{- if eq $tcol.Text "&lt;" }}
+                            {{- $colspan = add $colspan 1 -}}
+                        {{ else }}
+                            {{- break -}}
+                        {{ end }}
+                    {{ end }}
+                {{end}}
+                <td
+                    {{- with $col.Alignment }}
+                    {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}
+                    {{- end -}}
+                    rowspan="{{ $rowspan }}"
+                    colspan="{{ $colspan }}"
+                >
+                {{- $col.Text -}}
+                {{ $rowIndex }}|{{ $colIndex }}
+                </td>
+            {{- end }}
         {{- end }}
       </tr>
     {{- end }}
   </tbody>
 </table>
+
+<div>
+    {{ .THead }}
+</div>
 
 <div>
 {{ .TBody }}
