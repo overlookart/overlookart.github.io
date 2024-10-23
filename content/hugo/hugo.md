@@ -143,7 +143,7 @@ GitHub Pages网站有三种类型：项目、用户和组织。项目站点连�
     build:
         runs-on: ubuntu-latest
         env:
-        HUGO_VERSION: 0.135.0
+        HUGO_VERSION: 0.136.4
         steps:
         - name: Install Hugo CLI
         run: |
