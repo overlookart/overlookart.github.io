@@ -61,9 +61,10 @@
 #nice table {
     border: 1px solid #dfe3ec;
     border-collapse: collapse;
-}
-
-#nice th, td {
-        border: 1px solid #000000;
+    th, td {
+        border: 1px solid #dfe3ec;
         text-align: center;
+        vertical-align: middle;
+        padding: 0px;
+    }
 }

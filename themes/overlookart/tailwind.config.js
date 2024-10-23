@@ -51,10 +51,6 @@ module.exports = {
                             'font-style': 'normal',
                             'font-weight': '300'
                         },
-                        
-                        'tbody td': {
-                            'vertical-align': 'middle'
-                        }
                     }
                 }
             }

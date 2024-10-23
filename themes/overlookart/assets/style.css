@@ -890,7 +890,6 @@ ol, ul {
 
 .prose :where(tbody td):not(:where([class~="not-prose"] *)) {
   vertical-align: baseline;
-  vertical-align: middle;
 }
 
 .prose :where(tfoot):not(:where([class~="not-prose"] *)) {
@@ -1125,10 +1124,6 @@ ol, ul {
   margin-bottom: 1rem;
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -1150,6 +1145,10 @@ ol, ul {
 
 .flex {
   display: flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
