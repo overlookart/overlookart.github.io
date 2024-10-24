@@ -1,5 +1,14 @@
 @import "root";
 
+#nice {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+#nice h1 {
+    text-align: center;
+    padding-top: 40px;
+}
+
 /* 二级标题 */ 
 #nice h2 {
     border-bottom: 2px solid var(--theme-main-color);

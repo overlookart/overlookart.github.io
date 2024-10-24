@@ -4,8 +4,8 @@
 {{ define "content" }}
 <div id="article-container" class="overflow-scroll scroll-smooth max-h-full">
   <article class="prose prose-zinc px-10  min-w-full bg-white">
-    <h1 style="text-align: center;" class="pt-8">{{ title .Title }}</h1>
     <div id="nice">
+      <h1>{{ title .Title }}</h1>
       {{ .Content }}
     </div>
     {{ partial "Comment.html" . }}
