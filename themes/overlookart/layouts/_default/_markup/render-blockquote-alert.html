@@ -20,7 +20,7 @@
         {{ $icon := index $alertIcons .AlertType  }}
         {{ $titleClass := printf "alert-%s-title" .AlertType }}
         {{replace $icon.Content "icon-color" $titleClass | safeHTML }}
-        {{ title .AlertType }}
+        <span class="ml-2">{{ title .AlertType }}</span>
       </p>
       {{ .Text }}
     </blockquote>
