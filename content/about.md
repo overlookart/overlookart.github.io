@@ -16,6 +16,8 @@ tags:
 
 ## 2023-02-14 Hugo
 
-## 2023-03-09 VuePress
+## 2023-03-09 ~~VuePress~~
+
+## 2024-10-26 Astro
 
 {{< SiteAbout >}}
