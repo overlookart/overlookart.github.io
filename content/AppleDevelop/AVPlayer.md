@@ -17,7 +17,7 @@ description: "基于 AVPlayer 的音频播放器，播放器的加载状态(成�
 author: "OverLookArt"
 ---
 
-播放器是管理媒体资产的播放和时间的控制器对象。使用AVPlayer实例播放基于文件的本地和远程媒体，如QuickTime电影和MP3音频文件，以及使用HTTP直播提供的视听媒体。
+**AVPlayer** 是管理媒体资产的播放和时间的控制器对象。使用AVPlayer实例播放基于文件的本地和远程媒体，如QuickTime电影和MP3音频文件，以及使用HTTP直播提供的视听媒体。
 
 ## 初始化 Player  
 
@@ -51,7 +51,7 @@ private func removePlayerObserver(){
 
 ## 设置播放数据  
 
-使用播放器一次播放单个媒体资产。您可以使用其replaceCurrentItem（with:）方法重复使用播放器实例来播放其他媒体资产，但它一次只管理单个媒体资产的播放。每次播放新的媒体资产时，都需要重新设置
+使用 **AVPlayer** 一次播放单个媒体资产。您可以使用其 `replaceCurrentItem（with:）`方法重复使用播放器实例来播放其他媒体资产，但它一次只管理单个媒体资产的播放。每次播放新的媒体资产时，都需要重新设置。
 
 ``` Swift
 /// 设置 player 的播放数据
