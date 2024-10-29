@@ -19,6 +19,13 @@ author: "OverLookArt"
 
 **AVPlayer** 是管理媒体资产的播放和时间的控制器对象。使用AVPlayer实例播放基于文件的本地和远程媒体，如QuickTime电影和MP3音频文件，以及使用HTTP直播提供的视听媒体。
 
+- [ ] 认识 AVPlayer
+- [x] AVPlayer 的初始化
+- [x] 监听 AVPlayer 属性
+- [ ] 认识播放对象 AVPlayerItem
+- [x] 监听 AVPlayerItem 属性
+- [ ] 切换播放对象
+
 ## 初始化 Player  
 
 ``` Swift
