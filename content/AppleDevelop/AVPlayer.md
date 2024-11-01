@@ -25,6 +25,8 @@ author: "OverLookArt"
 - [ ] 认识播放对象 AVPlayerItem
 - [x] 监听 AVPlayerItem 属性
 - [ ] 切换播放对象
+- [ ] 切换播放速率  
+- [ ] 播放中心概览及控制
 
 ## 初始化 Player  
 
@@ -231,6 +233,18 @@ public func pauseAudio(){
     player.pause()
 }
 
+/// 快进到指定位置
+/// - Parameter tipositionTime: 目标位置 秒
+private func seekJump(PositionTime positionTime: TimeInterval) {
+    let time = CMTime(seconds: positionTime, preferredTimescale: 600)
+    setupSeekControl(isEnable: false)
+    self.isSeeking = true
+    player.seek(to: time) { isFinish in
+        self.isSeeking = false
+        self.setupSeekControl(isEnable: true)
+    }
+}
+
 /// 跳到播放位置
 /// - Parameter value: 目标位置 0～1
 ///
@@ -239,15 +253,9 @@ private func seekJump(Progress value: Float){
     if let playItem = player.currentItem {
         let totalTime = playItem.duration.seconds
         if totalTime.isNaN { return }
-        let playTime = totalTime * value.double
-        let targetTime = CMTimeMakeWithSeconds(playTime, preferredTimescale: 600)
-        audioSlider.updatePlayTime(playTime, totalTime: totalTime)
-        setupSeekControl(isEnable: false)
-        self.isSeeking = true
-        player.seek(to: targetTime) { isFinish in
-            self.isSeeking = false
-            self.setupSeekControl(isEnable: true)
-        }
+        let targetTime = totalTime * value.double
+        audioSlider.updatePlayTime(targetTime, totalTime: totalTime)
+        self.seekJump(PositionTime: targetTime)
     }
 }
 
@@ -264,14 +272,7 @@ private func seekJump(StepTime stepTime: Double) {
         var targetTime = currentTime + stepTime
         if targetTime < 0 { targetTime = 0 }
         if targetTime > totalTime { targetTime = totalTime }
-        let time = CMTime(seconds: targetTime, preferredTimescale: 600)
-        audioSlider.updatePlayTime(targetTime, totalTime: totalTime)
-        setupSeekControl(isEnable: false)
-        self.isSeeking = true
-        player.seek(to: time) { isFinish in
-            self.isSeeking = false
-            self.setupSeekControl(isEnable: true)
-        }
+        self.seekJump(PositionTime: targetTime)
     }
 }
 ```
