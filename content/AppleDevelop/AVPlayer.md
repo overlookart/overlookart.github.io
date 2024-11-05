@@ -17,9 +17,14 @@ description: "基于 AVPlayer 的音频播放器，播放器的加载状态(成�
 author: "OverLookArt"
 ---
 
-**AVPlayer** 是管理媒体资产的播放和时间的控制器对象。使用AVPlayer实例播放基于文件的本地和远程媒体，如QuickTime电影和MP3音频文件，以及使用HTTP直播提供的视听媒体。
+* **AVPlayer** 是管理媒体资产的播放和时间的控制器对象。使用AVPlayer实例播放基于文件的本地和远程视听媒体。
+
+* **AVAsset** 是一个视听媒体模型对象，视听媒体模型基于文件的媒体，如QuickTime电影或MP3音频文件，以及使用HTTP实时流（HLS）流式传输的媒体。视听媒体模型是的一个或多个视听媒体轨道(`AVAssetTrack`)实例的容器对象。
+
+* **AVAssetTrack** 视听媒体轨道实例对统一类型的媒体轨道进行建模。最常用的轨道类型是**音频**和**视频**，但资产也可能包含补充轨道，如隐藏式字幕、字幕和计时元数据。  
 
 - [ ] 认识 AVPlayer
+- [ ] 认识 AVAsset
 - [x] AVPlayer 的初始化
 - [x] 监听 AVPlayer 属性
 - [ ] 认识播放对象 AVPlayerItem
@@ -27,6 +32,20 @@ author: "OverLookArt"
 - [ ] 切换播放对象
 - [ ] 切换播放速率  
 - [ ] 播放中心概览及控制
+
+
+``` markmap
+
+# AVPlayer
+
+## AVPlayerItem  
+
+### AVAsset  
+
+#### AVAssetTrack(视频轨道)
+#### AVAssetTrack(音频轨道)
+#### AVAssetTrack(字幕轨道)
+```
 
 ## 初始化 Player  
 
