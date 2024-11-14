@@ -23,22 +23,31 @@ author: "OverLookArt"
 
 ## 测试 Blockquote 渲染
 
+``` md
+> 这是一个正常的 Blockquote
+```
+
 > 这是一个正常的 Blockquote
 
+``` md
 > [!NOTE]
-> Useful information that users should know, even when skimming content.
+> 这是一个 NOTE Blockquote.
+```
+
+> [!NOTE]
+> 这是一个 NOTE Blockquote.
 
 > [!TIP]
-> Helpful advice for doing things better or more easily.
+> 这是一个 TIP Blockquote.
 
 > [!IMPORTANT]
-> Important information that users should pay attention to.
+> 这是一个 IMPORTANT Blockquote.
 
 > [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+> 这是一个 WARNING Blockquote.
 
 > [!CAUTION]
-> Warnings that users should be careful of.
+> 这是一个 CAUTION Blockquote.
 
 ## 测试 Table 渲染  
 
