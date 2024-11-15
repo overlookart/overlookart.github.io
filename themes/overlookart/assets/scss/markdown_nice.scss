@@ -28,16 +28,21 @@
 #nice h2:after {
     display: inline-block;
     content: var(--emoji-grinning);
-    vertical-align: bottom;
+    //vertical-align: bottom;
     // border-bottom: 36px solid #efebe9;
     // border-right: 20px solid transparent;
-    animation: spin 1s linear infinite;
+    animation-name: spin;
+    animation-duration:  3s;
+    animation-timing-function:  ease-in-out;
+    animation-iteration-count:  infinite;
+    animation-direction: alternate;
     @keyframes spin {
         from {
-            transform: rotate(0deg);
+            transform: translateX(0) rotate(0deg);
         }
+        
         to {
-            transform: rotate(360deg);
+            transform: translateX(50vw) rotate(720deg);
         }
     }
 }
