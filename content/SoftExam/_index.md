@@ -16,3 +16,6 @@ description: "文章描述"
 # 作者
 author: "OverLookArt"
 ---
+
+> [中国计算机职业资格网](https://www.ruankao.org.cn)
+> [软考达人-考题练习](https://ruankaokao.com/)

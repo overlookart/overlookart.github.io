@@ -17,23 +17,10 @@ description: "文章描述"
 author: "OverLookArt"
 ---
 
-## 软考概览
+> [软件设计课程](https://space.bilibili.com/484521817)
 
-> 知己知彼，百战不殆。
 
-{{< iframe src="https://www.ruankao.org.cn" title="中国计算机职业资格网" coustom="自定义参数">}}
-
----
-
-## 考点学习
-
-> 学而不思则罔，思而不学则殆。
-
-{{< iframe src="https://space.bilibili.com/484521817" title="软考诸葛老师" coustom="自定义参数">}}
-
-## 考试范围
-
-``` markmap
+``` markmap {height = "80vh"}
 
 # 考试范围
 ## 计算机组成与体系结构 8%
@@ -84,8 +71,3 @@ author: "OverLookArt"
 
 ```
 
-## 考点试题
-
-> 剑峰须从磨砺出
-
-{{< iframe src="https://ruankaokao.com/" title="软考达人" coustom="自定义参数">}}

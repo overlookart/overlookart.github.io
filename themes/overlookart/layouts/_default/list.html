@@ -4,12 +4,17 @@
 {{ end }}
 
 {{ define "content" }}
-<div class="overflow-scroll scroll-smooth">
+<div class="overflow-scroll scroll-smooth px-10">
     <h1 style="text-align: center;" class="pt-8">{{ title .Title }}</h1>
     {{ .Content }}
     {{- partial "PageList.html" . -}}
 </div>
+{{ if .Page.Store.Get "hasMarkmap" }}
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
 {{ end }}
+{{ end }}
+
+
 
 {{ define "rightSideBar" }}
     {{ partial "PageVar.html" . }}

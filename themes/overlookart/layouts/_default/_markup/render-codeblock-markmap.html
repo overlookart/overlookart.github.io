@@ -1,4 +1,8 @@
-<div class="markmap border-2 border-gray-300 rounded-md mb-10" id="markmap">
+
+    {{ $height := .Attributes.height }}
+
+<div class="markmap border-2 border-gray-300 rounded-md mb-10 bg-white" id="markmap">
+    
     <script type="text/template">
         {{- .Inner -}}
     </script>
@@ -6,7 +10,7 @@
 <style>
     svg.markmap {
         width: 100%;
-        height: 40vh;
+        height: {{ $height }};
     }
 </style>
 {{ .Page.Store.Set "hasMarkmap" true }}
