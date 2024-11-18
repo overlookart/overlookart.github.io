@@ -10,7 +10,18 @@
     {{- partial "PageList.html" . -}}
 </div>
 {{ if .Page.Store.Get "hasMarkmap" }}
-  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
+    <script>
+        window.markmap = {
+        autoLoader: { manual: true },
+        };
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@latest"></script>
+  <script>
+    // Render in 0.3s
+    setTimeout(() => {
+      markmap.autoLoader.renderAll();
+    }, 300);
+  </script>
 {{ end }}
 {{ end }}
 

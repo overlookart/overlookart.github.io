@@ -1,5 +1,5 @@
 
-    {{ $height := .Attributes.height }}
+{{ $height := .Attributes.height }}
 
 <div class="markmap border-2 border-gray-300 rounded-md mb-10 bg-white" id="markmap">
     
@@ -8,7 +8,11 @@
     </script>
 </div>
 <style>
-    svg.markmap {
+    .markmap {
+        position: relative;
+    }
+    
+    .markmap > svg {
         width: 100%;
         height: {{ $height }};
     }
