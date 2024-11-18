@@ -1,5 +1,8 @@
 <!-- 词云 -->
- <div id="wordcloud" class="w-full h-full">
-    {{- .Inner | safeHTML }}
- </div>
+ <!-- <div style="overflow-x: auto; overflow-y: visible; position: relative; "> -->
+   <div id="wordcloud" class="w-full h-[500px] relative">
+      {{- .Inner | safeHTML }}
+   </div>
+ <!-- </div> -->
+ 
  {{ .Page.Store.Set "hasWordCloud" true }}

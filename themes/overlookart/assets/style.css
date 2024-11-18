@@ -1087,8 +1087,16 @@ ol, ul {
   --tw-prose-invert-td-borders: #3f3f46;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .fixed {
   position: fixed;
+}
+
+.relative {
+  position: relative;
 }
 
 .sticky {
@@ -1169,6 +1177,10 @@ ol, ul {
 
 .h-8 {
   height: 2rem;
+}
+
+.h-\[500px\] {
+  height: 500px;
 }
 
 .h-full {
