@@ -18,7 +18,7 @@ author: "OverookArt"
 --- 
 
 
-``` markmap
+``` markmap {height = "20vh"}
 # markmap
 ## 简介
 ## 使用方案  
@@ -49,8 +49,11 @@ Markmap是Markdown和思维导图的组合。
 Hugo 中对  Markdown 的代码块语法 有自定义的功能，可将 markmap 设为一种语法进行自定义渲染  
 
 1. 创建 markmap 语法的代码块渲染器  
+
    ``` html
    <!-- /layout/_default/_markup/render-codeblock-markmap.html -->
+   <!-- 获取 markmap 的高度 -->
+   {{ $height := .Attributes.height }}
     <div class="markmap" id="markmap">
         <script type="text/template">
             {{- .Inner -}}
@@ -59,13 +62,14 @@ Hugo 中对  Markdown 的代码块语法 有自定义的功能，可将 markmap 
     <style>
         svg.markmap {
             width: 100%;
-            height: 100%;
+            height: {{ $height }};
         }
     </style>
     {{ .Page.Store.Set "hasMarkmap" true }}
    ```
 
 2. 在页面内容模版中配置渲染功能
+
     ``` html
     {{ if .Page.Store.Get "hasMarkmap" }}
         <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
@@ -73,18 +77,18 @@ Hugo 中对  Markdown 的代码块语法 有自定义的功能，可将 markmap 
     ```
 
 3. 在 Markdown 文件中编写 markmap 代码块  
-   \`\`\` markmap
-        \# MarkMap
-        \#\# 简介
-        \#\# 使用方案  
-        1. React框架
-        2. Vue框架
-        3. auto-loader
-        4. VS Code 插件
-        \#\# 在 Hugo 中的使用
-        1. 创建 Markmap 语法的代码块渲染器  
-        2. 在页面内容模版中配置渲染功能  
-        3. 在 Markdown 文件中编写 markmap 代码块
-   \`\`\`
 
-   
+``` markdown
+``` markmap {height = "20vh"}
+    # MarkMap
+    ## 简介
+    ## 使用方案  
+    1. React框架
+    2. Vue框架
+    3. auto-loader
+    4. VS Code 插件
+    ## 在 Hugo 中的使用
+    5. 创建 Markmap 语法的代码块渲染器  
+    6. 在页面内容模版中配置渲染功能  
+    7. 在 Markdown 文件中编写 markmap 代码块
+```
