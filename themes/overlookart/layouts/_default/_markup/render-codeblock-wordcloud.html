@@ -1,0 +1,5 @@
+<!-- 词云 -->
+ <div id="wordcloud" class="w-full h-full">
+    {{- .Inner | safeHTML }}
+ </div>
+ {{ .Page.Store.Set "hasWordCloud" true }}

@@ -110,3 +110,43 @@ author: "OverLookArt"
 | ^ | ^ | 单元格 | 单元格 |
 | 单元格 | 单元格 | 单元格 | < |
 | 单元格 | < | 单元格 | < |
+
+## 测试 wordcloud 渲染
+
+``` wordcloud
+{
+  "words": [
+    {
+      "text": "Hello",
+      "size": 100
+    },
+    {
+      "text": "World",
+      "size": 80
+    },
+    {
+      "text": "This",
+      "size": 60
+    },
+    {
+      "text": "Is",
+      "size": 40
+    },
+    {
+      "text": "A",
+      "size": 20
+    }
+  ],
+  "options": {
+    "fontFamily": "Arial",
+    "fontWeight": "bold",
+    "color": "random-dark",
+    "rotate": 0,
+    "shape": "circle",
+    "ellipticity": 0.65,
+    "responsive": true,
+    "width": 300,
+    "height": 300
+  }
+}
+```

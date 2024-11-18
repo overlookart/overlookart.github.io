@@ -43,6 +43,122 @@
   </script>
 {{ end }}
 
+{{ if .Page.Store.Get "hasWordCloud" }}
+<!-- <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.3/src/wordcloud2.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+<script>
+  var chart = echarts.init(document.getElementById('wordcloud'));
+  chart.setOption({
+    series: [{
+        type: 'wordCloud',
+        shape: 'circle',
+        keepAspect: false,
+        maskImage: maskImage,
+
+        left: 'center',
+        top: 'center',
+        width: '70%',
+        height: '80%',
+        right: null,
+        bottom: null,
+
+        sizeRange: [12, 60],
+
+        rotationRange: [-90, 90],
+        rotationStep: 45,
+
+        // size of the grid in pixels for marking the availability of the canvas
+        // the larger the grid size, the bigger the gap between words.
+
+        gridSize: 8,
+
+        // set to true to allow word being draw partly outside of the canvas.
+        // Allow word bigger than the size of the canvas to be drawn
+        drawOutOfBound: false,
+
+        // if the font size is too large for the text to be displayed,
+        // whether to shrink the text. If it is set to false, the text will
+        // not be rendered. If it is set to true, the text will be shrinked.
+        shrinkToFit: false,
+
+        // If perform layout animation.
+        // NOTE disable it will lead to UI blocking when there is lots of words.
+        layoutAnimation: true,
+
+        // Global text style
+        textStyle: {
+            fontFamily: 'sans-serif',
+            fontWeight: 'bold',
+            // Color can be a callback function or a color string
+            color: function () {
+                // Random color
+                return 'rgb(' + [
+                    Math.round(Math.random() * 160),
+                    Math.round(Math.random() * 160),
+                    Math.round(Math.random() * 160)
+                ].join(',') + ')';
+            }
+        },
+        emphasis: {
+            focus: 'self',
+
+            textStyle: {
+                textShadowBlur: 10,
+                textShadowColor: '#333'
+            }
+        },
+
+        // Data is an array. Each array item must have name and value property.
+        data: [{
+            name: 'Farrah Abraham',
+            value: 366,
+            // Style of single text
+            textStyle: {
+            }
+        }]
+    }]
+});
+  // WordCloud(document.getElementById('wordcloud'), 
+  // { 
+  //   list: [
+  //     ['foo', 12],
+  //     ['bar', 6],
+  //     ['测试', 20],
+  //     ['中文', 15],
+  //     ['日本語', 10],
+  //     ['한국어', 5],
+  //     ['English', 10],
+  //     ['Français', 5],
+  //     ['Español', 5],
+  //     ['测试法色色发售减肥', 5],
+  //     ['份额',8],
+  //     ['Italiano', 5],
+  //     ['Deutsch', 5],
+  //     ['日本語', 10],
+  //     ['한국어', 5],
+  //     ['English', 10],
+  //     ['Français', 5],
+  //     ['Español', 5],
+  //     ['Português', 5],
+  //     ['Italiano', 5],
+  //     ['Deutsch', 5],
+  //     ['日本語', 10],
+  //     ['한국어', 5]
+  //   ],
+  //   drawOutOfBound: false,
+  //   shrinkToFit: true,
+  //   minSize: 1,
+  //   shape: 'square',
+  //   fontweight:'900',
+  //   rotateRatio: 0.8,
+  //   backgroundColor: '#f0f0f0',
+  //   weightFactor: 1.2
+    
+  // });
+</script>
+{{ end }}
+
 {{ end }}
 
 {{ define "rightSideBar" }}
