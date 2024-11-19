@@ -19,12 +19,12 @@ function initWordCloud  () {
         },
         drawOutOfBound: false,
         shrinkToFit: true,
-        minSize: 1,
+        minSize: 10,
         // origin: [ wcElement.scrollWidth/2.0,100],
         shape: 'star',
         // fontweight:'900',
-        // rotateRatio: 1,
-        backgroundColor: '#f0f0f0',
+        rotateRatio: 0.5,
+        // backgroundColor: '#f0f0f0',
     });
 };
 setTimeout(initWordCloud, 300);
