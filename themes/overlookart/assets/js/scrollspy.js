@@ -134,6 +134,7 @@ const scrollspy = {
     scrollHandler: function(){
         
         if (!this.articleContainer) { return }
+        if (this.articleHeaderOffset.length <= 0) { return }
         // 获取当前文章容器的滚动位置
         let scrollPosition = this.articleContainer.scrollTop;
         // 获取文章容器的顶部位置

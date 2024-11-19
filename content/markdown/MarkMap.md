@@ -46,7 +46,7 @@ Markmap是Markdown和思维导图的组合。
 
 ## 在 Hugo 中使用  
 
-Hugo 中对  Markdown 的代码块语法 有自定义的功能，可将 markmap 设为一种语法进行自定义渲染  
+Hugo 中对  Markdown 的代码块(codeblock)语法 有自定义的渲染功能，可将 markmap 设为一种语法进行自定义渲染  
 
 1. 创建 markmap 语法的代码块渲染器  
 
@@ -71,8 +71,23 @@ Hugo 中对  Markdown 的代码块语法 有自定义的功能，可将 markmap 
 2. 在页面内容模版中配置渲染功能
 
     ``` html
+    <!-- 判断当前页面是否有 markmap 代码块 -->
     {{ if .Page.Store.Get "hasMarkmap" }}
+        <!-- 为了更好的掌控渲染时机，将 markmap 的渲染方式设置为手动 -->
+        <script>
+            window.markmap = {
+            autoLoader: { manual: true },
+            };
+        </script>
+        <!-- 引入 markmap 相关脚本 -->
         <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.4"></script>
+        <!-- 进行手动渲染 markmap -->
+        <script>
+            // 0.3s 后渲染 markmap
+            setTimeout(() => {
+                markmap.autoLoader.renderAll();
+            }, 300);
+        </script>
     {{ end }}
     ```
 

@@ -1,6 +1,9 @@
 {{ define "leftSideBar" }}
 {{- partial "LeftSideBar/LeftSideBar" . -}}
 {{ end }}
+{{ define "rightSideBar" }}
+  {{- partial "toc.html" . -}}
+{{ end }}
 {{ define "content" }}
 <div id="article-container" class="overflow-scroll scroll-smooth max-h-full">
   <article class="prose prose-zinc px-10  min-w-full bg-white">
@@ -44,63 +47,17 @@
 {{ end }}
 
 {{ if .Page.Store.Get "hasWordCloud" }}
-<script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.3/src/wordcloud2.min.js"></script>
 
-<script>
-setTimeout(() => {
-  let wcElement = document.getElementById('wordcloud')
-console.debug('^^^^^^^^^^^^', wcElement.scrollWidth);
-  WordCloud(wcElement, 
-  { 
-    list: [
-      ['foo', 12],
-      ['bar', 6],
-      ['测试', 20],
-      ['中文', 15],
-      ['日本語', 10],
-      ['한국어', 5],
-      ['English', 10],
-      ['Français', 5],
-      ['Español', 5],
-      ['测试法色色发售减肥', 5],
-      ['份额',8],
-      ['Italiano', 5],
-      ['Deutsch', 5],
-      ['日本語', 10],
-      ['한국어', 5],
-      ['English', 10],
-      ['Français', 5],
-      ['Español', 5],
-      ['Português', 5],
-      ['Italiano', 5],
-      ['Deutsch', 5],
-      ['日本語', 10],
-      ['한국어', 5]
-    ],
-    gridSize: Math.round(16 * wcElement.clientWidth / 1024),
-    weightFactor: function (size) {
-      let wc = document.getElementById('wordcloud');
-      return Math.pow(size, 1.7) * wc.scrollWidth / 1024;
-    },
-    drawOutOfBound: false,
-    shrinkToFit: true,
-    minSize: 10,
-    // origin: [ wcElement.scrollWidth/2.0,100],
-    shape: 'star',
-    // fontweight:'900',
-    rotateRatio: 0.8,
-    backgroundColor: '#f0f0f0',
-    
-    
-  });
-
-}, 500);
-
+{{ $wordcloud2js := resources.Get "js/wordcloud_help.js" | js.Build  }}
+<script src="{{ $wordcloud2js.RelPermalink }}">
+  
 </script>
-{{ end }}
+<script>
+  
+</script>
 
 {{ end }}
 
-{{ define "rightSideBar" }}
-  {{- partial "toc.html" . -}}
 {{ end }}
+
+

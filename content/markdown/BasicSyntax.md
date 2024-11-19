@@ -1,5 +1,5 @@
 ---
-title: "markdown 基本语法"
+title: "Markdown 基本语法"
 date: 2023-02-18T21:39:09+08:00
 author: "overlookart"
 description: "Markdown 的语法简洁明了,兼具简单和易读易写的特征。它能够使用比较容易读和写的文本格式代替复杂的 HTML 语法来构建文档。"

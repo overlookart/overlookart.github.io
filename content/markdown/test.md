@@ -114,39 +114,19 @@ author: "OverLookArt"
 ## 测试 wordcloud 渲染
 
 ``` wordcloud
-{
-  "words": [
-    {
-      "text": "Hello",
-      "size": 100
-    },
-    {
-      "text": "World",
-      "size": 80
-    },
-    {
-      "text": "This",
-      "size": 60
-    },
-    {
-      "text": "Is",
-      "size": 40
-    },
-    {
-      "text": "A",
-      "size": 20
-    }
-  ],
-  "options": {
-    "fontFamily": "Arial",
-    "fontWeight": "bold",
-    "color": "random-dark",
-    "rotate": 0,
-    "shape": "circle",
-    "ellipticity": 0.65,
-    "responsive": true,
-    "width": 300,
-    "height": 300
-  }
-}
+[
+    ["Word Cloud", 20],
+    ["is", 10],
+    ["awesome", 5],
+    ["and", 3],
+    ["powerful", 2],
+    ["yet", 1],
+    ["simple", 1],
+    ["to", 1],
+    ["use", 1],
+    ["in", 1],
+    ["your", 1],
+    ["blog", 1],
+    ["site", 1]
+]
 ```
