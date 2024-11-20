@@ -85,6 +85,7 @@ author: "OverookArt"
 ## 图表  
 
 * [d3js](https://d3js.org)
+* [Mermaid](https://mermaid.js.org)  
 * [Vue-ChartJs](https://vue-chartjs.org)  
 
 ## icon 库
