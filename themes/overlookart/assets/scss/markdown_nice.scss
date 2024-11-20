@@ -27,24 +27,26 @@
 /* 二级标题修饰 请参考有实例的主题 */
 #nice h2:after {
     display: inline-block;
-    content: var(--emoji-grinning);
-    //vertical-align: bottom;
-    // border-bottom: 36px solid #efebe9;
-    // border-right: 20px solid transparent;
-    animation-name: spin;
-    animation-duration:  3s;
-    animation-timing-function:  ease-in-out;
-    animation-iteration-count:  infinite;
-    animation-direction: alternate;
-    @keyframes spin {
-        from {
-            transform: translateX(0) rotate(0deg);
-        }
+    content: " ";
+    vertical-align: bottom;
+    border-bottom: 36px solid #efebe9;
+    border-right: 20px solid transparent;
+
+    // content: var(--emoji-grinning);
+    // animation-name: spin;
+    // animation-duration:  3s;
+    // animation-timing-function:  ease-in-out;
+    // animation-iteration-count:  infinite;
+    // animation-direction: alternate;
+    // @keyframes spin {
+    //     from {
+    //         transform: translateX(0) rotate(0deg);
+    //     }
         
-        to {
-            transform: translateX(50vw) rotate(720deg);
-        }
-    }
+    //     to {
+    //         transform: translateX(50vw) rotate(720deg);
+    //     }
+    // }
 }
 
 #nice p {
