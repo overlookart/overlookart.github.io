@@ -18,155 +18,153 @@ author: "OverLookArt"
 ---
 
 ``` wordcloud
-[
-    ["architecture", 30],
-    ["abstraction", 20],
-    ["access", 20],
-    ["algorithm", 20],
-    ["allocation", 20],
-    ["analysis", 20],
-    ["array", 20],
-    ["artifact", 20],
-    ["asynchronous", 20],
-    ["atomic", 20],
-    ["attribute", 20],
-    ["audit", 20],
-    ["augment", 20],
-    ["availability", 20],
-    ["backpressure", 20],
-    ["backup", 20],
-    ["batch processing", 20],
-    ["benchmark", 20],
-    ["binary", 20],
-    ["bind", 20],
-    ["bootstrap", 20],
-    ["buffer", 20],
-    ["cache", 20],
-    ["callback", 20],
-    ["capacity", 20],
-    ["class", 20],
-    ["client", 20],
-    ["cloud", 20],
-    ["clustering", 20],
-    ["compile", 20],
-    ["component", 20],
-    ["concurrency", 20],
-    ["configure", 20],
-    ["consistency", 20],
-    ["constructor", 20],
-    ["container", 20],
-    ["context", 20],
-    ["continuous", 20],
-    ["data", 20],
-    ["dictionary", 20],
-    ["database", 20],
-    ["deadlock", 20],
-    ["debug", 20],
-    ["decomposing", 20],
-    ["dependency", 20],
-    ["deploy", 20],
-    ["deployment", 20],
-    ["deterministic", 20],
-    ["domain", 20],
-    ["dynamic", 20],
-    ["encapsulation", 20],
-    ["endpoint", 20],
-    ["entity", 20],
-    ["ephemeral", 20],
-    ["establish", 20],
-    ["exception", 20],
-    ["extend", 20],
-    ["failover", 20],
-    ["fail-safe", 20],
-    ["fault-tolerant", 20],
-    ["feasibility", 20],
-    ["feedback", 20],
-    ["function", 20],
-    ["garbage collection", 20],
-    ["heartbeat", 20],
-    ["immutable", 20],
-    ["indexing", 20],
-    ["infrastructure", 20],
-    ["inheritance", 20],
-    ["initialize", 20],
-    ["instance", 20],
-    ["integration", 20],
-    ["interface", 20],
-    ["introspection", 20],
-    ["iteration", 20],
-    ["jitter", 20],
-    ["latency", 20],
-    ["load balancing", 20],
-    ["logic", 20],
-    ["metadata", 20],
-    ["microkernel", 20],
-    ["microservice", 20],
-    ["middleware", 20],
-    ["modular", 20],
-    ["module", 20],
-    ["monitor", 20],
-    ["multithreading", 20],
-    ["mutex", 20],
-    ["namespace", 20],
-    ["non-blocking", 20],
-    ["object", 20],
-    ["observability", 20],
-    ["observer", 20],
-    ["optimistic locking", 20],
-    ["orchestration", 20],
-    ["overload", 20],
-    ["override", 20],
-    ["parameter", 20],
-    ["paylod", 20],
-    ["performance", 20],
-    ["persistence", 20],
-    ["polymorphism", 20],
-    ["port", 20],
-    ["procedure", 20],
-    ["process", 20],
-    ["protocol", 20],
-    ["provisioning", 20],
-    ["proxy", 20],
-    ["queue", 20],
-    ["rate condition", 20],
-    ["rate limiting", 20],
-    ["refactoring", 20],
-    ["redundancy", 20],
-    ["reference", 20],
-    ["reliability", 20],
-    ["replication", 20],
-    ["resource", 20],
-    ["reverse proxy", 20],
-    ["rollback", 20],
-    ["scalability", 20],
-    ["scaling", 20],
-    ["security", 20],
-    ["serialization", 20],
-    ["sharding", 20],
-    ["sigleton", 20],
-    ["snapshot", 20],
-    ["spike", 20],
-    ["stack", 20],
-    ["state", 20],
-    ["static", 20],
-    ["subset", 20],
-    ["synchronization", 20],
-    ["thread", 20],
-    ["thrttling", 20],
-    ["throughput", 20],
-    ["timeout", 20],
-    ["topology", 20],
-    ["transaction", 20],
-    ["transmission", 20],
-    ["update", 20],
-    ["validation", 20],
-    ["variable", 20],
-    ["virtualization", 20],
-    ["volatile", 20],
-    ["watchdog", 20],
-    ["workload", 20],
-    ["wrapper", 20]
-]
+architecture
+abstraction
+access
+algorithm
+allocation
+analysis
+array
+artifact
+asynchronous
+atomic
+attribute
+audit
+augment
+availability
+backpressure
+backup
+batch processing
+benchmark
+binary
+bind
+bootstrap
+buffer
+cache
+callback
+capacity
+class
+client
+cloud
+clustering
+compile
+component
+concurrency
+configure
+consistency
+constructor
+container
+context
+continuous
+data
+dictionary
+database
+deadlock
+debug
+decomposing
+dependency
+deploy
+deployment
+deterministic
+domain
+dynamic
+encapsulation
+endpoint
+entity
+ephemeral
+establish
+exception
+extend
+failover
+fail-safe
+fault-tolerant
+feasibility
+feedback
+function
+garbage collection
+heartbeat
+immutable
+indexing
+infrastructure
+inheritance
+initialize
+instance
+integration
+interface
+introspection
+iteration
+jitter
+latency
+load balancing
+logic
+metadata
+microkernel
+microservice
+middleware
+modular
+module
+monitor
+multithreading
+mutex
+namespace
+non-blocking
+object
+observability
+observer
+optimistic locking
+orchestration
+overload
+override
+parameter
+paylod
+performance
+persistence
+polymorphism
+port
+procedure
+process
+protocol
+provisioning
+proxy
+queue
+rate condition
+rate limiting
+refactoring
+redundancy
+reference
+reliability
+replication
+resource
+reverse proxy
+rollback
+scalability
+scaling
+security
+serialization
+sharding
+sigleton
+snapshot
+spike
+stack
+state
+static
+subset
+synchronization
+thread
+thrttling
+throughput
+timeout
+topology
+transaction
+transmission
+update
+validation
+variable
+virtualization
+volatile
+watchdog
+workload
+wrapper
 ```
 
 ## A

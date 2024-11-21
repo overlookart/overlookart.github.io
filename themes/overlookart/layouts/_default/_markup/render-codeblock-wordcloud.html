@@ -1,7 +1,7 @@
 <!-- 词云 -->
  <!-- <div style="overflow-x: auto; overflow-y: visible; position: relative; "> -->
    <div id="wordcloud" class="w-full h-[500px] relative mb-10">
-      {{- .Inner | safeHTML }}
+      {{- .Inner | safeHTML | .Page.RenderString }}
    </div>
  <!-- </div> -->
  
