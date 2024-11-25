@@ -3,7 +3,7 @@ import WordCloud from './modules/wordcloud2'
 
 console.debug('wordcloud_help.js');
 function initWordCloud  () {
-    let wcElement = document.getElementById('wordcloud')
+    let wcElement = document.getElementById('wordcloud');
     if (!wcElement) {
         console.debug('wordcloud element not found');
         return;
