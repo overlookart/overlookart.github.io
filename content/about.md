@@ -12,12 +12,16 @@ tags:
 
 # Hi there, see you!
 
-## 2023-02-03 Jekyll
+* 2023-02-03 Jekyll
 
-## 2023-02-14 Hugo
+* 2023-02-14 Hugo
 
-## 2023-03-09 ~~VuePress~~
+* 2023-03-09 ~~VuePress~~
 
-## 2024-10-26 Astro
+* 2024-10-26 Astro
+
+* 2024-11-28 [部署到了 Netlify](https://overlookart-github-io.netlify.app)
+
+* 2024-11-28 [尝试部署到 Deno]
 
 {{< SiteAbout >}}

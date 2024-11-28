@@ -58,7 +58,7 @@ author: "OverLookArt"
 | --- | --- | --- | --- |
 | 单元格 | 单元格 | 单元格 | 单元格 |
 | ^ | 单元格 | 单元格 | ^ |
-| 单元格 | ^ | 单元格 | ^ |
+| ^ | ^ | 单元格 | ^ |
 | 单元格 | 单元格 | ^ | ^ |
 ```
 
@@ -69,7 +69,7 @@ author: "OverLookArt"
 | --- | --- | --- | --- |
 | 单元格 | 单元格 | 单元格 | 单元格 |
 | ^ | 单元格 | 单元格 | ^ |
-| 单元格 | ^ | 单元格 | ^ |
+| ^ | ^ | 单元格 | ^ |
 | 单元格 | 单元格 | ^ | ^ |
 
 ### 测试横向合并单元格  
@@ -114,19 +114,17 @@ author: "OverLookArt"
 ## 测试 wordcloud 渲染
 
 ``` wordcloud
-[
-    ["Word Cloud", 20],
-    ["is", 10],
-    ["awesome", 5],
-    ["and", 3],
-    ["powerful", 2],
-    ["yet", 1],
-    ["simple", 1],
-    ["to", 1],
-    ["use", 1],
-    ["in", 1],
-    ["your", 1],
-    ["blog", 1],
-    ["site", 1]
-]
+Word Cloud
+is
+awesome
+and
+powerful
+yet
+simple
+to
+use
+in
+your
+blog
+site
 ```

@@ -13,6 +13,7 @@
     <thead>
     {{- range .THead }}
       <tr>
+        <th style="width: 1px; visibility: visible; padding-left: 0px; padding-right: 0px;">№</th>
         {{- range . }}
           <th
             {{- with .Alignment }}
@@ -34,13 +35,17 @@
         {{ $nextRowIndex := add $rowIndex 1 }}
         {{ $nextRow := index $TBody $nextRowIndex }}
       <tr>
+        <td style="width: 1px; visibility: visible; padding-left: 0px; padding-right: 0px; height: 100%;"> {{ $rowIndex }} </td>
         <!-- 遍历当前行的每一列 -->
         {{- range $colIndex, $col :=  $row }}
-            <!-- 获取下一行的这列的单元格 -->
+            <!-- 获取当前单元格的样式 -->
+            {{ $style := printf "text-align: %s" $col.Alignment  }}
+            <!-- 获取这列的下一行单元格 -->
             {{ $nextRowCell := index $nextRow $colIndex }}
             <!-- 获取这一行的下一列单元格 -->
             {{ $nextColIndex := add $colIndex 1 }}
             {{ $nextColCell := index $row $nextColIndex }}
+            <!-- 如果当前单元格没有合并指令 -->
             {{- if and (ne $col.Text "^") (ne $col.Text "&lt;")  }}
                 <!-- 纵向合并单元格的数量 -->
                 {{ $rowspan := 1 }}
@@ -79,7 +84,6 @@
                         {{ end }}
                     {{ end }}
                 {{end}}
-                {{ $style := printf "text-align: %s" $col.Alignment  }}
                 <td rowspan="{{ $rowspan }}" colspan="{{ $colspan }}" style="{{ $style }}">
                 {{- $col.Text -}}
                 </td>
