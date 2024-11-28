@@ -58,8 +58,7 @@
                     {{ $rowspan = add $rowspan 1 }}
                     <!-- 再向下查找，直到找到第一个不是 "^" 的单元格，合并单元格结束 -->
                     {{ $newRowIndex := add $nextRowIndex 1 }}
-                    {{ $afterCount := sub $rowCount $newRowIndex }}
-                    {{ range after $afterCount $TBody }}
+                    {{ range after $newRowIndex $TBody }}
                         {{ $tcol := index . $colIndex }}
                         {{- if eq $tcol.Text "^" }}
                             {{- $rowspan = add $rowspan 1 -}}
@@ -75,8 +74,7 @@
                     {{ $colspan = add $colspan 1 }}
                     <!-- 再向右查找，直到找到第一个不是 "&lt;" 的单元格，合并单元格结束 -->
                     {{ $newColIndex := add $nextColIndex 1 }}
-                    {{ $afterCount := sub $colCount $newColIndex }}
-                    {{ range $tcol := after $afterCount $row }}
+                    {{ range $tcol := after $newColIndex $row }}
                         {{- if eq $tcol.Text "&lt;" }}
                             {{- $colspan = add $colspan 1 -}}
                         {{ else }}
