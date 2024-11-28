@@ -20,6 +20,6 @@ tags:
 
 * 2024-10-26 Astro
 
-* 2024-11-28 [部署到了Netflify](https://overlookart-github-io.netlify.app) 
+* 2024-11-28 [部署到了 Netlify](https://overlookart-github-io.netlify.app) 
 
 {{< SiteAbout >}}
