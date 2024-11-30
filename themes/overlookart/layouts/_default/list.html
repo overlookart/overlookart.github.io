@@ -5,10 +5,27 @@
 
 {{ define "content" }}
 <div class="overflow-scroll scroll-smooth px-10">
-    <h1 style="text-align: center;" class="pt-8">{{ title .Title }}</h1>
-    {{ .Content }}
+  <article class="prose prose-zinc px-10  min-w-full">
+      <h1 class="text-center pt-5">{{ title .Title }}</h1>
+      {{ .Content }}
+  </article>
     {{- partial "PageList.html" . -}}
 </div>
+<!-- 图表 Mermaid -->
+{{ if .Page.Store.Get "hasMermaid" }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+      startOnLoad: true,
+      // 配置主题
+      theme: 'base',
+      // 配置日志等级
+      logLevel: 'info',
+      // 配置安全等级
+      securityLevel: 'loose'
+    });
+  </script>
+{{ end }}
 {{ if .Page.Store.Get "hasMarkmap" }}
     <script>
         window.markmap = {
