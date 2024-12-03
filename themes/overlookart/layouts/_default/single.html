@@ -18,9 +18,9 @@
 <!-- 图表 Mermaid -->
 {{ if .Page.Store.Get "hasMermaid" }}
 {{ $mermaidjs := resources.Get "js/mermaid_help.js" | js.Build  }}
-  <script src="{{ $mermaidjs.RelPermalink }}">
+<script src="{{ $mermaidjs.RelPermalink }}">
     
-  </script>
+</script>
 {{ end }}
 <!-- markmap -->
 {{ if .Page.Store.Get "hasMarkmap" }}
