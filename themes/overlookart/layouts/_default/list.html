@@ -13,18 +13,10 @@
 </div>
 <!-- 图表 Mermaid -->
 {{ if .Page.Store.Get "hasMermaid" }}
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ 
-      startOnLoad: true,
-      // 配置主题
-      theme: 'base',
-      // 配置日志等级
-      logLevel: 'info',
-      // 配置安全等级
-      securityLevel: 'loose'
-    });
-  </script>
+{{ $mermaidjs := resources.Get "js/mermaid_help.js" | js.Build  }}
+<script src="{{ $mermaidjs.RelPermalink }}">
+    
+</script>
 {{ end }}
 {{ if .Page.Store.Get "hasMarkmap" }}
     <script>
