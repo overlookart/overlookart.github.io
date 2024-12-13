@@ -77,4 +77,4 @@ jobs:
         with: 
           project: overlookart-github-io
           entrypoint: https://deno.land/std@0.140.0/http/file_server.ts
-          root: public # Where the built HTML/CSS/JS files are located.
+          root: ./public # Where the built HTML/CSS/JS files are located.
