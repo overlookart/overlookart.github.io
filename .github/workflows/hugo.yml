@@ -72,9 +72,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-      - name: Deploy to Deno
-        uses: denoland/deployctl@v1
-        with: 
-          project: overlookart-github-io
-          entrypoint: https://deno.land/std@0.140.0/http/file_server.ts
-          root: ./ # Where the built HTML/CSS/JS files are located.
