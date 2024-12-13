@@ -34,7 +34,11 @@ jobs:
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build site
         run: hugo --minify
-      - name: Deploy to Deno Deploy
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
+      - name: Deploy to Deno
         uses: denoland/deployctl@v1
         with:
           project: overlookart-github-io # the name of the project on Deno Deploy

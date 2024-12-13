@@ -20,8 +20,8 @@ tags:
 
 * 2024-10-26 Astro
 
-* 2024-11-28 [部署到了 Netlify](https://overlookart-github-io.netlify.app)
+* 2024-11-28 [Deploy To Netlify](https://overlookart-github-io.netlify.app)
 
-* 2024-11-28 [尝试部署到 Deno]
+* 2024-11-28 [Try Deploy To Deno](https://overlookart-github-io.deno.dev)
 
 {{< SiteAbout >}}
