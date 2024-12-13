@@ -22,11 +22,12 @@ jobs:
       contents: read # Allows cloning the repo.
 
     steps:
-      - name: Clone repository
-        uses: actions/checkout@v2
+      - name: Install Dart Sass Embedded
+        run: sudo snap install dart-sass-embedded
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          submodules: true # Fetch Hugo themes (true or recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+          submodules: recursive
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
