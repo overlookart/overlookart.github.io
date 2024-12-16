@@ -1,5 +1,6 @@
 # 网站绝对 URL
 baseURL = 'http://example.org/'
+
 languageCode = 'en-us'
 # 网站标题
 title = 'OverlookArt'
