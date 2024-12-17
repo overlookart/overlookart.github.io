@@ -18,7 +18,7 @@ tags:
 
 * 2023-03-09 ~~VuePress~~
 
-* 2024-10-26 Astro
+* 2024-7-15 [Deploy to  Cloudflare](https://overlookart-github-io.pages.dev)
 
 * 2024-11-28 [Deploy To Netlify](https://overlookart-github-io.netlify.app)
 
