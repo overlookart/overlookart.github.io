@@ -22,6 +22,6 @@ tags:
 
 * 2024-11-28 [Deploy To Netlify](https://overlookart-github-io.netlify.app)
 
-* 2024-11-28 [Try Deploy To Deno](https://overlookart-github-io.deno.dev)
+* 2024-12-17 [Deploy To Deno](https://overlookart-github-io.deno.dev)
 
 {{< SiteAbout >}}
