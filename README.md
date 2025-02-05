@@ -12,7 +12,7 @@
 > 提示
 
 > [!IMPORTANT]
-> 引入
+> 重要
 
 > [!WARNING]
 > 警告
