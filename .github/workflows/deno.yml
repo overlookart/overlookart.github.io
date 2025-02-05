@@ -35,7 +35,7 @@ jobs:
       - name: Build site
         run: hugo -b https://overlookart-github-io.deno.dev/
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: ./public
       - name: Deploy to Deno
