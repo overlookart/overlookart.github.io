@@ -23,4 +23,33 @@ author: "OverLookArt"
     var arr = ["a", "b", "c"]
     // 截取前2个元素
     arr = Array(arr.prefix(2))
+    // ["a", "b"]
+```
+
+## 插入元素  
+
+``` Swift
+    var arr = ["a", "b", "c"]
+    arr.insert("-", at: 2)
+    // ["a", "b", "-", "c"]
+```
+
+## 遍历数组  
+
+``` Swift
+    var arr = ["a", "b", "c"]
+    for item in arr {
+    
+    }
+    /// 元素下标的遍历 index:下标 item：元素
+    for (index, item) in arr.enumerated() {
+
+    }
+```
+
+## 数组去重  
+
+``` Swift
+    var arr = ["a", "b", "a", "c"]
+    
 ```
