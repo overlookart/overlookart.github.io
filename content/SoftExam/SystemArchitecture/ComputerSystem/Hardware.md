@@ -1,21 +1,3 @@
-/*
- * @Author: 丫丫的刀了 
- * @Date: 2025-01-12 15:32:25 
- * @Last Modified by: 丫丫的刀了
- * @Last Modified time: 2025-01-21 23:51:53
- */
-/*
- * @Author: 丫丫的刀了 
- * @Date: 2025-01-12 15:32:24 
- * @Last Modified by:   丫丫的刀了 
- * @Last Modified time: 2025-01-12 15:32:24 
- */
-/*
- * @Author: 丫丫的刀了 
- * @Date: 2025-01-12 15:32:19 
- * @Last Modified by:   丫丫的刀了 
- * @Last Modified time: 2025-01-12 15:32:19 
- */
 ---
 # 文章的标题
 title: "计算机硬件"
