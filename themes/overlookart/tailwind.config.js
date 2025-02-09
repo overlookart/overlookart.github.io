@@ -20,6 +20,7 @@ module.exports = {
                 // "sitebg":"url('https://www.loliapi.com/acg/')"
                 // "sitebg":"url('http://edgecats.net/')"
                 // "sitebg":"url('https://bing.img.run/rand_uhd.php')"
+                // "sitebg":"url('https://api.xsot.cn/bing?jump=true')"
             },
             // 自定义 typography 插件样式
             typography: {
