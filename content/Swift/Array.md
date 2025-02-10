@@ -51,5 +51,7 @@ author: "OverLookArt"
 
 ``` Swift
     var arr = ["a", "b", "a", "c"]
-    
+    /// SwifterSwift
+    arr.withoutDuplicates()
+    // "a", "b", "c"]
 ```
