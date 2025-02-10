@@ -22,7 +22,6 @@ author: "OverLookArt"
 * 设置统一样式属性
 
 ```swift
-
 let textView = UITextView()
 
 // 设置输入文字的样式属性
@@ -46,7 +45,6 @@ textView.inputAccessoryView = UIToolbar(frame: CGRect(x: 0, y: 0, width: SCREEN_
 * 更新光标位置
 
 ```swift
-
 public func updateCursorPosition(range: NSRange) {
     self.selectedRange = range
 }
@@ -87,7 +85,6 @@ public func replace(AttrString string: NSAttributedString, ForRange range: NSRan
 * 删除指定位置的内容
 
 ```swift
-
 public func deleteAttrString(ForRange range: NSRange) {
     // 删除指定位置的属性文本
     self.textStorage.deleteCharacters(in: range)
@@ -100,3 +97,20 @@ public func deleteAttrString(ForRange range: NSRange) {
 }
 ```
 
+## 限制输入字符数量  
+
+1. 遵守 UITextViewDelegate 协议
+2. 实现 textView(_:shouldChangeTextIn:replacementText:) 方法
+
+``` Swift
+// 限制输入字符, 包括中文输入法
+extension MyViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let currentText = textView.text as NSString? else { return true }
+        // 计算新文本内容
+        let newText = currentText.replacingCharacters(in: range, with: text)         
+        // 限制新文本内容的长度为12个字符
+        return newText.count <= 12
+    }
+}
+```
