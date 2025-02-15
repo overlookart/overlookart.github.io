@@ -24,4 +24,6 @@ tags:
 
 * 2024-12-17 [Deploy To Deno](https://overlookart-github-io.deno.dev)
 
+* 2025-01-30 update tailwindcss to V4
+
 {{< SiteAbout >}}
