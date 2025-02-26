@@ -17,7 +17,7 @@ description: "文章描述"
 author: "OverLookArt"
 ---
 
-表示应用程序结构和行为的协议类型
+**App**是表示应用程序`结构`和`行为`的协议类型
 
 `iOS 14.0+`  `macOS 11.0+` `Mac Catalyst 14.0+` `tvOS 14.0+` `watchOS 7.0+` `visionOS 1.0+ Beta`  
 
@@ -25,12 +25,20 @@ author: "OverLookArt"
 
 ## 创建一个 APP  
 
-使用 `@main` 为程序提供入口初始化并运行 APP
-声明APP 结构体,并遵守 `App` 协议
+应用程序结构描述了应用程序的内容和行为，每个SwiftUI应用程序只有一个主应用程序结构。此示例在MyApp.swift文件中定义了其应用程序结构。让我们来看看那个文件的内容。
 
-> `App`协议，提供应用程序的内容及其行为, 遵守该协议后，必须实现 `body` 这个计算属性，此属性返回应用场景的内容。场景包含定义应用程序用户界面的视图层次结构。SwiftUI提供不同类型的场景，包括 `WindowGroup`、`Window`、`DocumentGroup`和`Settings`。
+
+1. 导入 SwiftUI 框架。
+2. 使用 `@main` 为应用程序提供入口并启动应用程序。应用程序的入口只有一个
+3. 声明一个应用程序的结构体,并遵守 `App` 协议，提供应用程序的内容及其行为。
+4. 实现 **App** 协议的 `body` 计算属性，此属性返回应用场景的内容。场景包含定义应用程序用户界面的视图层次结构。
+5. 使用 `WindowGroup` 作为应用程序的主窗口。对于 iOS 平台通常只需要一个主窗口，但在 macOS 和 iPadOS 平台会有多个窗口。
+6. 在 **WindowGroup** 添加一个遵守 `View` 协议的系统视图结构或自定义的视图结构在窗口中展示。
+
 
 ``` swift
+// MyApp.swift
+import SwiftUI
 @main  // main()方法的默认实现
 struct MyApp: App {
     var body: some Scene {
@@ -39,7 +47,7 @@ struct MyApp: App {
         }
     }
 }
-```  
+``` 
 
 ## 自定义场景  
 
