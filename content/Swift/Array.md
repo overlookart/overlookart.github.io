@@ -53,5 +53,14 @@ author: "OverLookArt"
     var arr = ["a", "b", "a", "c"]
     /// SwifterSwift
     arr.withoutDuplicates()
-    // "a", "b", "c"]
+    // ["a", "b", "c"]
+```
+
+## 随机取值
+
+``` Swift
+    var arr = ["a", "b", "c"]
+    if let randomItem = arr.randomElement() {
+        debugPrint("随机元素"， randomItem)
+    }
 ```
