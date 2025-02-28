@@ -29,7 +29,7 @@ author: "OverLookArt"
 
 
 1. 导入 SwiftUI 框架。
-2. 使用 `@main` 为应用程序提供入口并启动应用程序。应用程序的入口只有一个
+2. 使用 `@main` 为应用程序提供入口并启动应用程序。应用程序的入口只有一个。
 3. 声明一个应用程序的结构体,并遵守 `App` 协议，提供应用程序的内容及其行为。
 4. 实现 **App** 协议的 `body` 计算属性，此属性返回应用场景的内容。场景包含定义应用程序用户界面的视图层次结构。
 5. 使用 `WindowGroup` 作为应用程序的主窗口。对于 iOS 平台通常只需要一个主窗口，但在 macOS 和 iPadOS 平台会有多个窗口。
@@ -48,6 +48,15 @@ struct MyApp: App {
     }
 }
 ``` 
+
+``` mermaid
+    flowchart TD
+        App --> WindowGroup --> View
+```
+
+## 生命周期
+
+**SwenePhase** 是SwiftUI提供的生命周期枚举，用于监控场景的各阶段变化。由于 SwiftUI 是基于 Scene 的性质，ScenePhase 只能表示 Scene 的变化。
 
 ## 自定义场景  
 
