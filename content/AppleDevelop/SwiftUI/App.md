@@ -58,6 +58,33 @@ struct MyApp: App {
 
 **SwenePhase** 是SwiftUI提供的生命周期枚举，用于监控场景的各阶段变化。由于 SwiftUI 是基于 Scene 的性质，ScenePhase 只能表示 Scene 的变化。
 
+1. 通过 `Environment` 在应用程序的 **App**、**Scene**、**View** 结构体中将其声明为**环境变量**。
+2. 用 `onChange(of:perform:)` 方法来监听环境变量 **scenePhase** 的变化。
+3. **SwenePhase**的枚举值：`background`、`inactive`、`active`。
+
+``` Swift
+struct ContentView: View {
+    @Environment(\.scenePhase) private var scenePhase
+    var body: some Scene {
+        Text("Hello").onChange(of: scenePhase) { phase in
+            switch phase {
+                case .active:
+                    debugPrint("变为前台的活跃状态")
+                case .inactive:
+                    debugPrint("变为前台的不活跃状态")
+                case .background:
+                    debugPrint("进入后台")
+                @unknown default:
+                    fatalError()
+            }
+        }
+    }
+}
+```
+
+> [!TIP]
+> 在
+
 ## 自定义场景  
 
 在不同的系统下使用不同的应用场景  
