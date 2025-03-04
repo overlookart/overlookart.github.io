@@ -56,11 +56,11 @@ struct MyApp: App {
 
 ## 生命周期
 
-**SwenePhase** 是SwiftUI提供的生命周期枚举，用于监控场景的各阶段变化。由于 SwiftUI 是基于 Scene 的性质，ScenePhase 只能表示 Scene 的变化。
+**ScenePhase** 是SwiftUI提供的生命周期枚举，用于监控场景的各阶段变化。由于 SwiftUI 是基于 Scene 的性质，ScenePhase 只能表示 Scene 的变化。
 
 1. 通过 `Environment` 在应用程序的 **App**、**Scene**、**View** 结构体中将其声明为**环境变量**。
 2. 用 `onChange(of:perform:)` 方法来监听环境变量 **scenePhase** 的变化。
-3. **SwenePhase**的枚举值：`background`、`inactive`、`active`。
+3. **ScenePhase**的枚举值：`background`、`inactive`、`active`。
 
 ``` Swift
 struct ContentView: View {
@@ -69,9 +69,9 @@ struct ContentView: View {
         Text("Hello").onChange(of: scenePhase) { phase in
             switch phase {
                 case .active:
-                    debugPrint("变为前台的活跃状态")
+                    debugPrint("变为活跃状态")
                 case .inactive:
-                    debugPrint("变为前台的不活跃状态")
+                    debugPrint("变为不活跃状态")
                 case .background:
                     debugPrint("进入后台")
                 @unknown default:
@@ -83,7 +83,36 @@ struct ContentView: View {
 ```
 
 > [!TIP]
-> 在
+> 在 App 结构体中监听 **ScenePhase** 时，可以获得应用程序中所有场景的状态变化；在自定义的 Scene 中监听时可以获得该场景的状态变化；在自定义 View 中监听时可以获得该视图所在场景的状态变化。
+
+在 App 中使用 **UIApplicationDelegateAdaptor** 属性包装器处理 `UIApplicationDelegate` 应用程序的其他交互事件。
+
+1. 创建 MyAppDelegate 类, 并遵守 `UIApplicationDelegate` 协议，实现该协议的方法。
+
+    ``` Swift
+    // MyAppDelegate.swift
+    class MyAppDelegate: NSObject, UIApplicationDelegate {
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:     [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+            debugPrint("App -> DidFinishLaunching")
+            return true
+        }
+    }
+    ```
+
+    > [!NOTE]
+    > 实现 UIApplicationDelegate 的方法，处理应用程序的启动事件、生命周期事件、环境变化事件、远程推送事件，管理应用程序状态，配置场景，后台数据下载，与 WatchKit 交互，与 HealthKit 交互，打开指定 URL 的资源，禁止指定的应用扩展类型，处理 SiriKit 意向，处理 CloudKit 邀请，本地化键盘快捷方式，管理界面几何图形，为故事板提供窗口，提供程序主入口。
+
+2. 使用 `UIApplicationDelegateAdaptor` 属性包装器声明一个 appDelegate 属性，该属性的类型符合 `UIApplicationDelegate` 委托协议。
+
+    ``` Swift
+    // MyApp.swift
+    import SwiftUI
+    @main
+    struct MyApp: App {
+        @UIApplicationDelegateAdaptor private var appDelegate: MyAppDelegate
+        var body: some Scene { ... }
+    }
+    ```
 
 ## 自定义场景  
 
