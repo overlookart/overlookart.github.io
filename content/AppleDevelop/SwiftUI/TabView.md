@@ -6,7 +6,7 @@ date: 2023-12-25T13:37:25+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
-description: "文章描述"
+description: "一个标签视图，功能类似 UIKit 的 UITabBarController，也能设置成 UIPageViewController 的效果"
 # 文章的过期时间  过期后不会发布到文章列表
 #expiryDate:  //.ExpiryDate
 # 文章的发布时间  未到达发布时间不会发布到文章列表
