@@ -97,3 +97,83 @@ author: "OverLookArt"
     ```
 
 ## 列表分组
+
+列表视图还可以显示具有层次结构的数据，将相关数据分组到部分中。
+
+1. 创建一个 SectionDataModel 结构体，表示分组数据。items 属性表示分组所有行的数据。
+
+    ``` Swift
+    struct SectionDataModel : Identifiable {
+        var sectionId: UUID = UUID()
+        var sectionName: String = ""
+        var items: [DataModel] = []
+    }
+    ```
+
+2. 将列表数据结构改造为二级数组结构，
+
+    ``` Swift
+    struct MyView: View {
+            var datas: [SectionDataModel] = [
+                SectionDataModel(sectionName: "分组1", items: [
+                    DataModel(title: "My Title", subtitle: "subtitle"),
+                    DataModel(title: "标题", subtitle: "子标题")
+                ]),
+                SectionDataModel(sectionName: "小池--杨万里", items: [
+                    DataModel(title: "泉眼无声惜细流", subtitle: "树阴照水爱晴柔"),
+                    DataModel(title: "小荷才露尖尖角", subtitle: "早有蜻蜓立上头")
+                ])
+            ]
+            var body: some View { ... }
+        }
+    ```
+
+3. 使用 `Section` 视图为列表中的数据提供层次结构。
+
+    ``` Swift
+    struct MyView: View {
+        var datas: [SectionDataModel] = [ ... ]
+        var body: some View {
+            List {
+                ForEach(datas) { section in
+                    Section(header: Text(section.sectionName)) {
+                        ForEach(section.items) { item in
+                            ListRowView(model: item)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+## 列表导航
+
+**List** 必须被包含 在 `NavigationView` 中, 使用 `NavigationLink` 导航至下一个 View。
+
+通过用 `NavigationView` 包装列表来设置基于导航的用户界面。`NavigationLink` 的实例包裹列表的行，以提供目标视图，以便在用户点击该行时导航。
+
+``` Swift
+NavigationView {
+    MyView()
+}
+```
+
+``` Swift
+struct MyView: View {
+        var datas: [SectionDataModel] = [ ... ]
+        var body: some View {
+            List {
+                ForEach(datas) { section in
+                    Section(header: Text(section.sectionName)) {
+                        ForEach(section.items) { item in
+                            NavigationLink(destination: DetailView()) {
+                                ListRowView(model: item)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+```
