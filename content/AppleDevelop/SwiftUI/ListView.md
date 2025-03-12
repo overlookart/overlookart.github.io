@@ -161,19 +161,55 @@ NavigationView {
 
 ``` Swift
 struct MyView: View {
-        var datas: [SectionDataModel] = [ ... ]
-        var body: some View {
-            List {
-                ForEach(datas) { section in
-                    Section(header: Text(section.sectionName)) {
-                        ForEach(section.items) { item in
-                            NavigationLink(destination: DetailView()) {
-                                ListRowView(model: item)
-                            }
+    var datas: [SectionDataModel] = [ ... ]
+    var body: some View {
+        List {
+            ForEach(datas) { section in
+                Section(header: Text(section.sectionName)) {
+                    ForEach(section.items) { item in
+                        NavigationLink(destination: DetailView()) {
+                            ListRowView(model: item)
                         }
                     }
                 }
             }
         }
     }
+}
+```
+
+## 列表样式
+
+调用 **View** 协议的 `listStyle(_:)` 方法来改变列表视图的展示样式。
+
+* **DefaultListStyle**：描述平台默认行为和列表外观的列表样式。
+* **PlainListStyle**：描述普通列表行为和外观的列表样式。页眉和页脚将悬停在列表视图的顶部和底部。
+* **GroupedListStyle**：描述分组列表行为和外观的列表样式。在iOS上，分组列表样式显示比普通列表样式更大的页眉和页脚，这在视觉上使不同部分的成员保持距离。
+* **InsetGroupedListStyle**：描述嵌集分组列表的行为和外观的列表样式。在iOS上，内嵌分组列表样式显示连续的背景颜色，该颜色从部分标题延伸到部分中列表项的两侧，一直延伸到部分页脚。这在视觉上将项目分组到比内嵌或分组样式更大的程度。
+
+``` Swift
+List {
+    ForEach(datas) { item in
+        ListRowView(model: item)
+    }
+}.listStyle(PlainListStyle())
+```
+
+## 行内样式
+
+* 使用 `listRowInsets(_:)` 更改列表中行内容的边距。
+* 使用 `listItemTint(_:)` 设置行内特定内容关联的固定色调。
+* 使用 `listRowBackground(_:)` 设置行的自定义背景视图
+
+``` Swift
+...
+List {
+    ForEach(datas) { item in
+        ListRowView(model: item)
+            .listRowInsets(.init(top: 8, leading: 8, bottom: 8, trailing: 8))
+            .listItemTint(.green)
+            .listRowBackground(Color.purple.opacity(0.1))
+    }
+}
+...
 ```
