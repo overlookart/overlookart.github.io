@@ -32,7 +32,7 @@ author: "OverLookArt"
     ```
 
     > [!IMPORTANT]
-    > 列表中的成员必须拥有**唯一标识**。唯一标识符允许SwiftUI为基础数据的变化自动生成动画，如插入、删除和移动。识别列表成员，要么遵守 `Identifiable` 协议，要么像Person一样，要么通过提供带有该类型唯一属性的关键路径的id参数。填充上述列表的ForEach取决于这种行为，列表初始化器也依赖于使用 `RandomAccessCollection` 的成员进行迭代。
+    > 列表中的成员必须拥有**唯一标识**。唯一标识符允许SwiftUI为基础数据的变化自动生成动画，如插入、删除和移动。识别列表成员，要么遵守 `Identifiable` 协议，要么像 DataModel 一样，要么通过提供带有该类型唯一属性的关键路径的id参数。填充上述列表的ForEach取决于这种行为，列表初始化器也依赖于使用 `RandomAccessCollection` 的成员进行迭代。
 
 2. 在 View 中声明一个数组变量，用户存放 DataModel 类型的元素。作为 ListView 展示内容的数据源。
 
