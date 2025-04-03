@@ -6,7 +6,7 @@ date: 2025-02-28T11:09:46+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
-description: "文章描述"
+description: "按钮"
 # 文章的过期时间  过期后不会发布到文章列表
 #expiryDate:  //.ExpiryDate
 # 文章的发布时间  未到达发布时间不会发布到文章列表
@@ -16,6 +16,28 @@ description: "文章描述"
 # 作者
 author: "OverLookArt"
 ---
+
+## 快速使用
+
+* 初始化: `init(type:)`
+* 设置标题: `setTitle(_:for:)`
+* 设置标题颜色: `setTitleColor(_:for:)`
+* 设置图标: `setImage(_:for:)`
+* 设置背景图片: `setBackgroundImage(_:for:)`
+* 添加点击事件: `addTarget(_:action:for:)`
+
+``` Swift
+let button = UIButton(type: .custom)
+button.setTitle("按钮标题", for: .normal)
+button.setTitleColor(.link, for: .normal)
+button.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+button.setBackgroundImage(UIImage(named: "icon"), for: .normal)
+button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+
+@objc private func buttonAction(){
+    debugPrint("按钮点击事件")
+}
+```
 
 ## 水平对齐
 
@@ -30,7 +52,7 @@ author: "OverLookArt"
 
 ``` Swift
 let button = UIButton(type: .system)
-button.setTitle("按钮文本", for: .normal)
+button.setTitle("按钮标题", for: .normal)
 button.contentHorizontalAlignment = .left
 ```
 
@@ -40,6 +62,6 @@ button.contentHorizontalAlignment = .left
 
 ``` Swift
 et button = UIButton(type: .system)
-button.setTitle("按钮文本", for: .normal)
+button.setTitle("按钮标题", for: .normal)
 button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
 ```
