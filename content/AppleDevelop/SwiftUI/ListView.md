@@ -199,7 +199,8 @@ List {
 
 * 使用 `listRowInsets(_:)` 更改列表中行内容的边距。
 * 使用 `listItemTint(_:)` 设置行内特定内容关联的固定色调。
-* 使用 `listRowBackground(_:)` 设置行的自定义背景视图
+* 使用 `listRowBackground(_:)` 设置行的自定义背景视图。
+* 使用 `badge(_:)` 在行内右侧展示徽章。设置徽章会导致行内背景失效。
 
 ``` Swift
 ...
@@ -209,7 +210,27 @@ List {
             .listRowInsets(.init(top: 8, leading: 8, bottom: 8, trailing: 8))
             .listItemTint(.green)
             .listRowBackground(Color.purple.opacity(0.1))
+            .badge("❤️")
     }
 }
 ...
+```
+
+## 分割线样式  
+
+* 使用 `listRowSeparatorTint(_:edges:)` 设置分割线颜色
+* 使用 `listRowSeparator(_:edges:)` 设置分割线显示隐藏
+* 使用 `listSectionSeparatorTint(_:edges:)` 设置分组分割线颜色
+* 使用 `listSectionSeparator(_:edges:)` 设置分组分割线显示隐藏
+
+``` Swift
+List {
+    Section(header: Text("分组标题")){
+        ListRowView(model: item)
+            .listRowSeparatorTint(.yellow, edges: .all)
+            .listRowSeparator(.hidden, edges: .all)
+    }
+    .listSectionSeparatorTint(.cyan, edges: .all)
+    .listSectionSeparator(.hidden, edges: .top)
+}
 ```
