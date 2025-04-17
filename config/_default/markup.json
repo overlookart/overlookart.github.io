@@ -22,7 +22,7 @@
     },
     "highlight": {
         "codeFences": true,
-        "style": "doom-one2",
+        "style": "rose-pine-dawn",
         "noClasses":true,
         "guessSyntax": false,
         "lineNos": true,
