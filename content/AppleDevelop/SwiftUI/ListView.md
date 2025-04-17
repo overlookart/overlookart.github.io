@@ -251,7 +251,7 @@ func swipeActions<T>(
 
 ### 参数说明
 
-* edge: 侧滑操作的起始位置。默认值是 HorizontalEdge.trailing。`.leading`从左侧开始滑动，`trailing`从右侧开始滑动。
+* edge: 侧滑操作的起始位置。默认值是 HorizontalEdge.trailing。`.leading`从左侧开始滑动，`.trailing`从右侧开始滑动。
 * allowsFullSwipe: 完全侧滑是否自动执行第一个操作。默认值为 true。
 * content: 滑动操作的内容。一般为 Button 控件。
 
