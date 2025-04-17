@@ -226,7 +226,7 @@ List {
 ``` Swift
 List {
     Section(header: Text("分组标题")){
-        ListRowView(model: item)
+        ListRowView()
             .listRowSeparatorTint(.yellow, edges: .all)
             .listRowSeparator(.hidden, edges: .all)
     }
@@ -234,3 +234,45 @@ List {
     .listSectionSeparator(.hidden, edges: .top)
 }
 ```
+
+## 侧滑操作
+
+使用 `swipeActions(edge:allowsFullSwipe:content:)` 将自定义滑动操作添加到列表中的行中。
+
+### 方法定义
+
+``` Swift
+func swipeActions<T>(
+    edge: HorizontalEdge = .trailing,
+    allowsFullSwipe: Bool = true,
+    @ViewBuilder content: () -> T
+) -> some View where T : View
+```
+
+### 参数说明
+
+* edge: 侧滑操作的起始位置。默认值是 HorizontalEdge.trailing。`.leading`从左侧开始滑动，`trailing`从右侧开始滑动。
+* allowsFullSwipe: 完全侧滑是否自动执行第一个操作。默认值为 true。
+* content: 滑动操作的内容。一般为 Button 控件。
+
+### 使用示例
+
+``` Swift
+List {
+    ListRowView()
+        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+            Button {
+                debugPrint("Read Action")
+            } label: {
+                Label("Read", systemImage: "envelope.open")
+            }
+            .tint(.blue)
+            Button { 
+                debugPrint("Unread Action")
+            } label: {
+                Label("Unread", systemImage: "envelope.badge")
+            }
+        }
+}
+```
+
