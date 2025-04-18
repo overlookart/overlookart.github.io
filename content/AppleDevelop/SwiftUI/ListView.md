@@ -1,6 +1,6 @@
 ---
 # 文章的标题
-title: "ListView"
+title: "List"
 # 文章的时间
 date: 2025-03-05T09:15:43+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
@@ -17,7 +17,7 @@ description: "一个列表视图，用于显示一列垂直的视图，功能类
 author: "OverLookArt"
 ---
 
-**ListView** 是一种复杂的容器类型，当它对当前显示来说太大时，它会自动提供滚动。您可以通过为列表中的行提供单独的视图来构建列表，或者使用`ForEach` 来遍历一组数据来构建列表。您还可以混合这些策略，混合任意数量的单个视图和 `ForEach` 结构。
+**List** 是一种复杂的容器类型，可以通过为列表中的行提供单独的视图来构建列表，或者使用`ForEach` 来遍历一组数据来构建列表。您还可以混合这些策略，混合任意数量的单个视图和 `ForEach` 结构。
 
 ## 展示数据
 
@@ -52,7 +52,7 @@ author: "OverLookArt"
     struct MyView: View {
         var datas: [DataModel] = [ ... ]
         var body: some View {
-            ListView {
+            List {
                 ForEach(datas) { item in
                     Text(item.title)
                 }
@@ -63,7 +63,7 @@ author: "OverLookArt"
 
 ## 自定义行视图
 
-在列表内展示复杂内容，使用自定义 View 将更多的视图组合成更复杂的东西。随着行视图变得更加复杂，将视图重构为单独的视图结构，传递行需要渲染的数据。
+在 **List** 内展示复杂内容，使用自定义 View 将更多的视图组合成更复杂的东西。随着行视图变得更加复杂，将视图重构为单独的视图结构，传递行需要渲染的数据。
 
 1. 创建一个自定视图 ListRowView，声明一个要渲染的数据变量，在内部的视图用数据进行渲染。
 
@@ -81,13 +81,13 @@ author: "OverLookArt"
     }
     ```
 
-2. 在 **ListView** 内的 `ForEach` 中使用自定义行视图 **ListRowView** 进行列表视图的渲染
+2. 在 **List** 内的 `ForEach` 中使用自定义行视图 **ListRowView** 进行列表视图的渲染
 
     ``` Swift
     struct MyView: View {
         var datas: [DataModel] = [ ... ]
         var body: some View {
-            ListView {
+            List {
                 ForEach(datas) { item in
                     ListRowView(model: item)
                 }
