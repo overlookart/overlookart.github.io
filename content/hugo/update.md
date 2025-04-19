@@ -63,3 +63,12 @@ jobs:
         HUGO_VERSION: 0.146.5
 ...
 ```
+
+## 更新 Netlify 环境
+
+1. 登录 [Netlify 平台](https://app.netlify.com/)。
+2. 进入 部署的 Hugo 的网站详情页。
+3. 打开 `Site Configuration` 菜单。
+4. 找到 `Environment variables` 选项。
+5. 将 `HUGO_VERSION` 的修改为指定版本号，并进行保存。
+6. 重新部署 Hugo 网站。
