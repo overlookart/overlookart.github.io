@@ -18,7 +18,7 @@ jobs:
       id-token: write # Allows authentication with Deno Deploy.
       contents: read # Allows cloning the repo.
     env:
-        HUGO_VERSION: 0.139.3
+        HUGO_VERSION: 0.146.5
     steps:
       - name: Install Dart Sass Embedded
         run: sudo snap install dart-sass-embedded
