@@ -16,6 +16,8 @@ tags:
 
 * 2023-02-14 Hugo
 
+* 2023-02-15 [Deploy to Github Page](https://overlookart.github.io)
+
 * 2023-03-09 ~~VuePress~~
 
 * 2024-7-15 [Deploy to  Cloudflare](https://overlookart-github-io.pages.dev)
