@@ -22,7 +22,7 @@
                             {{- end -}}
                         </div>
                         {{ if eq .Kind "page" }} 
-                            <div class="w-[215px] h-full mx-auto overflow-scroll">
+                            <div class="w-[215px] h-full mx-auto overflow-scroll border-l-[1px]">
                                 {{- block "rightSideBar" . -}}
                                 <p>请使用 block "rightSideBar" 定义右侧内容</p>
                                 {{- end -}}

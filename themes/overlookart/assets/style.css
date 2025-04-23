@@ -864,9 +864,9 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 4px;
   }
-  .border-double {
-    --tw-border-style: double;
-    border-style: double;
+  .border-l-\[1px\] {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 1px;
   }
   .border-amber-300 {
     border-color: var(--color-amber-300);
@@ -879,9 +879,6 @@
   }
   .border-green-300 {
     border-color: var(--color-green-300);
-  }
-  .border-indigo-600 {
-    border-color: var(--color-indigo-600);
   }
   .border-red-400 {
     border-color: var(--color-red-400);
