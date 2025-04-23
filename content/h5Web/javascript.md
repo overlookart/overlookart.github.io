@@ -17,7 +17,7 @@ lastmod: 2023-02-27T10:27:01+08:00
 author: "OverookArt"
 ---
 
-## 格式化时间[Date]
+## 格式化时间(Date)
 
 ``` js
 Date.prototype.Format = function (fmt) { //author: meizz
@@ -44,7 +44,45 @@ const dateFormat = new Date().Format("yyyy-MM-dd hh:mm:ss");
 var val = JSON.parse(JSON.stringify(object));
 ```
 
-## Array 数组  
+## 字符串处理(String)
+
+### 处理空白字符
+
+``` js
+const str = '  Hello, World!  ';
+console.log(str.trim()); // "Hello, World!"
+console.log(str.trimStart()); // "Hello, World!  "
+console.log(str.trimEnd()); // "  Hello, World!"
+```
+
+### 将字符串转为小驼峰  
+
+``` js
+const toCamelCase = (str) => str.trim().replace(/[-_\s]+(.)?/g, (_,c) => (c?c.toUpperCase():''));
+```
+
+### 大小写转换  
+
+``` js
+/**
+ * str: 待转换的字符串
+ * type: 1全大写，2全小写，3首字母大写
+ */
+const turnCase = (str, type) => {
+    switch (type) {
+        case 1:
+            return str.toUpperCase();
+        case 2:
+            return str.toLowerCase();
+        case 3:
+            return str[0].toUpperCase() + str.substring(1).toLowerCase();
+        default:
+            return str
+    }
+}
+```
+
+## 数组处理(Array)  
 
 ### 移除某个元素  
 
@@ -121,33 +159,6 @@ const clearCookies = () => {
     document.cookie.split(';').forEach( c => {
         document.cookie = c.replace(/^ +/, '').replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`)
     })
-}
-```
-
-## 将字符串转为小驼峰  
-
-``` js
-const toCamelCase = (str) => str.trim().replace(/[-_\s]+(.)?/g, (_,c) => (c?c.toUpperCase():''));
-```
-
-## 大小写转换  
-
-``` js
-/**
- * str: 待转换的字符串
- * type: 1全大写，2全小写，3首字母大写
- */
-const turnCase = (str, type) => {
-    switch (type) {
-        case 1:
-            return str.toUpperCase();
-        case 2:
-            return str.toLowerCase();
-        case 3:
-            return str[0].toUpperCase() + str.substring(1).toLowerCase();
-        default:
-            return str
-    }
 }
 ```
 
