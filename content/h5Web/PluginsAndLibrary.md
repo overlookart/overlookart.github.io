@@ -38,11 +38,11 @@ author: "OverookArt"
 * [Storybook](https://storybook.js.org)
 * [Vuetify](https://vuetifyjs.com/en/)  
 * [NuxtJs](https://nuxtjs.org/docs/)  
-* [Naive UI](https://www.naiveui.com/)  
+* [Naive UI](https://ui.naiveadmin.com) 是一个 Vue3 的组件库，使用 TypeScript 编写，有超过 90 个组件。
 * [SalesForce](https://www.lightningdesignsystem.com)  
 * [tailwindcss](https://tailwindcss.com)
+* [daisyui](https://daisyui.com/) 是一个基于 Tailwind CSS 类的高级抽象集合的 UI 库。
 * [shadcn](https://ui.shadcn.com)
-* [daisyui](https://daisyui.com/)
 * [Radix](https://www.radix-ui.com)
 
 ## CSS 用例  
