@@ -118,3 +118,7 @@ author: "OverookArt"
 * [vconsole](https://github.com/Tencent/vConsole)
 * [eruda](https://eruda.liriliri.io)  
 * [spy-debugger](https://github.com/wuchangming/spy-debugger)  
+
+## 音频
+
+* [howler.js](https://howlerjs.com)
