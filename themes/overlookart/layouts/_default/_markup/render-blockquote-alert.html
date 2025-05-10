@@ -16,12 +16,12 @@
   
   {{ if eq .Type "alert" }}
     <blockquote class="alert-{{ .AlertType }}">
-      <p class="flex items-center font-semibold alert-{{ .AlertType }}-title">
+      <div class="flex items-center font-semibold not-italic alert-{{ .AlertType }}-title mb-2">
         {{ $icon := index $alertIcons .AlertType  }}
         {{ $titleClass := printf "alert-%s-title" .AlertType }}
         {{replace $icon.Content "icon-color" $titleClass | safeHTML }}
-        <span class="ml-2">{{ title .AlertType }}</span>
-      </p>
+        <span>{{ title .AlertType }}</span>
+      </div>
       {{ .Text }}
     </blockquote>
   {{ else }}

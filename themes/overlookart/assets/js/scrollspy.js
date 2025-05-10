@@ -35,15 +35,17 @@ const scrollspy = {
     currentNavItemLink: null,
     /// 文章容器
     articleContainer: null,
-
+    /// 判断一个元素是否有指定的 class
     hasClass: function(element, className) {
         return element.classList.contains(className);
     },
+    /// 为元素添加指定的 class
     addClass: function(element, className) {
         if(!this.hasClass(element, className)) {
             element.classList.add(className);
         }
     },
+    /// 为元素移除指定的 class
     removeClass: function(element, className) {
         if(this.hasClass(element, className)) {
             element.classList.remove(className);

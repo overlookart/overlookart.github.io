@@ -1,21 +1,16 @@
 {
   "author": "",
   "comments": {
-    "dependencies": {
-     
-    },
+    "dependencies": {},
     "devDependencies": {
       "@tailwindcss/typography": "project",
       "tailwindcss": "project"
     }
   },
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "description": "",
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9",
-    "tailwindcss": "^4.0.0"
+    "@tailwindcss/typography": "^0.5.9"
   },
   "keywords": [],
   "license": "ISC",
