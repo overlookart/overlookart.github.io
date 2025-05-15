@@ -122,6 +122,28 @@ arr.splice(0,0,object);
 arr.unshift(object);
 ```
 
+### Array 查找某个元素
+
+``` js
+const array = [
+  { id: 1, name: 'Alice', age: 25 },
+  { id: 2, name: 'Bob', age: 30 },
+  { id: 3, name: 'Charlie', age: 35 }
+];
+
+// 查找 id 为 2 的元素，并修改其 name 属性
+const element = array.find(item => item.id === 2);
+
+if (element) {
+  element.name = 'Robert'; // 修改属性值
+  console.log('修改后的元素:', element);
+} else {
+  console.log('未找到匹配的元素');
+}
+
+console.log('修改后的数组:', array);
+```
+
 ## 生成随机  
 
 ``` js
