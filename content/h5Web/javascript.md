@@ -164,6 +164,37 @@ const newArray = array.filter(item => !idsToRemove.includes(item.id));
 console.log('移除后的数组:', newArray);
 ```
 
+## 字典处理
+
+### 字典转数组  
+
+``` js
+const dict = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+// 转为键值对数组
+const arr = Object.entries(dict)
+// 结果: [['a', 1], ['b', 2], ['c', 3]]
+
+// 只要值组成的数组
+const arr = Object.values(dict)
+// 结果: [1, 2, 3]
+
+// 只要键组成的数组
+const arr = Object.keys(dict)
+// 结果: ['a', 'b', 'c']
+
+// 转为 [{key, value}] 结构
+const arr = Object.entries(dict).map(([key, value]) => ({ key, value }))
+// 结果: [ { key: 'a', value: 1 }, { key: 'b', value: 2 }, { key: 'c', value: 3 } ]
+
+// 转为 {a: 1} 这种结构
+const arr = Object.entries(dict).map(([key, value]) => ({ [key]: value }))
+// 结果: [ { a: 1 }, { b: 2 }, { c: 3 } ]
+```
+
 ## 生成随机  
 
 ``` js
