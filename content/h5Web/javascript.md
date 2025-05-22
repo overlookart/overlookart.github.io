@@ -144,6 +144,26 @@ if (element) {
 console.log('修改后的数组:', array);
 ```
 
+### Array 查找并删除多个拥有统一特征的元素
+
+``` js
+// 示例数组
+const array = [
+  { id: 1, name: 'Alice', age: 25 },
+  { id: 2, name: 'Bob', age: 30 },
+  { id: 3, name: 'Charlie', age: 35 },
+  { id: 4, name: 'David', age: 40 }
+];
+
+// 要移除的元素的 id 集合
+const idsToRemove = [2, 4];
+
+// 使用 filter() 方法移除多个元素, includes() 方法：用于检测某个值是否在数组中存在
+const newArray = array.filter(item => !idsToRemove.includes(item.id));
+
+console.log('移除后的数组:', newArray);
+```
+
 ## 生成随机  
 
 ``` js
