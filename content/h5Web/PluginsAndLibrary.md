@@ -50,7 +50,11 @@ author: "OverookArt"
 * [CSS Generators](https://css-generators.com)
 * [CSS 可视化](https://css.bqrdh.com)
 * [CSS Inspiration -- CSS灵感](https://csscoco.com/inspiration/#/)
-  
+
+## 动画
+
+* [GSAP – 一个为专业人士构建的非常强大的JavaScript动画库](https://gsap.com), [GitHub](https://github.com/greensock/GSAP)
+
 ## 富文本  
 
 * [Wangeditor](https://www.wangeditor.com)  
