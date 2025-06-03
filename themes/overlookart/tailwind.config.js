@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const { rgb } = require('d3')
 const plugin = require('tailwindcss/plugin')
 module.exports = {
     corePlugins: {

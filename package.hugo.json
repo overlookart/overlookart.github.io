@@ -6,7 +6,6 @@
     "tailwindcss": "^4.0.0"
   },
   "dependencies": {
-    "d3": "^7.9.0",
     "mermaid": "^11.4.1",
     "wordcloud": "^1.2.3"
   }

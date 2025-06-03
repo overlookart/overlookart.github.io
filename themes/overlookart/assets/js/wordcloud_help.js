@@ -1,7 +1,7 @@
 
 import WordCloud from 'wordcloud'
 import d3Cloud from './modules/d3.layout.cloud'
-// import * as d3 from 'd3'
+
 
 // d3.select("wordcloud")
 
