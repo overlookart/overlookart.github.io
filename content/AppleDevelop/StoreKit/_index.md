@@ -19,3 +19,4 @@ author: "OverLookArt"
 [StoreKit](https://developer.apple.com/documentation/storekit)
 [App Store Server Notifications](https://developer.apple.com/documentation/appstoreservernotifications)
 [处理退款通知](https://developer.apple.com/cn/documentation/storekit/in-app_purchase/handling_refund_notifications/)
+[苹果退款指南](https://support.apple.com/zh-cn/118223)
