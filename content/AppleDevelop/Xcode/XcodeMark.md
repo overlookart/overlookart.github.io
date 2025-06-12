@@ -1,6 +1,6 @@
 ---
 # 文章的标题
-title: "Xcode"
+title: "Xcode 代码标注"
 # 文章的时间
 date: 2024-07-03T13:41:14+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
@@ -91,7 +91,3 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 ## SDK 最低要求
 
 * `2025年4月24日` 上传至 App Store Connect 的 App 必须使用 Xcode 16 或更高版本以及适用于 iOS 18、iPadOS 18、Apple tvOS 18、visionOS 2 或 watchOS 11 的 SDK 来构建。安装 Xcode 16 要求 macOS 14.5 或更高版本。
-
-## Xcode 16 addSubSubView(`maskView`) 崩溃
-
-iOS 18 对 UIView 的 maskView 增加了断言，导致如果业务代码里有同名属性触发该断言。在声明一个 UIView 对象时，避免使用 maskView 作为它的变量名。

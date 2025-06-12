@@ -17,7 +17,7 @@ description: "文章描述"
 author: "OverookArt"
 ---
 
-## Xcode 报错  
+## Xcode 14.3 报错  
 
 > 版本:14.3  
 > 报错内容: ld: file not found: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_iphoneos.a  
@@ -70,3 +70,8 @@ AnyiOS Simulator SDK : arm64
 
 > Xcode 13  
 > 报错内容: the Legacy Build System will be removed in a future release you can configure the selected build system and this deprecation message in file > Workspace Settings > New Build System
+
+
+## Xcode 16 addSubSubView(`maskView`) 崩溃
+
+iOS 18 对 UIView 的 maskView 增加了断言，导致如果业务代码里有同名属性触发该断言。在声明一个 UIView 对象时，避免使用 maskView 作为它的变量名。
