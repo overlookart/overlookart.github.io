@@ -20,6 +20,7 @@ module.exports = {
                 // "sitebg":"url('http://edgecats.net/')"
                 // "sitebg":"url('https://bing.img.run/rand_uhd.php')"
                 // "sitebg":"url('https://api.xsot.cn/bing?jump=true')"
+                "sitebg":"url('https://api.dujin.org/bing/1920.php')"
             },
             // 自定义 typography 插件样式
             typography: {
