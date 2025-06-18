@@ -43,3 +43,18 @@ struct CustomView: View {
 ## 生命周期
 
 ## 管理视图
+
+## 标题及样式
+
+* `navigationTitle(_:)` 为视图配置导航标题
+* `navigationBarTitleDisplayMode(_:)` 为视图的标题配置显示模式。
+
+``` Swift
+struct CustomView: View {
+    var body: some View {
+        Text("CustomView")
+            .navigationTitle("导航")
+            .navigationBarTitleDisplayMode(.inline)
+    }        
+}
+```
