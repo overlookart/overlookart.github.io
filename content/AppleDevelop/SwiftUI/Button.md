@@ -17,61 +17,105 @@ description: "按钮"
 author: "OverLookArt"
 ---
 
-## 创建 Button
+## 创建按钮
 
-* 使用 `init(_:action:)` 初始化方法创建 Button，该方法的2种定义如下：
+### 文本按钮
 
-    ``` Swift
-    /// 创建按钮
-    /// - Parameters:
-    ///     - titleKey: 按钮本地化标题的键，用于描述按钮操作的目的。
-    ///     - action: 用户触发按钮时要执行的操作。
-    @preconcurrency nonisolated
-    init( 
-        _ titleKey: LocalizedStringKey,
-        action: @escaping @MainActor () -> Void
-    )
+使用 `init(_:action:)` 初始化方法创建 Button，该方法的2种定义如下：
 
-    /// 创建按钮
-    /// - Parameters:
-    ///     - title: 描述按钮操作目的的字符串。
-    ///     - action: 用户触发按钮时要执行的操作。
-    @preconcurrency nonisolated
-    init<S>(
-        _ title: S,
-        action: @escaping @MainActor () -> Void
-    ) where S : StringProtocol
-    ```
+``` Swift
+/// 创建按钮
+/// - Parameters:
+///     - titleKey: 按钮本地化标题的键，用于描述按钮操作的目的。
+///     - action: 用户触发按钮时要执行的操作。
+@preconcurrency nonisolated
+init( 
+    _ titleKey: LocalizedStringKey,
+    action: @escaping @MainActor () -> Void
+)
 
-    示例：
+/// 创建按钮
+/// - Parameters:
+///     - title: 描述按钮操作目的的字符串。
+///     - action: 用户触发按钮时要执行的操作。
+@preconcurrency nonisolated
+init<S>(
+    _ title: S,
+    action: @escaping @MainActor () -> Void
+) where S : StringProtocol
+```
 
-    ``` Swift
-    Button("按钮") {
-        btnAction()
-    }
+示例：
 
-    private func btnAction(){ ... }
-    ```
+``` Swift
+Button("按钮") {
+    btnAction()
+}
 
-* 使用 `init(action:label:)` 创建一个显示自定义标签的按钮。该方法的定义如下：
+private func btnAction(){ ... }
+```
+
+### 自定义按钮
+
+使用 `init(action:label:)` 创建一个显示自定义标签的按钮。该方法的定义如下：
   
-    ``` Swift
-    /// 创建一个显示自定义标签的按钮
-    /// - Parameters:
-    ///     - action: 用户触发按钮时要执行的操作。
-    ///     - label: 描述按钮操作目的的视图。
-    @preconcurrency
-    init(
-        action: @escaping @MainActor () -> Void,
-        @ViewBuilder label: () -> Label
-    )
-    ```
+``` Swift
+/// 创建一个显示自定义标签的按钮
+/// - Parameters:
+///     - action: 用户触发按钮时要执行的操作。
+///     - label: 描述按钮操作目的的视图。
+@preconcurrency
+init(
+    action: @escaping @MainActor () -> Void,
+    @ViewBuilder label: () -> Label
+)
+```
 
-    示例：
+示例：
 
-    ``` Swift
-    Button(action: btnAction) {
-        Text("按钮")
-    }
-    private func btnAction(){ ... }
-    ```
+``` Swift
+Button(action: btnAction) {
+    Text("按钮")
+}
+private func btnAction(){ ... }
+```
+
+### 系统图标按钮
+
+使用 `init(_:systemImage:action:)` 创建一个显示系统图标的按钮。该方法的2种定义如下：
+
+``` Swift
+/// 创建一个显示系统图标和文字标签的按钮
+/// - Parameters:
+///     - titleKey: 按钮本地化标题的键，用于描述按钮操作的目的。
+///     - systemImage: 系统图标名称。
+///     - action: 用户触发按钮时要执行的操作。
+nonisolated
+init(
+    _ titleKey: LocalizedStringKey,
+    systemImage: String,
+    action: @escaping @MainActor () -> Void
+)
+
+/// 创建一个显示系统图标和文字标签的按钮
+/// - Parameters:
+///     - title: 描述按钮操作目的的字符串。
+///     - systemImage: 系统图标名称。
+///     - action: 用户触发按钮时要执行的操作。
+nonisolated
+init<S>(
+    _ title: S,
+    systemImage: String,
+    action: @escaping @MainActor () -> Void
+) where S : StringProtocol
+```
+
+示例：
+
+``` Swift
+Button("按钮", systemImage: "plus") {
+    btnAction()
+}
+    
+private func btnAction(){ ... }
+```
