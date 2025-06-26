@@ -17,7 +17,7 @@ description: "按钮"
 author: "OverLookArt"
 ---
 
-## 创建按钮
+## 创建基础按钮
 
 ### 文本按钮
 
@@ -119,3 +119,58 @@ Button("按钮", systemImage: "plus") {
     
 private func btnAction(){ ... }
 ```
+
+## 创建角色按钮
+
+**ButtonRole** 结构体提供了按钮用途的描述。`destructive` 表示按钮执行破坏性操作，如删除用户数据;  `cancel` 表示按钮取消当前操作。
+
+* 使用`init(_:role:action:)`创建一个文本标签的角色按钮。
+
+  ``` Swift
+  Button("按钮", role: .destructive, action: btnAction)
+
+  private func btnAction(){ ... }
+  ```
+
+* 使用 `init(_:systemImage:role:action:)` 创建一个显示系统图标的角色按钮。
+  
+  ``` Swift
+  Button("按钮6", systemImage: "plus", role: .destructive, action: btnAction)
+
+  private func btnAction(){ ... }
+  ```
+
+  > [!NOTE]
+  > 图标在左侧展示、文本在右侧展示；若文本为空字符串，则只展示系统图标；若系统图标的名称错误，则只展示文本；
+
+## 按钮的修饰符
+
+### ButtonStyle
+
+实例方法：**buttonStyle(_:)**。该方法接收一个符合 `ButtonStyle` 协议的样式，或符合 `PrimitiveButtonStyle` 协议的样式。它允许你自定义按钮的外观和行为。
+系统提供了下面几种样式：
+
+* automatic :默认的按钮样式
+* bordered :带边框的按钮样式
+* plain: 文本样式的按钮
+* borderless: 无边框样式的按钮
+* borderedProminent: 背景突出样式的按钮
+
+``` Swift
+/// 应用到单个按钮
+Button("按钮") { ... }
+    .buttonStyle(.borderedProminent)
+    
+/// 应用到多个按钮
+HStack {
+    Button("按钮") { ... }
+    Button("按钮") { ... }
+    ...
+}
+.buttonStyle(.bordered)
+
+```
+
+
+## 添加到容器中
+
