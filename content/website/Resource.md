@@ -22,7 +22,7 @@ author: "OverookArt"
 
 ## Mac App 下载  
 
-[cmacked](https://cmacked.com)
+[appstorrent](https://appstorrent.ru/)
 
 [xmac](https://xmac.app)
 
