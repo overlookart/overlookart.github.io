@@ -24,7 +24,7 @@ author: "OverookArt"
 
 [appstorrent](https://appstorrent.ru/)
 
-[macwk](https://macwk.cn/)
+[macvk](https://macvk.com)
 
 [macapp](https://macapp.org.cn/)
 
