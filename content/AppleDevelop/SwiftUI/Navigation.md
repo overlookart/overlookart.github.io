@@ -99,6 +99,19 @@ NavigationView {
 }
 ```
 
+## 返回按钮
+
+* 调用 `navigationBarBackButtonHidden(_:)` 方法设置导航栏返回按钮的显示或隐藏，默认为显示。
+
+``` Swift
+struct ContentView: View {
+    var body: some View {
+        DetailView()
+            .navigationBarBackButtonHidden(true) // 隐藏返回按钮
+    }
+}
+```
+
 ## 导航控制
 
 使用 **NavigationLink** 视图来导航至下一个页面，当用户点击该视图时触发页面跳转。
