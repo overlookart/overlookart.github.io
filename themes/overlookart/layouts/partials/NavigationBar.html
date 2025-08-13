@@ -1,7 +1,15 @@
-<div class="w-full h-16 border-b-[1px] border-stone-200 items-center flex flex-none px-4">
+<link href="/search/pagefind-ui.css" rel="stylesheet">
+<script src="/search/pagefind-ui.js" type="text/javascript"></script>
+<div class="w-full h-16 border-b-[1px] border-stone-200 items-center flex flex-none px-4 z-20">
     {{ range .Ancestors.Reverse }}
         <a href="{{ .Permalink }}" class="px-2 bg-emerald-300 hover:bg-emerald-500 rounded-md font-mono">{{ .LinkTitle }}</a>
         <span class="px-2">/</span>
     {{ end}}
     <span class="font-mono">{{.Title }}</span>
 </div>
+<div id="search" class="bg-amber-100 overflow-scroll float-start"></div>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search" });
+    });
+</script>
