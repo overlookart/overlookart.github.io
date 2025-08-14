@@ -3,6 +3,8 @@
     {{ $js := resources.Get "js/main.js" | js.Build (dict "params" (dict "api" "123123")) }}
     <script src="{{ $js.RelPermalink }}"></script>
     {{- partial "head.html" . -}}
+    <link href="/search/pagefind-ui.css" rel="stylesheet">
+    <script src="/search/pagefind-ui.js" type="text/javascript"></script>
     <body>
         <div class=" bg-center bg-no-repeat bg-cover fixed top-0 -z-10 w-full h-full bg-sitebg"></div>
         <!-- <div class="bg-center  bg-cover bg-fixed w-full h-full top-0 -z-10 bg-sitebg">-->
@@ -17,6 +19,7 @@
                     {{- partial "NavigationBar.html" . -}}
                     <div class="overflow-scroll flex">
                         <div class="grow">
+                            <div id="search" class="bg-white/30 overflow-scroll"></div>
                             {{- block "content" . -}}
                             <p>可被其他模版覆盖的内容</p>
                             {{- end -}}
@@ -34,3 +37,12 @@
         </div>
     </body>
 </html>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ 
+            element: "#search",
+            showSubResults: true
+        });
+    });
+</script>

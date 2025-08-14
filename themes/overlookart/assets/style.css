@@ -26,9 +26,7 @@
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
-    --color-stone-50: oklch(98.5% 0.001 106.423);
     --color-stone-200: oklch(92.3% 0.003 48.717);
-    --color-stone-950: oklch(14.7% 0.004 49.25);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -207,14 +205,11 @@
   .-z-10 {
     z-index: calc(10 * -1);
   }
-  .z-20 {
-    z-index: 20;
+  .z-10 {
+    z-index: 10;
   }
   .z-40 {
     z-index: 40;
-  }
-  .float-start {
-    float: inline-start;
   }
   .container {
     width: 100%;
@@ -813,9 +808,6 @@
   .overflow-scroll {
     overflow: scroll;
   }
-  .overflow-visible {
-    overflow: visible;
-  }
   .scroll-smooth {
     scroll-behavior: smooth;
   }
@@ -884,9 +876,6 @@
   }
   .border-stone-200 {
     border-color: var(--color-stone-200);
-  }
-  .bg-amber-100 {
-    background-color: var(--color-amber-100);
   }
   .bg-black\/30 {
     background-color: color-mix(in srgb, #000 30%, transparent);
