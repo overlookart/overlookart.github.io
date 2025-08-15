@@ -67,3 +67,13 @@ npx pagefind --site "public"
     });
 </script>
 ```
+
+## 部署到 Netlify
+
+1. 打开 [Netlify](https://app.netlify.com/)网站，登录后找到 Hugo 项目。
+2. 在该项目的详情页面左侧菜单点击 **Project configuration**, 找到 **Build & deploy** 选项并点击。
+3. 在内容列表找到 **Build Setting**，点击 **Configure** 按钮进入编辑模式。
+4. 在 **Build command** 输入框内追加 `; npx pagefind --site "public"` 命令。
+5. 完成后点击 **Save** 按钮进行保存。
+6. 接下来便可部署该项目。
+7. 部署成功后验证你的网站是否应用了 Pagefind 的搜索功能。
