@@ -1,6 +1,6 @@
 ---
 # 文章的标题
-title: "AppleDevelop"
+title: "AppleDeveloper"
 # 文章的时间
 date: 2023-03-27T16:23:36+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
@@ -17,7 +17,7 @@ description: "文章描述"
 author: "OverookArt"
 ---
 
-## iOS 的文章  
+## Apple 的文章  
 
 **官方文档:**
 
