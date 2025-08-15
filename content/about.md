@@ -28,4 +28,6 @@ tags:
 
 * 2025-01-30 update tailwindcss to V4
 
+* 2025-08-15 使用 [Pagefind](https://pagefind.app) 实现搜索功能
+
 {{< SiteAbout >}}
