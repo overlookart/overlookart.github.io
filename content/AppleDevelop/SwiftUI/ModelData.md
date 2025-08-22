@@ -71,3 +71,37 @@ struct ContentView: View {
     }
 }
 ```
+
+## ObservableObject
+
+遵循 **ObservableObject** 的类可创建一个可观察对象。成员属性使用 `@Published` 属性包装器来标记。当属性值发生变化时，可观察对象会发布通知。SwiftUI 视图可以使用 `@ObservedObject` 属性包装器来订阅可观察对象的变化。
+
+``` swift
+class ObjectModel: ObservableObject {
+    @Published var name = "Some Name"
+    @Published var isEnabled = false
+}
+```
+
+## StateObject
+
+**StateObject** 是一个可观察对象的属性包装器类型。使用 `@StateObject` 在 **App**、**Scene** 和 **View** 内声明符合 *ObservableObject* 协议的状态对象。状态对象作为您存储在视图层次结构中的参考类型的单一真实来源。通过将属性应用于属性声明并提供符合ObservableObject协议的初始值。
+
+``` swift
+struct ObjectObservedView: View {
+    @StateObject private var model = ObjectModel()
+    var body: some View {
+        Text(model.name)
+        Text("\(model.isEnabled)")
+    }
+}
+
+```
+
+## ObservedObject
+
+
+
+## EnvironmentObject
+
+## DynamicProperty
