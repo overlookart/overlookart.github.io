@@ -100,7 +100,30 @@ struct ObjectObservedView: View {
 
 ## ObservedObject
 
+**ObservedObject** 是一个可观察对象的属性包装器类型。使用 `@ObservedObject` 将符合 *ObservableObject* 协议的对象传递到视图中。当对象的发布属性发生变化时，视图会更新。
 
+``` swift
+
+struct ObjectObservedView: View {
+    @StateObject private var model = ObjectModel()
+    var body: some View {
+        Text(model.name)
+        Text("\(model.isEnabled)")
+        MySubView(model: model)
+    }
+}
+
+struct MySubView: View {
+    @ObservedObject public var model: ObjectModel
+    var body: some View {
+        Toggle(model.isEnabled ? "关闭" : "开启", isOn: $model.isEnabled)
+    }
+}
+
+```
+
+> [!Note]
+> 在可观察对象前使用 `$` 访问可观察对象的属性，并将其绑定到视图控件中。
 
 ## EnvironmentObject
 
