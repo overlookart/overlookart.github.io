@@ -125,6 +125,10 @@ struct MySubView: View {
 > [!Note]
 > 在可观察对象前使用 `$` 访问可观察对象的属性，并将其绑定到视图控件中。
 
-## EnvironmentObject
-
 ## DynamicProperty
+
+**DynamicProperty** 是 SwiftUI 框架中的一个协议，专门用于为自定义属性包装器提供状态管理和生命周期集成能力。它让你能创建自己的状态属性（如 `@State`、`@ObservedObject`、`@EnvironmentObject`、`@Environment` 等都是基于 **DynamicProperty** 的），这些属性能在视图生命周期内自动更新和保持一致。
+
+SwiftUI 在每次视图更新时会自动调用 **DynamicProperty** 协议的 *update()* 方法，让你的属性能在视图变更时同步状态。
+
+你可以通过继承 DynamicProperty 来实现 SwiftUI 的自定义属性包装器
