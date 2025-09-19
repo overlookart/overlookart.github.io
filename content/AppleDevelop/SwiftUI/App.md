@@ -17,7 +17,7 @@ description: "文章描述"
 author: "OverLookArt"
 ---
 
-**App**是表示应用程序`结构`和`行为`的协议类型
+**App**是表示应用程序 `结构` 和 `行为` 的协议类型
 
 `iOS 14.0+`  `macOS 11.0+` `Mac Catalyst 14.0+` `tvOS 14.0+` `watchOS 7.0+` `visionOS 1.0+ Beta`  
 
@@ -51,7 +51,7 @@ struct MyApp: App {
 
 ``` mermaid
     flowchart TD
-        App --> WindowGroup --> View
+        App --> Scene --> WindowGroup --> View
 ```
 
 ## 生命周期
@@ -87,14 +87,18 @@ struct ContentView: View {
 
 在 App 中使用 **UIApplicationDelegateAdaptor** 属性包装器处理 `UIApplicationDelegate` 应用程序的其他交互事件。
 
-1. 创建 MyAppDelegate 类, 并遵守 `UIApplicationDelegate` 协议，实现该协议的方法。
+1. 创建 AppDelegate 类, 并遵守 `UIApplicationDelegate` 协议，实现该协议的方法。
 
     ``` Swift
-    // MyAppDelegate.swift
-    class MyAppDelegate: NSObject, UIApplicationDelegate {
+    // AppDelegate.swift
+    class AppDelegate: NSObject, UIApplicationDelegate {
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-            debugPrint("App -> DidFinishLaunching")
+            debugPrint("AppDelegate -> DidFinishLaunching")
             return true
+        }
+
+        func applicationWillTerminate(_ application: UIApplication) {
+            debugPrint("AppDelegate -> WillTerminate")
         }
     }
     ```
@@ -113,6 +117,49 @@ struct ContentView: View {
         var body: some Scene { ... }
     }
     ```
+
+由于 SwiftUI 是基于 Scene，有些 UIApplicationDelegate 方法没有被调用, 需要通过 **UIWindowSceneDelegate**  协议实现
+
+``` swift
+class SceneDelegate: NSObject, UIWindowSceneDelegate {
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        debugPrint("SceneDelegate -> willConnectTo")
+    }
+    
+    func sceneDidDisconnect(_ scene: UIScene) {
+        debugPrint("SceneDelegate -> DidDisconnect")
+    }
+    
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        debugPrint("SceneDelegate -> WillEnterForeground")
+    }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        debugPrint("SceneDelegate -> DidEnterBackground")
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        debugPrint("SceneDelegate -> DidBecomeActive")
+    }
+    
+    func sceneWillResignActive(_ scene: UIScene) {
+        debugPrint("SceneDelegate -> WillResignActive")
+    }
+}
+```
+
+通过 **UIApplicationDelegate** 的 `application(_:configurationForConnecting:options:)` 方法将 **SceneDelegate** 设置为 _UISceneConfiguration_ 的代理类，这样在 SceneDelegate 实现 UIWindowSceneDelegate 的方法才会被调用。
+
+``` swift
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        debugPrint("AppDelegate -> 连接 SceneDelegate")
+        let configuration = UISceneConfiguration(name: "Default", sessionRole: connectingSceneSession.role)
+        configuration.delegateClass = SceneDelegate.self
+        return configuration
+    }
+}
+```
 
 ## 自定义场景  
 
