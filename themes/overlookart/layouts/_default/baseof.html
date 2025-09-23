@@ -17,15 +17,15 @@
                 </div>
                 <div id="content" class="flex flex-col grow backdrop-blur-md bg-white/30 rounded-r-lg">
                     {{- partial "NavigationBar.html" . -}}
-                    <div class="overflow-scroll flex">
+                    <div class="overflow-scroll flex hide-scrollbar">
                         <div class="grow">
-                            <div id="search" class="bg-white/30 overflow-scroll"></div>
+                            <div id="search" class="bg-white/30 overflow-scroll hide-scrollbar"></div>
                             {{- block "content" . -}}
                             <p>可被其他模版覆盖的内容</p>
                             {{- end -}}
                         </div>
                         {{ if eq .Kind "page" }} 
-                            <div class="w-[215px] h-full mx-auto overflow-scroll border-l-[1px]">
+                            <div class="w-[215px] h-full mx-auto overflow-scroll hide-scrollbar border-l-[1px]">
                                 {{- block "rightSideBar" . -}}
                                 <p>请使用 block "rightSideBar" 定义右侧内容</p>
                                 {{- end -}}

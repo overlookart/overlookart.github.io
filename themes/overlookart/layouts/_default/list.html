@@ -4,13 +4,11 @@
 {{ end }}
 
 {{ define "content" }}
-<div class="overflow-scroll scroll-smooth px-10">
   <article class="prose prose-zinc px-10  min-w-full">
       <h1 class="text-center pt-5">{{ title .Title }}</h1>
       {{ .Content }}
   </article>
     {{- partial "PageList.html" . -}}
-</div>
 <!-- 图表 Mermaid -->
 {{ if .Page.Store.Get "hasMermaid" }}
 {{ $mermaidjs := resources.Get "js/mermaid_help.js" | js.Build  }}
