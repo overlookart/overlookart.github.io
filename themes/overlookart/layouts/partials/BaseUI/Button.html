@@ -3,7 +3,7 @@
     class: CSS tailwind 类名
     style: 内联样式
     click: 点击事件
- -->
+-->
 <button  onclick="{{ .click | safeJS }}"  class="{{ .class }}" style="{{ .style | safeCSS }}">
     {{.title}}
 </button>
