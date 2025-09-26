@@ -7,7 +7,9 @@
         <span class="font-mono">{{.Title }}</span>
     </div>
     <div>
-        Full
+        {{ $js := printf "console.debug('按钮点击');  window.__overlookart__.toggleFullscreen(); "}}
+        {{ $dic := dict "title" "Full" "click" $js "class" " text-gray-500 px-1  hover:text-blue-600"}}
+        {{ partial "BaseUI/Button.html" $dic }}  
     </div>
     
 </div>

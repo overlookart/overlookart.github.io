@@ -1,4 +1,4 @@
-
+import { hasClass, addClass, removeClass } from './public';
 const scrollToTocElement = (tocItemElement, tocNavigation) => {
     let itemHeight = tocItemElement.querySelector("a").offsetHeight;
 
@@ -35,22 +35,7 @@ const scrollspy = {
     currentNavItemLink: null,
     /// 文章容器
     articleContainer: null,
-    /// 判断一个元素是否有指定的 class
-    hasClass: function(element, className) {
-        return element.classList.contains(className);
-    },
-    /// 为元素添加指定的 class
-    addClass: function(element, className) {
-        if(!this.hasClass(element, className)) {
-            element.classList.add(className);
-        }
-    },
-    /// 为元素移除指定的 class
-    removeClass: function(element, className) {
-        if(this.hasClass(element, className)) {
-            element.classList.remove(className);
-        }
-    },
+    
 
     /// 滑动 Toc
     scrollToTocElement: function(tocItemElement, tocNavigation){
@@ -121,7 +106,7 @@ const scrollspy = {
                 event.preventDefault();
                 let subNavigation = item.querySelector('ol');
                 if(subNavigation){
-                    this.hasClass(subNavigation, this.NavItemHiddenClass) ? this.removeClass(subNavigation, this.NavItemHiddenClass) : this.addClass(subNavigation, this.NavItemHiddenClass);
+                    hasClass(subNavigation, this.NavItemHiddenClass) ? removeClass(subNavigation, this.NavItemHiddenClass) : addClass(subNavigation, this.NavItemHiddenClass);
                 }
             });
         }
@@ -162,11 +147,11 @@ const scrollspy = {
         }else if(newActiveLink !== this.currentNavItemLink){
             if(this.currentNavItemLink){
                 // 移除之前激活的目录导航项的激活 class
-                this.removeClass(this.currentNavItemLink, this.ActiveNavItemClass);
+                removeClass(this.currentNavItemLink, this.ActiveNavItemClass);
             }
             if(newActiveLink){
                 // 为新的目录导航项添加激活 class
-                this.addClass(newActiveLink, this.ActiveNavItemClass);
+                addClass(newActiveLink, this.ActiveNavItemClass);
             }
         }
         console.debug(newActive, newActiveLink);
