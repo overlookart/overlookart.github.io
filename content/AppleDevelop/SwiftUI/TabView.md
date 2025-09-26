@@ -57,12 +57,13 @@ TabView {
 }.accentColor(.red)
 ```
 
-## 配置页面切换效果
+## TabView 样式效果
 
 `tabViewStyle` 属性用于控制 **TabView** 的展示样式与交互方式。
 
 * .automatic: 呈现效果及交互方式类似于 **UIKit** 中的 `UITabBarController`
 * .page: 呈现效果及交互方式类似于 **UIKit** 中的 `UIPageViewController`
+* .sidebarAdaptable: 适用于侧边栏布局的 TabView 样式, 在 iPadOS 和 macOS 上表现为侧边栏, 在 iOS 上表现为底部 Tab 栏
 
 ``` swift
 TabView {
