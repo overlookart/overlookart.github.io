@@ -1,12 +1,12 @@
 ---
 # 文章的标题
-title: "NavigationView"
+title: "TypeConversion"
 # 文章的时间
-date: 2025-03-04T16:58:39+08:00
+date: 2025-09-15T13:40:45+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
-description: "iOS 13.0 的导航视图"
+description: "类型转换"
 # 文章的过期时间  过期后不会发布到文章列表
 #expiryDate:  //.ExpiryDate
 # 文章的发布时间  未到达发布时间不会发布到文章列表
@@ -16,3 +16,15 @@ description: "iOS 13.0 的导航视图"
 # 作者
 author: "OverLookArt"
 ---
+
+## Enum -> String
+
+``` Swift
+enum Fruit {
+    case apple
+    case banana
+}
+
+let enumStr = String(describing: Fruit.apple)
+// "apple"
+```

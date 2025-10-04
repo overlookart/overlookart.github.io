@@ -1,7 +1,15 @@
-<div class="w-full h-16 border-b-[1px] border-stone-200 items-center flex flex-none px-4">
-    {{ range .Ancestors.Reverse }}
-        <a href="{{ .Permalink }}" class="px-2 bg-emerald-300 hover:bg-emerald-500 rounded-md font-mono">{{ .LinkTitle }}</a>
-        <span class="px-2">/</span>
-    {{ end}}
-    <span class="font-mono">{{.Title }}</span>
+<div class="w-full h-16 border-b-[1px] border-stone-200  items-center flex flex-none  justify-between px-4 z-10">
+    <div class="flex flex-none">
+        {{ range .Ancestors.Reverse }}
+            <a href="{{ .Permalink }}" class="px-2 bg-emerald-300 hover:bg-emerald-500 rounded-md font-mono">{{ .LinkTitle }}</a>
+            <span class="px-1">/</span>
+        {{ end}}
+        <span class="font-mono">{{.Title }}</span>
+    </div>
+    <div>
+        {{ $js := printf "console.debug('按钮点击');  window.__overlookart__.toggleFullscreen(); "}}
+        {{ $dic := dict "title" "Full" "click" $js "class" " text-gray-500 px-1  hover:text-blue-600"}}
+        {{ partial "BaseUI/Button.html" $dic }}  
+    </div>
+    
 </div>

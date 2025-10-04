@@ -114,3 +114,15 @@ extension MyViewController: UITextViewDelegate {
     }
 }
 ```
+
+## 处理 link 点击事件
+
+```swift
+extension MyViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        // 处理链接点击事件
+        print("链接被点击：\(URL)")
+        return false // 返回 false 阻止默认行为
+    }
+}
+```

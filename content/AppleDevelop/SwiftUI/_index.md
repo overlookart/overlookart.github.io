@@ -25,8 +25,19 @@ SwiftUI 提供了用于**声明** App 用户界面的视图、控件和布局结
 
 使用 App 协议定义你的 App 结构，并使用各种场景填充该结构，其中场景包含构成 App 用户界面的各种视图。创建遵从 View (英文) 协议的自定义视图，并通过 stacks、lists 等将显示文本、图像和自定形状的 SwiftUI 视图组合起来。为内建视图和你自己的视图应用功能强大的修饰符，自定其渲染和交互行为。利用可适应具体情境和呈现形式的视图和控件，在多个平台上的 App 之间共享代码。
 
-适用平台: `iOS 13.0+`、 `macOS 10.15+`、`Mac Catalyst 13.0+`、`Apple tvOS 13.0+`、`watchOS 6.0+` 
+## 适用平台  
 
-| 用户界面 | SwiftUI | UIKit | 
+* iOS 13.0+
+* macOS 10.15+
+* Mac Catalyst 13.0+
+* Apple tvOS 13.0+
+* watchOS 6.0+  
+
+| 用户界面 | SwiftUI | UIKit |
 | --- | --- | --- |
 | 编写方式 | 声明式 | 命令式 |
+
+## 快捷键
+
+* option + command + P 更新 SwiftUI 预览
+* option + command + enter 显示/隐藏预览窗口

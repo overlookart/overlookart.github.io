@@ -29,6 +29,6 @@ author: "OverookArt"
 
 [tinywow](https://tinywow.com)
 
-## AI 编程助手
+## AI 博客生产器
 
-[fitten code](https://code.fitten.com/)
+[VibeVoice](https://vibevoice.info/zh)。由微软 VibeVoice 驱动。超越机械化旁白，轻松创建多说话人播客、引人入胜的有声书和长篇叙述，使用我们免费的AI 语音工具。体验前所未有的高质量、自然流畅的对话音频。

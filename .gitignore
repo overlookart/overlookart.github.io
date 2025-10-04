@@ -5,3 +5,4 @@ pnpm-lock.yaml
 style.scss_*.json
 style.scss_*.content
 node_modules
+package-lock.json

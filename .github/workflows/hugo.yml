@@ -56,8 +56,9 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-            # Add this step to list the contents of the public directory
       # Add this step to list the contents of the public directory
+      - name : setup Search
+        run: npx pagefind --site "public"
       - name: List contents of public directory
         run: ls -R ./public
       - name: Upload artifact

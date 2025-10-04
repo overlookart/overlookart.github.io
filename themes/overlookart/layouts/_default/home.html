@@ -6,10 +6,8 @@
 
 
 {{ define "content" }}
-<div class="overflow-scroll scroll-smooth px-10">
     {{ .Content }}
     {{- partial "PageList.html" . -}}
-</div>
 {{ end }}
 
 {{ define "rightSideBar" }}

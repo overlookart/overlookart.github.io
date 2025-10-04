@@ -20,3 +20,15 @@ author: "OverLookArt"
 ## 电影剧集
 
 * [低端影视](https://ddys.info)
+
+## 烹饪美食
+
+* [程序员做饭指南](https://cook.aiursoft.cn), [程序员做饭指南 GitHub](https://github.com/Anduin2017/HowToCook)
+
+## 气象地图
+
+* [ventusky](https://www.ventusky.com)
+
+## 网络摄像头
+
+* [skylinewebcams](https://www.skylinewebcams.com)

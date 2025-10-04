@@ -39,6 +39,17 @@ button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 }
 ```
 
+## 调换位置
+
+使用 `semanticContentAttribute` 属性来调换 **UIButton** 的图标和标题位置。
+
+``` Swift
+let button = UIButton(type: .system)
+button.setTitle("按钮标题", for: .normal)
+button.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
+button.semanticContentAttribute = .forceRightToLeft
+```
+
 ## 水平对齐
 
 通过设置 `contentHorizontalAlignment` 属性来改变 **UIButton** 的内容(图标和标题)水平对齐方式。 该属性有6个枚举值：

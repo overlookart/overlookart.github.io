@@ -32,29 +32,66 @@ struct CustomView: View {
 ```
 
 > [!Note]
-> **body** 计算属性只能有效接收一个内容，如果 body 内有多个内容时只会展示第一个内容，在视图中展示多个内容时，需要将多个内容组装到一个视图容器中，如 `VStack`、`HStack`或自定义视图容器等。
+> **body** 计算属性只能有效接收一个内容，如果 body 内有多个内容时只会展示第一个内容，在视图中展示多个内容时，需要将多个内容组装到一个视图布局容器中，如 `VStack`、`HStack` 或自定义视图容器等。
 
-## 配置视图
+## 自定义外观
 
-**ViewModifier**：是一个协议，提供了一种方法来封装视图的修饰逻辑。
+**ViewModifier**：是一个协议，提供 `body(content:)` 方法来封装视图的自定义外观。在该方法内使用多个内置修饰符为视图创建个性化的外观。
 
-使用修饰符来配置视图。修饰符只不过是在特定视图上调用的方法。该方法返回一个新的、更改的视图，该视图在视图层次结构中有效地取代了原始视图。
+``` Swift
+struct CustomModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.all, 8)
+            .border(.cyan, width: 1)
+            .foregroundStyle(.purple)
+    }
+}
+```
+
+> [!Tip]
+> 你可以为自定义修饰符声明属性，初始化时为内置修饰符参数提供不同的值，
+
+**View** 提供了 `modifier(_:)` 方法，将自定义修饰符直接应用到当前视图。
+
+``` Swift
+struct CustomView: View {
+    var body: some View {
+        Text("Custom View Modifier")
+            .modifier(CustomModifier())
+    }
+}
+```
+
+通常的做法是为视图扩展一个方法，使用 **modifier(_:)** 来应用自定义修饰符，视图调用这个方法就可将自定义修饰符应用到视图上。
+
+``` Swift
+extension Text {
+    func customStyle() -> some View {
+        modifier(CustomModifier())
+    }
+}
+
+struct CustomView: View {
+    var body: some View {
+        Text("Custom View Modifier")
+            .customStyle()
+    }
+}
+```
+
+## 内置修饰符
+
+将内置的修饰符可以应用于不同类型的视图来自定义外观和行为。
+
+* 修改导航栏标题及展示模式
+
+  ``` Swift
+    .navigationTitle("导航标题") //为视图配置导航标题
+    .navigationBarTitleDisplayMode(.inline) // 为视图的标题配置显示模式
+  ```
 
 ## 生命周期
 
 ## 管理视图
 
-## 标题及样式
-
-* `navigationTitle(_:)` 为视图配置导航标题
-* `navigationBarTitleDisplayMode(_:)` 为视图的标题配置显示模式。
-
-``` Swift
-struct CustomView: View {
-    var body: some View {
-        Text("CustomView")
-            .navigationTitle("导航")
-            .navigationBarTitleDisplayMode(.inline)
-    }        
-}
-```
