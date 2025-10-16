@@ -19,7 +19,7 @@ author: "OverLookArt"
 
 ## Slot 插槽
 
-在 Vue 3 中，插槽（Slot）是一种允许你在组件中定义占位符，以便在使用组件时传入自定义内容的机制。插槽使得组件更加灵活和可复用。
+在 Vue 3 中，[插槽（Slot）](https://cn.vuejs.org/guide/components/slots.html)是一种允许你在组件中定义占位符，以便在使用组件时传入模版内容的机制。插槽使得组件更加灵活和可复用。
 
 ### 默认插槽
 
