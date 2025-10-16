@@ -40,3 +40,5 @@ function closeDialog() {
 <MyDialog v-model="showDialog" />
 ```
 当你在子组件中调用 emit('update:modelValue', false) 时，父组件的 showDialog 就会变为 false。
+
+c084bed5a1eb4225aa1f3fd7ec3cd1df.MDvq_WQojsTyDxdbNIYPbVy3
