@@ -23,13 +23,13 @@ Stack 视图是 SwiftUI 中最原始的布局容器。使用堆栈将视图集�
 
 ## HStack
 
-**HStack** 可已将子视图**水平**排列展示。
+**HStack** 可将子视图以**水平**排列的方式展示。
 
 创建方法：
 
 ``` Swift
 init(
-    alignment: VerticalAlignment = .center, // 垂直方向的对其方式
+    alignment: VerticalAlignment = .center, // 垂直对其方式 top:顶部对齐 bottom:底部对齐 center:垂直居中
     spacing: CGFloat? = nil, // 子视图之间的间距
     @ViewBuilder content: () -> Content // 视图构建器
 )
@@ -52,5 +52,61 @@ var body: some View {
 
 ## VStack
 
-**VStack** 可已将子视图**垂直**排列展示。
+**VStack** 可将子视图以**垂直**排列的方式展示。
 
+创建方法
+
+``` swift
+init(
+    alignment: HorizontalAlignment = .center, // 水平对其方式 leading:左对齐 trailing:右对齐 center:水平居中
+    spacing: CGFloat? = nil, // 视图之间的间距
+    @ViewBuilder content: () -> Content // 视图构建器
+)
+```
+
+使用示例：
+
+``` swift
+VStack(alignment: .leading, spacing: 16) {
+    SomeView()
+    SomeView()
+    SomeView()
+}
+```
+
+## ZStack
+
+**ZStack** 可将子视图以**堆叠**方式展示
+
+创建方法
+
+``` swift
+init(
+    alignment: Alignment = .center, //对齐方式     
+    @ViewBuilder content: () -> Content //视图构建器
+)
+```
+
+> Alignment 对齐方式枚举
+>
+> * center: 居中对齐
+> * leading: 左对齐
+> * trailing: 右对齐
+> * top: 上对齐
+> * bottom: 下对齐
+> * topLeading: 左上对齐
+> * topTrailing: 右上对齐
+> * bottomLeading: 左下对齐
+> * bottomTrailing: 右下对齐
+
+使用示例：
+
+``` swift
+ZStack(alignment: .topLeading) {
+    Circle().frame(width: 200, height: 200)
+    Circle().frame(width: 150, height: 150).foregroundColor(.accentColor)
+    Circle().frame(width: 100, height: 100).foregroundColor(.blue)
+    Circle().frame(width: 50, height: 50).foregroundColor(.red)
+}
+.border(Color.green, width: 1)
+```
