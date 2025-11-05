@@ -18,6 +18,22 @@
     display: none;
 }
 
+.toc-toggle::before {
+    content: "▶";
+    display: inline-block;
+    width: 1em;
+    transition: transform 0.2s ease;
+}
+
+.toc-toggle.expanded::before {
+    transform: rotate(90deg);
+}
+
+.active-nav-item > a {
+    background-color: #e5e7eb !important;
+    border-radius: 4px;
+}
+
 .alert-note {
     border-left-color:#0969da !important;
     background:#e1edf9 !important;
