@@ -44,6 +44,7 @@ author: "OverookArt"
 * [daisyui](https://daisyui.com/) 是一个基于 Tailwind CSS 类的高级抽象集合的 UI 库。
 * [shadcn](https://ui.shadcn.com)
 * [Radix](https://www.radix-ui.com)
+* [Vue Bits](https://vue-bits.dev) 是React Bits的官方Vue端口！Vue Bits是大量动画VueJS UI组件的集合，旨在为您的网络创作增添色彩。有动画、组件、背景和您在其他地方找不到的精彩内容——全部免费供您使用！[For Github](https://github.com/DavidHDev/vue-bits)
 
 ## CSS 用例  
 
