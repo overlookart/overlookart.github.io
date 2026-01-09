@@ -19,7 +19,7 @@ author: "OverookArt"
 
 ## Mermaid 简介
 
-Mermaid JS 是一款用于画流程图、状态图、时序图、甘特图的库,使用 JS 进行本地渲染,广泛集成在许多 Markdown 应用中。  
+[Mermaid JS](https://mermaid.js.org) 是一款用于画流程图、状态图、时序图、甘特图的库,使用 JS 进行本地渲染,广泛集成在许多 Markdown 应用中。  
 
 这是一个基于JavaScript的图表和图表工具，可以渲染受Markdown启发的文本定义，以动态创建和修改图表。  
 
