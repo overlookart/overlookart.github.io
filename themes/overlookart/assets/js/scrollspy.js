@@ -1,43 +1,32 @@
 import { hasClass, addClass, removeClass } from './public';
-const scrollToTocElement = (tocItemElement, tocNavigation) => {
-    let itemHeight = tocItemElement.querySelector("a").offsetHeight;
 
-    let scrollTop = tocItemElement.offsetTop - tocNavigation.offsetHeight / 2 + itemHeight / 2 - tocNavigation.offsetTop;
-
-    if(scrollTop < 0) {
-        scrollTop = 0;
-    }
-
-    tocNavigation.scrollTo({ top: scrollTop, behavior: 'smooth'});
-}  
-
-
+/**
+ * Scrollspy 模块
+ * 用于监听页面滚动，自动高亮当前阅读位置对应的目录项
+ * 支持目录的展开/收起、滚动定位等功能
+ */
 const scrollspy = {
-    // 查询 Toc 目录元素
-    TocNavigationQuery: '#TableOfContents',
-    /// 查询 Toc 导航项的 id和标签
-    TocNavigationItemQuery: '#TableOfContents li',
-    /// 查询文章标题 header 的 css和标签及id
-    ArticleHeaderQuery: 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]',
-    /// 目录导航项激活时的样式
-    ActiveNavItemClass: 'active-nav-item',
-    /// 目录导航项显示时的样式
-    NavItemHiddenClass: 'nav-item-hidden',
-    
-    navItemsLinkRef: {},
+    // CSS 选择器配置
+    TocNavigationQuery: '#TableOfContents',            // TOC 导航容器选择器
+    TocNavigationItemQuery: '#TableOfContents li',     // TOC 导航项选择器
+    ArticleHeaderQuery: 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]',  // 文章标题选择器
 
-    /// 文章内容的所有标题元素
-    articleHeaderElements: [],
+    // CSS 类名配置
+    ActiveNavItemClass: 'active-nav-item',             // 激活状态样式类
+    NavItemHiddenClass: 'nav-item-hidden',             // 隐藏状态样式类
 
-    /// 文章内的标题位置
-    articleHeaderOffset: [],
-    /// 当前的导航项
-    currentNavItemLink: null,
-    /// 文章容器
-    articleContainer: null,
-    
+    // 内部状态
+    navItemsLinkRef: {},           // 导航项链接引用映射 {id: element}
+    articleHeaderElements: [],     // 文章标题元素集合
+    articleHeaderOffset: [],       // 标题位置信息 [{id, offset}]
+    currentNavItemLink: null,      // 当前激活的导航项
+    articleContainer: null,        // 文章容器 DOM 元素
 
-    /// 滑动 Toc
+    /**
+     * 滚动到指定的 TOC 项
+     * @param {HTMLElement} tocItemElement - TOC 导航项元素
+     * @param {HTMLElement} tocNavigation - TOC 导航容器
+     */
     scrollToTocElement: function(tocItemElement, tocNavigation){
         let itemHeight = tocItemElement.querySelector("a").offsetHeight;
         let scrollTop = tocItemElement.offsetTop - tocNavigation.offsetHeight / 2 + itemHeight / 2 - tocNavigation.offsetTop;
@@ -49,6 +38,10 @@ const scrollspy = {
         tocNavigation.scrollTo({ top: scrollTop, behavior: 'smooth'});
     },
 
+    /**
+     * 建立导航项链接引用映射
+     * @param {NodeList} navigationItems - 导航项集合
+     */
     setupNavItemsLinkRef: function(navigationItems){
         const navItemLinkRef = {};
         navigationItems.forEach(item => {
@@ -61,58 +54,62 @@ const scrollspy = {
         this.navItemsLinkRef = navItemLinkRef;
     },
 
-    /// 更新文章内容 header 的垂直位置
+    /**
+     * 采集文章标题位置信息
+     * @param {NodeList} headers - 文章标题元素集合
+     */
     setupArticleHeaderOffset: function(headers){
-        var offsets = [];
+        let offsets = [];
         headers.forEach(header => {
             offsets.push({id: header.id, offset: header.offsetTop });
-            offsets.sort((a, b) => { a.offset - b.offset });
         });
+        offsets.sort((a, b) => a.offset - b.offset);
         this.articleHeaderOffset = offsets;
     },
 
+    /**
+     * 初始化 Scrollspy
+     * 设置滚动监听、目录交互等功能
+     */
     setup: function(){
-
+        // 获取文章容器
         this.articleContainer = document.getElementById('article-container');
         if(!this.articleContainer) {console.warn('未找到文章页的标识'); return; }
+
+        // 监听滚动事件
         this.articleContainer.addEventListener('scroll', () => {
             this.scrollHandler();
         });
 
-
-        // 查询文章目录标题元素
+        // 采集文章标题元素
         let headers = document.querySelectorAll(this.ArticleHeaderQuery);
         if(!headers) { console.warn('没有找到文字目录标题元素'); return; }
         this.articleHeaderElements = headers;
-        // 查询 TOC 目录元素
+
+        // 获取 TOC 容器
         let tocNavigation = document.querySelector(this.TocNavigationQuery);
         if(!tocNavigation) { console.warn('没有找到 TOC 目录元素'); return; }
 
-        // 查询 TOC 目录导航元素
+        // 获取所有导航项
         let navigationItems = document.querySelectorAll(this.TocNavigationItemQuery);
         if(!navigationItems) { console.warn('没有找到目录导航元素'); return; }
-        console.debug('所有的目录导航项',navigationItems);
-        navigationItems
+
+        // 筛选有子目录的父级导航项
         let superNavigationItems = Array.from(navigationItems).filter(item => {
-            return item.querySelector('ol') !== null
+            return item.querySelector('ol') !== null;
         });
 
-        console.debug('所有的父级目录',superNavigationItems);
-
+        // 初始化父级目录的展开/收起功能
         for (const item of superNavigationItems) {
-            console.debug('父级目录',item);
-            // 默认收起子目录
             let subNavigation = item.querySelector('ol');
             if(subNavigation && !hasClass(subNavigation, this.NavItemHiddenClass)){
                 addClass(subNavigation, this.NavItemHiddenClass);
             }
-            // 为父级目录添加展开/收起图标样式
             let link = item.getElementsByTagName('a')[0];
             if(link && subNavigation){
                 addClass(link, 'toc-toggle');
             }
-            item.getElementsByTagName('a')[0].addEventListener('click', (event) => {
-                console.debug('父级目录点击事件',event);
+            link?.addEventListener('click', (event) => {
                 event.preventDefault();
                 if(subNavigation){
                     let isHidden = hasClass(subNavigation, this.NavItemHiddenClass);
@@ -126,69 +123,58 @@ const scrollspy = {
                 }
             });
         }
-        
-        
+
+        // 初始化标题位置和导航引用
         this.setupArticleHeaderOffset(this.articleHeaderElements);
         this.setupNavItemsLinkRef(navigationItems);
-
     },
 
-    /// 页面滑动时处理
+    /**
+     * 滚动事件处理
+     * 根据滚动位置更新当前激活的目录项
+     */
     scrollHandler: function(){
-
         if (!this.articleContainer) { return }
         if (this.articleHeaderOffset.length <= 0) { return }
-        // 获取当前文章容器的滚动位置
         let scrollPosition = this.articleContainer.scrollTop;
-        // 获取文章容器的顶部位置
-        let offsetTop = this.articleContainer.offsetTop;
-        // 声明新的激活目录导航项
 
-
-        var newActive = this.articleHeaderOffset.reduce((prev, curr) => {
+        // 找到距离滚动位置最近的标题
+        let newActive = this.articleHeaderOffset.reduce((prev, curr) => {
             let prevOffset = prev.offset - scrollPosition  ;
             let currOffset = curr.offset - scrollPosition  ;
             return Math.abs(prevOffset) < Math.abs(currOffset) ? prev : curr;
         });
 
-        console.debug(scrollPosition, newActive);
-
-        var newActiveLink;
+        // 获取对应的导航项
+        let newActiveLink;
         if(newActive){
             newActiveLink = this.navItemsLinkRef[newActive.id];
         }
 
+        // 更新导航项状态
         if(newActive && !newActiveLink){
-            console.debug('没有找到目录 item 的 a 链接');
+
         }else if(newActiveLink !== this.currentNavItemLink){
             if(this.currentNavItemLink){
-                // 移除之前激活的目录导航项的激活 class
                 removeClass(this.currentNavItemLink, this.ActiveNavItemClass);
-
-                // 检查是否需要移除父级目录的激活状态
                 this.updateParentActiveState(this.currentNavItemLink, false);
             }
             if(newActiveLink){
-                // 为新的目录导航项添加激活 class
                 addClass(newActiveLink, this.ActiveNavItemClass);
-
-                // 检查是否需要为父级目录添加激活状态（当父级目录收起时）
                 this.updateParentActiveState(newActiveLink, true);
-
-                // 检查是否需要展开父级目录
                 this.expandParentIfNeeded(newActiveLink);
-
-                // 滚动选中项到可视区域
                 this.scrollActiveItemIntoView(newActiveLink);
             }
         }
-        console.debug(newActive, newActiveLink);
         this.currentNavItemLink = newActiveLink;
     },
 
-    /// 更新父级目录的激活状态
+    /**
+     * 更新父级目录的激活状态
+     * @param {HTMLElement} activeLink - 当前激活的链接元素
+     * @param {boolean} isActivating - 是否是激活状态
+     */
     updateParentActiveState: function(activeLink, isActivating){
-        // 查找父级 li 元素
         let currentLi = activeLink.closest('li');
         if(!currentLi) return;
 
@@ -209,49 +195,51 @@ const scrollspy = {
         }
     },
 
-    /// 展开父级目录（如果当前激活的是子项）
+    /**
+     * 展开父级目录（当激活子项时）
+     * @param {HTMLElement} activeLink - 当前激活的链接元素
+     */
     expandParentIfNeeded: function(activeLink){
-        // 查找父级 li 元素
         let currentLi = activeLink.closest('li');
         if(!currentLi) return;
 
         let parentLi = currentLi.parentElement.closest('li');
         if(parentLi && parentLi.querySelector('ol')){
-            // 找到父级目录的子目录容器
             let subNavigation = parentLi.querySelector('ol');
-            // 如果子目录是隐藏的，则展开它
             if(hasClass(subNavigation, this.NavItemHiddenClass)){
                 removeClass(subNavigation, this.NavItemHiddenClass);
-                // 同时更新图标状态
                 let parentLink = parentLi.querySelector('a');
                 if(parentLink && hasClass(parentLink, 'toc-toggle')){
                     addClass(parentLink, 'expanded');
-                    // 展开时移除父级目录的激活状态（因为子目录会显示）
                     removeClass(parentLink, this.ActiveNavItemClass);
                 }
             }
         }
     },
 
-    /// 滚动激活的目录项到可视区域
+    /**
+     * 将激活的导航项滚动到可视区域
+     * @param {HTMLElement} activeLink - 激活的链接元素
+     */
     scrollActiveItemIntoView: function(activeLink){
         if(!activeLink) return;
 
         let tocContainer = document.querySelector(this.TocNavigationQuery);
         if(!tocContainer) return;
 
-        // 使用 requestAnimationFrame 确保 DOM 更新后再滚动
         requestAnimationFrame(() => {
             activeLink.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center', // 垂直居中
-                inline: 'nearest' // 水平就近
+                block: 'center',
+                inline: 'nearest'
             });
         });
     },
 
-
-    /// 窗口大小变化时处理
+    /**
+     * 窗口大小变化处理
+     * 重新计算标题位置并更新高亮状态
+     */
     resizeHandler: function(){
         if(!this.articleContainer) { return }
         this.setupArticleHeaderOffset(this.articleHeaderElements);
