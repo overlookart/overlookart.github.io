@@ -23,22 +23,6 @@ const scrollspy = {
     articleContainer: null,        // 文章容器 DOM 元素
 
     /**
-     * 滚动到指定的 TOC 项
-     * @param {HTMLElement} tocItemElement - TOC 导航项元素
-     * @param {HTMLElement} tocNavigation - TOC 导航容器
-     */
-    scrollToTocElement: function(tocItemElement, tocNavigation){
-        let itemHeight = tocItemElement.querySelector("a").offsetHeight;
-        let scrollTop = tocItemElement.offsetTop - tocNavigation.offsetHeight / 2 + itemHeight / 2 - tocNavigation.offsetTop;
-
-        if(scrollTop < 0) {
-            scrollTop = 0;
-        }
-
-        tocNavigation.scrollTo({ top: scrollTop, behavior: 'smooth'});
-    },
-
-    /**
      * 建立导航项链接引用映射
      * @param {NodeList} navigationItems - 导航项集合
      */
@@ -138,18 +122,25 @@ const scrollspy = {
         if (this.articleHeaderOffset.length <= 0) { return }
         let scrollPosition = this.articleContainer.scrollTop;
 
-        // 找到距离滚动位置最近的标题
-        let newActive = this.articleHeaderOffset.reduce((prev, curr) => {
-            let prevOffset = prev.offset - scrollPosition  ;
-            let currOffset = curr.offset - scrollPosition  ;
-            return Math.abs(prevOffset) < Math.abs(currOffset) ? prev : curr;
-        });
+        // 找到视口内/上方的最后一个标题
+        let newActive = null;
+        for (let i = this.articleHeaderOffset.length - 1; i >= 0; i--) {
+            if (this.articleHeaderOffset[i].offset <= scrollPosition + 90) {
+                newActive = this.articleHeaderOffset[i];
+                break;
+            }
+        }
+        // 如果没有找到（滚动位置很靠前），使用第一个
+        if (!newActive && this.articleHeaderOffset.length > 0) {
+            newActive = this.articleHeaderOffset[0];
+        }
 
         // 获取对应的导航项
         let newActiveLink;
         if(newActive){
             newActiveLink = this.navItemsLinkRef[newActive.id];
         }
+        console.debug('Scrollspy - 当前激活标题 ID:', newActive ? newActive.id : '无', '对应导航项:', newActiveLink);
 
         // 更新导航项状态
         if(newActive && !newActiveLink){
@@ -211,7 +202,6 @@ const scrollspy = {
                 let parentLink = parentLi.querySelector('a');
                 if(parentLink && hasClass(parentLink, 'toc-toggle')){
                     addClass(parentLink, 'expanded');
-                    removeClass(parentLink, this.ActiveNavItemClass);
                 }
             }
         }

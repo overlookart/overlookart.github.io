@@ -19,7 +19,9 @@
                     {{- partial "NavigationBar.html" . -}}
                     <div class="overflow-scroll flex hide-scrollbar">
                         <div class="grow">
+                            {{ if ne .Kind "page" }}
                             <div id="search" class="bg-white/30 overflow-scroll hide-scrollbar"></div>
+                            {{ end }}
                             {{- block "content" . -}}
                             <p>可被其他模版覆盖的内容</p>
                             {{- end -}}
