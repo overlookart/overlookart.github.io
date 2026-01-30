@@ -140,7 +140,6 @@ const scrollspy = {
         if(newActive){
             newActiveLink = this.navItemsLinkRef[newActive.id];
         }
-        console.debug('Scrollspy - 当前激活标题 ID:', newActive ? newActive.id : '无', '对应导航项:', newActiveLink);
 
         // 更新导航项状态
         if(newActive && !newActiveLink){
