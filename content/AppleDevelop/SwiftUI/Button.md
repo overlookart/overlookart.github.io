@@ -122,88 +122,109 @@ private func btnAction(){ ... }
 
 ## 创建角色按钮
 
-**ButtonRole** 结构体提供了按钮用途的描述。`destructive` 表示按钮执行破坏性操作，如删除用户数据;  `cancel` 表示按钮取消当前操作。
+**ButtonRole** 结构体描述了按钮的用途，用于调整按钮的外观和行为。系统提供以下角色类型：
 
-* 使用`init(_:role:action:)`创建一个文本标签的角色按钮。
+| 角色 | 说明 | 效果 |
+|------|------|------|
+| **destructive** | 执行破坏性操作（如删除数据） | 红色样式 |
+| **cancel** | 取消当前操作 | 特殊样式（平台相关） |
+| **plain** | 普通按钮（iOS 15+） | 无特殊效果 |
 
-  ``` Swift
-  Button("按钮", role: .destructive, action: btnAction)
+### 文本角色按钮
 
-  private func btnAction(){ ... }
-  ```
+使用 `init(_:role:action:)` 初始化方法：
 
-* 使用 `init(_:systemImage:role:action:)` 创建一个显示系统图标的角色按钮。
-  
-  ``` Swift
-  Button("按钮6", systemImage: "plus", role: .destructive, action: btnAction)
+``` Swift
+Button("删除", role: .destructive) {
+    deleteAction()
+}
+```
 
-  private func btnAction(){ ... }
-  ```
+### 系统图标角色按钮
 
-  > [!NOTE]
-  > 图标在左侧展示、文本在右侧展示；若文本为空字符串，则只展示系统图标；若系统图标的名称错误，则只展示文本；
+使用 `init(_:systemImage:role:action:)` 初始化方法：
+
+``` Swift
+Button("删除", systemImage: "trash", role: .destructive) {
+    deleteAction()
+}
+```
+
+> [!NOTE]
+> 图标在左侧、文本在右侧展示。若文本为空字符串，则只展示图标；若系统图标名称错误，则只展示文本。
 
 ## 按钮的修饰符
 
 ### ButtonStyle
 
-实例方法：**buttonStyle(_:)**。该方法接收一个符合 `ButtonStyle` 协议的样式，或符合 `PrimitiveButtonStyle` 协议的样式。使用此修饰符为视图中的所有按钮实例设置特定样式，系统提供了下面几种样式：
+实例方法 **buttonStyle(_:)** 接收一个符合 `ButtonStyle` 或 `PrimitiveButtonStyle` 协议的样式，为视图中的所有按钮设置统一的外观。
 
-* automatic :默认的按钮样式
-* bordered :带边框的按钮样式
-* plain: 文本样式的按钮
-* borderless: 无边框样式的按钮
-* borderedProminent: 背景突出样式的按钮
-* glass: 基于内容 Liquid Glass 按钮 **(iOS 26)**
-* glassProminent: 基于内容 Liquid Glass 突出效果按钮 **(iOS 26)**
+系统提供以下内置样式：
+
+| 样式 | 说明 | 平台支持 |
+|------|------|----------|
+| **automatic** | 默认样式，由系统自动决定 | iOS 13+ |
+| **bordered** | 带边框的按钮 | iOS 13+ |
+| **plain** | 文本样式的按钮 | iOS 13+ |
+| **borderless** | 无边框样式的按钮 | iOS 13+ |
+| **borderedProminent** | 背景突出样式的按钮 | iOS 15+ |
+| **glass** | Liquid Glass 按钮 | iOS 26+ |
+| **glassProminent** | Liquid Glass 突出效果按钮 | iOS 26+ |
+| **link** | 超链接样式 | macOS 10.15+ |
 
 ``` Swift
 /// 应用到单个按钮
-Button("按钮") { ... }
-    .buttonStyle(.borderedProminent)
-    
-/// 应用到多个按钮
+Button("提交") {
+    submitAction()
+}
+.buttonStyle(.borderedProminent)
+
+/// 应用到容器（所有子按钮生效）
 HStack {
-    Button("按钮") { ... }
-    Button("按钮") { ... }
-    ...
+    Button("按钮1") { }
+    Button("按钮2") { }
 }
 .buttonStyle(.bordered)
-
 ```
 
 ### buttonBorderShape
 
-实例方法：**buttonBorderShape(_:)**。该方法接收一个 `ButtonBorderShape` 枚举值，用于设置按钮的边框形状。
+实例方法：**buttonBorderShape(_:)**。该方法接收一个 `ButtonBorderShape` 结构体值，用于设置按钮的边框形状。**注意：此修饰符仅影响使用 `bordered` 或 `borderedProminent` 样式的按钮。**
 
 `ButtonBorderShape` 提供了以下形状选项：
 
-* **automatic** : 默认值，由系统根据上下文和平台自动决定合适的形状
-* **capsule** : 胶囊形状（药丸形）
-* **circle** : 圆形 **iOS 17**
-* **roundedRectangle** : 圆角矩形（默认圆角半径）
-* **roundedRectangle(radius:)** : 自定义圆角半径的圆角矩形
+| 形状 | 说明 | 平台支持 |
+|------|------|----------|
+| **automatic** | 默认值，由系统根据上下文和平台自动决定合适的形状 | iOS 15+ |
+| **capsule** | 胶囊形状（药丸形） | iOS 15+ |
+| **circle** | 圆形 | iOS 17+ |
+| **roundedRectangle** | 圆角矩形（默认圆角半径） | iOS 15+ |
+| **roundedRectangle(radius:)** | 自定义圆角半径的圆角矩形 | iOS 15+ |
 
 ``` Swift
 /// 应用到单个按钮
-Button("按钮") { ... }
+Button("按钮") { }
     .buttonStyle(.bordered)
     .buttonBorderShape(.capsule)
 
 /// 应用到多个按钮
 HStack {
-    Button("按钮1") { ... }
-    Button("按钮2") { ... }
-    ...
+    Button("按钮1") { }
+    Button("按钮2") { }
 }
 .buttonStyle(.borderedProminent)
 .buttonBorderShape(.roundedRectangle(radius: 20))
 ```
 
-> [!NOTE]
-> **注意：此修饰符仅影响使用 `bordered` 或 `borderedProminent` 样式的按钮。**
+## 平台支持
 
-
-
-## 添加到容器中
+| 平台 | 最低版本 |
+|------|----------|
+| iOS | 13.0+ |
+| iPadOS | 13.0+ |
+| Mac Catalyst | 13.0+ |
+| macOS | 10.15+ |
+| tvOS | 13.0+ |
+| watchOS | 6.0+ |
+| visionOS | 1.0+ |
 
