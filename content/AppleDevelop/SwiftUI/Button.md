@@ -147,14 +147,15 @@ private func btnAction(){ ... }
 
 ### ButtonStyle
 
-实例方法：**buttonStyle(_:)**。该方法接收一个符合 `ButtonStyle` 协议的样式，或符合 `PrimitiveButtonStyle` 协议的样式。它允许你自定义按钮的外观和行为。
-系统提供了下面几种样式：
+实例方法：**buttonStyle(_:)**。该方法接收一个符合 `ButtonStyle` 协议的样式，或符合 `PrimitiveButtonStyle` 协议的样式。使用此修饰符为视图中的所有按钮实例设置特定样式，系统提供了下面几种样式：
 
 * automatic :默认的按钮样式
 * bordered :带边框的按钮样式
 * plain: 文本样式的按钮
 * borderless: 无边框样式的按钮
 * borderedProminent: 背景突出样式的按钮
+* glass: 基于内容 Liquid Glass 按钮 **(iOS 26)**
+* glassProminent: 基于内容 Liquid Glass 突出效果按钮 **(iOS 26)**
 
 ``` Swift
 /// 应用到单个按钮
@@ -170,6 +171,38 @@ HStack {
 .buttonStyle(.bordered)
 
 ```
+
+### buttonBorderShape
+
+实例方法：**buttonBorderShape(_:)**。该方法接收一个 `ButtonBorderShape` 枚举值，用于设置按钮的边框形状。
+
+`ButtonBorderShape` 提供了以下形状选项：
+
+* **automatic** : 默认值，由系统根据上下文和平台自动决定合适的形状
+* **capsule** : 胶囊形状（药丸形）
+* **circle** : 圆形 **iOS 17**
+* **roundedRectangle** : 圆角矩形（默认圆角半径）
+* **roundedRectangle(radius:)** : 自定义圆角半径的圆角矩形
+
+``` Swift
+/// 应用到单个按钮
+Button("按钮") { ... }
+    .buttonStyle(.bordered)
+    .buttonBorderShape(.capsule)
+
+/// 应用到多个按钮
+HStack {
+    Button("按钮1") { ... }
+    Button("按钮2") { ... }
+    ...
+}
+.buttonStyle(.borderedProminent)
+.buttonBorderShape(.roundedRectangle(radius: 20))
+```
+
+> [!NOTE]
+> **注意：此修饰符仅影响使用 `bordered` 或 `borderedProminent` 样式的按钮。**
+
 
 
 ## 添加到容器中
