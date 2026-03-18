@@ -19,9 +19,9 @@ author: "OverLookArt"
 
 ## 概述
 
-`Link` 是一个用于导航到指定 URL 的控件。它允许创建一个可点击的元素，当用户点击时会打开指定的 URL。
+**Link** 是一个用于导航到指定 URL 的控件。它允许创建一个可点击的元素，当用户点击时会打开指定的 URL。
 
-`Link` 符合 `View` 协议，因此可以像使用其他 SwiftUI 视图一样使用它。
+**Link** 符合 `View` 协议，因此可以像使用其他 SwiftUI 视图一样使用它。
 
 ``` Swift
 @MainActor @preconcurrency
