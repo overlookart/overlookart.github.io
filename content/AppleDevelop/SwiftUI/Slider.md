@@ -82,7 +82,9 @@ Slider(value: $brightness, in: 0...100, step: 5) {
 
 ``` Swift
 // iOS 26+ 自动显示刻度
-Slider(value: $value, in: 0...10, step: 1)
+Slider(value: $value, in: 0...10, step: 1) {
+    Text("iOS 26+ 自动显示刻度")
+}
 ```
 
 ### 自定义刻度标记 (iOS 26+)
