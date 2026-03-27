@@ -29,6 +29,7 @@ author: "OverookArt"
 
 [tinywow](https://tinywow.com)
 
-## AI 博客生产器
+## AI 播客生成器
 
-[VibeVoice](https://vibevoice.info/zh)。由微软 VibeVoice 驱动。超越机械化旁白，轻松创建多说话人播客、引人入胜的有声书和长篇叙述，使用我们免费的AI 语音工具。体验前所未有的高质量、自然流畅的对话音频。
+* [VibeVoice](https://vibevoice.info/zh)。由微软 VibeVoice 驱动。超越机械化旁白，轻松创建多说话人播客、引人入胜的有声书和长篇叙述，使用我们免费的AI 语音工具。体验前所未有的高质量、自然流畅的对话音频。
+* [aidubbing](https://aidubbing.io/) 免费的AI 视频配音工具,使用先进的AI技术，提供自然流畅的高质量配音服务,支持20+语言和100+音色，让配音完美适配你的视频。
