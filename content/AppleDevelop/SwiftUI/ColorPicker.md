@@ -18,9 +18,6 @@ init(_ titleKey: LocalizedStringKey, selection: Binding<Color>, supportsOpacity:
 
 /// 创建一个显示自定义标签的颜色选择器
 init(selection: Binding<Color>, supportsOpacity: Bool = true, @ViewBuilder label: () -> Label)
-
-/// 创建一个从 Image 生成标签的颜色选择器
-init(_ titleKey: LocalizedStringKey, selection: Binding<Color>, supportsOpacity: Bool = true, @ViewBuilder label: () -> Label) where Label == Image
 ```
 
 ### 参数说明
