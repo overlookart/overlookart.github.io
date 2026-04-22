@@ -19,7 +19,9 @@ author: "OverLookArt"
 
 ## 电影剧集
 
-* [低端影视](https://ddys.info)
+* [爱看机器人](https://v.ikanbot.com)
+* [奈飞工厂](https://www.netflixgc.net)
+* [FMHY](https://fmhy.net)全称 Free Media Heck Yeah，是一个由社区维护的免费媒体资源大全。它以Wiki的形式归纳了影视、音乐、图书、学术资源、软件工具等各方面的免费获取途径和指南。例如提供在线观看电影的资源站、下载无损音乐的方法、电子书与课程的获取渠道等等。FMHY 的内容非常庞大且不断更新，致力于让网友以合法或擦边的方式尽情获取数字媒体。在寻找各种资源时，翻阅 FMHY 常能找到惊喜
 
 ## 烹饪美食
 
