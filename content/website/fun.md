@@ -24,6 +24,7 @@ author: "OverookArt"
 ## AI 生成音乐
 
 [suno](https://app.suno.ai)
+[sonauto](https://sonauto.ai)
 
 ## AI 工具站
 
