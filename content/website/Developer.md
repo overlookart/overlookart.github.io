@@ -18,3 +18,4 @@ author: "OverLookArt"
 ---
 
 * [开发路线](https://roadmap.sh)
+* [Figma Community](https://www.figma.com/community) 是 Figma 官方推出的开放式设计资源社区平台，面向全球设计师、产品经理、开发者等创意工作者。
