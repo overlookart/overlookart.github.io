@@ -61,31 +61,55 @@ $ hugo -E #编译已经过期的文章
 $ hugo -F #编译即将发布的文章
 ```  
 
-## Hugo 如何工作的  
+## 构建过程
 
-1. 网站初始化:加载配置，Hugo会根据配置加载网站配置,主题等信息初始化网站  
-2. 载入数据:解析 Markdown 和 TOML,构建数据结构，Hugo会解析并载入网站内容文件夹的Markdown文件、TOML配置等数据源,转换为Hugo的数据结构。  
-3. 站点构建:创建网站目录结构，根据配置创建网站目录结构,如content、themes、static、data等文件夹。
-4. 主题应用:加载主题至网站，根据主题配置加载主题文件夹,将主题的模板、静态资源等合并到网站中。
-5. 页面渲染:渲染模板生成HTML，Hugo根据templates中的模版和数据的渲染生成HTML页面。并将CSS、JS等资源复制到输出的public文件夹。
-6. 资源处理:复制CSS, JS等至输出文件夹， 输出public:Hugo将渲染生成的HTML页面以及资源文件输出到public文件夹。public文件夹中的内容就是最终构建的静态网站。  
-7. 输出和发布:构建输出文件夹并部署，将public文件夹的内容部署至Web服务器,最终完成网站的发布。
+Hugo 的构建过程是一个**单向数据流管道**：
 
-``` mermaid
-sequenceDiagram
-  participant 项目启动
-  participant 载入数据
-  participant 站点构建
-  participant 主题应用
-  participant 页面渲染
+1. **初始化配置**  
+   读取 `hugo.toml/yaml/json`、环境变量、命令行参数，合并成最终配置对象。
 
-  项目启动->>载入数据: 加载网站配置,主题信息
-  载入数据->>站点构建: 解析 Markdown 和 TOML 构建数据结构
-  站点构建->>主题应用: 创建网站目录结构
-  主题应用->>页面渲染: 加载主题文件
+2. **加载数据源**  
+   * 解析 `content/` 下 Markdown 文件（Front Matter + Body）  
+   * 读取 `data/` 目录下 JSON/TOML/YAML 数据文件  
+   * 加载 `static/` 与 `assets/` 静态资源  
+   * 构建内部 **Page 集合**、**Site 对象**、**Resource 对象** 等数据结构
+
+3. **主题与模板解析**  
+   根据 `theme` 配置加载主题模板（`layouts/`）、部分模板、短代码；支持模板覆盖链（项目 > 主题 > 内置）。
+
+4. **页面渲染**  
+   对每个 Page：  
+   * 按 `type`/`kind` 选择模板  
+   * 将 Page 数据注入模板执行 → 生成 HTML  
+   * 同时处理分类、归档、RSS、Sitemap 等聚合页面
+
+5. **资源管道处理** —— *核心差异点*  
+   `assets/` 资源经 **Hugo Pipes** 处理：  
+   * SCSS/PostCSS → CSS（含 Autoprefixer、压缩）  
+   * JS 打包、转译、指纹哈希  
+   * 图片裁剪、格式转换、WebP 生成  
+   * 结果写入 `public/` 并生成 `resources/_gen/` 缓存
+
+6. **静态文件复制**  
+   `static/` 目录内容**原样复制**到 `public/`（不经管道）。
+
+7. **输出 public/**  
+   最终生成的 `public/` 即为可部署的静态站点。**部署本身由外部 CI/CD 完成**，不在 Hugo 职责内。
+
+```mermaid
+flowchart LR
+  A[配置文件] --> B[初始化]
+  B --> C[加载内容与数据]
+  C --> D[解析模板/主题]
+  D --> E[渲染 HTML 页面]
+  C --> F[assets 资源]
+  F --> G[Hugo Pipes 处理]
+  H[static 资源] --> I[直接复制]
+  G --> J[public/]
+  E --> J
+  I --> J
+  J -.-> K[(部署: GitHub Actions / Netlify / ...)]
 ```
-
-![gif](https://media4.giphy.com/media/RbDKaczqWovIugyJmW/giphy.gif)
 
 ## 部署到 Github  
 
