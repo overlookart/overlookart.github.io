@@ -50,7 +50,6 @@ window.onpopstate = (event) => {
 
 window.onpageshow = (event) => {
     console.debug('进入页面!', event);
-    // setupScrollspy();
 }
 window.onpagehide = (event) => {
     console.debug('离开页面!', event);
