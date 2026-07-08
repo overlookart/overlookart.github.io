@@ -10,7 +10,7 @@
         <!-- <div class="bg-center  bg-cover bg-fixed w-full h-full top-0 -z-10 bg-sitebg">-->
         <div class="container mx-auto my-4">
             <div class="flex h-[calc(100vh-32px)]  shadow-[0_0_8px_8px_rgba(0,0,0,0.1)] rounded-3xl overflow-hidden">
-                <div class="flex-none backdrop-blur-md bg-white/50 w-[215px]">
+                <div id="left-sidebar" class="flex-none backdrop-blur-md bg-white/50 w-[215px] transition-all duration-300">
                     {{- block "leftSideBar" . -}}
                     <p>可被其他模版覆盖的左侧内容</p>
                     {{- end -}}

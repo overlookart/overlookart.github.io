@@ -1,5 +1,6 @@
 import * as params from '@params';
 import { scrollspy } from './scrollspy';
+import { leftSidebarController } from './LeftSideBarController';
 
 console.debug('加载主脚本');
 console.debug('document', document);
@@ -70,6 +71,9 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     console.debug('DOM树 加载完成!');
     scrollspy.setup();
+    
+    // Initialize left sidebar controller
+    leftSidebarController.init();
 });
 
 document.addEventListener('readystatechange', (event) => {
