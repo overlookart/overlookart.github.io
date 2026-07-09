@@ -11,7 +11,7 @@
 
 - **多语言支持** - 支持 Markdown 编写内容
 - **自定义主题** - 使用 TailwindCSS v4 和 SCSS 自定义样式
-- **图表支持** - 集成 Mermaid 图表和 D3.js 词云
+- **图表支持** - 集成 Mermaid、Infographic、Markmap 图表
 - **搜索功能** - 使用 Pagefind 实现站点搜索
 - **动画效果** - 集成 GSAP 动画库
 - **多平台部署** - 支持 GitHub Pages、Cloudflare Pages、Netlify、Deno Deploy
@@ -23,7 +23,7 @@
 - **主题**: 自定义 overlookart 主题
 - **样式**: TailwindCSS v4, SCSS
 - **JavaScript**: 原生 JS，集成 GSAP 动画库
-- **图表**: Mermaid, D3.js (词云)
+- **图表**: Mermaid, Infographic, Markmap
 - **部署**: GitHub Actions 自动部署
 
 ## 快速开始
