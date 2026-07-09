@@ -1,10 +1,5 @@
 
 import WordCloud from 'wordcloud'
-import d3Cloud from './modules/d3.layout.cloud'
-
-
-// d3.select("wordcloud")
-
 console.debug('wordcloud_help.js');
 function initWordCloud  () {
     let wcElement = document.getElementById('wordcloud');

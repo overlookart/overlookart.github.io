@@ -18,10 +18,9 @@
 <!-- 图表 Mermaid -->
 {{ if .Page.Store.Get "hasMermaid" }}
 {{ $mermaidjs := resources.Get "js/mermaid_help.js" | js.Build  }}
-<script src="{{ $mermaidjs.RelPermalink }}">
-    
-</script>
+<script src="{{ $mermaidjs.RelPermalink }}"></script>
 {{ end }}
+
 <!-- markmap -->
 {{ if .Page.Store.Get "hasMarkmap" }}
   <script>
@@ -38,13 +37,16 @@
   </script>
 {{ end }}
 
+<!-- 词云 -->
 {{ if .Page.Store.Get "hasWordCloud" }}
-
 {{ $wordcloud2js := resources.Get "js/wordcloud_help.js" | js.Build  }}
-<script src="{{ $wordcloud2js.RelPermalink }}">
-  
-</script>
+<script src="{{ $wordcloud2js.RelPermalink }}"></script>
+{{ end }}
 
+<!-- infographics -->
+{{ if .Page.Store.Get "hasInfographic" }}
+{{ $infographicjs := resources.Get "js/infographic_help.js" | js.Build  }}
+<script src="{{ $infographicjs.RelPermalink }}"></script>
 {{ end }}
 
 {{ end }}
