@@ -1,4 +1,4 @@
-import mermaid from "mermaid";
+import mermaid from 'mermaid';
 mermaid.initialize({ 
     startOnLoad: true,
     // 配置主题

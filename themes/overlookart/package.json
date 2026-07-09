@@ -1,17 +1,6 @@
 {
   "author": "",
-  "comments": {
-    "dependencies": {},
-    "devDependencies": {
-      "@tailwindcss/typography": "project",
-      "tailwindcss": "project"
-    }
-  },
-  "dependencies": {},
   "description": "",
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9"
-  },
   "keywords": [],
   "license": "ISC",
   "main": "index.js",
@@ -20,5 +9,12 @@
     "build": "npx @tailwindcss/cli -i ./tailwind.css -o ./assets/style.css",
     "watch": "npx @tailwindcss/cli -i ./tailwind.css -o ./assets/style.css --watch"
   },
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.20"
+  }
 }
