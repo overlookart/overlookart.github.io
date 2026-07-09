@@ -119,6 +119,19 @@ author: "OverLookArt"
 | 单元格 | 单元格 | 单元格 | < |
 | 单元格 | < | 单元格 | < |
 
+## 测试 Markmap 渲染
+
+``` markmap {height = "300px"}
+# Markmap
+  * 测试
+    * 测试1
+    * 测试2
+  * 测试3
+    * 测试4
+    * 测试5
+
+```
+
 ## 测试 wordcloud 渲染
 
 ``` wordcloud
@@ -137,7 +150,7 @@ blog
 site
 ```
 
-## 测试 infographic 渲染
+## 测试 Infographic 渲染
 
 ``` infographic
 list-row-simple-horizontal-arrow
