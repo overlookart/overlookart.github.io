@@ -140,7 +140,7 @@ site
 ## 测试 infographic 渲染
 
 ``` infographic
-infographic list-row-simple-horizontal-arrow
+list-row-simple-horizontal-arrow
 data
   lists
     - label 步骤 1

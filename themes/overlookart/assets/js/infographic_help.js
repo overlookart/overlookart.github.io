@@ -12,7 +12,8 @@ function initInfographic() {
     }
     
     infographicContainers.forEach((container, index) => {
-        const infographicContent = container.getAttribute('data-infographic')?.trim();
+        let infographicContent = container.getAttribute('data-infographic')?.trim();
+        infographicContent = 'infographic ' + infographicContent
         console.debug(`Infographic ${index} Content:`, infographicContent);
         
         // 验证基本语法格式
