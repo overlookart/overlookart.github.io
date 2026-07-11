@@ -2,6 +2,7 @@
   "comments": {},
   "dependencies": {
     "@antv/infographic": "^0.2.19",
+    "@pagefind/component-ui": "^1.5.2",
     "mermaid": "^11.16.0",
     "wordcloud": "^1.2.3"
   },
