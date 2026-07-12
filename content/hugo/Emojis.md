@@ -40,7 +40,7 @@ Hello, :wave:
 
 ## 表情分类
 
-Hugo 提供了丰富的表情符号，你可以在 [Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet/) 中查看。
+Hugo 提供了丰富的表情符号，你可以在 [Emojis for Hugo](https://gohugo.io/quick-reference/emojis/#smileys--emotion) 中查看。
 
 ### 微笑的面部表情
 
