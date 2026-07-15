@@ -1,12 +1,12 @@
 ---
 # 文章的标题
-title: "WebDevelop"
+title: "Planning"
 # 文章的时间
-date: 2026-06-16T11:24:26+08:00
+date: 2026-07-13T15:20:59+08:00
 # 文章是否为草稿状态 草稿状态不会发布到文章列表
 draft: false
 # 文章描述 在文章列表页展示的内容
-description: "浏览器中的艺术家🧑‍🎨"
+description: "文章描述"
 # 文章的过期时间  过期后不会发布到文章列表
 #expiryDate:  //.ExpiryDate
 # 文章的发布时间  未到达发布时间不会发布到文章列表
@@ -16,3 +16,14 @@ description: "浏览器中的艺术家🧑‍🎨"
 # 作者
 author: "OverLookArt"
 ---
+
+
+``` infographic
+relation-circle-circular-progress
+data
+  title 企业优势列表
+  desc 展示企业在不同维度上的核心优势与表现值
+  nodes
+    - label 1
+      value 80
+```
