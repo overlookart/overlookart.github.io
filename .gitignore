@@ -6,3 +6,6 @@ style.scss_*.json
 style.scss_*.content
 node_modules
 package-lock.json
+.env
+node_modules/
+.DS_Store

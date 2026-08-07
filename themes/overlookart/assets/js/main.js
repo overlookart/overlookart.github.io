@@ -1,6 +1,7 @@
 import * as params from '@params';
 import { scrollspy } from './scrollspy';
 import { leftSidebarController } from './LeftSideBarController';
+import { bingWallpaper } from './bingWallpaper';
 
 console.debug('加载主脚本');
 console.debug('document', document);
@@ -69,6 +70,7 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.debug('DOM树 加载完成!');
+    bingWallpaper.load();
     scrollspy.setup();
     
     // Initialize left sidebar controller
