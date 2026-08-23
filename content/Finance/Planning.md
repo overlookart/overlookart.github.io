@@ -22,7 +22,7 @@ author: "OverLookArt"
 list-row-circular-progress
 data
   title 建设目标
-  desc 展示四大建设目标
+  desc 鸡鸭成群，牛羊满圈
   nodes
     - label 🐓
       value 50
@@ -33,6 +33,12 @@ data
     - label 🐄
       value 50
 ```
+
+> [!TIP]
+> 🐓 = 💴 💴 💴 💴 💴 💴 💴 💴 💴 💴
+> 🦢 = 🐓 🐓 🐓 🐓 🐓 🐓 🐓 🐓 🐓 🐓
+> 🐑 = 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢 🦢
+> 🐄 = 🐑 🐑 🐑 🐑 🐑
 
 ## 🐓
 
