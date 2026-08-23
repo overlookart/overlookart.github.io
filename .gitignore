@@ -6,3 +6,4 @@ style.scss_*.json
 style.scss_*.content
 node_modules
 package-lock.json
+.omo/run-continuation
