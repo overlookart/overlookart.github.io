@@ -8,8 +8,9 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage:{
-                // "sitebg":"url('https://source.unsplash.com/random/1280x800?color')"
-                "sitebg":"url('https://api.dujin.org/bing/1920.php')"
+                // Bing 每日壁纸由 assets/js/main.js 动态加载（官方 API 返回 JSON，无法直接写 CSS url()）
+                // 此处为 JS 加载成功前的渐变兜底
+                "sitebg":"linear-gradient(135deg, #e0e7ff 0%, #fdf2f8 50%, #fbcfe8 100%)"
             },
             // 自定义 typography 插件样式
             typography: {

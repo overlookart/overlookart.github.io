@@ -944,7 +944,7 @@
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
   .bg-sitebg {
-    background-image: url('https://api.dujin.org/bing/1920.php');
+    background-image: linear-gradient(135deg, #e0e7ff 0%, #fdf2f8 50%, #fbcfe8 100%);
   }
   .from-indigo-500 {
     --tw-gradient-from: var(--color-indigo-500);

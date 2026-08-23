@@ -7,3 +7,6 @@ style.scss_*.content
 node_modules
 package-lock.json
 .omo/run-continuation
+.env
+node_modules/
+.DS_Store
