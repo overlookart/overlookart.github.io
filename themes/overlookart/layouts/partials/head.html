@@ -16,3 +16,6 @@
 {{ if (fileExists "static/style.css") -}}
   <link rel="stylesheet" href="{{ "style.css" | absURL }}">
 {{- end }}
+
+<!-- KaTeX 数学公式 -->
+{{ partial "KaTeX.html" . }}

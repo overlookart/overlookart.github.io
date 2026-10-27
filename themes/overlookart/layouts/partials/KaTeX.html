@@ -1,0 +1,18 @@
+{{- /* KaTeX 数学公式：仅当页面正文中出现可渲染的 $...$（同行成对）或 $$...$$ 时才按需加载。
+       检测基于渲染后的 HTML，先剔除代码与图表区域，与 auto-render 实际处理范围保持一致：
+       命令行示例（每行单个 $）、代码块、mermaid/markmap 内容都不会触发加载。 */ -}}
+{{- $html := .Content -}}
+{{- $html = replaceRE "(?is)<pre.*?</pre>" "" $html -}}
+{{- $html = replaceRE "(?is)<code.*?</code>" "" $html -}}
+{{- $html = replaceRE "(?is)<div class=\"mermaid\">.*?</div>" "" $html -}}
+{{- $html = replaceRE "(?is)<div class=\"infographic-container\".*?</div>" "" $html -}}
+{{- $html = replaceRE "(?is)<div id=\"wordcloud\".*?</div>" "" $html -}}
+{{- $html = replaceRE "(?is)<script type=\"text/template\">.*?</script>" "" $html -}}
+{{ if findRE "\\$\\$|\\$[^$\\n]+\\$" $html }}
+<!-- KaTeX 数学公式渲染 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/contrib/auto-render.min.js"></script>
+{{ $katexjs := resources.Get "js/katex_help.js" | js.Build }}
+<script defer src="{{ $katexjs.RelPermalink }}"></script>
+{{ end }}
