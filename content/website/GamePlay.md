@@ -23,3 +23,7 @@ author: "OverLookArt"
 - [**HumbleBundle**](https://www.humblebundle.com/)最大的慈善包站了，页面无中文，玩法非常多。除了标准的1刀包，还有均价包，整包可以自己选择，成为会员有月包可以买，还有各种优惠。
 - [**Fanatical**](https://www.fanatical.com/zh-hans/)喜欢卖慈善包打包。小游戏多，页面有中文，付款支持支付宝，PayPal，信用卡。
 
+
+## Game
+
+* [空王座](https://muselabs.co/empty-throne)

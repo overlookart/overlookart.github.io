@@ -44,3 +44,9 @@ author: "OverookArt"
 * [tuneyou](https://tuneyou.com) 5万+免费电台，按国家/Genre筛选
 * [opentune](https://opentune.net) 无广告高清电台，支持 iOS App
 * [dublab](https://www.dublab.com)洛杉矶传奇 независимая电台，播放实验/电子/Art music
+* [RoamDial](https://roamdial.com)随机一站，听听世界上 3.5 万个电台此刻在播什么
+
+
+## 表情包
+
+* [中国人的表情包](https://zhaoolee.com/ChineseBQB)
