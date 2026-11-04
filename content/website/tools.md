@@ -52,3 +52,7 @@ author: "OverookArt"
 ## 在线绘图
 
 > [excalidraw](https://excalidraw.com), [excalidraw for Github](https://github.com/excalidraw/excalidraw)
+
+## 在线计算器
+
+> [计算器 3000](https://jsq3000.com)
